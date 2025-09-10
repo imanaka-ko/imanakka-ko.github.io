@@ -92,6 +92,31 @@ def create_app() -> Flask:
     #   /exam/pre-exam/easy_1000f6.html     -> static file (HTTrack)
     # これら静的ページの <form action="/exam/start"> が POST を投げる。
 
+    @app.route("/login")
+    def login() -> str:
+        """ログインページを表示。"""
+        return render_template("login.html")
+
+    @app.route("/submission_form")
+    def submission_form() -> str:
+        """投稿フォームを表示。"""
+        return render_template("submission_form.html")
+
+    @app.route("/reset")
+    def reset() -> str:
+        """リセットページを表示。"""
+        return render_template("reset.html")
+
+    @app.route("/exam-result")
+    def exam_result_page() -> str:
+        """試験結果の静的ページを表示。"""
+        return render_template("exam-result.html")
+
+    @app.route("/9383")
+    def page_9383() -> str:
+        """ID 9383 の静的ページを表示。"""
+        return render_template("9383.html")
+
     # ──────────────────────────────────────────────────────────────
     # 受験開始以降（動的）
     # ──────────────────────────────────────────────────────────────
