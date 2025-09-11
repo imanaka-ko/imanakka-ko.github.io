@@ -134,6 +134,18 @@ def create_app() -> Flask:
         """ココカラハッシンとirodasSALONの登録画面を表示。"""
         return render_template("register_page2.html")
 
+    @app.route("/results")
+    def results() -> str:
+        """試験結果を表示する。"""
+        score = session.get("last_score")
+        total = session.get("last_total")
+        if score is None or total is None:
+            flash("結果を表示できません。", "error")
+            return redirect(url_for("select_mode"))
+        session.pop("last_score", None)
+        session.pop("last_total", None)
+        return render_template("results.html", score=score, total=total)
+
     # ──────────────────────────────────────────────────────────────
     # 受験開始以降（動的）
     # ──────────────────────────────────────────────────────────────
@@ -245,10 +257,14 @@ def create_app() -> Flask:
             return redirect(url_for("select_mode"))
 
         questions = data["questions"]
+        total = len(questions)
         score = 0
         for idx, q in enumerate(questions):
             if idx < len(answers) and answers[idx] is not None and answers[idx] == q["answer_index"]:
                 score += 1
+
+        session["last_score"] = score
+        session["last_total"] = total
 
         # 受験関連のセッションをクリア
         for k in ("question_set_id", "current_index", "answers", "time_per_question_sec"):
