@@ -97,9 +97,11 @@ def create_app() -> Flask:
         """ログインページを表示。"""
         return render_template("login.html")
 
-    @app.route("/submission_form")
+    @app.route("/submission_form", methods=["GET", "POST"])
     def submission_form() -> str:
-        """投稿フォームを表示。"""
+        """投稿フォームを表示し、送信後に register_page1 へ遷移する。"""
+        if request.method == "POST":
+            return redirect(url_for("register_services1"))
         return render_template("submission_form.html")
 
     @app.route("/reset")
