@@ -218,7 +218,7 @@ def create_app() -> Flask:
 
     @app.route("/exam/result")
     def exam_result() -> str:
-        """スコアを計算して結果を表示。最後に受験関連のセッションをクリア。"""
+        """スコアを計算して投稿フォームへ遷移。"""
         slug = session.get("question_set_id")
         answers = session.get("answers", [])
 
@@ -242,7 +242,7 @@ def create_app() -> Flask:
         for k in ("question_set_id", "current_index", "answers", "time_per_question_sec"):
             session.pop(k, None)
 
-        return render_template("results.html", total=len(questions), score=score)
+        return redirect(url_for("submission_form"))
 
     # ──────────────────────────────────────────────────────────────
     # ユーティリティ
