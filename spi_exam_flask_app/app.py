@@ -122,6 +122,16 @@ def create_app() -> Flask:
         """マイページを表示。"""
         return render_template("my-page.html")
 
+    @app.route("/register/services1")
+    def register_services1() -> str:
+        """マイキャリとJOBTVの登録画面を表示。"""
+        return render_template("register_page1.html")
+
+    @app.route("/register/services2")
+    def register_services2() -> str:
+        """ココカラハッシンとirodasSALONの登録画面を表示。"""
+        return render_template("register_page2.html")
+
     # ──────────────────────────────────────────────────────────────
     # 受験開始以降（動的）
     # ──────────────────────────────────────────────────────────────
