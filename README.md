@@ -69,3 +69,53 @@ Once these tools are installed, proceed to the Setup section below.
    `http://127.0.0.1:5050`
    `http://172.16.1.83:5050`
    by default.
+
+   # FirebaseAuthSample Web版
+
+このプロジェクトは、メール/パスワードによる Firebase Authentication を Flask から利用するサンプルアプリです。バックエンドは Firebase の Identity Toolkit REST API と Firebase Admin SDK を組み合わせて構築しており、Android/iOS 版と同様のフローを Web で実現します。
+
+## 主な機能
+
+- **会員登録** – `/signup` では `accounts:signUp` API を呼び出して新しいアカウントを作成し、直後に検証用メールを送信します。
+- **メールアドレス検証** – Firebase が送信するメール内のリンクをクリックして検証します。未検証の場合は `/unverified` へリダイレクトされます。再送も `/resend` から可能です。
+- **サインイン/サインアウト** – `/signin` で `accounts:signInWithPassword` によりログインし、取得した ID トークンをセッションに保持します。サインアウトは `/signout`。トークン検証には Admin SDK を使用します。
+- **メールアドレス変更** – `/change_email` では現在のパスワードで再認証してから `accounts:update` API でメールアドレスを更新し、再度確認メールを送ります【872928145847261†L1549-L1567】。
+- **パスワード変更** – `/change_password` では再認証後に `accounts:update` API でパスワードを更新します【872928145847261†L1609-L1627】。
+
+## セットアップ手順
+
+1. **Firebase プロジェクトの準備**
+   - Firebase コンソールで新規プロジェクトを作成し、Authentication > Sign‑in method で Email/Password を有効にします。
+   - プロジェクト設定の「サービスアカウント」タブから秘密鍵 (JSON) を生成してダウンロードします。
+   - 設定の「一般」タブで Web API キーを確認します。
+
+2. **環境変数の設定**
+   - `FIREBASE_API_KEY` に Web API キーを設定します。
+   - `GOOGLE_APPLICATION_CREDENTIALS` にサービスアカウント JSON のパスを設定します。
+   例（bash）：
+   ```bash
+   export FIREBASE_API_KEY="your-web-api-key"
+   export GOOGLE_APPLICATION_CREDENTIALS="/absolute/path/to/serviceAccount.json"
+   ```
+
+3. **依存関係のインストール**
+   - `requirements.txt` に必要なパッケージが記載されています。仮想環境を用いてインストールします：
+   ```bash
+   python -m venv venv
+   source venv/bin/activate
+   pip install -r requirements.txt
+   ```
+
+4. **アプリの起動**
+   ```bash
+   export FLASK_APP=app.py
+   flask run
+   ```
+   ブラウザで `http://localhost:5000/` にアクセスし、会員登録から試してみてください。確認メール内のリンクは Firebase のデフォルト URL になります。確認後に再度サインインするとホーム画面に進めます。
+
+## 注意事項
+
+- このサンプルでは ID トークンをサーバー側のセッションに保存してログイン状態を管理しています。実運用では `firebase_admin.auth.create_session_cookie()` で生成したセッションCookieを用いることが推奨されます。
+- メール検証のリンク先は Firebase が提供するデフォルトページです。独自の確認ページを実装する場合は Admin SDK でメールアクションリンクを生成し、自サイトの URL を `actionCodeSettings` に指定します。
+- API キーやサービスアカウントキーは秘密情報です。リポジトリに含めないよう注意してください。
+
