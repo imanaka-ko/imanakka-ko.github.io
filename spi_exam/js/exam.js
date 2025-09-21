@@ -165,8 +165,8 @@ function renderResult() {
   sessionStorage.setItem("spi_exam_result_v1", JSON.stringify(result));
   sessionStorage.removeItem("spi_exam_state_v1");
 
-  // 結果ページへ
-  location.assign("./results.html");
+  // 結果ページへ進む前に登録フォームを表示
+  location.assign("./submission_form.html");
 }
 
 function startTimer(seconds, onExpire) {
