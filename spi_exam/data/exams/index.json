@@ -1,0 +1,62 @@
+{
+  "easy_nonverbal_5q": {
+    "path": "easy/nonverbal/easy_nonverbal_5q.json",
+    "title": "かんたん受験 - 非言語",
+    "time_per_question_sec": 60
+  },
+  "ratio_nonverbal_2q": {
+    "path": "easy/nonverbal/ratio_nonverbal_2q.json",
+    "title": "かんたん受験 - 非言語（割合2問）",
+    "time_per_question_sec": 60
+  },
+  "easy_language_3q": {
+    "path": "easy/language/easy_language_3q.json",
+    "title": "かんたん受験 - 言語（3問）",
+    "time_per_question_sec": 60
+  },
+  "easy_language_5q": {
+    "path": "easy/language/easy_language_5q.json",
+    "title": "かんたん受験 - 言語",
+    "time_per_question_sec": 60
+  },
+  "words_usage_language_3q": {
+    "path": "easy/language/words_usage_language_3q.json",
+    "title": "かんたん受験 - 言語（3問）",
+    "time_per_question_sec": 60
+  },
+  "words_meaning_language_3q": {
+    "path": "easy/language/words_meaning_language_3q.json",
+    "title": "かんたん受験 - 言語（3問）",
+    "time_per_question_sec": 60
+  },
+  "word_meaning_english_4q": {
+    "path": "easy/english/word_meaning_english_4q.json",
+    "title": "かんたん受験 - 英語（単語の意味4問）",
+    "time_per_question_sec": 60
+  },
+  "antonym_english_4q": {
+    "path": "easy/english/antonym_english_4q.json",
+    "title": "かんたん受験 - 英語（反意語4問）",
+    "time_per_question_sec": 60
+  },
+  "easy_english_5q": {
+    "path": "easy/english/easy_english_5q.json",
+    "title": "かんたん受験 - 英語",
+    "time_per_question_sec": 60
+  },
+  "full_nonverbal_15q": {
+    "path": "full/nonverbal/full_nonverbal_15q.json",
+    "title": "本格受験 - 非言語",
+    "time_per_question_sec": 60
+  },
+  "full_language_15q": {
+    "path": "full/language/full_language_15q.json",
+    "title": "本格受験 - 言語",
+    "time_per_question_sec": 60
+  },
+  "full_english_15q": {
+    "path": "full/english/full_english_15q.json",
+    "title": "本格受験 - 英語",
+    "time_per_question_sec": 60
+  }
+}

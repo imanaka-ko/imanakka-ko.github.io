@@ -1,117 +1,61 @@
-{% extends "base.html" %}
+<!-- spi_exam/exam/exam.html -->
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>模擬試験</title>
 
-{# 一枚テンプレで全設問を描画。テキストは変更せず、見た目のみ更新。 #}
+  <!-- 既存のビルド済み CSS があるなら流用（パスはあなたのリポジトリに合わせて調整） -->
+  <link rel="preload" as="style" href="../build/assets/app-CiUQVDEA.css" />
+  <link rel="stylesheet" href="../build/assets/app-CiUQVDEA.css" />
 
-{% block content %}
-<div id="examPage" class="exam-page state-unanswered {% if index + 1 == total %}last-question{% endif %}">
-    <!-- Subject and close icon row -->
-    <div class="exam-header">
-        <div class="subject">{{ subject_title }}</div>
-        <a class="close-btn" href="{{ url_for('select_mode') }}" aria-label="close">&times;</a>
-    </div>
+  <style>
+    /* 最低限の見た目。必要に応じて既存 CSS に寄せて調整してください。 */
+    .exam-header{display:flex;justify-content:space-between;align-items:center;margin:1rem 0}
+    .subject{color:#2f98a5;font-weight:bold}
+    .progress-bars{display:flex;gap:6px}
+    .progress-bars .bar{width:22px;height:6px;border-radius:4px;background:#e5e7eb}
+    .progress-bars .bar.done{background:#2f98a5}
+    .progress-bars .bar.current{background:#f59e0b}
+    .timer-wrap{display:flex;align-items:center;gap:16px}
+    .timer-svg{transform:rotate(-90deg)}
+    .timer-bg{fill:none;stroke:#eee;stroke-width:8}
+    .timer-progress{fill:none;stroke:#2f98a5;stroke-width:8;stroke-linecap:round;stroke-dasharray:0 999}
+    .timer-text{font-size:18px;dominant-baseline:middle}
+    .question-title{margin:1rem 0 .5rem;font-weight:bold}
+    .options-list{display:grid;gap:.5rem;margin:1rem 0}
+    .option-item{display:flex;gap:.5rem;align-items:flex-start;background:#f8fafc;border:1px solid #e5e7eb;border-radius:8px;padding:.75rem}
+    .option-item.selected{outline:2px solid #2f98a5}
+    .next-button{display:inline-flex;align-items:center;justify-content:center;margin-top:1rem;background:#f65b11;color:#fff;border-radius:9999px;height:40px;width:240px;border:0;font-weight:bold}
+    .error{color:#b91c1c;background:#fee2e2;border:1px solid #fecaca;padding:.75rem;border-radius:.5rem}
+  </style>
+</head>
+<body class="exam-page">
+  <div class="container">
+    <header class="header">
+      <div class="logo-container">
+        <a href="../index.html" class="logo-link">
+          <div class="logo"></div><span class="site-title">バクソクＳＰＩ</span>
+        </a>
+      </div>
+    </header>
 
-    <!-- Answer time indicators and circular timer -->
-    <div class="exam-meta">
-        <div class="answer-time">
-            <span class="label">回答時間</span>
-            <div class="progress-bars">
-                {% for i in range(total) %}
-                  <div class="bar{% if i < index %} done{% elif i == index %} current{% else %} pending{% endif %}"></div>
-                {% endfor %}
-            </div>
-        </div>
-        <div class="timer-circle" aria-live="polite">
-            <svg class="timer-svg" width="80" height="80" viewBox="0 0 80 80" role="img" aria-label="残り時間">
-                <!-- Background circle -->
-                <circle class="timer-bg" cx="40" cy="40" r="36"></circle>
-                <!-- Progress circle; stroke-dasharray and offset will be set via JS -->
-                <circle class="timer-progress" cx="40" cy="40" r="36"></circle>
-                <!-- Remaining time text -->
-                <text class="timer-text" x="40" y="43" text-anchor="middle" dominant-baseline="middle">{{ time_limit }}</text>
-            </svg>
-        </div>
-    </div>
+    <main class="main-content">
+      <div id="app" data-index="../data/exams/index.json">
+        <!-- JS がレンダリングします -->
+        <p>読み込み中…</p>
+      </div>
+    </main>
 
-    <!-- Instruction pill -->
-    <div class="instruction">次の文章を読んで問いに答えなさい。</div>
+    <footer class="footer">
+      <nav class="footer-nav">
+        <a href="../terms.html">利用規約</a>
+        <a href="../index.html">TOPへ</a>
+      </nav>
+    </footer>
+  </div>
 
-    <!-- Question title and text -->
-    <div class="question-block">
-        <p class="question-title">問題 {{ index + 1 }}/{{ total }}</p>
-        <div class="question-text">{{ question.prompt_html|safe }}</div>
-    </div>
-
-    <!-- Options and Next button -->
-    <form action="{{ url_for('exam_answer') }}" method="post" id="question-form">
-        <div class="options-list">
-            {% for option in question.options %}
-            <label class="option-item">
-                <input type="radio" name="option" value="{{ loop.index0 }}">
-                <span>{{ option }}</span>
-            </label>
-            {% endfor %}
-        </div>
-        <button type="submit" class="button primary next-button" id="nextButton" disabled>次へ進む</button>
-    </form>
-</div>
-
-<script>
-/* カウントダウン・選択時の強調・送信中の見た目（スピナー）を制御 */
-(function() {
-  const page   = document.getElementById('examPage');
-  const form   = document.getElementById('question-form');
-  const nextBtn = document.getElementById('nextButton');
-  const radios = form.querySelectorAll('input[type="radio"]');
-  const timerText = document.querySelector('.timer-text');
-  const progressCircle = document.querySelector('.timer-progress');
-  const radius = parseFloat(progressCircle.getAttribute('r'));
-  const circumference = 2 * Math.PI * radius;
-
-  // stroke-dasharray を設定
-  progressCircle.style.strokeDasharray = `${circumference}`;
-
-  // 初期の残り秒
-  let timeRemaining = parseInt(timerText.textContent, 10);
-  const totalTime = timeRemaining;
-
-  // 選択されたら有効化＆行のハイライト
-  radios.forEach(radio => {
-    radio.addEventListener('change', () => {
-      nextBtn.disabled = false;
-      page.classList.remove('state-unanswered');
-      page.classList.add('state-answered');
-      document.querySelectorAll('.option-item').forEach(l => l.classList.remove('selected'));
-      radio.closest('.option-item').classList.add('selected');
-    });
-  });
-
-  // 送信直前の視覚状態（スピナー）
-  form.addEventListener('submit', () => {
-    page.classList.add('state-submitting');
-  });
-
-  function setProgress(value) {
-    // value: 0〜1（経過割合）
-    const offset = circumference * value;
-    progressCircle.style.strokeDashoffset = offset;
-  }
-
-  function tick() {
-    timeRemaining--;
-    if (timeRemaining < 0) {
-      page.classList.add('state-submitting'); // 自動送信でも反映
-      form.submit();
-      return;
-    }
-    timerText.textContent = timeRemaining;
-    const progressValue = 1 - timeRemaining / totalTime;
-    setProgress(progressValue);
-    setTimeout(tick, 1000);
-  }
-
-  // 初期化
-  setProgress(0);
-  setTimeout(tick, 1000);
-})();
-</script>
-{% endblock %}
+  <script type="module" src="../js/exam.js"></script>
+</body>
+</html>
