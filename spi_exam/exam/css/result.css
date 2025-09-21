@@ -1,0 +1,138 @@
+.result-header {
+    margin-bottom: 1.5rem;
+}
+
+.result-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.result-meta {
+    color: #666;
+    font-size: 0.95rem;
+}
+
+.result-summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.summary-card {
+    background: #f7fbfd;
+    border: 1px solid #d1ecf1;
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+}
+
+.summary-card .label {
+    display: block;
+    color: #007b83;
+    font-size: 0.9rem;
+    margin-bottom: 0.35rem;
+}
+
+.summary-card .value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #005f63;
+}
+
+.result-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+}
+
+.result-actions a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.result-actions a.primary {
+    background-color: #00a7e1;
+    color: #fff;
+}
+
+.result-actions a.primary:hover {
+    background-color: #008fc0;
+}
+
+.result-actions a.secondary {
+    background-color: #e0f2f1;
+    color: #00695c;
+}
+
+.result-actions a.secondary:hover {
+    background-color: #cce6e4;
+}
+
+.answers-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.answers-table thead {
+    background-color: #f0f4f7;
+}
+
+.answers-table th,
+.answers-table td {
+    padding: 0.75rem;
+    border: 1px solid #dde4ea;
+    text-align: left;
+    font-size: 0.92rem;
+}
+
+.answers-table tbody tr.correct {
+    background-color: #e8f5e9;
+}
+
+.answers-table tbody tr.incorrect {
+    background-color: #fdecea;
+}
+
+.answers-table tbody tr.unanswered {
+    background-color: #f5f5f5;
+}
+
+.answer-badge {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.answer-badge.correct {
+    background-color: #43a047;
+    color: #fff;
+}
+
+.answer-badge.incorrect {
+    background-color: #e53935;
+    color: #fff;
+}
+
+.answer-badge.unanswered {
+    background-color: #b0bec5;
+    color: #fff;
+}
+
+@media (max-width: 640px) {
+    .answers-table th,
+    .answers-table td {
+        font-size: 0.85rem;
+        padding: 0.6rem;
+    }
+}
