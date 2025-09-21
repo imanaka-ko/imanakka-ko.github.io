@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="utf-8">
-  <title>サービス登録2</title>
+  <title>サービス登録1</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='static/register.css') }}">
 </head>
 <body>
@@ -11,24 +11,26 @@
   <p class="description">就活に必要なサービスをまとめて登録！<br>複数の就活サービスを利用して、効率的に就活を進めましょう。</p>
 
   <div class="service">
-    <img src="{{ url_for('static', filename='static/cocokara_logo.png') }}" alt="ココカラハッシン">
+    <img src="{{ url_for('static', filename='static/mycareer_logo.png') }}" alt="マイキャリ">
     <div class="content">
-      <h3>ココカラハッシン</h3>
-      <p>ココカラハッシンは、就活準備をサポートするキャリアアドバイザーが在籍。企業の説明会や選考に進めるイベントを実施しています。</p>
+      <h3>マイキャリ</h3>
+      <p>登録者数50万人以上の就活サービス「マイキャリ」。エントリー、企業比較ができるだけでなく、500社以上の企業の説明会へ参加できます。</p>
       <label class="terms"><input type="checkbox"> <a href="#">利用規約</a>、<a href="#">プライバシーポリシー</a>に同意の上登録する。<br>また、ご案内のメールを受け取る。</label>
     </div>
   </div>
 
   <div class="service">
-    <img src="{{ url_for('static', filename='static/irodas_logo.png') }}" alt="irodasSALON">
+    <img src="{{ url_for('static', filename='static/jobtv_logo.png') }}" alt="JOBTV">
     <div class="content">
-      <h3>irodasSALON</h3>
-      <p>自己理解から面接対策まで、プロのキャリアアドバイザーが就活を徹底サポートする就活サロンです。</p>
+      <h3>JOBTV</h3>
+      <p>説明会や先輩インタビューなどの採用動画で、企業理解を深めることができるサイトです。</p>
       <label class="terms"><input type="checkbox"> <a href="#">利用規約</a>、<a href="#">プライバシーポリシー</a>に同意の上登録する。<br>また、ご案内のメールを受け取る。</label>
     </div>
   </div>
 
-  <button class="register-btn">登録を完了する</button>
-</div>
-</body>
-</html>
+    <form action="register_2.html" method="get">
+      <button type="submit" class="register-btn">登録を完了する</button>
+    </form>
+  </div>
+  </body>
+  </html>

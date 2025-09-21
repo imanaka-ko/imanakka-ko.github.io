@@ -83,7 +83,7 @@
 </head>
 <body>
 <div class="container">
-    <form action="{{ url_for('submission_form') }}" method="post">
+    <form action="register_1.html" method="get" id="submissionForm">
         <!-- 1. profile section -->
         <div class="form-section">
             <h2>プロフィールを入力してください</h2>
@@ -214,6 +214,14 @@ toggleBtn.addEventListener('click', () => {
     const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
     passwordInput.setAttribute('type', type);
 });
+
+const submissionForm = document.getElementById('submissionForm');
+if (submissionForm) {
+    submissionForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        window.location.href = 'register_1.html';
+    });
+}
 </script>
 </body>
 </html>
