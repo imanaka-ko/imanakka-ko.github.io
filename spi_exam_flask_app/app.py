@@ -92,48 +92,6 @@ def create_app() -> Flask:
     #   /exam/pre-exam/easy_1000f6.html     -> static file (HTTrack)
     # これら静的ページの <form action="/exam/start"> が POST を投げる。
 
-    @app.route("/login")
-    def login() -> str:
-        """ログインページを表示。"""
-        return render_template("login.html")
-
-    @app.route("/submission_form", methods=["GET", "POST"])
-    def submission_form() -> str:
-        """投稿フォームを表示し、送信後に register_page1 へ遷移する。"""
-        if request.method == "POST":
-            return redirect(url_for("register_services1"))
-        return render_template("submission_form.html")
-
-    @app.route("/reset")
-    def reset() -> str:
-        """リセットページを表示。"""
-        return render_template("reset.html")
-
-    @app.route("/exam-result")
-    def exam_result_page() -> str:
-        """試験結果の静的ページを表示。"""
-        return render_template("exam-result.html")
-
-    @app.route("/9383")
-    def page_9383() -> str:
-        """ID 9383 の静的ページを表示。"""
-        return render_template("9383.html")
-
-    @app.route("/my-page")
-    def my_page() -> str:
-        """マイページを表示。"""
-        return render_template("my-page.html")
-
-    @app.route("/register/services1")
-    def register_services1() -> str:
-        """マイキャリとJOBTVの登録画面を表示。"""
-        return render_template("register_page1.html")
-
-    @app.route("/register/services2")
-    def register_services2() -> str:
-        """ココカラハッシンとirodasSALONの登録画面を表示。"""
-        return render_template("register_page2.html")
-
     @app.route("/results")
     def results() -> str:
         """試験結果を表示する。"""
