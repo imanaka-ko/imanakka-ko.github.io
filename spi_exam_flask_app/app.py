@@ -64,24 +64,6 @@ def create_app() -> Flask:
         """最初に `index.html` を表示する。"""
         return redirect(url_for("static", filename="index.html"))
 
-    @app.route("/exam/select-mode")
-    def select_mode() -> str:
-        """モード選択は静的 HTML を返す。"""
-        return redirect(url_for("static", filename="exam/select-mode.html"))
-
-    @app.route("/exam/select-category/<mode>")
-    def select_category(mode: str) -> Any:
-        """
-        カテゴリ選択は静的 HTML を返す。
-        `easy` のように拡張子なしで来たら `easy.html` にリダイレクト。
-        すでに `easy.html` のように拡張子付きならそのまま静的配信。
-        """
-        filename = f"exam/select-category/{mode}"
-        if not filename.endswith(".html"):
-            return redirect(url_for("static", filename=filename + ".html"))
-        # `.html` が付いている場合はそのまま返す
-        return current_app.send_static_file(filename)
-
     # ※ 重要:
     # 以前存在した `/exam/pre-exam/<slug>` の **動的ルートは定義しない**。
     # プレ受験画面は HTTrack ミラーの静的 HTML（例: /exam/pre-exam/antonym_english_4q.html 等）を
