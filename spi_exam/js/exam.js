@@ -2,7 +2,9 @@
 const qs   = new URLSearchParams(location.search);
 const slug = qs.get("question_set_id");
 const app  = document.getElementById("app");
-const INDEX_URL = app.dataset.index || "../data/exams/index.json";
+const indexAttr = app?.dataset.index || "data/exams/index.json";
+const INDEX_URL = new URL(indexAttr, location.href);
+const EXAMS_BASE_URL = new URL("./", INDEX_URL);
 const STATE_KEY = "spi_exam_state_v1";
 
 let exam = null;         // JSON 本体
@@ -22,8 +24,8 @@ async function main() {
   meta = index?.[slug];
   if (!meta || !meta.path) return renderError("無効な問題セットです。");
 
-  // exam JSON をロード（exam.html から data/exams/ への相対）
-  exam = await fetchJSON(`../data/exams/${meta.path}`);
+  // exam JSON をロード（index.json の場所を基準に解決）
+  exam = await fetchJSON(new URL(meta.path, EXAMS_BASE_URL));
   if (!validateExam(exam, slug)) return renderError("問題データが不正です。");
 
   // セッション相当（前回の続きがあれば再開）
@@ -54,7 +56,7 @@ function saveState() {
 function renderError(msg) {
   app.innerHTML = `
     <div class="error">${escapeHTML(msg)}</div>
-    <p style="margin-top:1rem"><a href="./select-mode.html">選択画面へ戻る</a></p>
+    <p style="margin-top:1rem"><a href="exam/select-mode.html">選択画面へ戻る</a></p>
   `;
 }
 
@@ -82,7 +84,7 @@ function renderQuestion() {
   app.innerHTML = `
     <div class="exam-header">
       <div class="subject">${escapeHTML(exam.title || meta.title || "")}</div>
-      <a class="close-btn" href="./select-mode.html" aria-label="close">&times;</a>
+      <a class="close-btn" href="exam/select-mode.html" aria-label="close">&times;</a>
     </div>
 
     <div class="timer-wrap" style="justify-content:space-between;margin:.5rem 0 1rem">
@@ -166,7 +168,7 @@ function renderResult() {
   sessionStorage.removeItem("spi_exam_state_v1");
 
   // 結果ページへ進む前に登録フォームを表示
-  location.assign("./submission_form.html");
+  location.assign("submission_form.html");
 }
 
 function startTimer(seconds, onExpire) {
