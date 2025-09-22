@@ -1,4 +1,4 @@
-<!-- spi_exam/exam/exam.html -->
+<!-- spi_exam/exam.html -->
 <!doctype html>
 <html lang="ja">
 <head>
@@ -7,8 +7,8 @@
   <title>模擬試験</title>
 
   <!-- 既存のビルド済み CSS があるなら流用（パスはあなたのリポジトリに合わせて調整） -->
-  <link rel="preload" as="style" href="../build/assets/app-CiUQVDEA.css" />
-  <link rel="stylesheet" href="../build/assets/app-CiUQVDEA.css" />
+  <link rel="preload" as="style" href="build/assets/app-CiUQVDEA.css" />
+  <link rel="stylesheet" href="build/assets/app-CiUQVDEA.css" />
 
   <style>
     /* 最低限の見た目。必要に応じて既存 CSS に寄せて調整してください。 */
@@ -35,14 +35,14 @@
   <div class="container">
     <header class="header">
       <div class="logo-container">
-        <a href="../index.html" class="logo-link">
+        <a href="index.html" class="logo-link">
           <div class="logo"></div><span class="site-title">バクソクＳＰＩ</span>
         </a>
       </div>
     </header>
 
     <main class="main-content">
-      <div id="app" data-index="../data/exams/index.json">
+      <div id="app" data-index="data/exams/index.json">
         <!-- JS がレンダリングします -->
         <p>読み込み中…</p>
       </div>
@@ -50,12 +50,12 @@
 
     <footer class="footer">
       <nav class="footer-nav">
-        <a href="../terms.html">利用規約</a>
-        <a href="../index.html">TOPへ</a>
+        <a href="terms.html">利用規約</a>
+        <a href="index.html">TOPへ</a>
       </nav>
     </footer>
   </div>
 
-  <script type="module" src="../js/exam.js"></script>
+  <script type="module" src="js/exam.js"></script>
 </body>
 </html>
