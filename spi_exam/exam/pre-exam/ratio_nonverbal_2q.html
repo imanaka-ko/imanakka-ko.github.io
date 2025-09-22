@@ -486,35 +486,34 @@
         <div class="confirmation-section">
             <h2 class="section-title">受験科目</h2>
             <p class="section-value">
-                                    かんたん受験 - 英語
+                                    非言語
                             </p>
             <a href="../select-mode.html" class="reselect-link">再選択</a>
         </div>
         
         <div class="confirmation-section">
             <h2 class="section-title">問題数</h2>
-            <p class="section-value">全5問</p>
+            <p class="section-value">全2問</p>
         </div>
         
         <div class="confirmation-section">
             <h2 class="section-title">制限時間</h2>
-            <p class="section-value">5分</p>
+            <p class="section-value">2分</p>
         </div>
     </div>
 
     <div class="notice-section">
         <h3 class="notice-title">受験上の注意</h3>
         <ul class="notice-list">
-                            <li>かんたん受験は管理者が厳選した5問で構成されています。</li>
-                <li>各問題には60秒の制限時間があります。制限時間を過ぎると自動的に次の問題に進みます。</li>
+                            <li>各問題には制限時間があります。制限時間を過ぎると自動的に次の問題に進みます。</li>
                 <li>一度選択した回答は変更できません。また、前の問題に戻ることもできません。</li>
                 <li>受験中にページを閉じたり更新したりすると、テストが中断されます。</li>
                         <li>会員登録すると、過去の受験結果や詳細な解説を確認できます。</li>
         </ul>
     </div>
 
-    <form id="start-exam-form" method="POST" action="/exam/start">
-        <input type="hidden" name="question_set_id" value="easy_english_5q">
+    <form id="start-exam-form" method="GET" action="/spi_exam/exam.html">
+        <input type="hidden" name="question_set_id" value="ratio_nonverbal_2q">
         <button type="submit" class="start-exam-btn" id="start-exam-btn">
             この内容で受験スタート！
         </button>
