@@ -1,7 +1,56 @@
-{% extends "base.html" %}
-{% block title %}トップ{% endblock %}
-{% block content %}
-  <h2>FirebaseAuthSample Web版</h2>
-  <p>こちらは Firebase Authentication をバックエンドにした Web アプリのサンプルです。</p>
-  <p><a class="button-link" href="{{ url_for('signup') }}">新規登録</a>または<a class="button-link" href="{{ url_for('signin') }}">サインイン</a>してください。</p>
-{% endblock %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>アカウント | パウンタSPI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/auth.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div class="header-inner">
+      <a class="brand" href="../index.html">パウンタSPI</a>
+    </div>
+  </header>
+  <main class="app-main">
+    <section class="auth-panel">
+      <h1 class="auth-title">パウンタSPI アカウント</h1>
+      <p class="auth-subtitle">
+        模擬試験の受験や学習レポートの確認には、アカウントへのサインインが必要です。
+        初めてご利用の方は新規登録からはじめましょう。
+      </p>
+      <div class="button-row">
+        <a class="button button--primary" href="signup.html">無料で新規登録</a>
+        <a class="button button--ghost" href="signin.html">ログインはこちら</a>
+      </div>
+      <div class="form-note">
+        <p>
+          すでにメール認証を済ませている方は、<strong>サインイン</strong>後にマイページからご利用いただけます。
+        </p>
+      </div>
+      <div class="status-card" style="margin-top: 32px;">
+        <h2 class="status-card__title">アカウントでできること</h2>
+        <p class="status-card__text">
+          ・SPI 模試の受験とスコアの確認<br />
+          ・学習履歴の保存と振り返り<br />
+          ・メール通知によるリマインド設定
+        </p>
+      </div>
+    </section>
+  </main>
+  <footer class="app-footer">
+    <div class="footer-inner">
+      <div class="footer-links">
+        <a href="../company.html">運営会社</a>
+        <a href="../terms.html">利用規約</a>
+        <a href="../privacy.html">プライバシーポリシー</a>
+        <a href="../index.html">トップへ</a>
+      </div>
+      <p class="copyright">© パウンタSPI</p>
+    </div>
+  </footer>
+</body>
+</html>
