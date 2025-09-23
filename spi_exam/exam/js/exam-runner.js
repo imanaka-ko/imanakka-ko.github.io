@@ -221,7 +221,7 @@
     };
     sessionStorage.setItem(RESULTS_KEY, JSON.stringify(result));
     sessionStorage.removeItem(STORAGE_KEY);
-    window.location.href = "result.html";
+    window.location.href = "../submission_form.html";
   }
 
   function handleSubmit(event) {
