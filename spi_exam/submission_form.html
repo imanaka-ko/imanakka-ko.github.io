@@ -216,10 +216,52 @@ toggleBtn.addEventListener('click', () => {
 });
 
 const submissionForm = document.getElementById('submissionForm');
+const ENDPOINT = 'https://script.google.com/macros/s/＜デプロイURL＞/exec';
+const SECRET = 'changeme'; // GAS側と一致させる
+
+function getRadioValue(name) {
+    const checked = document.querySelector(`input[name="${name}"]:checked`);
+    return checked ? checked.value : '';
+}
+
 if (submissionForm) {
-    submissionForm.addEventListener('submit', (event) => {
+    submissionForm.addEventListener('submit', async (event) => {
         event.preventDefault();
-        window.location.href = 'register_1.html';
+
+        const payload = {
+            lastName: document.getElementById('last-name').value,
+            firstName: document.getElementById('first-name').value,
+            lastKana: document.getElementById('last-kana').value,
+            firstKana: document.getElementById('first-kana').value,
+            region: document.getElementById('region').value,
+            gender: getRadioValue('gender'),
+            school: getRadioValue('school'),
+            faculty: document.getElementById('faculty') ? document.getElementById('faculty').value : '',
+            department: document.getElementById('department') ? document.getElementById('department').value : '',
+            gradYear: document.getElementById('grad-year').value,
+            email: document.getElementById('email').value,
+            phone: document.getElementById('phone').value,
+            password: document.getElementById('password').value,
+            secret: SECRET
+        };
+
+        try {
+            const res = await fetch(ENDPOINT, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+                // GASの仕様上CORSエラーになる場合は mode: 'no-cors' を検討してください
+                // mode: 'no-cors'
+            });
+
+            if (!res.ok) {
+                throw new Error('Request failed');
+            }
+
+            window.location.href = 'register_1.html';
+        } catch (error) {
+            alert('送信に失敗しました。');
+        }
     });
 }
 </script>
