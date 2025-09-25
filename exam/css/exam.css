@@ -32,6 +32,12 @@ a {
 .logo-container {
     display: flex;
     align-items: center;
+    text-decoration: none;
+}
+
+.logo-container:focus,
+.logo-container:hover {
+    text-decoration: none;
 }
 
 .logo {
