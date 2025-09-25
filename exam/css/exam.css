@@ -198,7 +198,7 @@ a {
 }
 
 .timer-text {
-    fill: #333;
+    fill: #000;
     font-size: 0.9rem;
     transform: rotate(90deg);
 }
