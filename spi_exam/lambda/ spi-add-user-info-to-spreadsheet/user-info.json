@@ -1,0 +1,21 @@
+{
+  "version": "2.0",
+  "routeKey": "POST /write",
+  "rawPath": "/write",
+  "rawQueryString": "",
+  "headers": {
+    "content-type": "application/json",
+    "origin": "http://127.0.0.1:3000"
+  },
+  "requestContext": {
+    "http": {
+      "method": "POST",
+      "path": "/write",
+      "protocol": "HTTP/1.1",
+      "sourceIp": "127.0.0.1",
+      "userAgent": "LambdaTest"
+    }
+  },
+  "body": "{\"name\":\"山田太郎\",\"email\":\"taro@example.com\",\"message\":\"HTTP API v2 JSON テスト\"}",
+  "isBase64Encoded": false
+}
