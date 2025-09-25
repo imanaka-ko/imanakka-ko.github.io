@@ -134,7 +134,9 @@
       </div>
       <div class="form-group">
         <label for="grad-year">卒業予定年</label>
-        <input id="grad-year" type="number" min="1900" max="2100" placeholder="2025">
+        <select id="grad-year">
+          <option value="" selected disabled>選択してください</option>
+        </select>
       </div>
     </div>
 
@@ -205,6 +207,18 @@ toggleBtn.addEventListener('click', () => {
   const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
   passwordInput.setAttribute('type', type);
 });
+
+const gradYearSelect = document.getElementById('grad-year');
+if (gradYearSelect) {
+  const currentYear = new Date().getFullYear();
+  for (let offset = 0; offset <= 3; offset += 1) {
+    const year = currentYear + offset;
+    const option = document.createElement('option');
+    option.value = String(year);
+    option.textContent = `${year}年`;
+    gradYearSelect.appendChild(option);
+  }
+}
 
 /* ===== 送信処理（Lambda + API Gateway にPOST） ===== */
 const submissionForm = document.getElementById('submissionForm');
