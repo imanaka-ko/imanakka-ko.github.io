@@ -207,6 +207,8 @@ a {
     fill: #000;
     font-size: 0.9rem;
     transform: rotate(90deg);
+    transform-box: fill-box;
+    transform-origin: center;
 }
 
 .instruction {
