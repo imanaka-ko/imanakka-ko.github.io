@@ -11,6 +11,7 @@
     .form-section { margin-bottom: 2rem; }
     .form-group { margin-bottom: 1rem; }
     .form-row { display: flex; gap: 1rem; }
+    .form-row--split { gap: 1.5rem; }
     #dept-fields { gap: 1.5rem; }
     label { font-size: 0.9rem; margin-bottom: 0.25rem; display: block; }
     input[type="text"], input[type="email"], input[type="tel"], input[type="password"], input[type="number"], select {
@@ -30,7 +31,7 @@
     <!-- 1. profile section -->
     <div class="form-section">
       <h2>プロフィールを入力してください</h2>
-      <div class="form-row">
+      <div class="form-row form-row--split">
         <div class="form-group">
           <label for="last-name">氏名</label>
           <input id="last-name" type="text" placeholder="山田" required>
@@ -39,7 +40,7 @@
           <input id="first-name" type="text" placeholder="太郎" required>
         </div>
       </div>
-      <div class="form-row">
+      <div class="form-row form-row--split">
         <div class="form-group">
           <label for="last-kana">ふりがな</label>
           <input id="last-kana" type="text" placeholder="やまだ" required>
