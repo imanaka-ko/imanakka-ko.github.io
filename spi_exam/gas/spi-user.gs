@@ -17,12 +17,15 @@ function doPost(e) {
     }
 
     const sheet = SpreadsheetApp.openById(SHEET_ID).getSheetByName(SHEET_NAME);
-    sheet.appendRow([
-      Utilities.formatDate(new Date(), TZ, 'yyyy-MM-dd HH:mm:ss'),
-      body.name || '',
-      body.email || '',
-      body.message || ''
-    ]);
+    const rowValues = [body.email || ''];
+    Object.keys(body || {})
+      .filter((key) => key !== 'email')
+      .forEach((key) => {
+        const value = body[key];
+        rowValues.push(value != null ? value : '');
+      });
+    rowValues.push(Utilities.formatDate(new Date(), TZ, 'yyyy-MM-dd HH:mm:ss'));
+    sheet.appendRow(rowValues);
 
     return ContentService.createTextOutput(JSON.stringify({ ok:true }))
       .setMimeType(ContentService.MimeType.JSON);
