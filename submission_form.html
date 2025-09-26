@@ -229,7 +229,7 @@ const submissionForm = document.getElementById('submissionForm');
 const submitBtn = document.getElementById('submitBtn');
 
 /** ★ここを Lambda のエンドポイントに差し替え（$defaultステージ想定） */
-const ENDPOINT = 'https://7nxdaf2lni.execute-api.ap-northeast-1.amazonaws.com/write';
+const ENDPOINT = 'https://t08snas6m5.execute-api.ap-northeast-1.amazonaws.com/write';
 // もしステージが prod なら → 'https://7nxdaf2lni.execute-api.ap-northeast-1.amazonaws.com/prod/write'
 
 function getRadioValue(name) {
@@ -268,6 +268,7 @@ if (submissionForm) {
         method: 'POST',
         mode: 'cors', // CORS を使う（API Gateway 側で許可が必要）
         headers: {
+          'Origin': 'http://127.0.0.1:3000',
           'Content-Type': 'application/json'
           // 'x-api-key': 'YOUR_API_KEY' // APIキーで保護している場合のみ
         },
