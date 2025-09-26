@@ -17,13 +17,24 @@ function doPost(e) {
     }
 
     const sheet = SpreadsheetApp.openById(SHEET_ID).getSheetByName(SHEET_NAME);
-    const rowValues = [body.email || ''];
-    Object.keys(body || {})
-      .filter((key) => !['email', 'secret'].includes(key))
-      .forEach((key) => {
-        const value = body[key];
-        rowValues.push(value != null ? value : '');
-      });
+    const fields = [
+      'lastName',
+      'firstName',
+      'lastKana',
+      'firstKana',
+      'region',
+      'gender',
+      'school',
+      'faculty',
+      'department',
+      'gradYear',
+      'email',
+      'phone',
+    ];
+    const rowValues = fields.map((field) => {
+      const value = body ? body[field] : '';
+      return value != null ? value : '';
+    });
     rowValues.push(Utilities.formatDate(new Date(), TZ, 'yyyy-MM-dd HH:mm:ss'));
     sheet.appendRow(rowValues);
 
