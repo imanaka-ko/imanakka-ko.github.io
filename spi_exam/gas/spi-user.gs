@@ -19,7 +19,7 @@ function doPost(e) {
     const sheet = SpreadsheetApp.openById(SHEET_ID).getSheetByName(SHEET_NAME);
     const rowValues = [body.email || ''];
     Object.keys(body || {})
-      .filter((key) => key !== 'email')
+      .filter((key) => !['email', 'secret'].includes(key))
       .forEach((key) => {
         const value = body[key];
         rowValues.push(value != null ? value : '');
