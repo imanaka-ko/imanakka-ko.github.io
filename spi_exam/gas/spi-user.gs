@@ -18,16 +18,16 @@ function doPost(e) {
 
     const sheet = SpreadsheetApp.openById(SHEET_ID).getSheetByName(SHEET_NAME);
     const fields = [
-      'lastName',
-      'firstName',
-      'lastKana',
-      'firstKana',
+      'last-name',
+      'first-name',
+      'last-kana',
+      'first-kana',
       'region',
       'gender',
       'school',
       'faculty',
       'department',
-      'gradYear',
+      'grad-year',
       'email',
       'phone',
     ];
