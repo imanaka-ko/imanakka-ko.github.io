@@ -25,6 +25,7 @@ function doPost(e) {
       'region',
       'gender',
       'school',
+      'schoolName',
       'faculty',
       'department',
       'gradYear',
