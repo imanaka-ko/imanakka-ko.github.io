@@ -123,9 +123,9 @@
       <div class="form-group">
         <label>性別</label>
         <div class="radio-inline">
-          <label><input type="radio" name="gender" value="male" checked> 男性</label>
-          <label><input type="radio" name="gender" value="female"> 女性</label>
-          <label><input type="radio" name="gender" value="other"> その他</label>
+          <label><input type="radio" name="gender" value="男性" checked> 男性</label>
+          <label><input type="radio" name="gender" value="女性"> 女性</label>
+          <label><input type="radio" name="gender" value="その他"> その他</label>
         </div>
       </div>
     </div>
@@ -134,11 +134,11 @@
     <div class="form-section">
       <h2>在学中もしくは卒業した学校を選択してください</h2>
       <div class="form-group radio-group" id="school-options">
-        <label><input type="radio" name="school" value="university"> 大学</label>
-        <label><input type="radio" name="school" value="graduate"> 大学院 (修士)</label>
-        <label><input type="radio" name="school" value="graduate-doctor"> 大学院 (博士)</label>
-        <label><input type="radio" name="school" value="junior"> 短大</label>
-        <label><input type="radio" name="school" value="vocational"> 専門学校</label>
+        <label><input type="radio" name="school" value="大学"> 大学</label>
+        <label><input type="radio" name="school" value="大学院 (修士)"> 大学院 (修士)</label>
+        <label><input type="radio" name="school" value="大学院 (博士)"> 大学院 (博士)</label>
+        <label><input type="radio" name="school" value="短大"> 短大</label>
+        <label><input type="radio" name="school" value="専門学校"> 専門学校</label>
       </div>
       <div class="form-row" id="dept-fields" style="display:none;">
         <div class="form-group" id="faculty-group">
@@ -191,16 +191,16 @@ function updateSchoolFields() {
   const value = selected.value;
   const facultyGroup = document.getElementById('faculty-group');
   const departmentGroup = document.getElementById('department-group');
-  if (value === 'university' || value === 'junior') {
+  if (value === '大学' || value === '短大') {
     deptFields.style.display = 'flex';
     facultyGroup.querySelector('label').textContent = '学部';
     departmentGroup.querySelector('label').textContent = '学科';
     departmentGroup.style.display = 'block';
-  } else if (value === 'vocational') {
+  } else if (value === '専門学校') {
     deptFields.style.display = 'flex';
     facultyGroup.querySelector('label').textContent = '専攻';
     departmentGroup.style.display = 'none';
-  } else if (value.startsWith('graduate')) {
+  } else if (value.startsWith('大学院')) {
     deptFields.style.display = 'flex';
     facultyGroup.querySelector('label').textContent = '研究科';
     departmentGroup.querySelector('label').textContent = '専攻';
