@@ -140,6 +140,10 @@
         <label><input type="radio" name="school" value="短大"> 短大</label>
         <label><input type="radio" name="school" value="専門学校"> 専門学校</label>
       </div>
+      <div class="form-group">
+        <label for="school-name">学校名</label>
+        <input id="school-name" type="text" placeholder="○○大学">
+      </div>
       <div class="form-row" id="dept-fields" style="display:none;">
         <div class="form-group" id="faculty-group">
           <label for="faculty">学部 / 研究科</label>
@@ -250,6 +254,7 @@ if (submissionForm) {
       region: document.getElementById('region').value,
       gender: getRadioValue('gender'),
       school: getRadioValue('school'),
+      schoolName: document.getElementById('school-name') ? document.getElementById('school-name').value : '',
       faculty: document.getElementById('faculty') ? document.getElementById('faculty').value : '',
       department: document.getElementById('department') ? document.getElementById('department').value : '',
       gradYear: document.getElementById('grad-year').value,
