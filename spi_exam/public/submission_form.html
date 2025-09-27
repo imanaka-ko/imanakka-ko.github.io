@@ -140,7 +140,7 @@
         <label><input type="radio" name="school" value="短大"> 短大</label>
         <label><input type="radio" name="school" value="専門学校"> 専門学校</label>
       </div>
-      <div class="form-group">
+      <div class="form-group" id="school-name-group" style="display:none;">
         <label for="school-name">学校名</label>
         <input id="school-name" type="text" placeholder="○○大学">
       </div>
@@ -189,9 +189,18 @@
 /* ===== UI 補助 ===== */
 const schoolRadios = document.querySelectorAll('input[name="school"]');
 const deptFields = document.getElementById('dept-fields');
+const schoolNameGroup = document.getElementById('school-name-group');
 function updateSchoolFields() {
   const selected = document.querySelector('input[name="school"]:checked');
-  if (!selected) return;
+  if (schoolNameGroup) {
+    schoolNameGroup.style.display = selected ? 'block' : 'none';
+  }
+  if (!selected) {
+    if (deptFields) {
+      deptFields.style.display = 'none';
+    }
+    return;
+  }
   const value = selected.value;
   const facultyGroup = document.getElementById('faculty-group');
   const departmentGroup = document.getElementById('department-group');
