@@ -16,6 +16,6 @@
       "userAgent": "LambdaTest"
     }
   },
-  "body": "{\"last-name\":\"山田\",\"first-name\":\"太郎\",\"last-kana\":\"やまだ\",\"first-kana\":\"たろう\",\"region\":\"東京都\",\"gender\":\"男性\",\"school\":\"東京大学\",\"faculty\":\"理学部\",\"department\":\"物理学科\",\"grad-year\":\"2026\",\"email\":\"hamu@example.com\",\"phone\":\"08011112222\"}",
+  "body": "{\"lastName\":\"山田\",\"firstName\":\"太郎\",\"lastKana\":\"やまだ\",\"firstKana\":\"たろう\",\"region\":\"東京都\",\"gender\":\"男性\",\"school\":\"大学\",\"faculty\":\"理学部\",\"department\":\"物理学科\",\"gradYear\":\"2026\",\"email\":\"hamu@example.com\",\"phone\":\"08011112222\"}",
   "isBase64Encoded": false
 }
