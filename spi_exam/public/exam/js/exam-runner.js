@@ -2,6 +2,11 @@
   const STORAGE_KEY = "spiExamState";
   const RESULTS_KEY = "spiExamResults";
   const REDIRECT_PATH = "select-mode.html";
+  const RESULT_PAGE_PATH = "result.html";
+  const SUBMISSION_FORM_PATH = "../submission_form.html";
+  const LOGIN_CHECK_TIMEOUT_MS = 3000;
+
+  let loginCheckPromise = null;
 
   const examPage = document.getElementById("examPage");
   const subjectEl = document.getElementById("examSubject");
@@ -31,6 +36,53 @@
       window.alert(message);
     }
     window.location.href = REDIRECT_PATH;
+  }
+
+  function resolveFirebaseModuleUrl() {
+    try {
+      const url = new URL("../auth/js/firebase.js", window.location.href);
+      return url.href;
+    } catch (error) {
+      console.warn("Failed to resolve firebase module URL", error);
+      return "../auth/js/firebase.js";
+    }
+  }
+
+  async function loadLoginStatus() {
+    const firebaseModuleUrl = resolveFirebaseModuleUrl();
+    const firebaseAuthUrl = "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+    try {
+      const [firebaseModule, authModule] = await Promise.all([
+        import(firebaseModuleUrl),
+        import(firebaseAuthUrl),
+      ]);
+      const { auth } = firebaseModule;
+      const { onAuthStateChanged } = authModule;
+      if (!auth || typeof onAuthStateChanged !== "function") {
+        return false;
+      }
+      return await new Promise((resolve) => {
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
+          unsubscribe();
+          resolve(Boolean(user));
+        });
+      });
+    } catch (error) {
+      console.warn("Failed to determine login status", error);
+      return false;
+    }
+  }
+
+  function shouldShowResultPage() {
+    if (!loginCheckPromise) {
+      loginCheckPromise = Promise.race([
+        loadLoginStatus(),
+        new Promise((resolve) => {
+          window.setTimeout(() => resolve(false), LOGIN_CHECK_TIMEOUT_MS);
+        }),
+      ]);
+    }
+    return loginCheckPromise;
   }
 
   function loadState() {
@@ -202,7 +254,7 @@
     }
   }
 
-  function finishExam() {
+  async function finishExam() {
     stopTimer();
     const total = state.questions.length;
     const correct = state.answers.filter((entry) => entry.isCorrect).length;
@@ -221,7 +273,8 @@
     };
     sessionStorage.setItem(RESULTS_KEY, JSON.stringify(result));
     sessionStorage.removeItem(STORAGE_KEY);
-    window.location.href = "../submission_form.html";
+    const showResult = await shouldShowResultPage();
+    window.location.href = showResult ? RESULT_PAGE_PATH : SUBMISSION_FORM_PATH;
   }
 
   function handleSubmit(event) {
