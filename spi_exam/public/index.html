@@ -81,6 +81,30 @@
       position: relative;
     }
 
+    .logout-btn {
+      margin-left: auto;
+      padding: 0.375rem 0.75rem;
+      background-color: transparent;
+      color: #2f98a5;
+      border: 1px solid #2f98a5;
+      border-radius: 4px;
+      font-size: 0.875rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .logout-btn:hover,
+    .logout-btn:focus-visible {
+      background-color: #2f98a5;
+      color: #fff;
+      outline: none;
+    }
+
+    .logout-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
     .logo {
       width: 35px;
       height: 35px;
@@ -521,6 +545,9 @@
         <header class="header">
             <div class="logo"></div>
             <span class="site-title">バクソクＳＰＩ</span>
+            <button type="button" id="logout-button" class="logout-btn" hidden>
+              ログアウト
+            </button>
         </header>
 
         <!-- メインコンテンツ -->
@@ -765,7 +792,38 @@
                 <a href="index.html">TOPへ</a>
             </nav>
         </footer>
-</div>
+    </div>
+
+    <script type="module">
+      import { auth, api } from "./auth/js/firebase.js";
+      import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+      const logoutButton = document.getElementById("logout-button");
+
+      if (logoutButton) {
+        onAuthStateChanged(auth, (user) => {
+          if (user) {
+            logoutButton.hidden = false;
+            logoutButton.disabled = false;
+          } else {
+            logoutButton.hidden = true;
+            logoutButton.disabled = false;
+          }
+        });
+
+        logoutButton.addEventListener("click", async () => {
+          if (logoutButton.disabled) return;
+          logoutButton.disabled = true;
+          try {
+            await api.signOut();
+          } catch (error) {
+            console.error("Failed to sign out", error);
+            alert("ログアウトに失敗しました。時間をおいて再度お試しください。");
+            logoutButton.disabled = false;
+          }
+        });
+      }
+    </script>
 </body>
 
-</html> 
+</html>
