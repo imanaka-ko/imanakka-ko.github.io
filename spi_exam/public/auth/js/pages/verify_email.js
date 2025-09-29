@@ -18,6 +18,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   // Try auto-redirect if already verified.
   if (auth.currentUser) {
     await helpers.ensureFreshUser();
-    if (auth.currentUser.emailVerified) location.href = "home.html";
+    if (auth.currentUser.emailVerified) location.href = "my-page.html";
   }
 });
