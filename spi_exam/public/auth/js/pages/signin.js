@@ -8,19 +8,7 @@ function resolveRedirect() {
     if (!redirect) return null;
     const url = new URL(redirect, window.location.href);
     if (url.origin !== window.location.origin) return null;
-    const needsBasePrefix = redirect.startsWith("/");
-    const path = (() => {
-      const { pathname } = window.location;
-      const authIndex = pathname.lastIndexOf("/auth/");
-      const basePath = authIndex >= 0 ? pathname.slice(0, authIndex + 1) : pathname.slice(0, pathname.lastIndexOf("/") + 1);
-      if (!needsBasePrefix || !basePath || basePath === "/") {
-        return url.pathname;
-      }
-      return url.pathname.startsWith(basePath)
-        ? url.pathname
-        : `${basePath.replace(/\/$/, "")}${url.pathname}`;
-    })();
-    return `${path}${url.search}${url.hash}`;
+    return `${url.pathname}${url.search}${url.hash}`;
   } catch (error) {
     console.error("Failed to resolve redirect target", error);
     return null;
