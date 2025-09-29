@@ -12,6 +12,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (newp != confirm) throw new Error("確認用パスワードが一致しません");
     await api.updatePasswordWithReauth(current, newp);
     showToast("パスワードを更新しました");
-    location.href = "home.html";
+    location.href = "my-page.html";
   });
 });
