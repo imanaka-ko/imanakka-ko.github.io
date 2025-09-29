@@ -1,6 +1,5 @@
 (function () {
   const RESULTS_KEY = "spiExamResults";
-  const REDIRECT_PATH = "select-mode.html";
 
   const titleEl = document.getElementById("resultTitle");
   const metaEl = document.getElementById("resultMeta");
@@ -8,12 +7,25 @@
   const totalEl = document.getElementById("totalCount");
   const accuracyEl = document.getElementById("accuracy");
   const answersBodyEl = document.getElementById("answersBody");
+  const contentEl = document.getElementById("resultContent");
+  const emptyEl = document.getElementById("resultEmpty");
 
-  function redirectToStart(message) {
-    if (message) {
-      window.alert(message);
+  function showEmptyState() {
+    if (contentEl) {
+      contentEl.hidden = true;
     }
-    window.location.href = REDIRECT_PATH;
+    if (emptyEl) {
+      emptyEl.hidden = false;
+    }
+  }
+
+  function showResultContent() {
+    if (emptyEl) {
+      emptyEl.hidden = true;
+    }
+    if (contentEl) {
+      contentEl.hidden = false;
+    }
   }
 
   function formatTime(seconds) {
@@ -99,6 +111,7 @@
   }
 
   function render(result) {
+    showResultContent();
     titleEl.textContent = result.title || "受験結果";
     const mode = result.mode ? `モード: ${result.mode}` : "";
     const category = result.category ? `カテゴリ: ${result.category}` : "";
@@ -119,18 +132,18 @@
     try {
       const raw = sessionStorage.getItem(RESULTS_KEY);
       if (!raw) {
-        redirectToStart("受験結果が見つかりませんでした。もう一度受験を開始してください。");
+        showEmptyState();
         return;
       }
       const result = JSON.parse(raw);
       if (!result || typeof result !== "object") {
-        redirectToStart("受験結果の読み込みに失敗しました。");
+        showEmptyState();
         return;
       }
       render(result);
     } catch (error) {
       console.error(error);
-      redirectToStart("受験結果の読み込みに失敗しました。");
+      showEmptyState();
     }
   }
 
