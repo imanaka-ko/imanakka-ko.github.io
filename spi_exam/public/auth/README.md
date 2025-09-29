@@ -9,15 +9,15 @@
 - `auth/signin.html` → `auth/js/pages/signin.js`
 - `auth/signup.html` → `auth/js/pages/signup.js`
 - `auth/verify_email.html` → `auth/js/pages/verify_email.js`
-- `auth/home.html` → `auth/js/pages/home.js`
+- `auth/my-page.html` → `auth/js/pages/home.js`
 - `auth/change_email.html` → `auth/js/pages/change_email.js`
 - `auth/change_password.html` → `auth/js/pages/change_password.js`
 
 ## フロー
 - **新規登録**: メール/パスワード作成 → 確認メール送信 → `verify_email.html` へ遷移  
-- **サインイン**: 検証済みなら `home.html`、未検証なら `verify_email.html`  
+- **サインイン**: 検証済みなら `my-page.html`、未検証なら `verify_email.html`
 - **メール変更**: 現在のパスワードで再認証 → `updateEmail` → 新メール宛へ確認メール送信 → `verify_email.html`  
-- **パスワード変更**: 現在のパスワードで再認証 → `updatePassword` → `home.html`
+- **パスワード変更**: 現在のパスワードで再認証 → `updatePassword` → `my-page.html`
 
 ## 注意
 - CDN の Firebase ESM を利用しています。社内CDNやバンドルが必要な場合は `firebase.js` を適宜変えてください。

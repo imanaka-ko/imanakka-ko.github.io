@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const email = String(fd.get("email") || "");
     const password = String(fd.get("password") || "");
     const u = await api.signIn(email, password);
-    if (u.emailVerified) location.href = "home.html";
+    if (u.emailVerified) location.href = "my-page.html";
     else location.href = "verify_email.html";
   });
 });
