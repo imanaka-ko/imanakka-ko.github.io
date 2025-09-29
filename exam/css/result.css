@@ -20,6 +20,27 @@
     margin-bottom: 2rem;
 }
 
+.result-empty {
+    text-align: center;
+    padding: 4rem 1rem;
+    background: #f7fbfd;
+    border: 1px solid #d1ecf1;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+}
+
+.result-empty__title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.result-empty__message {
+    font-size: 1rem;
+    color: #666;
+    margin: 0;
+}
+
 .summary-card {
     background: #f7fbfd;
     border: 1px solid #d1ecf1;

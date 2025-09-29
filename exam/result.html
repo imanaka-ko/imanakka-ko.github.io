@@ -22,49 +22,56 @@
             </a>
         </header>
         <main class="main-content">
-            <section class="result-header">
-                <h1 class="result-title" id="resultTitle">受験結果</h1>
-                <p class="result-meta" id="resultMeta">結果を読み込んでいます...</p>
+            <section class="result-empty" id="resultEmpty" hidden>
+                <h1 class="result-empty__title">模擬試験の結果</h1>
+                <p class="result-empty__message">模擬試験を受けてから結果が表示されます。</p>
             </section>
 
-            <section class="result-summary">
-                <div class="summary-card">
-                    <span class="label">正答数</span>
-                    <span class="value" id="correctCount">--</span>
-                </div>
-                <div class="summary-card">
-                    <span class="label">問題数</span>
-                    <span class="value" id="totalCount">--</span>
-                </div>
-                <div class="summary-card">
-                    <span class="label">正答率</span>
-                    <span class="value" id="accuracy">--%</span>
-                </div>
-            </section>
+            <div class="result-content" id="resultContent" hidden>
+                <section class="result-header">
+                    <h1 class="result-title" id="resultTitle">受験結果</h1>
+                    <p class="result-meta" id="resultMeta">結果を読み込んでいます...</p>
+                </section>
 
-            <div class="result-actions">
-                <a href="select-mode.html" class="primary">別の受験モードへ</a>
-                <a href="../index.html" class="secondary">TOPへ戻る</a>
+                <section class="result-summary">
+                    <div class="summary-card">
+                        <span class="label">正答数</span>
+                        <span class="value" id="correctCount">--</span>
+                    </div>
+                    <div class="summary-card">
+                        <span class="label">問題数</span>
+                        <span class="value" id="totalCount">--</span>
+                    </div>
+                    <div class="summary-card">
+                        <span class="label">正答率</span>
+                        <span class="value" id="accuracy">--%</span>
+                    </div>
+                </section>
+
+                <div class="result-actions">
+                    <a href="select-mode.html" class="primary">別の受験モードへ</a>
+                    <a href="../index.html" class="secondary">TOPへ戻る</a>
+                </div>
+
+                <section class="result-details">
+                    <table class="answers-table" id="answersTable" aria-live="polite">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">あなたの回答</th>
+                                <th scope="col">正解</th>
+                                <th scope="col">所要時間</th>
+                                <th scope="col">判定</th>
+                            </tr>
+                        </thead>
+                        <tbody id="answersBody">
+                            <tr>
+                                <td colspan="5">結果を読み込んでいます...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
             </div>
-
-            <section class="result-details">
-                <table class="answers-table" id="answersTable" aria-live="polite">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">あなたの回答</th>
-                            <th scope="col">正解</th>
-                            <th scope="col">所要時間</th>
-                            <th scope="col">判定</th>
-                        </tr>
-                    </thead>
-                    <tbody id="answersBody">
-                        <tr>
-                            <td colspan="5">結果を読み込んでいます...</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </section>
         </main>
         <footer class="footer">
             <nav class="footer-nav">
