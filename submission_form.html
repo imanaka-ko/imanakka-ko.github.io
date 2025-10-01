@@ -239,6 +239,21 @@ if (gradYearSelect) {
 }
 
 /* ===== 送信処理（Lambda + API Gateway にPOST） ===== */
+const SUBMISSION_STORAGE_KEY = 'registerSubmissionData';
+
+function saveSubmissionData(data) {
+  if (!data) {
+    return;
+  }
+  try {
+    if (typeof window !== 'undefined' && window.sessionStorage) {
+      sessionStorage.setItem(SUBMISSION_STORAGE_KEY, JSON.stringify(data));
+    }
+  } catch (error) {
+    console.warn('Failed to persist submission data for register pages', error);
+  }
+}
+
 const submissionForm = document.getElementById('submissionForm');
 const submitBtn = document.getElementById('submitBtn');
 const agreementCheckbox = document.getElementById('agreementCheckbox');
@@ -315,6 +330,9 @@ if (submissionForm) {
 
       // レスポンス本文を使いたい場合はここで parse
       // const data = await res.json().catch(() => ({}));
+
+      // register画面で利用できるように会員情報を保存
+      saveSubmissionData(payload);
 
       // 正常終了後の遷移
       let redirectUrl = 'register_1.html';
