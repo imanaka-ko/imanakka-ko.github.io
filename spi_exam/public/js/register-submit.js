@@ -1,16 +1,86 @@
 (function () {
   const GAS_URL = "https://script.google.com/macros/s/AKfycbzJZdmfsPzYeDkkAUBVdS0694mLUe7fXJLB7QZ_TLUh9yu2WwRB3pVAQLrW4AtNjfX9Og/exec";
   const nativeSubmit = HTMLFormElement.prototype.submit;
+  const SUBMISSION_STORAGE_KEY = "registerSubmissionData";
 
-  function triggerGas(recipients) {
-    const url = new URL(GAS_URL);
-    if (Array.isArray(recipients) && recipients.length > 0) {
-      url.searchParams.set("recipient", recipients.join(","));
+  function readSubmissionData() {
+    try {
+      if (typeof window === "undefined" || !window.sessionStorage) {
+        return null;
+      }
+      const raw = sessionStorage.getItem(SUBMISSION_STORAGE_KEY);
+      if (!raw) {
+        return null;
+      }
+      return JSON.parse(raw);
+    } catch (error) {
+      console.warn("Failed to read stored submission data", error);
+      return null;
+    }
+  }
+
+  function clearSubmissionData() {
+    try {
+      if (typeof window !== "undefined" && window.sessionStorage) {
+        sessionStorage.removeItem(SUBMISSION_STORAGE_KEY);
+      }
+    } catch (error) {
+      console.warn("Failed to clear stored submission data", error);
     }
 
-    return fetch(url.toString(), {
-      method: "GET",
+    try {
+      if (typeof window !== "undefined" && "registerSubmissionData" in window) {
+        delete window.registerSubmissionData;
+      }
+    } catch (error) {
+      if (typeof window !== "undefined") {
+        window.registerSubmissionData = undefined;
+      }
+    }
+
+    submissionDataCache = null;
+  }
+
+  let submissionDataCache = readSubmissionData();
+
+  if (submissionDataCache) {
+    window.registerSubmissionData = submissionDataCache;
+    try {
+      document.dispatchEvent(
+        new CustomEvent("register:submission-data", { detail: submissionDataCache })
+      );
+    } catch (error) {
+      console.warn("Failed to dispatch submission data event", error);
+    }
+  }
+
+  function getSubmissionData() {
+    if (!submissionDataCache) {
+      submissionDataCache = readSubmissionData();
+      if (submissionDataCache) {
+        window.registerSubmissionData = submissionDataCache;
+      }
+    }
+    return submissionDataCache;
+  }
+
+  function triggerGas(recipients, submissionData) {
+    const payload = {};
+    if (Array.isArray(recipients) && recipients.length > 0) {
+      payload.recipients = recipients;
+    }
+    if (submissionData && typeof submissionData === "object") {
+      payload.registration = submissionData;
+    }
+
+    if (Object.keys(payload).length === 0) {
+      return Promise.resolve();
+    }
+
+    return fetch(GAS_URL, {
+      method: "POST",
       mode: "no-cors",
+      body: JSON.stringify(payload),
     }).catch((error) => {
       console.error("Failed to trigger GAS", error);
     });
@@ -51,7 +121,13 @@
         event.preventDefault();
         const recipients = collectRecipients(form);
 
-        triggerGas(recipients).finally(() => {
+        const submissionData = getSubmissionData();
+        if (!submissionData) {
+          console.warn("No submission data found for register page.");
+        }
+
+        triggerGas(recipients, submissionData).finally(() => {
+          clearSubmissionData();
           nativeSubmit.call(form);
         });
       });
