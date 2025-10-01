@@ -120,3 +120,164 @@ function doGet() {
 [6]: https://ryjkmr.com/gas-web-app-deploy-new-same-url/?utm_source=chatgpt.com "GASのWebアプリでURLを変えずに新バージョンを公開する ..."
 [7]: https://auto-worker.com/blog/?p=3565&utm_source=chatgpt.com "GASでウェブアプリケーション公開方法と実行・アクセス ..."
 [8]: https://developers.google.com/apps-script/guides/services/authorization?hl=ja&utm_source=chatgpt.com "Google サービスの承認 | Apps Script"
+
+
+はい、可能です。
+下のサンプルは **Google Apps Script** だけで、以下を自動化します。
+
+* ドライブ内で、**ファイル名に特定の文字列を含む Google スプレッドシート**を検索
+* （必要なら特定フォルダに限定）
+* 各ファイルの **先頭シート／指定シート／全シート** を **CSV** に変換
+* CSV を 1 通のメールに **添付**して送付（任意で ZIP 1 つにまとめる）
+
+---
+
+## スクリプト（貼り付けてそのまま動きます）
+
+```javascript
+function exportCsvAndMail() {
+  // ===== 設定 =====
+  const SEARCH_TEXT = '売上';                 // ファイル名に含める検索文字列
+  const RECIPIENT = 'you@example.com';        // 送信先
+  const SUBJECT = '[自動送信] CSVエクスポート';
+  const MESSAGE = '対象のスプレッドシートをCSV化して添付しました。';
+  const RESTRICT_FOLDER_ID = '';              // 特定フォルダに限定する場合はIDをセット（空なら全ドライブ）
+  const EXPORT_ALL_SHEETS = false;            // true: 各ファイルの全シートをCSV化 / false: 1枚だけ
+  const SHEET_NAME = '';                      // ここに名前を入れるとそのシートのみ。空なら先頭シート
+  const ZIP_ATTACHMENTS = false;              // true: すべてのCSVをZIP 1 つにまとめて添付
+  const USE_BOM = true;                       // true: Excelでの文字化け防止にBOM付与
+  // =================
+
+  const attachments = [];
+
+  // Driveの検索クエリ（Googleスプレッドシート & タイトルに文字列を含む）
+  const query =
+    'title contains "' + escapeForQuery_(SEARCH_TEXT) +
+    '" and mimeType = "application/vnd.google-apps.spreadsheet"';
+
+  const iterator = RESTRICT_FOLDER_ID
+    ? DriveApp.getFolderById(RESTRICT_FOLDER_ID).searchFiles(query)
+    : DriveApp.searchFiles(query);
+
+  let found = 0;
+  while (iterator.hasNext()) {
+    const file = iterator.next();
+    found++;
+    const ss = SpreadsheetApp.openById(file.getId());
+
+    // 対象シートの決定
+    const targetSheets = (() => {
+      if (EXPORT_ALL_SHEETS) return ss.getSheets();
+      if (SHEET_NAME) {
+        const s = ss.getSheetByName(SHEET_NAME);
+        return s ? [s] : [];
+      }
+      return [ss.getSheets()[0]]; // デフォルトは先頭シート
+    })();
+
+    if (targetSheets.length === 0) {
+      Logger.log('シート未検出のためスキップ: ' + file.getName());
+      continue;
+    }
+
+    // CSV化して添付用Blobを作成
+    targetSheets.forEach(sheet => {
+      const values = sheet.getDataRange().getDisplayValues(); // 表示値をCSV化
+      const csv = toCsv_(values);
+      const prefix = sanitizeFilename_(file.getName());
+      const sname  = sanitizeFilename_(sheet.getName());
+      const name   = prefix + '_' + sname + '.csv';
+      const content = (USE_BOM ? '\uFEFF' : '') + csv; // 必要ならBOM付与
+      const blob = Utilities.newBlob(content, 'text/csv', name);
+      attachments.push(blob);
+    });
+  }
+
+  if (found === 0) {
+    Logger.log('一致するスプレッドシートがありません: "' + SEARCH_TEXT + '"');
+    return;
+  }
+  if (attachments.length === 0) {
+    Logger.log('出力対象のシートがありませんでした。');
+    return;
+  }
+
+  // 必要に応じてZIP化
+  const finalAttachments = ZIP_ATTACHMENTS
+    ? [Utilities.zip(
+        attachments,
+        'csv_export_' + Utilities.formatDate(new Date(), Session.getScriptTimeZone(), 'yyyyMMdd_HHmmss') + '.zip'
+      )]
+    : attachments;
+
+  // メール送信
+  MailApp.sendEmail({
+    to: RECIPIENT,
+    subject: SUBJECT,
+    body: MESSAGE,
+    attachments: finalAttachments
+  });
+
+  Logger.log('送信完了: ' + RECIPIENT + ' / 添付ファイル数: ' + finalAttachments.length);
+}
+
+// 2次元配列 -> CSV文字列
+function toCsv_(data) {
+  return data.map(row =>
+    row.map(cell => {
+      const s = cell == null ? '' : String(cell);
+      const needQuote = /[",\r\n]/.test(s);
+      const escaped   = s.replace(/"/g, '""');
+      return needQuote ? `"${escaped}"` : escaped;
+    }).join(',')
+  ).join('\r\n');
+}
+
+// Drive検索クエリ用エスケープ
+function escapeForQuery_(s) {
+  return String(s).replace(/["\\]/g, '\\$&');
+}
+
+// 添付ファイル名に使えない文字を置換
+function sanitizeFilename_(s) {
+  return String(s).replace(/[\\\/:*?"<>|]/g, '_');
+}
+```
+
+---
+
+## 使い方
+
+1. Google ドライブで **拡張機能 → Apps Script**（または [script.new](https://script.new)）を開く
+2. そのまま上記コードを貼り付け、**設定欄**の各値（`SEARCH_TEXT`, `RECIPIENT` など）を用途に合わせて編集
+3. `exportCsvAndMail` を実行（初回のみ権限承認が必要）
+4. 定期実行したい場合は **トリガー** で時間主導トリガーを追加
+
+   * 例：毎朝 9:00 に自動送信
+
+   ```javascript
+   function createTrigger_() {
+     ScriptApp.newTrigger('exportCsvAndMail').timeBased().everyDays(1).atHour(9).create();
+   }
+   ```
+
+---
+
+## 実装のポイント・注意事項
+
+* **対象ファイル**：Google スプレッドシート（`application/vnd.google-apps.spreadsheet`）のみを検索します。Excel（.xlsx）ファイルは対象外です。必要なら事前に Google スプレッドシートへ変換してください。
+* **どのシートをCSV化するか**：
+
+  * 既定は**先頭シート**
+  * `SHEET_NAME` を指定すればそのシートのみ
+  * `EXPORT_ALL_SHEETS = true` で**全シート**をそれぞれCSVに
+* **文字化け対策**：`USE_BOM = true` で UTF-8 BOM を付与しています（日本語 Excel での文字化け回避）。
+* **サイズ制限**：Gmail は **25MB/通** まで。添付が多い／大きい場合は `ZIP_ATTACHMENTS = true` を推奨。
+* **検索範囲の限定**：`RESTRICT_FOLDER_ID` にフォルダIDを入れれば、そのフォルダ配下だけを対象にできます（フォルダURLの `folders/` 以降がID）。
+* **表示値でのエクスポート**：`getDisplayValues()` を使っているため、数式は**計算後の見た目の値**でCSV化されます（書式に依存する日付などもその表示どおり）。
+
+---
+
+必要に応じて、検索条件の追加（例：更新日の条件）や、本文を HTML にする（`GmailApp.sendEmail` を使う）などの拡張も可能です。
+要件に合わせてカスタマイズ版を作ることもできますので、もし細かい仕様（対象フォルダ、シート名のルール、送信先の振り分けなど）があれば教えてください。
+
