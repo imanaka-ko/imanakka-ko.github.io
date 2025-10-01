@@ -12,6 +12,13 @@ const DEFAULT_EXPORT_SETTINGS = Object.freeze({
 
 function exportCsvAndMail(overrides) {
   const config = Object.assign({}, DEFAULT_EXPORT_SETTINGS, overrides || {});
+  const recipients = normalizeRecipients_(
+    'recipients' in config ? config.recipients : config.recipient
+  );
+  if (recipients.length === 0) {
+    throw new Error('送信先のメールアドレスが設定されていません。');
+  }
+
   const attachments = [];
 
   // Driveの検索クエリ（Googleスプレッドシート & タイトルに文字列を含む）
@@ -75,17 +82,19 @@ function exportCsvAndMail(overrides) {
     : attachments;
 
   // メール送信
+  const recipientString = recipients.join(',');
+
   MailApp.sendEmail({
-    to: config.recipient,
+    to: recipientString,
     subject: config.subject,
     body: config.message,
     attachments: finalAttachments
   });
 
-  Logger.log('送信完了: ' + config.recipient + ' / 添付ファイル数: ' + finalAttachments.length);
+  Logger.log('送信完了: ' + recipientString + ' / 添付ファイル数: ' + finalAttachments.length);
 
   return {
-    recipient: config.recipient,
+    recipients,
     attachmentCount: finalAttachments.length
   };
 }
@@ -103,14 +112,18 @@ function runExportCsvAndMail_(e) {
   const overrides = {};
 
   if (params.recipient) {
-    overrides.recipient = params.recipient;
+    overrides.recipients = parseRecipientParam_(params.recipient);
   }
 
   try {
     const result = exportCsvAndMail(overrides) || {};
+    const recipientsForResponse = result.recipients && result.recipients.length > 0
+      ? result.recipients
+      : normalizeRecipients_(overrides.recipients || DEFAULT_EXPORT_SETTINGS.recipient);
     return ContentService.createTextOutput(JSON.stringify({
       status: 'ok',
-      recipient: result.recipient || overrides.recipient || DEFAULT_EXPORT_SETTINGS.recipient,
+      recipients: recipientsForResponse,
+      recipient: recipientsForResponse.join(','),
       attachments: result.attachmentCount || 0
     })).setMimeType(ContentService.MimeType.JSON);
   } catch (error) {
@@ -142,4 +155,28 @@ function escapeForQuery_(s) {
 // 添付ファイル名に使えない文字を置換
 function sanitizeFilename_(s) {
   return String(s).replace(/[\\\/:*?"<>|]/g, '_');
+}
+
+function parseRecipientParam_(value) {
+  if (!value) return [];
+  if (Array.isArray(value)) {
+    return value.reduce((acc, item) => acc.concat(parseRecipientParam_(item)), []);
+  }
+  return String(value)
+    .split(',')
+    .map(s => s.trim())
+    .filter(Boolean);
+}
+
+function normalizeRecipients_(value) {
+  const rawList = parseRecipientParam_(value);
+  const seen = new Set();
+  const normalized = [];
+  rawList.forEach(address => {
+    if (!seen.has(address)) {
+      seen.add(address);
+      normalized.push(address);
+    }
+  });
+  return normalized;
 }
