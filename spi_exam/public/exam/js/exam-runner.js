@@ -190,7 +190,7 @@
 
     renderProgressBars();
     const question = questions[currentIndex];
-    subjectEl.textContent = state.title || "バクソクSPI";
+    subjectEl.textContent = state.title || "就活SPI";
     descriptionEl.textContent = state.description || "設問に回答してください。";
     questionTitleEl.textContent = `問題 ${currentIndex + 1}/${questions.length}`;
     questionTextEl.innerHTML = question.prompt_html || "";
