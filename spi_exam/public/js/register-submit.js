@@ -112,14 +112,23 @@
         .forEach((email) => recipients.add(email));
     }
 
-    return Array.from(recipients);
+    return {
+      recipients: Array.from(recipients),
+      hasRecipientCheckboxes,
+    };
   }
 
   document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll("form[data-recipient]").forEach((form) => {
       form.addEventListener("submit", (event) => {
         event.preventDefault();
-        const recipients = collectRecipients(form);
+        const { recipients, hasRecipientCheckboxes } = collectRecipients(form);
+
+        if (hasRecipientCheckboxes && recipients.length === 0) {
+          clearSubmissionData();
+          nativeSubmit.call(form);
+          return;
+        }
 
         const submissionData = getSubmissionData();
         if (!submissionData) {
