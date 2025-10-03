@@ -1,3 +1,6 @@
+// --- 固有設定（ここをあなたの環境に合わせて書き換え） ---
+const SPREADSHEET_ID = '1rX3JIzTZrMymRaX1LLfXGquHO1K3ye7EMUVuu2INKWU';   // /d/ と /edit の間
+const SHEET_NAME = 'registrations';               // タブ名
 const RECIPIENT_FIELD_NAME = 'Service Recipients';
 const DEFAULT_FIELD_ORDER = [
   'lastName',
@@ -15,57 +18,36 @@ const DEFAULT_FIELD_ORDER = [
   'phone',
 ];
 
+// --- 以下は通常変更不要 ---
 function getConfig_() {
-  const props = PropertiesService.getScriptProperties();
-  const spreadsheetId = props.getProperty('REGISTER_SPREADSHEET_ID') || props.getProperty('SHEET_ID');
-  const sheetName = props.getProperty('REGISTER_SHEET_NAME') || props.getProperty('SHEET_NAME') || 'registrations';
-
-  if (!spreadsheetId) {
-    throw new Error('Missing spreadsheet id. Set REGISTER_SPREADSHEET_ID in the script properties.');
-  }
-
-  return { spreadsheetId, sheetName };
+  return { spreadsheetId: SPREADSHEET_ID, sheetName: SHEET_NAME };
 }
 
 function normalizeRecipients_(rawRecipients) {
-  if (!rawRecipients) {
-    return '';
-  }
+  if (!rawRecipients) return '';
   if (Array.isArray(rawRecipients)) {
     return rawRecipients
-      .map(function (value) {
-        return String(value || '').trim();
-      })
-      .filter(function (value) {
-        return value.length > 0;
-      })
+      .map(v => String(v || '').trim())
+      .filter(v => v.length > 0)
       .join(',');
   }
-  if (typeof rawRecipients === 'string') {
-    return rawRecipients.trim();
-  }
+  if (typeof rawRecipients === 'string') return rawRecipients.trim();
   return '';
 }
 
 function buildRow_(payload) {
-  var registration = payload && payload.registration ? payload.registration : {};
-  var recipients = normalizeRecipients_(payload && payload.recipients);
-  var values = [recipients];
-
-  DEFAULT_FIELD_ORDER.forEach(function (field) {
-    var value = registration[field];
-    if (value === undefined || value === null) {
-      values.push('');
-    } else {
-      values.push(String(value));
-    }
+  const registration = (payload && payload.registration) ? payload.registration : {};
+  const recipients = normalizeRecipients_(payload && payload.recipients);
+  const values = [recipients];
+  DEFAULT_FIELD_ORDER.forEach(field => {
+    const value = registration[field];
+    values.push(value == null ? '' : String(value));
   });
-
   return values;
 }
 
 function appendRow_(sheet, rowValues) {
-  var lastColumn = sheet.getMaxColumns();
+  const lastColumn = sheet.getMaxColumns();
   if (rowValues.length > lastColumn) {
     sheet.insertColumnsAfter(lastColumn, rowValues.length - lastColumn);
   }
@@ -73,46 +55,33 @@ function appendRow_(sheet, rowValues) {
 }
 
 function ensureHeaderRow_(sheet) {
-  var header = sheet.getRange(1, 1, 1, sheet.getMaxColumns()).getValues()[0];
-  if (header && header[0]) {
-    return;
-  }
-
-  var values = [RECIPIENT_FIELD_NAME].concat(DEFAULT_FIELD_ORDER);
+  const header = sheet.getRange(1, 1, 1, sheet.getMaxColumns()).getValues()[0];
+  if (header && header[0]) return; // A1に何か入っていれば何もしない
+  const values = [RECIPIENT_FIELD_NAME].concat(DEFAULT_FIELD_ORDER);
   sheet.getRange(1, 1, 1, values.length).setValues([values]);
 }
 
 function parseRequestBody_(e) {
-  if (!e) {
-    return {};
-  }
+  if (!e) return {};
   if (e.postData && e.postData.contents) {
-    try {
-      return JSON.parse(e.postData.contents);
-    } catch (error) {
-      Logger.log('Failed to parse JSON body: ' + error);
-    }
+    try { return JSON.parse(e.postData.contents); } catch (err) {}
   }
-  var params = e.parameter || {};
+  const params = e.parameter || {};
   if (typeof params === 'string') {
-    try {
-      return JSON.parse(params);
-    } catch (error) {
-      Logger.log('Failed to parse string parameter body: ' + error);
-    }
+    try { return JSON.parse(params); } catch (err) {}
   }
   return params;
 }
 
 function doPost(e) {
   try {
-    var config = getConfig_();
-    var payload = parseRequestBody_(e);
-    var spreadsheet = SpreadsheetApp.openById(config.spreadsheetId);
-    var sheet = spreadsheet.getSheetByName(config.sheetName) || spreadsheet.insertSheet(config.sheetName);
+    const { spreadsheetId, sheetName } = getConfig_();
+    const payload = parseRequestBody_(e);
+    const spreadsheet = SpreadsheetApp.openById(spreadsheetId);
+    const sheet = spreadsheet.getSheetByName(sheetName) || spreadsheet.insertSheet(sheetName);
 
     ensureHeaderRow_(sheet);
-    var row = buildRow_(payload);
+    const row = buildRow_(payload);
     appendRow_(sheet, row);
 
     return ContentService.createTextOutput(JSON.stringify({ ok: true }))
