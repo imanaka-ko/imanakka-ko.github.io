@@ -1,7 +1,5 @@
 (function () {
-  const GAS_URL =
-    window.REGISTER_SERVICE_GAS_URL ||
-    "https://script.google.com/macros/s/AKfycbzNewServiceRegistrationWebhook/exec";
+  const GAS_URL = "https://script.google.com/macros/s/AKfycbzJZdmfsPzYeDkkAUBVdS0694mLUe7fXJLB7QZ_TLUh9yu2WwRB3pVAQLrW4AtNjfX9Og/exec";
   const nativeSubmit = HTMLFormElement.prototype.submit;
   const SUBMISSION_STORAGE_KEY = "registerSubmissionData";
 
