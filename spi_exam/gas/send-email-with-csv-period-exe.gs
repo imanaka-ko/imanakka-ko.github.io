@@ -1,7 +1,8 @@
-const SPREADSHEET_ID = 'REPLACE_WITH_SPREADSHEET_ID';
-const SHEET_NAME = 'シート1';
+const SPREADSHEET_ID = '1rX3JIzTZrMymRaX1LLfXGquHO1K3ye7EMUVuu2INKWU';
+const SHEET_NAME = 'registrations';
 const MAIL_SUBJECT = 'CSVデータ送付のお知らせ';
 const MAIL_BODY = 'スプレッドシートの内容をCSVで送付します。';
+const USE_BOM = true; // true: Excelでの文字化け防止にBOM付与
 
 function sendEmailWithCsvPerRow() {
   const lock = LockService.getScriptLock();
@@ -16,6 +17,7 @@ function sendEmailWithCsvPerRow() {
       throw new Error('指定されたシートが見つかりません。');
     }
 
+    // 見た目の表示どおりで出したい場合は getDisplayValues() に変更してください。
     const dataRange = sheet.getDataRange();
     const values = dataRange.getValues();
     if (values.length <= 1) {
@@ -26,27 +28,24 @@ function sendEmailWithCsvPerRow() {
     const rows = values.slice(1).filter(row => row.some(cell => cell !== '' && cell !== null));
 
     rows.forEach((row, index) => {
-      const rawRecipients = row[0];
-      if (!rawRecipients) {
-        return;
-      }
+      const rawRecipients = row[0]; // A列に送信先アドレス
+      if (!rawRecipients) return;
 
       const recipients = normalizeRecipients(rawRecipients);
-      if (!recipients.length) {
-        return;
-      }
+      if (!recipients.length) return;
 
-      const csvContent = buildCsv([headers, row]);
+      // ==== ここから：Blobで直接添付 ====
+      // 必要に応じてBOMを付与（Excel対策）
+      const csvBody = buildCsv([headers, row]);
+      const csvContent = (USE_BOM ? '\uFEFF' : '') + csvBody;
+
       const fileName = createCsvFileName(index + 1);
-      const file = DriveApp.createFile(fileName, csvContent, MimeType.CSV);
+      const blob = Utilities.newBlob(csvContent, 'text/csv', fileName);
 
-      try {
-        GmailApp.sendEmail(recipients.join(','), MAIL_SUBJECT, MAIL_BODY, {
-          attachments: [file.getAs(MimeType.CSV)],
-        });
-      } finally {
-        file.setTrashed(true);
-      }
+      GmailApp.sendEmail(recipients.join(','), MAIL_SUBJECT, MAIL_BODY, {
+        attachments: [blob],
+      });
+      // ==== ここまで：一時ファイルを作らない ====
     });
 
     clearSheetData(sheet);
@@ -70,12 +69,10 @@ function buildCsv(rows) {
 }
 
 function escapeCsvValue(value) {
-  if (value === null || value === undefined) {
-    return '';
-  }
-
+  if (value === null || value === undefined) return '';
   const stringValue = value.toString();
-  if (/[",\n]/.test(stringValue)) {
+  // 改行は \n だけでなく \r も考慮
+  if (/[",\r\n]/.test(stringValue)) {
     return '"' + stringValue.replace(/"/g, '""') + '"';
   }
   return stringValue;
