@@ -5,30 +5,10 @@
 
   function readSubmissionData() {
     try {
-      if (typeof window === "undefined") {
+      if (typeof window === "undefined" || !window.sessionStorage) {
         return null;
       }
-
-      let raw = null;
-      if (window.localStorage) {
-        raw = localStorage.getItem(SUBMISSION_STORAGE_KEY);
-      }
-
-      if (!raw && window.sessionStorage) {
-        raw = sessionStorage.getItem(SUBMISSION_STORAGE_KEY);
-        if (raw) {
-          // migrate legacy storage to localStorage for the next read
-          if (window.localStorage) {
-            try {
-              localStorage.setItem(SUBMISSION_STORAGE_KEY, raw);
-              sessionStorage.removeItem(SUBMISSION_STORAGE_KEY);
-            } catch (migrationError) {
-              console.warn("Failed to migrate submission data to localStorage", migrationError);
-            }
-          }
-        }
-      }
-
+      const raw = sessionStorage.getItem(SUBMISSION_STORAGE_KEY);
       if (!raw) {
         return null;
       }
@@ -41,6 +21,14 @@
 
   function clearSubmissionData() {
     try {
+      if (typeof window !== "undefined" && window.sessionStorage) {
+        sessionStorage.removeItem(SUBMISSION_STORAGE_KEY);
+      }
+    } catch (error) {
+      console.warn("Failed to clear stored submission data", error);
+    }
+
+    try {
       if (typeof window !== "undefined" && "registerSubmissionData" in window) {
         delete window.registerSubmissionData;
       }
@@ -48,22 +36,6 @@
       if (typeof window !== "undefined") {
         window.registerSubmissionData = undefined;
       }
-    }
-
-    try {
-      if (typeof window !== "undefined" && window.localStorage) {
-        localStorage.removeItem(SUBMISSION_STORAGE_KEY);
-      }
-    } catch (error) {
-      console.warn("Failed to clear stored submission data", error);
-    }
-
-    try {
-      if (typeof window !== "undefined" && window.sessionStorage) {
-        sessionStorage.removeItem(SUBMISSION_STORAGE_KEY);
-      }
-    } catch (error) {
-      console.warn("Failed to clear legacy stored submission data", error);
     }
 
     submissionDataCache = null;
