@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>受験中 - 就活SPI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/exam.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <a href="../index.html" class="logo-container" aria-label="就活SPI トップ">
+                <span class="logo" aria-hidden="true"></span>
+                <span class="site-title">就活SPI</span>
+            </a>
+        </header>
+        <main class="main-content">
+            <div id="examPage" class="exam-page state-unanswered">
+                <div class="exam-header">
+                    <div class="subject" id="examSubject">受験準備中...</div>
+                    <a class="close-btn" href="select-mode.html" aria-label="受験を中断する">&times;</a>
+                </div>
+                <div class="exam-meta">
+                    <div class="answer-time">
+                        <span class="label">回答時間</span>
+                        <div class="progress-bars" id="progressBars"></div>
+                    </div>
+                    <div class="timer-circle" id="timerCircle" aria-live="polite">
+                        <svg class="timer-svg" width="80" height="80" viewBox="0 0 80 80" role="img" aria-label="残り時間">
+                            <circle class="timer-bg" cx="40" cy="40" r="36"></circle>
+                            <circle class="timer-progress" cx="40" cy="40" r="36"></circle>
+                            <text class="timer-text" x="40" y="43" text-anchor="middle" dominant-baseline="middle" id="timerText">--</text>
+                        </svg>
+                    </div>
+                </div>
+                <div class="instruction" id="examDescription">問題データを読み込んでいます...</div>
+                <div class="question-block">
+                    <p class="question-title" id="questionTitle">問題 --/--</p>
+                    <div class="question-text" id="questionText">読み込み中です。</div>
+                </div>
+                <form id="questionForm" class="question-form" novalidate>
+                    <div class="options-list" id="optionsList"></div>
+                    <button type="submit" class="next-button" id="nextButton" disabled>次へ進む</button>
+                </form>
+                <div class="status-message hidden" id="statusMessage" role="alert"></div>
+            </div>
+        </main>
+        <footer class="footer">
+            <nav class="footer-nav">
+                <a href="https://asobibase.jp" target="_blank" rel="noopener">運営会社</a>
+                <a href="../terms.html">利用規約</a>
+                <a href="../privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a>
+                <a href="../index.html">TOPへ</a>
+            </nav>
+        </footer>
+    </div>
+    <script src="js/exam-runner.js"></script>
+</body>
+</html>

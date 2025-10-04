@@ -1,0 +1,370 @@
+/* Exam page specific styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f6f8;
+    color: #333;
+    margin: 0;
+}
+
+a {
+    color: inherit;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    min-height: 100vh;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+}
+
+.header {
+    height: 65px;
+    background-color: #f8f9fa;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo-container:focus,
+.logo-container:hover {
+    text-decoration: none;
+}
+
+.logo {
+    width: 35px;
+    height: 35px;
+    background-image: url('../images/v1_5.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    margin-right: 10px;
+}
+
+.site-title {
+    color: #2f98a5;
+    font-weight: bold;
+    font-size: 1.25rem;
+    text-decoration: none;
+}
+
+.main-content {
+    flex: 1;
+    padding: 20px;
+}
+
+.footer {
+    background-color: #f8f9fa;
+    padding: 1.5rem 20px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.footer-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem 1.5rem;
+}
+
+.footer-nav a {
+    color: #555;
+    font-size: 0.8125rem;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-nav a:hover {
+    color: #2f98a5;
+    text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+    .header {
+        padding: 0 16px;
+    }
+
+    .main-content {
+        padding: 15px;
+    }
+
+    .container {
+        min-height: 100vh;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        height: 60px;
+        padding: 0 15px;
+    }
+
+    .logo {
+        width: 30px;
+        height: 30px;
+    }
+
+    .site-title {
+        font-size: 1.125rem;
+    }
+}
+
+/* Exam interaction styles */
+.exam-page {
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.exam-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.exam-header .subject {
+    font-size: 1rem;
+    color: #555;
+}
+
+.exam-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    gap: 1rem;
+}
+
+.answer-time {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.8rem;
+    color: #444;
+}
+
+.answer-time .label {
+    margin-bottom: 0.25rem;
+}
+
+.progress-bars {
+    display: flex;
+    gap: 4px;
+}
+
+.progress-bars .bar {
+    width: 16px;
+    height: 6px;
+    border-radius: 2px;
+    background-color: #f5cfd6;
+}
+
+.progress-bars .bar.done {
+    background-color: #00a7e1;
+}
+
+.progress-bars .bar.current {
+    background-color: #ffb74d;
+}
+
+.timer-circle {
+    width: 80px;
+    height: 80px;
+    position: relative;
+}
+
+.timer-svg {
+    width: 80px;
+    height: 80px;
+    transform: rotate(-90deg);
+}
+
+.timer-bg {
+    fill: none;
+    stroke: #f0f0f0;
+    stroke-width: 6;
+}
+
+.timer-progress {
+    fill: none;
+    stroke: #00a7e1;
+    stroke-width: 6;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 1s linear;
+}
+
+.timer-text {
+    fill: #000;
+    font-size: 0.9rem;
+    transform: rotate(90deg);
+    transform-box: fill-box;
+    transform-origin: center;
+}
+
+.instruction {
+    background-color: #f7f7f7;
+    border-radius: 4px;
+    padding: 0.75rem 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.question-block {
+    margin-bottom: 1rem;
+}
+
+.question-title {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.question-text {
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.options-list {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.option-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 0.8rem;
+    font-size: 0.95rem;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+}
+
+.option-item:last-child {
+    border-bottom: none;
+}
+
+.option-item input[type="radio"] {
+    accent-color: #00a7e1;
+    margin-right: 0.25rem;
+}
+
+.option-item:hover {
+    background-color: #f7fbfd;
+}
+
+.option-item.selected {
+    background-color: #e6f4f7;
+    border-left: 4px solid #00a7e1;
+}
+
+.next-button {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1rem;
+    margin-top: 1rem;
+    border-radius: 25px;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.2s ease, background-color 0.2s ease;
+}
+
+.next-button:disabled {
+    background-color: #e0e0e0;
+    color: #aaa;
+    cursor: not-allowed;
+}
+
+.next-button:not(:disabled) {
+    background-color: #00a7e1;
+    color: #fff;
+}
+
+.close-btn {
+    text-decoration: none;
+    font-size: 1.25rem;
+    color: #999;
+    line-height: 1;
+}
+
+.close-btn:hover {
+    color: #333;
+}
+
+.exam-page.state-unanswered .next-button {
+    background-color: #e9edf1;
+    color: #b6b6b6;
+}
+
+.exam-page.state-answered .next-button {
+    background-color: #00a7e1;
+    color: #fff;
+}
+
+.exam-page.last-question.state-answered .next-button {
+    background-color: #0096d6;
+}
+
+.exam-page.state-submitting .next-button {
+    opacity: 0.9;
+    position: relative;
+    pointer-events: none;
+}
+
+.exam-page.state-submitting .next-button::after {
+    content: "";
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.9);
+    border-top-color: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 0.5rem;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.status-message {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #e53935;
+}
+
+.timer-circle[data-hidden="true"] {
+    display: none;
+}
+
+.hidden {
+    display: none !important;
+}
+
+@media (max-width: 640px) {
+    .exam-page {
+        padding: 1.25rem;
+    }
+
+    .exam-meta {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .timer-circle {
+        align-self: flex-end;
+    }
+}

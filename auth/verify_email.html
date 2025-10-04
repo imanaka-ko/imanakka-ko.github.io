@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>メール確認 | パウンタSPI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/auth.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div class="header-inner">
+      <a class="brand" href="../index.html">パウンタSPI</a>
+    </div>
+  </header>
+  <main class="app-main">
+    <section class="auth-panel">
+      <h1 class="auth-title">メールアドレスの確認</h1>
+      <p class="auth-subtitle">
+        ご登録いただいたメールアドレス宛に確認メールを送信しました。
+        メール内のリンクを開くと、アカウントが有効になります。
+      </p>
+      <div class="status-card">
+        <h2 class="status-card__title">確認メールが届かない場合</h2>
+        <p class="status-card__text">
+          ・迷惑メールフォルダに振り分けられていないかご確認ください。<br />
+          ・数分経っても届かない場合は、再送信をお試しください。<br />
+          ・それでも届かない場合は <a href="mailto:support@example.jp">support@example.jp</a> までお問い合わせください。
+        </p>
+      </div>
+      <div class="button-row" style="margin-top: 32px;">
+        <a class="button button--primary" href="signin.html">ログイン画面に戻る</a>
+        <a class="button button--ghost" href="#" id="resend-link">確認メールを再送する</a>
+      </div>
+      <div class="form-note">
+        <p>メール確認が完了したら、再度サインインしてマイページをご利用ください。</p>
+      </div>
+    </section>
+  </main>
+  <footer class="app-footer">
+    <div class="footer-inner">
+      <div class="footer-links">
+        <a href="https://asobibase.jp/">運営会社</a>
+        <a href="../terms.html">利用規約</a>
+        <a href="../privacy.html">プライバシーポリシー</a>
+        <a href="../index.html">トップへ</a>
+      </div>
+      <p class="copyright">© パウンタSPI</p>
+    </div>
+  </footer>
+
+  <script type="module" src="./js/pages/verify_email.js"></script>
+</body>
+</html>

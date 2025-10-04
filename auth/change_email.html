@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>メールアドレス変更 | パウンタSPI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/auth.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div class="header-inner">
+      <a class="brand" href="../index.html">パウンタSPI</a>
+    </div>
+  </header>
+  <main class="app-main">
+    <section class="auth-panel">
+      <h1 class="auth-title">メールアドレス変更</h1>
+      <p class="auth-subtitle">
+        ログイン用メールアドレスを別のものに変更できます。
+        ご本人確認のため、現在のパスワードを入力してください。
+      </p>
+      <form class="auth-form" action="#" method="post">
+        <div class="input-group">
+          <label for="change-email-password">現在のパスワード</label>
+          <input id="change-email-password" type="password" name="current-password" placeholder="現在のパスワード" required />
+        </div>
+        <div class="input-group">
+          <label for="change-email-new">新しいメールアドレス</label>
+          <input id="change-email-new" type="email" name="new-email" placeholder="new@example.jp" required />
+        </div>
+        <button class="primary-button" type="submit">メールアドレスを更新する</button>
+      </form>
+      <div class="form-note">
+        <p>更新後は新しいメールに確認リンクが届きます。完了後に再ログインしてください。</p>
+      </div>
+    </section>
+  </main>
+  <footer class="app-footer">
+    <div class="footer-inner">
+      <div class="footer-links">
+        <a href="https://asobibase.jp/">運営会社</a>
+        <a href="../terms.html">利用規約</a>
+        <a href="../privacy.html">プライバシーポリシー</a>
+        <a href="../index.html">トップへ</a>
+      </div>
+      <p class="copyright">© パウンタSPI</p>
+    </div>
+  </footer>
+
+  <script type="module" src="./js/pages/change_email.js"></script>
+</body>
+</html>

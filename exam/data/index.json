@@ -1,0 +1,110 @@
+{
+  "easy_nonverbal_5q": {
+    "path": "easy/nonverbal/easy_nonverbal_5q.json",
+    "mode": "easy",
+    "category": "nonverbal",
+    "title": "かんたん受験 - 非言語",
+    "description": "計算や図形に関する基礎問題を出題します。",
+    "num_questions": 5,
+    "time_per_question_sec": 60
+  },
+  "ratio_nonverbal_2q": {
+    "path": "easy/nonverbal/ratio_nonverbal_2q.json",
+    "mode": "easy",
+    "category": "nonverbal",
+    "title": "かんたん受験 - 非言語（割合2問）",
+    "description": "割合計算の基礎を確認する2問です。",
+    "num_questions": 2,
+    "time_per_question_sec": 60
+  },
+  "easy_language_5q": {
+    "path": "easy/language/easy_language_5q.json",
+    "mode": "easy",
+    "category": "language",
+    "title": "かんたん受験 - 言語",
+    "description": "短時間で5問の言語分野を確認します。",
+    "num_questions": 5,
+    "time_per_question_sec": 60
+  },
+  "words_usage_language_3q": {
+    "path": "easy/language/words_usage_language_3q.json",
+    "mode": "easy",
+    "category": "language",
+    "title": "かんたん受験 - 言語（3問）",
+    "description": "語句の用法や慣用句などを確認する3問の練習問題です。",
+    "num_questions": 3,
+    "time_per_question_sec": 60
+  },
+  "words_meaning_language_3q": {
+    "path": "easy/language/words_meaning_language_3q.json",
+    "mode": "easy",
+    "category": "language",
+    "title": "かんたん受験 - 言語（3問）",
+    "description": "語句の用法や慣用句などを確認する3問の練習問題です。",
+    "num_questions": 3,
+    "time_per_question_sec": 60
+  },
+  "easy_language_3q": {
+    "path": "easy/language/easy_language_3q.json",
+    "mode": "easy",
+    "category": "language",
+    "title": "かんたん受験 - 言語（3問）",
+    "description": "語句の用法や意味を確認する3問の練習問題です。",
+    "num_questions": 3,
+    "time_per_question_sec": 60
+  },
+  "word_meaning_english_4q": {
+    "path": "easy/english/word_meaning_english_4q.json",
+    "mode": "easy",
+    "category": "english",
+    "title": "かんたん受験 - 英語（単語の意味4問）",
+    "description": "英単語の意味を問う4問の練習問題です。",
+    "num_questions": 4,
+    "time_per_question_sec": 60
+  },
+  "easy_english_5q": {
+    "path": "easy/english/easy_english_5q.json",
+    "mode": "easy",
+    "category": "english",
+    "title": "かんたん受験 - 英語",
+    "description": "基礎的な英単語と文法の理解を確認します。",
+    "num_questions": 5,
+    "time_per_question_sec": 60
+  },
+  "antonym_english_4q": {
+    "path": "easy/english/antonym_english_4q.json",
+    "mode": "easy",
+    "category": "english",
+    "title": "かんたん受験 - 英語（反意語4問）",
+    "description": "反意語を選ぶ4問の練習問題です。",
+    "num_questions": 4,
+    "time_per_question_sec": 60
+  },
+  "full_nonverbal_15q": {
+    "path": "full/nonverbal/full_nonverbal_15q.json",
+    "mode": "full",
+    "category": "nonverbal",
+    "title": "本格受験 - 非言語",
+    "description": "計算・図形・論理問題を含む15問の模擬問題です。",
+    "num_questions": 15,
+    "time_per_question_sec": 60
+  },
+  "full_language_15q": {
+    "path": "full/language/full_language_15q.json",
+    "mode": "full",
+    "category": "language",
+    "title": "本格受験 - 言語",
+    "description": "語彙力や文法の理解を幅広く確認できる15問の模擬問題です。",
+    "num_questions": 15,
+    "time_per_question_sec": 60
+  },
+  "full_english_15q": {
+    "path": "full/english/full_english_15q.json",
+    "mode": "full",
+    "category": "english",
+    "title": "本格受験 - 英語",
+    "description": "基礎的な語彙と文法、表現を幅広く問う15問の模擬問題です。",
+    "num_questions": 15,
+    "time_per_question_sec": 60
+  }
+}

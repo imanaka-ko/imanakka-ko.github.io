@@ -1,0 +1,83 @@
+body {
+    font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+    background-color: #f5f6f7;
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    max-width: 960px;
+    margin: 2rem auto;
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.header-logo {
+    display: inline-block;
+    background-color: #4ec3c7;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.description {
+    margin-top: 1.5rem;
+    line-height: 1.6;
+}
+
+.service {
+    display: flex;
+    gap: 1.5rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.service img {
+    width: 120px;
+    height: auto;
+    object-fit: contain;
+}
+
+.service h3 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.service p {
+    margin: 0.5rem 0 0;
+    line-height: 1.5;
+}
+
+.terms {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+.terms input {
+    margin-right: 0.3rem;
+}
+
+.register-btn {
+    margin-top: 2rem;
+    width: 100%;
+    padding: 1rem;
+    background-color: #45b7c4;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 1.1rem;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.register-btn:hover {
+    opacity: 0.9;
+}

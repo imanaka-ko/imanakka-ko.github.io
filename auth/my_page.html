@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ホーム | パウンタSPI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/auth.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div class="header-inner">
+      <a class="brand" href="../index.html">パウンタSPI</a>
+    </div>
+  </header>
+  <main class="app-main">
+    <section class="auth-panel">
+      <h1 class="auth-title">マイページ</h1>
+      <p class="auth-subtitle">
+        ログインが完了しました。模擬試験の受験や学習履歴の確認は、下記のメニューから操作できます。
+      </p>
+      <div class="status-card">
+        <h2 class="status-card__title">現在ログイン中のアカウント</h2>
+        <p class="status-card__text">
+          メールアドレス：user@example.jp<br />
+          ステータス：メール認証済み・プレミアムプラン体験中
+        </p>
+      </div>
+      <div class="button-row" style="margin-top: 32px;">
+        <a class="button button--primary" href="../exam/result.html">模擬試験の結果を見る</a>
+        <a class="button button--primary" href="../exam/index.html">模擬試験を受ける</a>
+        <a class="button button--ghost" href="change_password.html">パスワードを変更する</a>
+        <a class="button button--ghost" href="change_email.html">メールアドレスを変更する</a>
+      </div>
+      <div class="form-note">
+        <p>セキュリティを確保するため、ご利用後は必ずログアウトしてください。</p>
+      </div>
+    </section>
+  </main>
+  <footer class="app-footer">
+    <div class="footer-inner">
+      <div class="footer-links">
+        <a href="https://asobibase.jp/">運営会社</a>
+        <a href="../terms.html">利用規約</a>
+        <a href="../privacy.html">プライバシーポリシー</a>
+        <a href="../index.html">トップへ</a>
+      </div>
+      <p class="copyright">© パウンタSPI</p>
+    </div>
+  </footer>
+
+  <script type="module" src="./js/pages/home.js"></script>
+</body>
+</html>

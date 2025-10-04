@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>受験結果 - 就活SPI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/exam.css">
+    <link rel="stylesheet" href="css/result.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <a href="../index.html" class="logo-container" aria-label="就活SPI トップ">
+                <span class="logo" aria-hidden="true"></span>
+                <span class="site-title">就活SPI</span>
+            </a>
+        </header>
+        <main class="main-content">
+            <section class="result-header">
+                <h1 class="result-title" id="resultTitle">受験結果</h1>
+                <p class="result-meta" id="resultMeta">結果を読み込んでいます...</p>
+            </section>
+
+            <section class="result-summary">
+                <div class="summary-card">
+                    <span class="label">正答数</span>
+                    <span class="value" id="correctCount">--</span>
+                </div>
+                <div class="summary-card">
+                    <span class="label">問題数</span>
+                    <span class="value" id="totalCount">--</span>
+                </div>
+                <div class="summary-card">
+                    <span class="label">正答率</span>
+                    <span class="value" id="accuracy">--%</span>
+                </div>
+            </section>
+
+            <div class="result-actions">
+                <a href="select-mode.html" class="primary">別の受験モードへ</a>
+                <a href="../index.html" class="secondary">TOPへ戻る</a>
+            </div>
+
+            <section class="result-details">
+                <table class="answers-table" id="answersTable" aria-live="polite">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">あなたの回答</th>
+                            <th scope="col">正解</th>
+                            <th scope="col">所要時間</th>
+                            <th scope="col">判定</th>
+                        </tr>
+                    </thead>
+                    <tbody id="answersBody">
+                        <tr>
+                            <td colspan="5">結果を読み込んでいます...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+        <footer class="footer">
+            <nav class="footer-nav">
+                <a href="https://asobibase.jp" target="_blank" rel="noopener">運営会社</a>
+                <a href="../terms.html">利用規約</a>
+                <a href="../privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a>
+                <a href="../index.html">TOPへ</a>
+            </nav>
+        </footer>
+    </div>
+    <script src="js/exam-result.js"></script>
+</body>
+</html>

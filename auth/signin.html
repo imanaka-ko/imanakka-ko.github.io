@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ログイン | パウンタSPI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/auth.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div class="header-inner">
+      <a class="brand" href="../index.html">パウンタSPI</a>
+    </div>
+  </header>
+  <main class="app-main">
+    <section class="auth-panel">
+      <h1 class="auth-title">ログイン</h1>
+      <p class="auth-subtitle">
+        登録済みのメールアドレスとパスワードでサインインしてください。
+        安心してご利用いただけるよう通信はすべて暗号化されています。
+      </p>
+      <form class="auth-form" action="#" method="post">
+        <div class="input-group">
+          <label for="signin-email">メールアドレス</label>
+          <input id="signin-email" type="email" name="email" placeholder="example@domain.jp" required />
+        </div>
+        <div class="input-group">
+          <label for="signin-password">パスワード</label>
+          <input id="signin-password" type="password" name="password" placeholder="半角英数字8文字以上" required />
+        </div>
+        <button class="primary-button" type="submit">サインイン</button>
+      </form>
+      <div class="form-note">
+        <p><a href="../auth/reset_password.html">パスワードをお忘れの方はこちら</a></p>
+        <p>はじめての方は <a href="signup.html">新規登録</a> からご利用ください。</p>
+      </div>
+    </section>
+  </main>
+  <footer class="app-footer">
+    <div class="footer-inner">
+      <div class="footer-links">
+        <a href="https://asobibase.jp/">運営会社</a>
+        <a href="../terms.html">利用規約</a>
+        <a href="../privacy.html">プライバシーポリシー</a>
+        <a href="../index.html">トップへ</a>
+      </div>
+      <p class="copyright">© パウンタSPI</p>
+    </div>
+  </footer>
+
+  <script type="module" src="./js/pages/signin.js"></script>
+</body>
+</html>
