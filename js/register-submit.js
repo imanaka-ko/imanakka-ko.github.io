@@ -135,8 +135,31 @@
           console.warn("No submission data found for register page.");
         }
 
+        const submitButton = form.querySelector(
+          "button[type=\"submit\"], input[type=\"submit\"]"
+        );
+        let originalLabel;
+        if (submitButton) {
+          if (submitButton.tagName === "BUTTON") {
+            originalLabel = submitButton.textContent;
+            submitButton.textContent = "送信中…";
+          } else {
+            originalLabel = submitButton.value;
+            submitButton.value = "送信中…";
+          }
+          submitButton.disabled = true;
+        }
+
         triggerGas(recipients, submissionData).finally(() => {
           clearSubmissionData();
+          if (submitButton) {
+            if (submitButton.tagName === "BUTTON") {
+              submitButton.textContent = originalLabel || "";
+            } else {
+              submitButton.value = originalLabel || "";
+            }
+            submitButton.disabled = false;
+          }
           nativeSubmit.call(form);
         });
       });
