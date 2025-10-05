@@ -16,6 +16,8 @@ const DEFAULT_FIELD_ORDER = [
   'email',
   'phone',
 ];
+const TZ = 'Asia/Tokyo';
+const TIMESTAMP_HEADER = 'timestamp';
 
 // --- 以下は通常変更不要 ---
 function getConfig_() {
@@ -42,6 +44,7 @@ function buildRow_(payload) {
     const value = registration[field];
     values.push(value == null ? '' : String(value));
   });
+  values.push(Utilities.formatDate(new Date(), TZ, 'yyyy-MM-dd HH:mm:ss'));
   return values;
 }
 
@@ -54,10 +57,20 @@ function appendRow_(sheet, rowValues) {
 }
 
 function ensureHeaderRow_(sheet) {
-  const header = sheet.getRange(1, 1, 1, sheet.getMaxColumns()).getValues()[0];
-  if (header && header[0]) return; // A1に何か入っていれば何もしない
-  const values = [RECIPIENT_FIELD_NAME].concat(DEFAULT_FIELD_ORDER);
-  sheet.getRange(1, 1, 1, values.length).setValues([values]);
+  const values = [RECIPIENT_FIELD_NAME]
+    .concat(DEFAULT_FIELD_ORDER)
+    .concat([TIMESTAMP_HEADER]);
+  const requiredColumns = values.length;
+  const maxColumns = sheet.getMaxColumns();
+  if (requiredColumns > maxColumns) {
+    sheet.insertColumnsAfter(maxColumns, requiredColumns - maxColumns);
+  }
+  const headerRange = sheet.getRange(1, 1, 1, requiredColumns);
+  const header = headerRange.getValues()[0];
+  const shouldUpdate = values.some((value, index) => header[index] !== value);
+  if (shouldUpdate) {
+    headerRange.setValues([values]);
+  }
 }
 
 function parseRequestBody_(e) {
