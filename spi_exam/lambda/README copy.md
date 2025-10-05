@@ -10,7 +10,7 @@
 
 1. **HTTP API を作成**
 
-   * ルート：`POST /api/submit`（統合先：上の Lambda）
+   * ルート：`POST /write`（統合先：上の Lambda）
    * **CORS を有効化**
 
      * Allowed origins：`http://127.0.0.1:3000`, `http://localhost:3000`, `https://yourdomain.com`
