@@ -9,7 +9,6 @@ const DEFAULT_FIELD_ORDER = [
   'firstKana',
   'region',
   'gender',
-  'school',
   'schoolName',
   'faculty',
   'department',

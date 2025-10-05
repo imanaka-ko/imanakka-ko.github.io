@@ -24,7 +24,6 @@ function doPost(e) {
       'firstKana',
       'region',
       'gender',
-      'school',
       'schoolName',
       'faculty',
       'department',

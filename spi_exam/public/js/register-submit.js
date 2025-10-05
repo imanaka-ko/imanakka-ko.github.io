@@ -1,5 +1,5 @@
 (function () {
-  const GAS_URL = "https://script.google.com/macros/s/AKfycbxWLapMWgG2oXt5qJhQigNIxzQWTmbAcxOUwabsWH6DOIdimvsuCu01DP4xAObuNzVl/exec";
+  const GAS_URL = "https://script.google.com/macros/s/AKfycbxY-yB7QNr3S0AtpmiVPVezGlTBfuZEWdmGSjcYVTR5dTAYfwITV2z9bWxQk7JVg9-6/exec";
   const nativeSubmit = HTMLFormElement.prototype.submit;
   const SUBMISSION_STORAGE_KEY = "registerSubmissionData";
 
