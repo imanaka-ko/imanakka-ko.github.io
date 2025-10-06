@@ -37,7 +37,7 @@
 <body>
 <header class="header">
   <div class="logo" aria-hidden="true"></div>
-  <span class="site-title">バクソクＳＰＩ</span>
+  <span class="site-title">就活ＳＰＩ</span>
 </header>
 <div class="container">
   <section class="intro">
@@ -143,21 +143,21 @@
       </div>
       <div class="form-group" id="school-name-group" style="display:none;">
         <label for="school-name">学校名</label>
-        <input id="school-name" type="text" placeholder="○○大学">
+        <input id="school-name" type="text" placeholder="○○大学" required>
       </div>
       <div class="form-row" id="dept-fields" style="display:none;">
         <div class="form-group" id="faculty-group">
           <label for="faculty">学部 / 研究科</label>
-          <input id="faculty" type="text">
+          <input id="faculty" type="text" required>
         </div>
         <div class="form-group" id="department-group">
           <label for="department">学科 / 専攻</label>
-          <input id="department" type="text">
+          <input id="department" type="text" required>
         </div>
       </div>
       <div class="form-group">
         <label for="grad-year">卒業予定年</label>
-        <select id="grad-year">
+        <select id="grad-year" required>
           <option value="" selected disabled>選択してください</option>
         </select>
       </div>
@@ -174,7 +174,7 @@
         <input id="phone" type="tel" required placeholder="09012345678">
       </div>
       <div class="form-group agree">
-        <label><input id="agreementCheckbox" type="checkbox" required> <a href="terms.html" target="_blank">利用規約</a> および <a href="privacy.html" target="_blank">プライバシーポリシー</a>に同意する。また、ご案内のメールを受け取る。</label>
+        <label><input id="agreementCheckbox" type="checkbox" required checked> <a href="terms.html" target="_blank">利用規約</a> および <a href="privacy.html" target="_blank">プライバシーポリシー</a>に同意する。また、ご案内のメールを受け取る。</label>
       </div>
     </div>
 
@@ -191,14 +191,32 @@
 const schoolRadios = document.querySelectorAll('input[name="school"]');
 const deptFields = document.getElementById('dept-fields');
 const schoolNameGroup = document.getElementById('school-name-group');
+const schoolNameInput = document.getElementById('school-name');
+const facultyInput = document.getElementById('faculty');
+const departmentInput = document.getElementById('department');
 function updateSchoolFields() {
   const selected = document.querySelector('input[name="school"]:checked');
   if (schoolNameGroup) {
     schoolNameGroup.style.display = selected ? 'block' : 'none';
   }
+  if (schoolNameInput) {
+    const isRequired = Boolean(selected);
+    schoolNameInput.required = isRequired;
+    if (!isRequired) {
+      schoolNameInput.value = '';
+    }
+  }
   if (!selected) {
     if (deptFields) {
       deptFields.style.display = 'none';
+    }
+    if (facultyInput) {
+      facultyInput.required = false;
+      facultyInput.value = '';
+    }
+    if (departmentInput) {
+      departmentInput.required = false;
+      departmentInput.value = '';
     }
     return;
   }
@@ -210,17 +228,44 @@ function updateSchoolFields() {
     facultyGroup.querySelector('label').textContent = '学部';
     departmentGroup.querySelector('label').textContent = '学科';
     departmentGroup.style.display = 'block';
+    if (facultyInput) {
+      facultyInput.required = true;
+    }
+    if (departmentInput) {
+      departmentInput.required = true;
+    }
   } else if (value === '専門学校') {
     deptFields.style.display = 'flex';
     facultyGroup.querySelector('label').textContent = '専攻';
     departmentGroup.style.display = 'none';
+    if (facultyInput) {
+      facultyInput.required = true;
+    }
+    if (departmentInput) {
+      departmentInput.required = false;
+      departmentInput.value = '';
+    }
   } else if (value.startsWith('大学院')) {
     deptFields.style.display = 'flex';
     facultyGroup.querySelector('label').textContent = '研究科';
     departmentGroup.querySelector('label').textContent = '専攻';
     departmentGroup.style.display = 'block';
+    if (facultyInput) {
+      facultyInput.required = true;
+    }
+    if (departmentInput) {
+      departmentInput.required = true;
+    }
   } else {
     deptFields.style.display = 'none';
+    if (facultyInput) {
+      facultyInput.required = false;
+      facultyInput.value = '';
+    }
+    if (departmentInput) {
+      departmentInput.required = false;
+      departmentInput.value = '';
+    }
   }
 }
 schoolRadios.forEach(radio => radio.addEventListener('change', updateSchoolFields));
@@ -274,7 +319,7 @@ if (agreementCheckbox) {
 }
 
 /** ★ここを Lambda のエンドポイントに差し替え（$defaultステージ想定） */
-const ENDPOINT = 'https://t08snas6m5.execute-api.ap-northeast-1.amazonaws.com/write';
+const ENDPOINT = 'https://hz9bn6ul44.execute-api.ap-northeast-1.amazonaws.com/write';
 // もしステージが prod なら → 'https://7nxdaf2lni.execute-api.ap-northeast-1.amazonaws.com/prod/write'
 
 function getRadioValue(name) {

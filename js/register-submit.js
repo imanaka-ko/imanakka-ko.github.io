@@ -1,5 +1,5 @@
 (function () {
-  const GAS_URL = "https://script.google.com/macros/s/AKfycbxWLapMWgG2oXt5qJhQigNIxzQWTmbAcxOUwabsWH6DOIdimvsuCu01DP4xAObuNzVl/exec";
+  const GAS_URL = "https://script.google.com/macros/s/AKfycbxY-yB7QNr3S0AtpmiVPVezGlTBfuZEWdmGSjcYVTR5dTAYfwITV2z9bWxQk7JVg9-6/exec";
   const nativeSubmit = HTMLFormElement.prototype.submit;
   const SUBMISSION_STORAGE_KEY = "registerSubmissionData";
 
@@ -135,8 +135,31 @@
           console.warn("No submission data found for register page.");
         }
 
+        const submitButton = form.querySelector(
+          "button[type=\"submit\"], input[type=\"submit\"]"
+        );
+        let originalLabel;
+        if (submitButton) {
+          if (submitButton.tagName === "BUTTON") {
+            originalLabel = submitButton.textContent;
+            submitButton.textContent = "送信中…";
+          } else {
+            originalLabel = submitButton.value;
+            submitButton.value = "送信中…";
+          }
+          submitButton.disabled = true;
+        }
+
         triggerGas(recipients, submissionData).finally(() => {
           clearSubmissionData();
+          if (submitButton) {
+            if (submitButton.tagName === "BUTTON") {
+              submitButton.textContent = originalLabel || "";
+            } else {
+              submitButton.value = originalLabel || "";
+            }
+            submitButton.disabled = false;
+          }
           nativeSubmit.call(form);
         });
       });
