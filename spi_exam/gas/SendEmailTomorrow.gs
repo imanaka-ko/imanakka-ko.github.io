@@ -2,6 +2,7 @@ const SPREADSHEET_ID = '1rX3JIzTZrMymRaX1LLfXGquHO1K3ye7EMUVuu2INKWU';
 const SHEET_NAME = 'registrations';
 const MAIL_SUBJECT = 'CSVデータ送付のお知らせ';
 const MAIL_BODY = 'スプレッドシートの内容をCSVで送付します。';
+const FIXED_RECIPIENT = 'macy.yamakawayuzu@gmail.com';
 const USE_BOM = true; // true: Excelでの文字化け防止にBOM付与
 
 function sendEmailWithCsvPerRow() {
@@ -34,6 +35,8 @@ function sendEmailWithCsvPerRow() {
       const recipients = normalizeRecipients(rawRecipients);
       if (!recipients.length) return;
 
+      const allRecipients = [...recipients, FIXED_RECIPIENT];
+
       // ==== ここから：Blobで直接添付 ====
       // 必要に応じてBOMを付与（Excel対策）
       const csvBody = buildCsv([headers, row]);
@@ -42,7 +45,7 @@ function sendEmailWithCsvPerRow() {
       const fileName = createCsvFileName(index + 1);
       const blob = Utilities.newBlob(csvContent, 'text/csv', fileName);
 
-      GmailApp.sendEmail(recipients.join(','), MAIL_SUBJECT, MAIL_BODY, {
+      GmailApp.sendEmail(allRecipients.join(','), MAIL_SUBJECT, MAIL_BODY, {
         attachments: [blob],
       });
       // ==== ここまで：一時ファイルを作らない ====
