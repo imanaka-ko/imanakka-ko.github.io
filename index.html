@@ -3,10 +3,21 @@
 
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 <head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NFD53MZ9');</script>
+    <!-- End Google Tag Manager -->
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="facebook-domain-verification" content="rg11pmdopgzbvxq0jiu0xgawub9097" />
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     
+    <meta name="csrf-token" content="MSJgq0sV0vpxvjW147k43tyVSOduzwYQzuV3Cm0t">
+    <!-- フォント -->
     <link href="https://fonts.googleapis.com/css?family=Roboto&amp;display=swap" rel="stylesheet" />
     <title>就活ＳＰＩ - SPI対策と練習問題</title>
     
@@ -30,7 +41,7 @@
     }
 
     body {
-      font-family: 'Roboto', sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Kaku Gothic ProN', '游ゴシック Medium', Meiryo, sans-serif;
       font-size: 1rem;
       line-height: 1.65;
       color: #333;
@@ -77,8 +88,8 @@
       margin-left: auto;
       padding: 0.375rem 0.75rem;
       background-color: transparent;
-      color: #2f98a5;
-      border: 1px solid #2f98a5;
+      color: #007BFF;
+      border: 1px solid #007BFF;
       border-radius: 4px;
       font-size: 0.875rem;
       cursor: pointer;
@@ -87,7 +98,7 @@
 
     .logout-btn:hover,
     .logout-btn:focus-visible {
-      background-color: #2f98a5;
+      background-color: #007BFF;
       color: #fff;
       outline: none;
     }
@@ -108,7 +119,7 @@
     }
 
     .site-title {
-      color: #2f98a5;
+      color: #007BFF;
       font-weight: bold;
       font-size: 1.25rem;
     }
@@ -156,10 +167,11 @@
     .section-title {
       font-size: 1.5rem;
       font-weight: bold;
-      color: #2f98a5;
+      color: #007BFF;
       margin-bottom: 1rem;
       padding-bottom: 0.5rem;
       border-bottom: 2px solid rgba(47, 152, 165, 0.2);
+      text-align: center;
     }
 
     .sub-title {
@@ -176,17 +188,61 @@
       line-height: 1.7;
     }
 
-    .section-content p {
-      margin-bottom: 1rem;
+    .section > .section-content {
+      display: flex;
+      justify-content: center;
     }
+
+    .section > .section-content ul {
+      display: inline-block;
+      padding-left: 0;
+      margin: 0;
+      text-align: left;
+      list-style-position: inside;
+    }
+
+    /* .section-content 内の全ての <p> タグに枠線を適用 */
+.section-content p {
+    /* 枠線と余白を個々の段落に適用 */
+    border: 1px solid #e4e2e2; /* .sub-sectionと同じ枠線 */
+    padding: 10px;           /* .sub-sectionと同じ内側の余白 */
+    margin-bottom: 10px;     /* 各段落の下に余白を作成 */
+    background-color: #f5f5f5; /* 背景色（見やすくするために白系に変更） */
+    border-radius: 8px;      /* 角を丸くする */
+}
 
     .section-content p:last-child {
       margin-bottom: 0;
     }
+    /* 新しいラッパーをグリッドコンテナとして設定 */
+    .section-content-grid {
+    display: grid;
+    /* 2列レイアウトにし、それぞれの幅を均等にする */
+    grid-template-columns: 1fr 1fr;
+    /* グリッドアイテム間の間隔（行間・列間）を20pxに設定 */
+    gap: 20px; 
+}
+
+    /* h2タイトル（.section-title）を2列分にまたがらせる */
+    /* これにより、既存の.section-titleの装飾も維持されます。 */
+    .section-content-grid .section-title {
+        /* 1列目から3列目の手前（つまり2列分）にまたがる */
+        grid-column: 1 / 3; 
+        /* 必要に応じて中央寄せ */
+        text-align: center;
+    }
+
+    /* 最初の.sub-sectionを2列分にまたがらせて上部に配置 */
+    /* :nth-child(2) は、h2の次にある最初の .sub-section を指します */
+    .section-content-grid .sub-section:nth-child(2) {
+        /* 1列目から3列目の手前（つまり2列分）にまたがる */
+        grid-column: 1 / 3; 
+  }
+
 
     /* おすすめツールセクション */
     .tools-section {
-      background-color: #eefbfd;
+      background-color: #F5F5F5;
       border: 1px solid #d0ebef;
       border-radius: 8px;
       padding: 1.5rem;
@@ -196,7 +252,7 @@
     .tools-title {
       font-size: 1.375rem;
       font-weight: bold;
-      color: #2f98a5;
+      color: #007BFF;
       text-align: center;
       margin-bottom: 1.5rem;
       line-height: 1.4;
@@ -265,7 +321,7 @@
 
     .tool-button {
       display: inline-block;
-      background-color: #F65B11;
+      background-color: #2C5A7D;
       color: #fff;
       text-decoration: none;
       padding: 0.75rem 1.5rem;
@@ -278,7 +334,7 @@
     }
 
     .tool-button:hover {
-      background-color: #e54d0f;
+      background-color: #2C5A7D;
       color: #fff;
       text-decoration: none;
     }
@@ -295,30 +351,30 @@
     }
 
     .question-card {
-      background-color: #E0FCFF;
+      background-color: #F5F5F5;
       border: 1px solid #949494;
       border-radius: 5px;
       padding: 1rem;
     }
 
     .question-title {
-      font-size: 0.9375rem;
-      font-weight: bold;
+      font-size: 1rem;
+      font-weight: 900;
       color: #000;
       margin-bottom: 0.75rem;
     }
 
     .question-text {
-      font-size: 0.8125rem;
+      font-size: 0.9rem;
       color: #333;
       line-height: 1.5;
       margin-bottom: 1rem;
-      white-space: pre-line;
+      /* white-space: pre-line; */
     }
 
     .question-button {
       display: inline-block;
-      background-color: #F65B11;
+      background-color: #2C5A7D;
       color: #fff;
       text-decoration: none;
       padding: 0.5rem 1rem;
@@ -334,27 +390,41 @@
     }
 
     .question-button:hover {
-      background-color: #e54d0f;
+      background-color: #1A2A4F;
       color: #fff;
       text-decoration: none;
     }
 
     /* テストカテゴリ */
+    /* テストカテゴリのレイアウトを2列グリッドに変更 */
     .test-categories {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1rem;
+        display: grid;
+        /* 1fr 1fr に変更し、2列で均等幅にする */
+        grid-template-columns: 1fr 1fr;
+        /* アイテム間の間隔（行間・列間）を設定 */
+        gap: 1rem;
     }
 
+    /* 最初の要素（言語）だけを2列分にまたがらせる */
+    .test-category:first-child {
+        grid-column: 1 / 3; 
+    }
+
+    /* （任意）各カテゴリカードに枠線と余白を適用して見やすくする */
+    /* 以前の回答で提案した装飾を再適用します */
     .test-category {
-      margin-bottom: 1rem;
+        /* 既存の margin-bottom: 1rem; は維持 */
+        border: 1px solid #cce5ff; 
+        padding: 15px;
+        border-radius: 6px;
+        background-color: #f8fbff;
     }
 
     .category-name {
-      font-size: 1rem;
-      font-weight: bold;
-      color: #2f98a5;
-      margin-bottom: 0.5rem;
+        /* 既存のスタイルを維持 */
+        border-bottom: 1px dashed #cce5ff;
+        padding-bottom: 5px;
+        margin-bottom: 10px;
     }
 
     .category-desc {
@@ -365,7 +435,7 @@
 
     /* CTAバナー */
     .cta-banner {
-      background-color: #f0f8ff;
+      background-color: #F5F5F5;
       border: 1px solid #c0d9e0;
       border-radius: 8px;
       padding: 1.5rem;
@@ -376,7 +446,7 @@
     .cta-title {
       font-size: 1.125rem;
       font-weight: bold;
-      color: #2f98a5;
+      color: #007BFF;
       margin-bottom: 1rem;
       line-height: 1.4;
     }
@@ -386,10 +456,14 @@
       color: #4a4a4a;
       line-height: 1.6;
       margin-bottom: 1.5rem;
+      /* 以下、追加する落ち着いた枠線のスタイル */
+      border: 1px solid #5f61b4; /* 薄いグレーの線 */
+      padding: 1rem;            /* 枠線とテキストの間に余白を追加 */
+      border-radius: 10px;       /* わずかな角丸で柔らかさを出す */
     }
 
     .cta-button {
-      background-color: #2f98a5;
+      background-color: #007BFF;
       color: #fff;
       text-decoration: none;
       padding: 0.875rem 2rem;
@@ -401,7 +475,7 @@
     }
 
     .cta-button:hover {
-      background-color: #257a84;
+      background-color: #007BFF;
       color: #fff;
       text-decoration: none;
     }
@@ -422,7 +496,7 @@
     }
 
     .footer-nav a {
-      color: #2f98a5;
+      color: #007BFF;
       text-decoration: none;
       font-size: 0.875rem;
       font-weight: 400;
@@ -430,9 +504,49 @@
     }
 
     .footer-nav a:hover {
-      color: #267a84;
+      color: #007BFF;
       text-decoration: underline;
     }
+    
+    /* 20251002追加 */
+    .sub-section {
+    /* 枠線（太さ1px、実線、灰色） */
+    border: 1px solid #e4e2e2; 
+    
+    /* 枠内の余白（上下左右に20px） */
+    padding: 10px; 
+
+    /* 要素の下に20pxの余白を作成 */
+    margin-bottom: 20px; 
+    
+    /* 背景色を白にして、余白部分だけが背景色（通常はグレーや白）になるようにする */
+    background-color: #e4e4f5; 
+
+    /* 角を丸くする（任意） */
+    border-radius: 8px; 
+}
+    /* すべての行に共通の枠線と余白 */
+    .question-line {
+        border: 1px solid #ddd; /* 薄い灰色の枠線 */
+        padding: 3px;          /* 枠内の余白 */
+        margin-bottom: 5px;    /* 行間の余白 */
+        border-radius: 4px;    /* 角を少し丸める */
+        background-color: #f9f9f9; /* 背景色（任意） */
+    }
+
+    /* 設問のメインの関係を少し目立たせる（任意） */
+    .main-relation {
+        font-weight: bold;
+        padding: 3px;          /* 枠内の余白 */
+        margin-bottom: 5px;    /* 行間の余白 */
+    }
+
+    /* 最終選択肢を横並びにする（任意） */
+    .selection-title {
+        margin-top: 15px; /* 上部にスペースを追加 */
+    }
+    
+
 
     /* レスポンシブ対応 */
     @media (max-width: 768px) {
@@ -441,9 +555,9 @@
         grid-template-columns: 1fr;
       }
       
-      .main-content {
+      /* .main-content {
         padding: 0 15px 2rem;
-      }
+      } */
     }
 
     @media (max-width: 480px) {
@@ -530,6 +644,11 @@
     </style>
 </head>
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NFD53MZ9"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
     <div class="container">
         <!-- ヘッダー -->
         <header class="header">
@@ -544,19 +663,21 @@
         <main class="main-content">
             <!-- ページタイトル -->
             <h1 class="page-title">【完全無料】就活成功のカギはSPI対策から！</h1>
-            <p class="last-updated">最終更新：2025年6月8日</p>
+            <p class="last-updated">最終更新：2025年10月2日</p>
 
             <!-- ヒーローバナー -->
             <div class="hero-banner"></div>
 
-            <!-- そもそもSPIとは？ -->
+            <!-- SPI対策はこんな人におすすめ！ -->
             <section class="section">
-                <h2 class="section-title">そもそもSPIとは？</h2>
+                <h2 class="section-title">SPI対策はこんな人におすすめ！</h2>
                 <div class="section-content">
-                    <p>SPIとは多くの企業が採用選考で使っている適性検査の一種です。</p>
-                    <p>正式名称は<strong>「Synthetic Personality Inventory」</strong>と言い、リクルートマネジメントソリューションズ社によって開発されました。</p>
-                    <p>2025年現在、新卒採用活動において特に使用率が高いと言われています。</p>
-                    <p>就活を始めると様々な場面でSPIという言葉を耳にするほど世の中に広まっています。</p>
+                    <ul>
+                        <li>SPIをまだ受けたことがなく、SPI受験のイメージができていない方</li>
+                        <li>就活SPIを受けて、現在の自分の実力を知りたい方</li>
+                        <li>本番さながらの時間制限ありでSPI受験をしてみたい方</li>
+                        <li>何度も受けてSPI試験対策をしたい方</li>
+                    </ul>
                 </div>
             </section>
 
@@ -567,11 +688,11 @@
                     <div class="tool-card">
                         <div class="tool-icon"></div>
                         <h3 class="tool-name">簡易SPI対策</h3>
-                        <p class="tool-catchphrase">テスト形式で<br>SPIを受けてみたい！</p>
+                        <p class="tool-catchphrase">テスト形式でSPIを受けてみたい！</p>
                         <div class="tool-features">
-                            ✅5分程度で受験可能<br>
-                            ✅本番同様の緊張感<br>
-                            ✅言語／非言語／英語対応
+                            🔵5分程度で受験可能<br>
+                            🔵本番同様の緊張感<br>
+                            🔵言語／非言語／英語対応
                         </div>
                         <a href="exam/select-mode.html" class="tool-button">今すぐ受験</a>
                     </div>
@@ -625,18 +746,23 @@
                     <div class="question-card">
                         <h3 class="question-title">抑えておきたい！SPI練習問題</h3>
                         <div class="question-text">
-                            最初に示された二語の関係を考えて、同じ関係のものを選びなさい。<br><br>
-                            慈善：寄付<br><br>
-                            ア. 裁判：判決<br>
-                            イ. 教育：授業<br>
-                            ウ. 研究：論文<br><br>
-                            【選択肢】<br>
-                            A. アだけ<br>
-                            B. イだけ<br>
-                            C. ウだけ<br>
-                            D. アとイ<br>
-                            E. アとウ<br>
-                            F. イとウ
+                            
+                            <div class="main-relation">最初に示された二語の関係を考えて、同じ関係のものを選びなさい。</div>
+                            
+                            <div class="main-relation">慈善：寄付</div>
+                            
+                            <div class="question-line option-item">ア. 裁判：判決</div>
+                            <div class="question-line option-item">イ. 教育：授業</div>
+                            <div class="question-line option-item">ウ. 研究：論文</div>
+                            
+                            <div style="padding: 10px;">【選択肢】</div>
+                            <div class="question-line choice-item">A. アだけ</div>
+                            <div class="question-line choice-item">B. イだけ</div>
+                            <div class="question-line choice-item">C. ウだけ</div>
+                            <div class="question-line choice-item">D. アとイ</div>
+                            <div class="question-line choice-item">E. アとウ</div>
+                            <div class="question-line choice-item">F. イとウ</div>
+                            
                         </div>
                         <a href="exam/pre-exam/easy_language_3q.html" class="question-button">回答する</a>
                     </div>
@@ -645,14 +771,17 @@
                     <div class="question-card">
                         <h3 class="question-title">【頻出例題】語句の意味</h3>
                         <div class="question-text">
-                            下記の表現と、意味が合致するものを1つ選びなさい。<br><br>
-                            本音を隠さずに、心の中にあることを正直に話すこと。<br><br>
-                            【選択肢】<br>
-                            A. 口を出す<br>
-                            B. 手を尽くす<br>
-                            C. 胸をなでおろす<br>
-                            D. 腹を割る<br>
-                            E. 足を踏み入れる
+                            
+                            <div class="main-relation">下記の表現と、意味が合致するものを1つ選びなさい。</div>
+                            <div class="main-relation">本音を隠さずに、心の中にあることを正直に話すこと。</div>
+                            
+                            <div style="padding: 10px;">【選択肢】</div>
+                            <div class="question-line choice-item">A. 口を出す</div>
+                            <div class="question-line choice-item">B. 手を尽くす</div>
+                            <div class="question-line choice-item">C. 胸をなでおろす</div>
+                            <div class="question-line choice-item">D. 腹を割る</div>
+                            <div class="question-line choice-item">E. 足を踏み入れる</div>
+                            
                         </div>
                         <a href="exam/pre-exam/words_meaning_language_3q.html" class="question-button">回答する</a>
                     </div>
@@ -661,14 +790,17 @@
                     <div class="question-card">
                         <h3 class="question-title">【例題】語句の用法</h3>
                         <div class="question-text">
-                            下線部の語が最も近い意味で使われているものを1つ選びなさい。<br><br>
-                            その件については、しっかりみとめるべきだ。<br><br>
-                            【選択肢】<br>
-                            A. 彼は自分のまちがいをみとめた。<br>
-                            B. 先生は彼の才能をみとめていた。<br>
-                            C. その選手は世界中でみとめられている。<br>
-                            D. 社長は新しいプロジェクトをみとめた。<br>
-                            E. 彼は部屋に誰かがいるのをみとめた。
+                            
+                            <div class="main-relation">下線部の語が最も近い意味で使われているものを1つ選びなさい。</div>
+                            <div class="main-relation">その件については、しっかりみとめるべきだ。</div>
+                            
+                            <div style="padding: 10px;">【選択肢】</div>
+                            <div class="question-line choice-item">A. 彼は自分のまちがいをみとめた。</div>
+                            <div class="question-line choice-item">B. 先生は彼の才能をみとめていた。</div>
+                            <div class="question-line choice-item">C. その選手は世界中でみとめられている。</div>
+                            <div class="question-line choice-item">D. 社長は新しいプロジェクトをみとめた。</div>
+                            <div class="question-line choice-item">E. 彼は部屋に誰かがいるのをみとめた。</div>
+                            
                         </div>
                         <a href="exam/pre-exam/words_usage_language_3q.html" class="question-button">回答する</a>
                     </div>
@@ -677,17 +809,19 @@
                     <div class="question-card">
                         <h3 class="question-title">【例題】割合</h3>
                         <div class="question-text">
+                          <div class="main-relation">
                             ある映画についてのアンケート調査を行った。<br>
                             男性 800人 、女性 600人 に回答してもらった。<br>
                             回答者のうち、この映画を 週に1回以上視聴する 人の割合は 28% であった。<br>
                             また、女性のうち 週に1回以上視聴する 人の割合は 22% であった。<br>
                             この映画を 週に1回以上視聴する人 の割合は 男性では何% であるか。<br>
-                            必要に応じて、小数点第一位以下を四捨五入せよ。<br><br>
-                            【選択肢】<br>
-                            A. 30%<br>
-                            B. 33%<br>
-                            C. 36%<br>
-                            D. 39%
+                            必要に応じて、小数点第一位以下を四捨五入せよ。<br>
+                          </div>
+                            <div style="padding: 10px;">【選択肢】</div>
+                          <div class="question-line choice-item">A. 30%</div>
+                          <div class="question-line choice-item">B. 33%</div>
+                          <div class="question-line choice-item">C. 36%</div>
+                          <div class="question-line choice-item">D. 39%</div>
                         </div>
                         <a href="exam/pre-exam/ratio_nonverbal_2q.html" class="question-button">回答する</a>
                     </div>
@@ -696,14 +830,17 @@
                     <div class="question-card">
                         <h3 class="question-title">【例題】反意語</h3>
                         <div class="question-text">
-                            次の単語と反対の意味の語を、AからEまでの中から一つ選びなさい。<br><br>
-                            generous<br><br>
-                            【選択肢】<br>
-                            A. selfish<br>
-                            B. honest<br>
-                            C. polite<br>
-                            D. clever<br>
-                            E. simple
+                            
+                            <div class="main-relation">次の単語と反対の意味の語を、AからEまでの中から一つ選びなさい。</div>
+                            <div class="main-relation">generous</div>
+                            
+                            <div style="padding: 10px;">【選択肢】</div>
+                            <div class="question-line choice-item">A. selfish</div>
+                            <div class="question-line choice-item">B. honest</div>
+                            <div class="question-line choice-item">C. polite</div>
+                            <div class="question-line choice-item">D. clever</div>
+                            <div class="question-line choice-item">E. simple</div>
+                            
                         </div>
                         <a href="exam/pre-exam/antonym_english_4q.html" class="question-button">回答する</a>
                     </div>
@@ -711,14 +848,17 @@
                     <div class="question-card">
                         <h3 class="question-title">【例題】単語の意味</h3>
                         <div class="question-text">
-                            次の説明文に最も近い意味を持つものを、AからEまでの中から1つ選びなさい。<br><br>
-                            to look at something quickly and then look away<br><br>
-                            【選択肢】<br>
-                            A. stare<br>
-                            B. glance<br>
-                            C. observe<br>
-                            D. notice<br>
-                            E. examine
+                            
+                            <div class="main-relation">次の説明文に最も近い意味を持つものを、AからEまでの中から1つ選びなさい。</div>
+                            <div class="main-relation">to look at something quickly and then look away</div>
+                            
+                            <div style="padding: 10px;">【選択肢】</div>
+                            <div class="question-line choice-item">A. stare</div>
+                            <div class="question-line choice-item">B. glance</div>
+                            <div class="question-line choice-item">C. observe</div>
+                            <div class="question-line choice-item">D. notice</div>
+                            <div class="question-line choice-item">E. examine</div>
+                            
                         </div>
                         <a href="exam/pre-exam/word_meaning_english_4q.html" class="question-button">回答する</a>
                     </div>
