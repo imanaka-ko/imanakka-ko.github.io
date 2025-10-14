@@ -394,14 +394,8 @@ if (submissionForm) {
       saveSubmissionData(payload);
 
       // 正常終了後の遷移
-      let redirectUrl = 'register_1.html';
-      if (gradYearSelect) {
-        const selectableOptions = Array.from(gradYearSelect.options).filter(option => !option.disabled);
-        const selectedIndex = selectableOptions.findIndex(option => option.value === gradYearSelect.value);
-        if (selectedIndex >= 0 && selectedIndex >= selectableOptions.length - 2) {
-          redirectUrl = 'register_2.html';
-        }
-      }
+      const selectedGradYear = gradYearSelect ? gradYearSelect.value : '';
+      const redirectUrl = selectedGradYear === '2027' ? 'register_1.html' : './auth/signup.html';
       window.location.href = redirectUrl;
     } catch (error) {
       console.error(error);
