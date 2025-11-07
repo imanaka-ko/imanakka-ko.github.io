@@ -1,0 +1,167 @@
+@use "vars" as *;
+.main-content{
+    .hero-banner{
+        margin-bottom: 50px;
+    }
+    .section{
+        .section-title{
+            text-align: start;
+            font-size: 25px;
+            border-bottom: 1.5px solid #0064b4;
+            color: #0064b4;
+        }
+        &.sub{
+            .section-title{
+                margin-bottom: 20px;
+            }
+        }
+        // サブセクション
+        .sub-section{
+            background-color: transparent;
+            border: 1.5px solid #0064b4;
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            padding: 25px 30px;
+
+            .imgflame{
+                display: block;
+                img{
+                    height: 100%;
+                    width: 100%;
+                    object-fit: cover;
+                }
+            }
+            &:nth-of-type(1){
+                .imgflame{
+                    min-width: 91px;
+                    min-height: 79px;
+                    max-width: 91px;
+                    max-height: 79px;
+                }
+            }
+            &:nth-of-type(2){
+                .imgflame{
+                    min-width: 82px;
+                    min-height: 79px;
+                    max-width: 82px;
+                    max-height: 79px;
+                }
+            }
+            &:nth-of-type(3){
+                .imgflame{
+                    min-width: 90px;
+                    min-height: 78px;
+                    max-width: 90px;
+                    max-height: 78px;
+                }
+            }
+            .txtconts{
+                max-width: 575px;
+                .sub-title{
+                    font-size: 18px;
+                    line-height: calc(31.5 / 18);
+                    margin-top: 0;
+                    margin-bottom: 5px;
+                    color: #0064b4;
+                }
+                .section-content{
+                    font-size: 16px;
+                    line-height: calc(28 / 16);
+                }
+            }
+        }
+    }
+    .tools-section{
+        background-color: #e6f5fa;
+        border: none;
+        padding: 30px;
+        margin-bottom: 50px;
+        .tools-title{
+            font-size: 25px;
+            color: #0064b4;
+            margin-bottom: 23px;
+        }
+        .tools-grid{
+            gap: 30px;
+            .tool-card{
+                box-shadow: none;
+                border: none;
+            }
+            .tool-name{
+                font-size: 18px;
+                color: #0064b4;
+                margin-bottom: 15px;
+            }
+            .tool-button{
+                background: #00beb4;
+                border: none;
+                font-size: 18px;
+                max-width: 184px;
+                max-height: 57px;
+                width: 100%;
+                height: 100%;
+                border-radius: 0;
+                text-align: center;
+                padding: 14px 0;
+                border-radius: 9999px;
+                transition: .3s;
+                &:hover{
+                    background: #00a098;
+                    transition: .3s;
+                }
+            }
+        }
+        .tool-features{
+            .lists{
+                display: flex;
+                gap: 20px;
+                justify-content: center;
+                flex-wrap: wrap;
+                .item{
+                    display: flex;
+                    align-items: center;
+                    flex-direction: column;
+                    justify-content: center;
+                    background: #e6f5fa;
+                    padding: 20px 0;
+                    width: 203px;
+                    border-radius: 10px;
+                    .imgflame{
+                        display: block;
+                        img{
+                            height: 100%;
+                            width: 100%;
+                            object-fit: cover;
+                        }
+                    }
+                    &:nth-of-type(1){
+                        .imgflame{
+                            width: 74px;
+                            height: 74px;
+                        }
+                    }
+                    &:nth-of-type(2){
+                        .imgflame{
+                            width: 81px;
+                            height: 73px;
+                        }
+                    }
+                    &:nth-of-type(3){
+                        .imgflame{
+                            width: 80px;
+                            height: 74px;
+                        }
+                    }
+
+                    .ttl{
+                        font-size: 16px;
+                        font-weight: 600;
+                        color: #0064b4;
+                        margin-top: 10px;
+                    }
+                }
+            }
+        }
+    }
+}
