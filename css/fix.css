@@ -376,4 +376,142 @@ li {
 .main-content .questions-section .questions-grid .question-card .question-button:hover {
   background: #00a098;
   transition: 0.3s;
+}
+
+.submission .container {
+  max-width: 754px;
+  padding: 0;
+  box-shadow: none;
+  border-radius: 0;
+  background: #F4F6F8;
+}
+.submission .container .intro {
+  margin-top: 90px;
+  margin-bottom: 40px;
+}
+.submission .container .intro .page-title {
+  color: #0064b4;
+  font-size: 30px;
+  margin: 0;
+}
+.submission .container .intro .intro-description {
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+.submission .container .intro .intro-note {
+  margin-top: 0;
+}
+.submission .container .form-section:nth-of-type(1) {
+  margin-bottom: 50px;
+}
+.submission .container .form-section:nth-of-type(2) {
+  margin-bottom: 15px;
+}
+.submission .container .form-section:nth-of-type(3) {
+  margin-bottom: 30px;
+}
+.submission .container .form-section:nth-of-type(4) {
+  margin-bottom: 30px;
+}
+.submission .container .form-section:nth-of-type(4) .submit-btn {
+  max-width: 184px;
+  max-height: 57px;
+  width: 100%;
+  height: 100%;
+  background: #00beb4;
+  transition: 0.3s;
+  border-radius: 9999px;
+  font-size: 18px;
+}
+.submission .container .form-section:nth-of-type(4) .submit-btn:hover {
+  transition: 0.3s;
+  background: #00a098;
+}
+.submission .container .form-section h2 {
+  font-size: 25px;
+  color: #0064b4;
+  border-bottom: 1.5px solid #0064b4;
+  padding-bottom: 8px;
+  margin-bottom: 25px;
+}
+.submission .container .form-section .form-row {
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
+}
+.submission .container .form-section .form-row:not(:first-of-type) {
+  margin-top: 15px;
+}
+.submission .container .form-section .form-row .form-group {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 0;
+}
+.submission .container .form-section .form-row label {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+.submission .container .form-section .form-row input, .submission .container .form-section .form-row select {
+  border: none;
+  background: #e6f5fa;
+  padding: 13px;
+}
+.submission .container .form-section .form-row select {
+  color: #969696;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: #e6f5fa;
+  background-image: none;
+}
+.submission .container .form-section .form-row.region .form-group {
+  max-width: 255px;
+  position: relative;
+}
+.submission .container .form-section .form-row.region .form-group:after {
+  position: absolute;
+  content: "";
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 9px;
+  width: 14px;
+  background: url(../images/icon_triangle.png) center/contain no-repeat;
+}
+.submission .container .form-section .form-row.graduation .form-group {
+  max-width: 255px;
+  position: relative;
+}
+.submission .container .form-section .form-row.graduation .form-group:after {
+  position: absolute;
+  content: "";
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 9px;
+  width: 14px;
+  background: url(../images/icon_triangle.png) center/contain no-repeat;
+}
+.submission .container .form-section .form-row.gender .form-group, .submission .container .form-section .form-row.education .form-group {
+  gap: 40px;
+  margin-left: 5px;
+}
+.submission .container .form-section .form-row.gender .form-group label, .submission .container .form-section .form-row.education .form-group label {
+  font-weight: 300;
+}
+.submission .container .form-section .form-row.gender .form-group label input, .submission .container .form-section .form-row.education .form-group label input {
+  margin: 0;
+  scale: 1.5;
+  margin-right: 5px;
+}
+.submission .container .form-section .form-row.mail .form-group, .submission .container .form-section .form-row.tel .form-group {
+  max-width: 255px;
+}
+.submission .container .form-section .agree {
+  margin-top: 30px;
+  margin-bottom: 0;
+}
+.submission .container .form-section .agree label {
+  margin-bottom: 0;
 }/*# sourceMappingURL=fix.css.map */

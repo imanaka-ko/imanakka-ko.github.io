@@ -406,3 +406,156 @@
         }
     }
 }
+// お問い合わせフォーム(submission)
+.submission{
+    .container{
+        max-width: 754px;
+        padding: 0;
+        box-shadow: none;
+        border-radius: 0;
+        background: #F4F6F8;
+        .intro{
+            margin-top: 90px;
+            margin-bottom: 40px;
+            .page-title{
+                color: #0064b4;
+                font-size: 30px;
+                margin: 0;
+            }
+            .intro-description{
+                margin-top: 20px;
+                margin-bottom: 0;
+            }
+            .intro-note{
+                margin-top: 0;
+            }
+        }
+        .form-section{
+            &:nth-of-type(1){
+                margin-bottom: 50px;
+            }
+            &:nth-of-type(2){
+                margin-bottom: 15px;
+            }
+            &:nth-of-type(3){
+                margin-bottom: 30px;
+            }
+            &:nth-of-type(4){
+                margin-bottom: 30px;
+                .submit-btn{
+                    max-width: 184px;
+                    max-height: 57px;
+                    width: 100%;
+                    height: 100%;
+                    background: #00beb4;
+                    transition: .3s;
+                    border-radius: 9999px;
+                    font-size: 18px;
+                    &:hover{
+                        transition: .3s;
+                        background: #00a098;
+                    }
+                }
+            }
+            h2{
+                font-size: 25px;
+                color: #0064b4;
+                border-bottom: 1.5px solid #0064b4;
+                padding-bottom: 8px;
+                margin-bottom: 25px;
+            }
+            .form-row{
+                display: flex;
+                gap: 5px;
+                flex-direction: column;
+                &:not(:first-of-type){
+                    margin-top: 15px;
+                }
+                .form-group{
+                    display: flex;
+                    gap: 20px;
+                    margin-bottom: 0;
+                }
+                label{
+                    margin: 0;
+                    font-size: 16px;
+                    font-weight: 600;
+                }
+                input, select {
+                    border: none;
+                    background: #e6f5fa;
+                    padding: 13px;
+                    &::placeholder {
+                    }
+                }
+                select {
+                    color: #969696;
+                    // Remove default arrow on Chrome, Safari, Edge
+                    appearance: none;
+                    -webkit-appearance: none;
+                    -moz-appearance: none;
+                    background: #e6f5fa;
+                    background-image: none;
+                }
+                &.region{
+                    .form-group{
+                        max-width: 255px;
+                        position: relative;
+                        &:after{
+                            position: absolute;
+                            content: "";
+                            right: 10px;
+                            top: 50%;
+                            transform: translateY(-50%);
+                            height: 9px;
+                            width: 14px;
+                            background: url(../images/icon_triangle.png) center / contain no-repeat;
+                        }
+                    }
+                }
+                &.graduation{
+                    .form-group{
+                        max-width: 255px;
+                        position: relative;
+                        &:after{
+                            position: absolute;
+                            content: "";
+                            right: 10px;
+                            top: 50%;
+                            transform: translateY(-50%);
+                            height: 9px;
+                            width: 14px;
+                            background: url(../images/icon_triangle.png) center / contain no-repeat;
+                        }
+                    }
+                }
+                &.gender, &.education{
+                    .form-group{
+                        gap: 40px;
+                        margin-left: 5px;
+                        label{
+                            font-weight: 300;
+                            input{
+                                margin: 0;
+                                scale: 1.5;
+                                margin-right: 5px;
+                            }
+                        }
+                    }
+                }
+                &.mail, &.tel{
+                    .form-group{
+                        max-width: 255px;
+                    }
+                }
+            }//form-group
+            .agree{
+                margin-top: 30px;
+                margin-bottom: 0;
+                label{
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+}

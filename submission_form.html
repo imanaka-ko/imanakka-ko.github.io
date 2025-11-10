@@ -65,28 +65,25 @@
     <!-- 1. profile section -->
     <div class="form-section">
       <h2>プロフィールを入力してください</h2>
-      <div class="form-row form-row--split">
+      <div class="form-row name">
+        <span class="ttl"><label for="last-name">お名前</label></span>
         <div class="form-group">
-          <label for="last-name">氏名</label>
-          <input id="last-name" type="text" placeholder="山田" required>
-        </div>
-        <div class="form-group" style="margin-top:1.65rem;">
-          <input id="first-name" type="text" placeholder="太郎" required>
+          <input id="last-name" type="text" placeholder="姓" required>
+          <input id="first-name" type="text" placeholder="名" required>
         </div>
       </div>
-      <div class="form-row form-row--split">
+      <div class="form-row furigana">
+        <span class="ttl"><label for="last-kana">フリガナ</label></span>
         <div class="form-group">
-          <label for="last-kana">ふりがな</label>
-          <input id="last-kana" type="text" placeholder="やまだ" required>
-        </div>
-        <div class="form-group" style="margin-top:1.65rem;">
-          <input id="first-kana" type="text" placeholder="たろう" required>
+          <input id="last-kana" type="text" placeholder="セイ" required>
+          <input id="first-kana" type="text" placeholder="メイ" required>
         </div>
       </div>
-      <div class="form-group">
-        <label for="region">お住まいの地域</label>
-        <select id="region" required>
-          <option value="" disabled selected>都道府県を選択してください</option>
+      <div class="form-row region">
+        <span class="ttl"><label for="region">お住まいの地域</label></span>
+        <div class="form-group">
+        <select id="region" required onchange="changeColor(this)">
+          <option value="" disabled selected>選択してください</option>
           <option value="北海道">北海道</option>
           <option value="青森県">青森県</option>
           <option value="岩手県">岩手県</option>
@@ -136,9 +133,10 @@
           <option value="沖縄県">沖縄県</option>
         </select>
       </div>
-      <div class="form-group">
-        <label>性別</label>
-        <div class="radio-inline">
+      </div>
+      <div class="form-row gender">
+        <span class="ttl"><label>性別</label></span>
+        <div class="form-group">
           <label><input type="radio" name="gender" value="男性" checked> 男性</label>
           <label><input type="radio" name="gender" value="女性"> 女性</label>
           <label><input type="radio" name="gender" value="その他"> その他</label>
@@ -149,44 +147,39 @@
     <!-- 2. school section -->
     <div class="form-section">
       <h2>在学中もしくは卒業した学校を選択してください</h2>
-      <div class="form-group radio-group" id="school-options">
-        <label><input type="radio" name="school" value="大学"> 大学</label>
-        <label><input type="radio" name="school" value="大学院 (修士)"> 大学院 (修士)</label>
-        <label><input type="radio" name="school" value="大学院 (博士)"> 大学院 (博士)</label>
-        <label><input type="radio" name="school" value="短大"> 短大</label>
-        <label><input type="radio" name="school" value="専門学校"> 専門学校</label>
-      </div>
-      <div class="form-group" id="school-name-group" style="display:none;">
-        <label for="school-name">学校名</label>
-        <input id="school-name" type="text" placeholder="○○大学" required>
-      </div>
-      <div class="form-row" id="dept-fields" style="display:none;">
-        <div class="form-group" id="faculty-group">
-          <label for="faculty">学部 / 研究科</label>
-          <input id="faculty" type="text" required>
-        </div>
-        <div class="form-group" id="department-group">
-          <label for="department">学科 / 専攻</label>
-          <input id="department" type="text" required>
+      <div class="form-row education" id="school-options">
+        <span class="ttl"><label for="school-name">学歴</label></span>
+        <div class="form-group">
+          <label><input type="radio" name="school" value="大学"> 大学</label>
+          <label><input type="radio" name="school" value="大学院 (修士)"> 大学院 (修士)</label>
+          <label><input type="radio" name="school" value="大学院 (博士)"> 大学院 (博士)</label>
+          <label><input type="radio" name="school" value="短大"> 短大</label>
+          <label><input type="radio" name="school" value="専門学校"> 専門学校</label>
         </div>
       </div>
-      <div class="form-group">
-        <label for="grad-year">卒業予定年</label>
-        <select id="grad-year" required>
-          <option value="" selected disabled>選択してください</option>
-        </select>
+      <div class="form-row graduation">
+        <span class="ttl"><label for="grad-year">卒業予定年</label></span>
+        <div class="form-group">
+          <select id="grad-year" required>
+            <option value="" selected disabled>選択してください</option>
+          </select>
+        </div>
       </div>
     </div>
 
     <!-- 3. info section -->
     <div class="form-section">
-      <div class="form-group">
-        <label for="email">メールアドレス *</label>
-        <input id="email" type="email" required placeholder="exsample@mail.com">
+      <div class="form-row mail">
+        <span class="ttl"><label for="email">メールアドレス *</label></span>
+        <div class="form-group">
+          <input id="email" type="email" required placeholder="example@mail.com">
+        </div>
       </div>
-      <div class="form-group">
-        <label for="phone">電話番号 *</label>
-        <input id="phone" type="tel" required placeholder="09012345678">
+      <div class="form-row tel">
+        <span class="ttl"><label for="phone">電話番号 *</label></span>
+        <div class="form-group">
+          <input id="phone" type="tel" required placeholder="09012345678">
+        </div>
       </div>
       <div class="form-group agree">
         <label><input id="agreementCheckbox" type="checkbox" required checked> <a href="terms.html" target="_blank">利用規約</a> および <a href="privacy.html" target="_blank">プライバシーポリシー</a>に同意する。また、ご案内のメールを受け取る。</label>
@@ -200,9 +193,15 @@
   </form>
   <p class="login-link">すでに会員の方は <a href="./auth/signin.html">ログイン</a></p>
 </div>
-
 <script>
 /* ===== UI 補助 ===== */
+function changeColor(color){
+  if( color.value == 0 ){
+      color.style.color = '#969696';
+  }else{
+      color.style.color = '#000';
+  }
+}
 const schoolRadios = document.querySelectorAll('input[name="school"]');
 const deptFields = document.getElementById('dept-fields');
 const schoolNameGroup = document.getElementById('school-name-group');
