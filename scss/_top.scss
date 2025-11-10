@@ -2,6 +2,16 @@
 .inline{
     display: inline-block;
 }
+.section{
+    @include mq(xs){
+        margin-bottom: 30px !important;
+    }
+}
+.tool-card, .cta-banner, .tools-section{
+    @include mq(xs){
+        padding: 20px !important;
+    }
+}
 .main-content{
     .hero-banner{
         margin-bottom: 50px;
@@ -12,10 +22,42 @@
             font-size: 25px;
             border-bottom: 1.5px solid #0064b4;
             color: #0064b4;
+            @include mq(xs){
+                font-size: 22px;
+            }
+        }
+        .section-content{
+            @include mq(xs){
+                font-size: 14px;
+            }
         }
         &.sub{
             .section-title{
                 margin-bottom: 20px;
+                @include mq(xs){
+                    padding: 0;
+                }
+            }
+            .sub-section{
+                @include mq(xs){
+                    flex-direction: column;
+                    gap: 10px;
+                }
+                .txtconts{
+                    .sub-title{
+                        padding: 0;
+                        margin: 0;
+                        @include mq(xs){
+                            padding: 0;
+                            text-align: center;
+                        }
+                    }
+                    .section-content{
+                        @include mq(xs){
+                            font-size: 14px;
+                        }
+                    }
+                }
             }
         }
         &.third{
@@ -44,6 +86,10 @@
                         padding: 30px 30px 25px 30px;
                         align-items: center;
                         border: none;
+                        @include mq(xs){
+                            flex-direction: column;
+                            gap: 10px;
+                        }
                         .txtconts{
                             display: flex;
                             flex-direction: column;
@@ -54,10 +100,16 @@
                                 border-bottom:  none;
                                 margin-bottom: 0;
                                 padding-bottom: 0;
+                                @include mq(xs){
+                                    text-align: center;
+                                }
                             }
                             .category-desc{
                                 font-size: 16px;
                                 line-height: calc(28 / 16);
+                                @include mq(xs){
+                                    font-size: 14px;
+                                }
                             }
                         }
                         &:nth-of-type(1){
@@ -103,6 +155,13 @@
                     margin-bottom: 30px;
                     border-radius: 10px;
                     align-items: center;
+                    @include mq(xs){
+                        gap: 10px;
+                        flex-direction: column;
+                        padding: 20px;
+                        margin: 0 20px;
+                        margin-bottom: 20px;
+                    }
                     .imgflame{
                         width: 79px !important;
                         height: 86px !important;
@@ -120,6 +179,9 @@
                         .section-content{
                             font-size: 16px;
                             line-height: calc(28 / 16);
+                            @include mq(xs){
+                                font-size: 14px;
+                            }
                         }
                     }
                 }
@@ -135,7 +197,6 @@
             gap: 30px;
             align-items: center;
             padding: 25px 30px;
-
             .imgflame{
                 display: block;
                 img{
@@ -192,6 +253,10 @@
             font-size: 25px;
             line-height: calc(43 / 25);
             color: #0064b4;
+            @include mq(xs){
+                line-height: 1.25;
+                font-size: 22px;
+            }
         }
         .cta-text{
             font-size: 16px;
@@ -201,6 +266,10 @@
             background: #fff;
             font-weight: 500;
             padding: 25px 30px;
+            @include mq(xs){
+                font-size: 14px;
+                padding: 20px;
+            }
             .blue{
                 color: #0064b4;
                 font-weight: 600;
@@ -216,6 +285,9 @@
             padding: 14px 0;
             border-radius: 9999px;
             letter-spacing: -.025em;
+            @include mq(xs){
+                font-size: 16px;
+            }
             &:hover{
                 background: #00a098;
                 transition: 0.3s;
@@ -227,16 +299,25 @@
         border: none;
         padding: 30px;
         margin-bottom: 50px;
+        @include mq(xs){
+            padding: 20px;
+        }
         .tools-title{
             font-size: 25px;
             color: #0064b4;
             margin-bottom: 23px;
+            @include mq(xs){
+                font-size: 22px;
+            }
         }
         .tools-grid{
             gap: 30px;
             .tool-card{
                 box-shadow: none;
                 border: none;
+                @include mq(xs){
+                    padding: 20px;
+                }
             }
             .tool-name{
                 font-size: 18px;
@@ -256,6 +337,9 @@
                 padding: 14px 0;
                 border-radius: 9999px;
                 transition: .3s;
+                @include mq(xs){
+                    font-size: 16px;
+                }
                 &:hover{
                     background: #00a098;
                     transition: .3s;
@@ -277,6 +361,9 @@
                     padding: 20px 0;
                     width: 203px;
                     border-radius: 10px;
+                    @include mq(xs){
+                        width: 100%;
+                    }
                     .imgflame{
                         display: block;
                         img{
@@ -328,10 +415,17 @@
                         padding: 15px 30px;
                         margin-bottom: 20px;
                         border-radius: 10px 10px 0 0;
+                        @include mq(xs){
+                            font-size: 18px;
+                        }
                     }
                     .question-text{
                         padding: 0px 30px;
                         margin-bottom: 30px;
+                        @include mq(xs){
+                            padding: 0px 20px;
+                        margin-bottom: 20px;
+                        }
                         .main-relation{
                             font-size: 16px;
                             line-height: calc(28 / 16);
@@ -351,6 +445,9 @@
                                 padding-bottom: 10px;
                                 border-bottom: 1px dashed #333;
                                 align-items: center;
+                                @include mq(xs){
+                                    font-size: 14px;
+                                }
                                 &:not(:nth-of-type(1)){
                                     margin-top: 10px;
                                 }

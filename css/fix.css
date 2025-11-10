@@ -9,6 +9,18 @@ li {
   display: inline-block;
 }
 
+@media screen and (max-width: 480px) {
+  .section {
+    margin-bottom: 30px !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .tool-card, .cta-banner, .tools-section {
+    padding: 20px !important;
+  }
+}
+
 .main-content .hero-banner {
   margin-bottom: 50px;
 }
@@ -18,8 +30,44 @@ li {
   border-bottom: 1.5px solid #0064b4;
   color: #0064b4;
 }
+@media screen and (max-width: 480px) {
+  .main-content .section .section-title {
+    font-size: 22px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .main-content .section .section-content {
+    font-size: 14px;
+  }
+}
 .main-content .section.sub .section-title {
   margin-bottom: 20px;
+}
+@media screen and (max-width: 480px) {
+  .main-content .section.sub .section-title {
+    padding: 0;
+  }
+}
+@media screen and (max-width: 480px) {
+  .main-content .section.sub .sub-section {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+.main-content .section.sub .sub-section .txtconts .sub-title {
+  padding: 0;
+  margin: 0;
+}
+@media screen and (max-width: 480px) {
+  .main-content .section.sub .sub-section .txtconts .sub-title {
+    padding: 0;
+    text-align: center;
+  }
+}
+@media screen and (max-width: 480px) {
+  .main-content .section.sub .sub-section .txtconts .section-content {
+    font-size: 14px;
+  }
 }
 .main-content .section.third {
   margin-bottom: 30px;
@@ -51,6 +99,12 @@ li {
   align-items: center;
   border: none;
 }
+@media screen and (max-width: 480px) {
+  .main-content .section.third > .sub-section .test-categories .test-category {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
 .main-content .section.third > .sub-section .test-categories .test-category .txtconts {
   display: flex;
   flex-direction: column;
@@ -63,9 +117,19 @@ li {
   margin-bottom: 0;
   padding-bottom: 0;
 }
+@media screen and (max-width: 480px) {
+  .main-content .section.third > .sub-section .test-categories .test-category .txtconts .category-name {
+    text-align: center;
+  }
+}
 .main-content .section.third > .sub-section .test-categories .test-category .txtconts .category-desc {
   font-size: 16px;
   line-height: 1.75;
+}
+@media screen and (max-width: 480px) {
+  .main-content .section.third > .sub-section .test-categories .test-category .txtconts .category-desc {
+    font-size: 14px;
+  }
 }
 .main-content .section.third > .sub-section .test-categories .test-category:nth-of-type(1) .imgflame {
   height: 54px !important;
@@ -104,6 +168,15 @@ li {
   border-radius: 10px;
   align-items: center;
 }
+@media screen and (max-width: 480px) {
+  .main-content .section.third > .sub-section .flexbox {
+    gap: 10px;
+    flex-direction: column;
+    padding: 20px;
+    margin: 0 20px;
+    margin-bottom: 20px;
+  }
+}
 .main-content .section.third > .sub-section .flexbox .imgflame {
   width: 79px !important;
   height: 86px !important;
@@ -121,6 +194,11 @@ li {
 .main-content .section.third > .sub-section .flexbox .txtconts .section-content {
   font-size: 16px;
   line-height: 1.75;
+}
+@media screen and (max-width: 480px) {
+  .main-content .section.third > .sub-section .flexbox .txtconts .section-content {
+    font-size: 14px;
+  }
 }
 .main-content .section .sub-section {
   background-color: transparent;
@@ -181,6 +259,12 @@ li {
   line-height: 1.72;
   color: #0064b4;
 }
+@media screen and (max-width: 480px) {
+  .main-content .cta-banner .cta-title {
+    line-height: 1.25;
+    font-size: 22px;
+  }
+}
 .main-content .cta-banner .cta-text {
   font-size: 16px;
   line-height: 1.75;
@@ -189,6 +273,12 @@ li {
   background: #fff;
   font-weight: 500;
   padding: 25px 30px;
+}
+@media screen and (max-width: 480px) {
+  .main-content .cta-banner .cta-text {
+    font-size: 14px;
+    padding: 20px;
+  }
 }
 .main-content .cta-banner .cta-text .blue {
   color: #0064b4;
@@ -205,6 +295,11 @@ li {
   border-radius: 9999px;
   letter-spacing: -0.025em;
 }
+@media screen and (max-width: 480px) {
+  .main-content .cta-banner .cta-button {
+    font-size: 16px;
+  }
+}
 .main-content .cta-banner .cta-button:hover {
   background: #00a098;
   transition: 0.3s;
@@ -215,10 +310,20 @@ li {
   padding: 30px;
   margin-bottom: 50px;
 }
+@media screen and (max-width: 480px) {
+  .main-content .tools-section {
+    padding: 20px;
+  }
+}
 .main-content .tools-section .tools-title {
   font-size: 25px;
   color: #0064b4;
   margin-bottom: 23px;
+}
+@media screen and (max-width: 480px) {
+  .main-content .tools-section .tools-title {
+    font-size: 22px;
+  }
 }
 .main-content .tools-section .tools-grid {
   gap: 30px;
@@ -226,6 +331,11 @@ li {
 .main-content .tools-section .tools-grid .tool-card {
   box-shadow: none;
   border: none;
+}
+@media screen and (max-width: 480px) {
+  .main-content .tools-section .tools-grid .tool-card {
+    padding: 20px;
+  }
 }
 .main-content .tools-section .tools-grid .tool-name {
   font-size: 18px;
@@ -246,6 +356,11 @@ li {
   border-radius: 9999px;
   transition: 0.3s;
 }
+@media screen and (max-width: 480px) {
+  .main-content .tools-section .tools-grid .tool-button {
+    font-size: 16px;
+  }
+}
 .main-content .tools-section .tools-grid .tool-button:hover {
   background: #00a098;
   transition: 0.3s;
@@ -265,6 +380,11 @@ li {
   padding: 20px 0;
   width: 203px;
   border-radius: 10px;
+}
+@media screen and (max-width: 480px) {
+  .main-content .tools-section .tool-features .lists .item {
+    width: 100%;
+  }
 }
 .main-content .tools-section .tool-features .lists .item .imgflame {
   display: block;
@@ -306,9 +426,20 @@ li {
   margin-bottom: 20px;
   border-radius: 10px 10px 0 0;
 }
+@media screen and (max-width: 480px) {
+  .main-content .questions-section .questions-grid .question-card .question-title {
+    font-size: 18px;
+  }
+}
 .main-content .questions-section .questions-grid .question-card .question-text {
   padding: 0px 30px;
   margin-bottom: 30px;
+}
+@media screen and (max-width: 480px) {
+  .main-content .questions-section .questions-grid .question-card .question-text {
+    padding: 0px 20px;
+    margin-bottom: 20px;
+  }
 }
 .main-content .questions-section .questions-grid .question-card .question-text .main-relation {
   font-size: 16px;
@@ -330,6 +461,11 @@ li {
   padding-bottom: 10px;
   border-bottom: 1px dashed #333;
   align-items: center;
+}
+@media screen and (max-width: 480px) {
+  .main-content .questions-section .questions-grid .question-card .question-text .question-lists .question-line {
+    font-size: 14px;
+  }
 }
 .main-content .questions-section .questions-grid .question-card .question-text .question-lists .question-line:not(:nth-of-type(1)) {
   margin-top: 10px;
