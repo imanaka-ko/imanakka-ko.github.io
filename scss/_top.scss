@@ -2,6 +2,11 @@
 .inline{
     display: inline-block;
 }
+.header{
+    .site-title{
+        color: #0064b4;
+    }
+}
 .section{
     @include mq(xs){
         margin-bottom: 30px !important;
@@ -10,13 +15,22 @@
 .tool-card, .cta-banner, .tools-section{
     @include mq(xs){
         padding: 20px !important;
+        padding-bottom: 30px !important;
     }
 }
 .main-content{
+    h1.page-title{
+        @include mq(xs){
+            font-size: 22px !important;
+        }
+    }
     .hero-banner{
         margin-bottom: 50px;
     }
     .section{
+        & > .section-content{
+            justify-content: left;
+        }
         .section-title{
             text-align: start;
             font-size: 25px;
@@ -81,6 +95,9 @@
                     flex-direction: column;
                     gap: 20px;
                     padding: 0 30px 30px 30px;
+                    @include mq(xs){
+                        padding: 0 20px 20px 20px;
+                    }
                     .test-category{
                         display: flex;
                         gap: 30px;
@@ -271,6 +288,7 @@
             @include mq(xs){
                 font-size: 14px;
                 padding: 20px;
+                margin-bottom: 30px;
             }
             .blue{
                 color: #0064b4;
@@ -317,6 +335,7 @@
             .tool-card{
                 box-shadow: none;
                 border: none;
+                padding: 30px;
                 @include mq(xs){
                     padding: 20px;
                 }
@@ -325,6 +344,9 @@
                 font-size: 18px;
                 color: #0064b4;
                 margin-bottom: 15px;
+            }
+            .tool-features{
+                margin-bottom: 0;
             }
             .tool-button{
                 background: #00beb4;
@@ -361,7 +383,7 @@
                     justify-content: center;
                     background: #e6f5fa;
                     padding: 20px 0;
-                    width: 203px;
+                    width: 200px;
                     border-radius: 10px;
                     @include mq(xs){
                         width: 100%;
@@ -426,7 +448,7 @@
                         margin-bottom: 30px;
                         @include mq(xs){
                             padding: 0px 20px;
-                        margin-bottom: 20px;
+                        margin-bottom: 30px;
                         }
                         .main-relation{
                             font-size: 16px;

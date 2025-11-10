@@ -9,6 +9,10 @@ li {
   display: inline-block;
 }
 
+.header .site-title {
+  color: #0064b4;
+}
+
 @media screen and (max-width: 480px) {
   .section {
     margin-bottom: 30px !important;
@@ -18,11 +22,20 @@ li {
 @media screen and (max-width: 480px) {
   .tool-card, .cta-banner, .tools-section {
     padding: 20px !important;
+    padding-bottom: 30px !important;
   }
 }
 
+@media screen and (max-width: 480px) {
+  .main-content h1.page-title {
+    font-size: 22px !important;
+  }
+}
 .main-content .hero-banner {
   margin-bottom: 50px;
+}
+.main-content .section > .section-content {
+  justify-content: left;
 }
 .main-content .section .section-title {
   text-align: start;
@@ -92,6 +105,11 @@ li {
   flex-direction: column;
   gap: 20px;
   padding: 0 30px 30px 30px;
+}
+@media screen and (max-width: 480px) {
+  .main-content .section.third > .sub-section .test-categories {
+    padding: 0 20px 20px 20px;
+  }
 }
 .main-content .section.third > .sub-section .test-categories .test-category {
   display: flex;
@@ -280,6 +298,7 @@ li {
   .main-content .cta-banner .cta-text {
     font-size: 14px;
     padding: 20px;
+    margin-bottom: 30px;
   }
 }
 .main-content .cta-banner .cta-text .blue {
@@ -333,6 +352,7 @@ li {
 .main-content .tools-section .tools-grid .tool-card {
   box-shadow: none;
   border: none;
+  padding: 30px;
 }
 @media screen and (max-width: 480px) {
   .main-content .tools-section .tools-grid .tool-card {
@@ -343,6 +363,9 @@ li {
   font-size: 18px;
   color: #0064b4;
   margin-bottom: 15px;
+}
+.main-content .tools-section .tools-grid .tool-features {
+  margin-bottom: 0;
 }
 .main-content .tools-section .tools-grid .tool-button {
   background: #00beb4;
@@ -380,7 +403,7 @@ li {
   justify-content: center;
   background: #e6f5fa;
   padding: 20px 0;
-  width: 203px;
+  width: 200px;
   border-radius: 10px;
 }
 @media screen and (max-width: 480px) {
@@ -440,7 +463,7 @@ li {
 @media screen and (max-width: 480px) {
   .main-content .questions-section .questions-grid .question-card .question-text {
     padding: 0px 20px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
   }
 }
 .main-content .questions-section .questions-grid .question-card .question-text .main-relation {
