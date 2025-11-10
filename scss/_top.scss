@@ -44,6 +44,21 @@
             @include mq(xs){
                 font-size: 14px;
             }
+            ul{
+                li{
+                    position: relative;
+                    padding-left: 15px;
+                    &:after{
+                        content: "・";
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        height: 2px;
+                        width: 2px;
+                        color: #000;
+                    }
+                }
+            }
         }
         &.sub{
             .section-title{
@@ -268,6 +283,7 @@
     .cta-banner{
         background: #fffadc;
         border: none;
+        padding: 30px;
         .cta-title{
             font-size: 25px;
             line-height: calc(43 / 25);
@@ -285,6 +301,7 @@
             background: #fff;
             font-weight: 500;
             padding: 25px 30px;
+            margin-bottom: 30px;
             @include mq(xs){
                 font-size: 14px;
                 padding: 20px;
