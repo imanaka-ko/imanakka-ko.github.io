@@ -10,14 +10,18 @@
     <!-- End Google Tag Manager -->
 
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" type="text/css" href="css/fix.css" media="all">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
   <title>送信フォーム</title>
   <style>
     body { font-family: 'Roboto', sans-serif; background-color: #f4f6f8; margin: 0; padding: 0; }
     .header { height: 65px; background-color: #f8f9fa; display: flex; align-items: center; padding: 0 20px; border-bottom: 1px solid #e0e0e0; }
     .logo { width: 35px; height: 35px; background-image: url('images/v1_5.png'); background-repeat: no-repeat; background-position: center; background-size: cover; margin-right: 10px; }
-    .site-title { color: #2f98a5; font-weight: bold; font-size: 1.25rem; }
+    .site-title { 
+      color: #0064b4;
+      font-weight: bold; 
+      font-size: 1.25rem; }
     .container { width: 100%; max-width: 800px; margin: 0 auto 2rem; background: #fff; padding: 2rem; box-shadow: 0 0 15px rgba(0,0,0,0.05); border-radius: 8px; }
     .intro { text-align: center; margin-bottom: 2rem; }
     .page-title { font-size: 1.75rem; font-weight: bold; color: #000; margin-bottom: 0.75rem; }
@@ -43,7 +47,7 @@
     .login-link a:hover { text-decoration: underline; }
   </style>
 </head>
-<body>
+<body class="submission">
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NFD53MZ9"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -57,35 +61,32 @@
   <section class="intro">
     <h1 class="page-title">新規会員登録</h1>
     <p class="intro-description">新規会員登録をして模擬試験の結果を確認する。</p>
-    <p class="intro-note">※既に会員の場合、画面下部からログインをして結果を確認する</p>
+    <p class="intro-note">※既に会員の場合、画面下部からログインをして<span class="inline">結果を確認する</span></p>
   </section>
   <!-- action は JS で preventDefault するのでそのままでも可 -->
   <form action="register_1.html" method="get" id="submissionForm">
     <!-- 1. profile section -->
     <div class="form-section">
-      <h2>プロフィールを入力してください</h2>
-      <div class="form-row form-row--split">
+      <h2>プロフィールを<span class="inline">入力してください</span></h2>
+      <div class="form-row name">
+        <span class="ttl"><label for="last-name">お名前</label></span>
         <div class="form-group">
-          <label for="last-name">氏名</label>
-          <input id="last-name" type="text" placeholder="山田" required>
-        </div>
-        <div class="form-group" style="margin-top:1.65rem;">
-          <input id="first-name" type="text" placeholder="太郎" required>
+          <input id="last-name" type="text" placeholder="姓" required>
+          <input id="first-name" type="text" placeholder="名" required>
         </div>
       </div>
-      <div class="form-row form-row--split">
+      <div class="form-row furigana">
+        <span class="ttl"><label for="last-kana">フリガナ</label></span>
         <div class="form-group">
-          <label for="last-kana">ふりがな</label>
-          <input id="last-kana" type="text" placeholder="やまだ" required>
-        </div>
-        <div class="form-group" style="margin-top:1.65rem;">
-          <input id="first-kana" type="text" placeholder="たろう" required>
+          <input id="last-kana" type="text" placeholder="セイ" required>
+          <input id="first-kana" type="text" placeholder="メイ" required>
         </div>
       </div>
-      <div class="form-group">
-        <label for="region">お住まいの地域</label>
-        <select id="region" required>
-          <option value="" disabled selected>都道府県を選択してください</option>
+      <div class="form-row region">
+        <span class="ttl"><label for="region">お住まいの地域</label></span>
+        <div class="form-group">
+        <select id="region" required onchange="changeColor(this)">
+          <option value="" disabled selected>選択してください</option>
           <option value="北海道">北海道</option>
           <option value="青森県">青森県</option>
           <option value="岩手県">岩手県</option>
@@ -135,9 +136,10 @@
           <option value="沖縄県">沖縄県</option>
         </select>
       </div>
-      <div class="form-group">
-        <label>性別</label>
-        <div class="radio-inline">
+      </div>
+      <div class="form-row gender">
+        <span class="ttl"><label>性別</label></span>
+        <div class="form-group">
           <label><input type="radio" name="gender" value="男性" checked> 男性</label>
           <label><input type="radio" name="gender" value="女性"> 女性</label>
           <label><input type="radio" name="gender" value="その他"> その他</label>
@@ -147,45 +149,56 @@
 
     <!-- 2. school section -->
     <div class="form-section">
-      <h2>在学中もしくは卒業した学校を選択してください</h2>
-      <div class="form-group radio-group" id="school-options">
-        <label><input type="radio" name="school" value="大学"> 大学</label>
-        <label><input type="radio" name="school" value="大学院 (修士)"> 大学院 (修士)</label>
-        <label><input type="radio" name="school" value="大学院 (博士)"> 大学院 (博士)</label>
-        <label><input type="radio" name="school" value="短大"> 短大</label>
-        <label><input type="radio" name="school" value="専門学校"> 専門学校</label>
+      <h2>在学中もしくは卒業した学校を<span class="inline">選択してください</span></h2>
+      <div class="form-row education" id="school-options">
+        <span class="ttl"><label for="school-name">学歴</label></span>
+        <div class="form-group">
+          <label><input type="radio" name="school" value="大学"> 大学</label>
+          <label><input type="radio" name="school" value="大学院 (修士)"> 大学院 (修士)</label>
+          <label><input type="radio" name="school" value="大学院 (博士)"> 大学院 (博士)</label>
+          <label><input type="radio" name="school" value="短大"> 短大</label>
+          <label><input type="radio" name="school" value="専門学校"> 専門学校</label>
+        </div>
       </div>
-      <div class="form-group" id="school-name-group" style="display:none;">
-        <label for="school-name">学校名</label>
-        <input id="school-name" type="text" placeholder="○○大学" required>
+      <div class="form-row school" id="school-name-group" style="display:none;">
+        <span class="ttl"><label for="school-name">学校名</label></span>
+        <div class="form-group">
+          <input id="school-name" type="text" placeholder="○○大学" required>
+        </div>
       </div>
       <div class="form-row" id="dept-fields" style="display:none;">
-        <div class="form-group" id="faculty-group">
+        <div class="form-group research" id="faculty-group">
           <label for="faculty">学部 / 研究科</label>
           <input id="faculty" type="text" required>
         </div>
-        <div class="form-group" id="department-group">
+        <div class="form-group major" id="department-group">
           <label for="department">学科 / 専攻</label>
           <input id="department" type="text" required>
         </div>
       </div>
-      <div class="form-group">
-        <label for="grad-year">卒業予定年</label>
-        <select id="grad-year" required>
-          <option value="" selected disabled>選択してください</option>
-        </select>
+      <div class="form-row graduation">
+        <span class="ttl"><label for="grad-year">卒業予定年</label></span>
+        <div class="form-group">
+          <select id="grad-year" required onchange="changeColor(this)">
+            <option value="" selected disabled>選択してください</option>
+          </select>
+        </div>
       </div>
     </div>
 
     <!-- 3. info section -->
     <div class="form-section">
-      <div class="form-group">
-        <label for="email">メールアドレス *</label>
-        <input id="email" type="email" required placeholder="exsample@mail.com">
+      <div class="form-row mail">
+        <span class="ttl"><label for="email">メールアドレス</label><span class="point">必須</span></span>
+        <div class="form-group">
+          <input id="email" type="email" required placeholder="example@mail.com">
+        </div>
       </div>
-      <div class="form-group">
-        <label for="phone">電話番号 *</label>
-        <input id="phone" type="tel" required placeholder="09012345678">
+      <div class="form-row tel">
+        <span class="ttl"><label for="phone">電話番号</label><span class="point">必須</span></span>
+        <div class="form-group">
+          <input id="phone" type="tel" required placeholder="09012345678">
+        </div>
       </div>
       <div class="form-group agree">
         <label><input id="agreementCheckbox" type="checkbox" required checked> <a href="terms.html" target="_blank">利用規約</a> および <a href="privacy.html" target="_blank">プライバシーポリシー</a>に同意する。また、ご案内のメールを受け取る。</label>
@@ -199,9 +212,15 @@
   </form>
   <p class="login-link">すでに会員の方は <a href="./auth/signin.html">ログイン</a></p>
 </div>
-
 <script>
 /* ===== UI 補助 ===== */
+function changeColor(color){
+  if( color.value == 0 ){
+      color.style.color = '#969696';
+  }else{
+      color.style.color = '#000';
+  }
+}
 const schoolRadios = document.querySelectorAll('input[name="school"]');
 const deptFields = document.getElementById('dept-fields');
 const schoolNameGroup = document.getElementById('school-name-group');
@@ -287,14 +306,19 @@ updateSchoolFields();
 
 const gradYearSelect = document.getElementById('grad-year');
 if (gradYearSelect) {
-  const currentYear = new Date().getFullYear();
-  for (let offset = 0; offset <= 3; offset += 1) {
+  const currentYear = new Date().getFullYear() + 1;
+  for (let offset = 0; offset <= 2; offset += 1) {
     const year = currentYear + offset;
     const option = document.createElement('option');
     option.value = String(year);
     option.textContent = `${year}年`;
     gradYearSelect.appendChild(option);
   }
+  // その他の選択肢を最後に追加
+  const otherOption = document.createElement('option');
+  otherOption.value = 'other';
+  otherOption.textContent = 'その他';
+  gradYearSelect.appendChild(otherOption);
 }
 
 /* ===== 送信処理（Lambda + API Gateway にPOST） ===== */

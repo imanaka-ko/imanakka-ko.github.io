@@ -101,7 +101,8 @@ body {
 }
 
 .site-title {
-  color: var(--main-blue);
+  /* color: var(--main-blue); */
+  color: #0064b4;
   font-weight: bold;
   font-size: 1.25rem;
 }

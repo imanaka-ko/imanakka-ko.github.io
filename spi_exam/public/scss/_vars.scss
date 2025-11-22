@@ -1,0 +1,40 @@
+
+/* ====================================================
+reset style
+==================================================== */
+li {
+	list-style: none;
+}
+
+
+//====================================================
+//Media Quary
+//====================================================
+@mixin mq($breakpoint: md){
+	@media #{map-get($breakpoints, $breakpoint)} {
+		@content;
+	}
+}
+
+$breakpoint-sm: 640px !default;
+$breakpoint-md: 834px !default;
+$breakpoint-tab: 1024px !default;
+
+$breakpoints: (
+	'xs': 'screen and (max-width: 480px)',
+	// 'sm': 'screen and (max-width: 640px)',
+	// 'md': 'screen and (max-width: 800.98px)',
+	// 'lg': 'screen and (max-width: 990px)',
+	// 'tb': 'screen and (max-width: 1080px)',
+	// 'xl': 'screen and (max-width: 1200px)',
+	// 'xxl': 'screen and (max-width: 1500px)',
+	// 'lp': 'screen and (max-width: 1680px)',
+	'xs-min': 'screen and (min-width: 480px)',
+	// 'sm-min': 'screen and (min-width: 641px)',
+	// 'md-min': 'screen and (min-width: 800.99px)',
+	// 'lg-min': 'screen and (min-width: 991px)',
+	// 'tb-min': 'screen and (min-width: 1081px)',
+	// 'xl-min': 'screen and (min-width: 1201px)',
+	// 'xxl-min': 'screen and (min-width: 1501px)',
+	// 'lp-min': 'screen and (min-width: 1681px)',
+) !default;
