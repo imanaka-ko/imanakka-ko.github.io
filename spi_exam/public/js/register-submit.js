@@ -1,5 +1,7 @@
 (function () {
   const GAS_URL = "https://script.google.com/macros/s/AKfycbxY-yB7QNr3S0AtpmiVPVezGlTBfuZEWdmGSjcYVTR5dTAYfwITV2z9bWxQk7JVg9-6/exec";
+  const KOKOSHIRO_GAS_URL =
+    "https://script.google.com/macros/s/AKfycbxkokoshiro-temp-exec/exec";
   const nativeSubmit = HTMLFormElement.prototype.submit;
   const SUBMISSION_STORAGE_KEY = "registerSubmissionData";
 
@@ -86,6 +88,33 @@
     });
   }
 
+  function triggerKokoshiroGasIfNeeded(form, submissionData) {
+    const scope = form.closest(".wrapper") || document;
+    const kokoshiroCheckbox = scope.querySelector(
+      "input[type=\"checkbox\"][data-kokoshiro]"
+    );
+    if (!kokoshiroCheckbox || !kokoshiroCheckbox.checked) {
+      return Promise.resolve();
+    }
+
+    const url = form.dataset.kokoshiroGasUrl || KOKOSHIRO_GAS_URL;
+    if (!url) {
+      return Promise.resolve();
+    }
+
+    const payload = submissionData && typeof submissionData === "object"
+      ? { registration: submissionData }
+      : undefined;
+
+    return fetch(url, {
+      method: "POST",
+      mode: "no-cors",
+      body: payload ? JSON.stringify(payload) : undefined,
+    }).catch((error) => {
+      console.error("Failed to trigger Kokoshiro GAS", error);
+    });
+  }
+
   function collectRecipients(form) {
     const scope = form.closest(".wrapper") || document;
     const checkboxes = scope.querySelectorAll(
@@ -150,7 +179,10 @@
           submitButton.disabled = true;
         }
 
-        triggerGas(recipients, submissionData).finally(() => {
+        Promise.all([
+          triggerGas(recipients, submissionData),
+          triggerKokoshiroGasIfNeeded(form, submissionData),
+        ]).finally(() => {
           clearSubmissionData();
           if (submitButton) {
             if (submitButton.tagName === "BUTTON") {
