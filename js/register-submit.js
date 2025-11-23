@@ -89,7 +89,10 @@
   }
 
   function triggerKokoshiroGasIfNeeded(form, submissionData) {
-    const kokoshiroCheckbox = form.querySelector("input[type=\"checkbox\"][data-kokoshiro]");
+    const scope = form.closest(".wrapper") || document;
+    const kokoshiroCheckbox = scope.querySelector(
+      "input[type=\"checkbox\"][data-kokoshiro]"
+    );
     if (!kokoshiroCheckbox || !kokoshiroCheckbox.checked) {
       return Promise.resolve();
     }
