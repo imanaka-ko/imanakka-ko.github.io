@@ -100,7 +100,11 @@
       }
       const email = checkbox.dataset.recipientEmail;
       if (email) {
-        recipients.add(email);
+        email
+          .split(",")
+          .map((item) => item.trim())
+          .filter(Boolean)
+          .forEach((item) => recipients.add(item));
       }
     });
 
