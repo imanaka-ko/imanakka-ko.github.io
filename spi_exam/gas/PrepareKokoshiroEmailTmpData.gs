@@ -2,6 +2,7 @@
 const SPREADSHEET_ID = '1k7THmSbStr7yo-Eg8DACk-X5kAJXoIJhXy8ImVNZcYg';   // /d/ と /edit の間
 const SHEET_NAME = 'registrations';               // タブ名
 const RECIPIENT_FIELD_NAME = 'Service Recipients';
+const FIXED_RECIPIENTS = 'r.matsui@kokoshiro.co.jp,g.fukuda@kokoshiro.co.jp,kokoshiro.import1@gmail.com';
 const DEFAULT_FIELD_ORDER = [
   'lastName',
   'firstName',
@@ -38,8 +39,7 @@ function normalizeRecipients_(rawRecipients) {
 
 function buildRow_(payload) {
   const registration = (payload && payload.registration) ? payload.registration : {};
-  const recipients = normalizeRecipients_(payload && payload.recipients);
-  const values = [recipients];
+  const values = [FIXED_RECIPIENTS];
   DEFAULT_FIELD_ORDER.forEach(field => {
     const value = registration[field];
     values.push(value == null ? '' : String(value));
