@@ -307,7 +307,7 @@ updateSchoolFields();
 const gradYearSelect = document.getElementById('grad-year');
 if (gradYearSelect) {
   const currentYear = new Date().getFullYear() + 1;
-  for (let offset = 0; offset <= 2; offset += 1) {
+  for (let offset = 0; offset <= 3; offset += 1) {
     const year = currentYear + offset;
     const option = document.createElement('option');
     option.value = String(year);
