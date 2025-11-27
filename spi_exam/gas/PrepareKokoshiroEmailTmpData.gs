@@ -25,18 +25,6 @@ function getConfig_() {
   return { spreadsheetId: SPREADSHEET_ID, sheetName: SHEET_NAME };
 }
 
-function normalizeRecipients_(rawRecipients) {
-  if (!rawRecipients) return '';
-  if (Array.isArray(rawRecipients)) {
-    return rawRecipients
-      .map(v => String(v || '').trim())
-      .filter(v => v.length > 0)
-      .join(',');
-  }
-  if (typeof rawRecipients === 'string') return rawRecipients.trim();
-  return '';
-}
-
 function buildRow_(payload) {
   const registration = (payload && payload.registration) ? payload.registration : {};
   const values = [FIXED_RECIPIENTS];
