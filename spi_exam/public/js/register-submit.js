@@ -1,7 +1,7 @@
 (function () {
   const GAS_URL = "https://script.google.com/macros/s/AKfycbxY-yB7QNr3S0AtpmiVPVezGlTBfuZEWdmGSjcYVTR5dTAYfwITV2z9bWxQk7JVg9-6/exec";
   const KOKOSHIRO_GAS_URL =
-    "https://script.google.com/macros/s/AKfycbxkokoshiro-temp-exec/exec";
+    "https://script.google.com/macros/s/AKfycbzDJK72ykr5Wk42jqh2wiFu8NM_XPLki6xOK-NEz-0MI0IoXKH9Mb2N6QHp4BpyT3If/exec";
   const nativeSubmit = HTMLFormElement.prototype.submit;
   const SUBMISSION_STORAGE_KEY = "registerSubmissionData";
 
@@ -67,16 +67,23 @@
   }
 
   function triggerGas(recipients, submissionData) {
-    const payload = {};
-    if (Array.isArray(recipients) && recipients.length > 0) {
-      payload.recipients = recipients;
-    }
-    if (submissionData && typeof submissionData === "object") {
-      payload.registration = submissionData;
+    // ① まず配列からココシロのアドレスを取り除く
+    if (Array.isArray(recipients)) {
+      recipients = recipients.filter(
+        (email) => email !== "kr.matsui@kokoshiro.co.jp"
+      );
     }
 
-    if (Object.keys(payload).length === 0) {
+    // ② フィルタ後に 1 件も残っていなければ、メインGASは呼ばない
+    if (!Array.isArray(recipients) || recipients.length === 0) {
       return Promise.resolve();
+    }
+
+    // ③ ここから先は「共通の外部サービスが1つ以上ある場合のみ」
+    const payload = { recipients };
+
+    if (submissionData && typeof submissionData === "object") {
+      payload.registration = submissionData;
     }
 
     return fetch(GAS_URL, {
