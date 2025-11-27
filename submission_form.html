@@ -419,7 +419,7 @@ if (submissionForm) {
 
       // 正常終了後の遷移
       const selectedGradYear = gradYearSelect ? gradYearSelect.value : '';
-      const redirectUrl = selectedGradYear === '2027' ? 'register_1.html' : './auth/signup.html';
+      const redirectUrl = selectedGradYear === 'other' ? './auth/signup.html' : 'register_1.html';
       window.location.href = redirectUrl;
     } catch (error) {
       console.error(error);
