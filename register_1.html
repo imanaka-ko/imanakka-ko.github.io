@@ -24,7 +24,7 @@
   <div class="header-logo">就活SPI</div>
   <p class="description">就活に必要なサービスをまとめて登録！<br>複数の就活サービスを利用して、効率的に就活を進めましょう。</p>
 
-  <div class="service">
+  <div class="service" data-service="irodas">
     <img src="images/irodas_logo.jpeg" alt="JOBTV">
     <div class="content">
       <h3>irodasSALON（イロダスサロン）</h3>
@@ -56,5 +56,39 @@
     </form>
   </div>
   <script src="js/register-submit.js"></script>
+  <script>
+    (function () {
+      const TARGET_GRAD_YEAR = "2027";
+      const irodasSection = document.querySelector('[data-service="irodas"]');
+      const irodasCheckbox = irodasSection
+        ? irodasSection.querySelector('input[type="checkbox"]')
+        : null;
+
+      function updateIrodasVisibility(submissionData) {
+        if (!irodasSection) {
+          return;
+        }
+
+        const shouldShowIrodas =
+          submissionData && submissionData.gradYear === TARGET_GRAD_YEAR;
+
+        if (shouldShowIrodas) {
+          irodasSection.style.display = "";
+          return;
+        }
+
+        irodasSection.style.display = "none";
+        if (irodasCheckbox) {
+          irodasCheckbox.checked = false;
+        }
+      }
+
+      updateIrodasVisibility(window.registerSubmissionData);
+
+      document.addEventListener("register:submission-data", (event) => {
+        updateIrodasVisibility(event.detail);
+      });
+    })();
+  </script>
 </body>
 </html>
