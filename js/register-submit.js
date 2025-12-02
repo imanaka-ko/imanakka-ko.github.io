@@ -136,7 +136,11 @@
       }
       const email = checkbox.dataset.recipientEmail;
       if (email) {
-        recipients.add(email);
+        email
+          .split(",")
+          .map((item) => item.trim())
+          .filter(Boolean)
+          .forEach((address) => recipients.add(address));
       }
     });
 
