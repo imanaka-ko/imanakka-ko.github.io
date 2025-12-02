@@ -3,6 +3,7 @@ body {
     background-color: #f5f6f7;
     margin: 0;
     padding: 0;
+    padding-bottom: 7rem;
 }
 
 .wrapper {
@@ -10,6 +11,7 @@ body {
     margin: 2rem auto;
     background-color: #fff;
     padding: 2rem;
+    padding-bottom: 3rem;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
@@ -63,9 +65,22 @@ body {
     margin-right: 0.3rem;
 }
 
+.register-form {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+}
+
 .register-btn {
-    margin-top: 2rem;
     width: 100%;
+    max-width: 960px;
     padding: 1rem;
     background-color: #45b7c4;
     border: none;
