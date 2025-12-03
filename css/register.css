@@ -31,7 +31,7 @@ body {
     line-height: 1.6;
 }
 
-.service {
+.service { 
     display: flex;
     gap: 1.5rem;
     border: 1px solid #e0e0e0;
@@ -54,6 +54,35 @@ body {
 .service p {
     margin: 0.5rem 0 0;
     line-height: 1.5;
+}
+
+.service__description {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+    overflow: hidden;
+    max-height: 7.5em;
+    transition: max-height 0.3s ease;
+}
+
+.service--collapsible .toggle-description {
+    margin-top: 0.75rem;
+    padding: 0.35rem 0.75rem;
+    background-color: transparent;
+    border: 1px solid #45b7c4;
+    color: #45b7c4;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.service--collapsible.is-expanded .service__description {
+    -webkit-line-clamp: unset;
+    max-height: none;
+}
+
+.service--collapsible.is-expanded .toggle-description {
+    background-color: #45b7c4;
+    color: #fff;
 }
 
 .terms {
