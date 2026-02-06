@@ -45,13 +45,6 @@
                         <span class="label">回答時間</span>
                         <div class="progress-bars" id="progressBars"></div>
                     </div>
-                    <div class="timer-circle" id="timerCircle" aria-live="polite">
-                        <svg class="timer-svg" width="80" height="80" viewBox="0 0 80 80" role="img" aria-label="残り時間">
-                            <circle class="timer-bg" cx="40" cy="40" r="36"></circle>
-                            <circle class="timer-progress" cx="40" cy="40" r="36"></circle>
-                            <text class="timer-text" x="40" y="43" text-anchor="middle" dominant-baseline="middle" id="timerText">--</text>
-                        </svg>
-                    </div>
                 </div>
                 <div class="instruction" id="examDescription">問題データを読み込んでいます...</div>
                 <div class="question-block">
@@ -60,7 +53,20 @@
                 </div>
                 <form id="questionForm" class="question-form" novalidate>
                     <div class="options-list" id="optionsList"></div>
-                    <button type="submit" class="next-button" id="nextButton" disabled>次へ進む</button>
+                    <div class="exam-actions">
+                        <div class="timer-bar" id="timerBar" aria-live="polite">
+                            <span class="timer-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" role="img" focusable="false">
+                                    <path d="M9 2h6v2H9V2zm3 5a8 8 0 1 0 0 16 8 8 0 0 0 0-16zm0 2a6 6 0 1 1 0 12 6 6 0 0 1 0-12zm.75 2.5h-1.5v4.25l3.5 2.1.75-1.23-2.75-1.62V11.5z"></path>
+                                </svg>
+                            </span>
+                            <div class="timer-track" role="img" aria-label="残り時間">
+                                <div class="timer-fill" id="timerFill"></div>
+                            </div>
+                            <span class="timer-remaining" id="timerText">--</span>
+                        </div>
+                        <button type="submit" class="next-button" id="nextButton" disabled>次へ進む</button>
+                    </div>
                 </form>
                 <div class="status-message hidden" id="statusMessage" role="alert"></div>
             </div>
