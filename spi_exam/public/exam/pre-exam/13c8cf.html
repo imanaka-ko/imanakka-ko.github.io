@@ -234,119 +234,134 @@
    受験内容確認ページ専用CSS
    ================================================ */
 
+body.pre-exam-page {
+  background-color: #f3fbff;
+}
+
+body.pre-exam-page .container {
+  max-width: 1200px;
+  background-color: transparent;
+  box-shadow: none;
+}
+
+body.pre-exam-page .header {
+  background: transparent;
+  border-bottom: none;
+  justify-content: center;
+  height: auto;
+  padding: 32px 20px 16px;
+}
+
+body.pre-exam-page .logo {
+  width: 48px;
+  height: 48px;
+  margin-right: 12px;
+}
+
+body.pre-exam-page .site-title {
+  font-size: 1.5rem;
+  color: #2b2b2b;
+}
+
+body.pre-exam-page .main-content {
+  padding: 0 24px 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 /* ページタイトル */
 .page-title {
-  color: #2f98a5;
-  font-weight: bold;
-  font-size: 1.125rem; /* 18px相当 */
+  color: #1499d6;
+  font-weight: 700;
+  font-size: 2rem;
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
+  letter-spacing: 0.08em;
+}
+
+.pre-exam-frame {
+  background-color: #e8f6fb;
+  border-radius: 28px;
+  padding: 48px 56px;
+  width: min(880px, 100%);
+}
+
+.pre-exam-card {
+  background-color: #fff;
+  border-radius: 22px;
+  padding: 36px 48px 40px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
 }
 
 /* 確認カード */
 .confirmation-card {
-  background-color: #f5f5f5;
-  border: 1px solid #949494;
-  border-radius: 5px;
-  padding: 1.25rem;
-  max-width: 280px;
-  margin: 0 auto 2rem auto;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  max-width: none;
+  margin: 0 0 24px 0;
 }
 
 /* 確認セクション */
 .confirmation-section {
-  margin-bottom: 1.5rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid #ddd;
+  margin-bottom: 0;
+  padding: 18px 0;
+  border-bottom: 1px solid #d7d7d7;
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 
 .confirmation-section:last-child {
-  margin-bottom: 0;
   border-bottom: none;
-  padding-bottom: 0;
 }
 
 /* セクションタイトル */
 .section-title {
   color: #333;
-  font-weight: normal;
-  font-size: 0.75rem; /* 12px相当 */
-  margin: 0 0 0.25rem 0;
-  line-height: 1.4;
+  font-weight: 500;
+  font-size: 0.95rem;
+  margin: 0;
+  min-width: 110px;
 }
 
 /* セクション値 */
 .section-value {
-  color: #000;
-  font-weight: bold;
-  font-size: 0.875rem; /* 14px相当 */
-  margin: 0 0 0.5rem 0;
-  line-height: 1.4;
+  color: #111;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin: 0;
+  flex: 1;
 }
 
 /* 再選択リンク */
 .reselect-link {
-  color: #2f98a5;
-  font-size: 0.75rem; /* 12px相当 */
+  color: #1499d6;
+  font-size: 0.9rem;
   text-decoration: none;
-  line-height: 1.4;
-  display: block;
+  margin-left: auto;
 }
 
 .reselect-link:hover {
   text-decoration: underline;
 }
 
-/* 受験開始ボタン */
-.start-exam-btn {
-  background-color: #f65b11;
-  color: #fff;
-  border: none;
-  border-radius: 20px;
-  padding: 0;
-  font-size: 0.875rem; /* 14px相当 */
-  font-weight: bold;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto;
-  width: 240px;
-  height: 40px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  transition: all 0.2s ease;
-  text-decoration: none;
-  text-align: center;
-}
-
-.start-exam-btn:hover {
-  background-color: #e5520f;
-  transform: translateY(-1px);
-  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.25);
-  color: #fff;
-}
-
-.start-exam-btn:active {
-  transform: translateY(0);
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
-}
-
 /* 注意事項セクション */
 .notice-section {
-  background-color: #f8f9fa;
-  border: 1px solid #e0e0e0;
-  border-radius: 5px;
-  padding: 1rem;
-  margin-bottom: 2rem;
-  max-width: 320px;
-  margin-left: auto;
-  margin-right: auto;
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  margin: 0 0 24px;
+  max-width: none;
 }
 
 .notice-title {
-  color: #2f98a5;
-  font-weight: bold;
-  font-size: 0.875rem;
+  color: #333;
+  font-weight: 600;
+  font-size: 0.95rem;
   margin-bottom: 0.75rem;
 }
 
@@ -358,29 +373,58 @@
 
 .notice-list li {
   color: #333;
-  font-size: 0.75rem;
-  line-height: 1.6;
-  margin-bottom: 0.5rem;
-  padding-left: 1rem;
-  position: relative;
+  font-size: 0.85rem;
+  line-height: 1.7;
+  margin-bottom: 0.4rem;
+  padding-left: 0;
 }
 
 .notice-list li:before {
-  content: "•";
-  color: #2f98a5;
-  position: absolute;
-  left: 0;
-  font-weight: bold;
+  content: none;
+}
+
+/* 受験開始ボタン */
+.start-exam-btn {
+  background-color: #1499d6;
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  width: 260px;
+  height: 52px;
+  box-shadow: 0 8px 18px rgba(20, 153, 214, 0.3);
+  transition: all 0.2s ease;
+  text-decoration: none;
+  text-align: center;
+}
+
+.start-exam-btn:hover {
+  background-color: #0f8ac2;
+  transform: translateY(-1px);
+  box-shadow: 0 12px 22px rgba(20, 153, 214, 0.35);
+  color: #fff;
+}
+
+.start-exam-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 6px 14px rgba(20, 153, 214, 0.3);
 }
 
 /* 戻るリンク */
 .back-link {
-  color: #2f98a5;
-  font-size: 0.8125rem;
+  color: #1499d6;
+  font-size: 0.85rem;
   text-decoration: none;
   text-align: center;
   display: block;
-  margin-top: 1.5rem;
+  margin-top: 20px;
 }
 
 .back-link:hover {
@@ -388,77 +432,77 @@
 }
 
 /* レスポンシブ対応 */
-@media (max-width: 480px) {
+@media (max-width: 768px) {
+  body.pre-exam-page .header {
+    padding-top: 24px;
+  }
+
   .page-title {
-    font-size: 1rem; /* 16px相当 */
-    margin-bottom: 1.5rem;
+    font-size: 1.6rem;
+    margin-bottom: 1.75rem;
   }
 
-  .confirmation-card {
-    max-width: 100%;
-    padding: 1rem;
-    margin-bottom: 1.5rem;
+  .pre-exam-frame {
+    padding: 32px 24px;
   }
 
-  .confirmation-section {
-    margin-bottom: 1.25rem;
+  .pre-exam-card {
+    padding: 28px 24px 32px;
   }
 
   .section-title {
-    font-size: 0.6875rem; /* 11px相当 */
-  }
-
-  .reselect-link {
-    font-size: 0.6875rem; /* 11px相当 */
-  }
-
-  .section-value {
-    font-size: 0.8125rem; /* 13px相当 */
-  }
-
-  .start-exam-btn {
-    width: 200px;
-    height: 36px;
-    font-size: 0.8125rem; /* 13px相当 */
-  }
-
-  .notice-section {
-    max-width: 100%;
-    padding: 0.875rem;
-  }
-
-  .notice-title {
-    font-size: 0.8125rem;
-  }
-
-  .notice-list li {
-    font-size: 0.6875rem;
+    min-width: 90px;
   }
 }
 
-@media (max-width: 320px) {
-  .confirmation-card {
-    padding: 0.875rem;
+@media (max-width: 480px) {
+  body.pre-exam-page .main-content {
+    padding: 0 16px 60px;
+  }
+
+  .page-title {
+    font-size: 1.35rem;
+  }
+
+  .pre-exam-frame {
+    padding: 24px 16px;
+    border-radius: 20px;
+  }
+
+  .pre-exam-card {
+    padding: 24px 20px;
+    border-radius: 18px;
   }
 
   .confirmation-section {
-    margin-bottom: 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .section-title {
+    min-width: auto;
+    font-size: 0.85rem;
+  }
+
+  .section-value {
+    font-size: 1rem;
+  }
+
+  .reselect-link {
+    margin-left: 0;
   }
 
   .start-exam-btn {
-    width: 180px;
-    height: 34px;
-    font-size: 0.75rem; /* 12px相当 */
-  }
-
-  .notice-section {
-    padding: 0.75rem;
+    width: 220px;
+    height: 48px;
+    font-size: 0.95rem;
   }
 }
 </style>
     
 </head>
-<body class="">
+<body class="pre-exam-page">
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NFD53MZ9"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -482,7 +526,9 @@
             <main class="main-content">
     <h1 class="page-title">受験内容確認</h1>
     
-    <div class="confirmation-card">
+    <div class="pre-exam-frame">
+        <div class="pre-exam-card">
+            <div class="confirmation-card">
         <div class="confirmation-section">
             <h2 class="section-title">受験科目</h2>
             <p class="section-value">
@@ -522,6 +568,8 @@
     <a href="../select-mode.html" class="back-link">
         ← 戻る
     </a>
+        </div>
+    </div>
 </main>
         </main>
         
