@@ -245,12 +245,20 @@
 }
 
 /* --- 受験カード共通スタイル --- */
+.exam-selection {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
 .exam-card {
   margin-bottom: 2rem;
   padding: 1.5rem;
   border: 1px solid #949494;
   border-radius: 5px;
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .exam-card--easy {
@@ -316,6 +324,10 @@
   left: 0;
 }
 
+.exam-card__content {
+  flex: 1;
+}
+
 /* --- 受験ボタン --- */
 .exam-button {
   width: 100%;
@@ -354,6 +366,10 @@
   .page-title {
     font-size: 1rem;
     margin-bottom: 1.5rem;
+  }
+
+  .exam-selection {
+    gap: 1.25rem;
   }
   
   .exam-card {
@@ -411,6 +427,16 @@
   }
 }
 
+@media (min-width: 768px) {
+  .exam-selection {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .exam-card {
+    margin-bottom: 0;
+  }
+}
+
 
 </style>
     
@@ -440,49 +466,55 @@
     <h1 class="page-title">受験タイプ選択</h1>
     
         
-    <!-- 簡単受験セクション -->
-    <section class="exam-card exam-card--easy">
-        <h2 class="exam-title">簡単受験</h2>
-        <div class="exam-time">
-            受験時間　<span class="exam-time-value">5</span>分
-        </div>
-        
-        <div class="recommendation">
-            <h3 class="recommendation-title">こんな人にオススメ！</h3>
-            <ul class="recommendation-list">
-                <li>とにかく時間がない</li>
-                <li>どんな問題が出題されるかだけ知りたい</li>
-                <li>試しにまず受けてみたい</li>
-            </ul>
-        </div>
-        
-        <a href="select-category/easy.html" 
-           class="exam-button exam-button--easy">
-            「簡単受験」でサクッと受験！
-        </a>
-    </section>
+    <div class="exam-selection">
+        <!-- 簡単受験セクション -->
+        <section class="exam-card exam-card--easy">
+            <h2 class="exam-title">簡単受験</h2>
+            <div class="exam-card__content">
+                <div class="exam-time">
+                    受験時間　<span class="exam-time-value">5</span>分
+                </div>
+                
+                <div class="recommendation">
+                    <h3 class="recommendation-title">こんな人にオススメ！</h3>
+                    <ul class="recommendation-list">
+                        <li>とにかく時間がない</li>
+                        <li>どんな問題が出題されるかだけ知りたい</li>
+                        <li>試しにまず受けてみたい</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <a href="select-category/easy.html" 
+               class="exam-button exam-button--easy">
+                「簡単受験」でサクッと受験！
+            </a>
+        </section>
 
-    <!-- 本格受験セクション -->
-    <section class="exam-card exam-card--full">
-        <h2 class="exam-title">本格受験</h2>
-        <div class="exam-time">
-            受験時間　<span class="exam-time-value">15</span>分
-        </div>
-        
-        <div class="recommendation">
-            <h3 class="recommendation-title">こんな人にオススメ！</h3>
-            <ul class="recommendation-list">
-                <li>しっかり模擬試験を受けたい</li>
-                <li>自分の力試しをしたい</li>
-                <li>実際のテストに合格できるかを知りたい</li>
-            </ul>
-        </div>
-        
-        <a href="select-category/full.html" 
-           class="exam-button exam-button--full">
-            「本格受験」でしっかり受験！
-        </a>
-    </section>
+        <!-- 本格受験セクション -->
+        <section class="exam-card exam-card--full">
+            <h2 class="exam-title">本格受験</h2>
+            <div class="exam-card__content">
+                <div class="exam-time">
+                    受験時間　<span class="exam-time-value">15</span>分
+                </div>
+                
+                <div class="recommendation">
+                    <h3 class="recommendation-title">こんな人にオススメ！</h3>
+                    <ul class="recommendation-list">
+                        <li>しっかり模擬試験を受けたい</li>
+                        <li>自分の力試しをしたい</li>
+                        <li>実際のテストに合格できるかを知りたい</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <a href="select-category/full.html" 
+               class="exam-button exam-button--full">
+                「本格受験」でしっかり受験！
+            </a>
+        </section>
+    </div>
     
 
 </main>
