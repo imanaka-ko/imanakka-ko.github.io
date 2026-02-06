@@ -94,7 +94,7 @@ a:hover {
 
 .auth-title {
   margin: 0;
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-weight: 700;
   letter-spacing: 0.04em;
   color: var(--text);
@@ -152,6 +152,7 @@ a:hover {
   font-weight: 600;
   font-size: 1rem;
   padding: 16px;
+  white-space: nowrap;
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
   box-shadow: 0 18px 35px rgba(0, 165, 200, 0.22);
@@ -550,7 +551,7 @@ a:hover {
 
 .signin-footer-copy {
   margin: 0;
-  font-size: 2.05rem;
+  font-size: 2.8rem;
   font-weight: 700;
 }
 
@@ -621,11 +622,11 @@ a:hover {
 
   .signin-login-button {
     height: 62px;
-    font-size: 1.9rem;
+    font-size: 1.5rem;
   }
 
   .signin-forgot a {
-    font-size: 1.9rem;
+    font-size: 1.5rem;
   }
 
   .signup-guide-button {
@@ -743,15 +744,324 @@ a:hover {
   }
 
   .signup-guide-note {
-    font-size: 1.9rem;
+    font-size: 1.5rem;
     line-height: 1.55;
   }
 
   .signin-footer-links a {
-    font-size: 1.9rem;
+    font-size: 1.5rem;
   }
 
   .signin-footer-copy {
     font-size: 1.6rem;
+  }
+}
+
+.my-page {
+  background: #fff;
+  color: #111;
+  min-height: 100vh;
+}
+
+.my-page a {
+  color: inherit;
+}
+
+.mypage-header,
+.mypage-main,
+.mypage-footer {
+  width: min(1100px, 92%);
+  margin: 0 auto;
+}
+
+.mypage-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 26px 0;
+}
+
+.mypage-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.mypage-outline-button {
+  padding: 12px 44px;
+  border: 1px solid #121212;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.mypage-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 2rem;
+  background: #f4287e;
+  color: #fff;
+}
+
+.mypage-main {
+  padding: 28px 0 70px;
+}
+
+.mypage-username {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.mypage-user-badge {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 7px solid #f4287e;
+  display: inline-block;
+}
+
+.mypage-username h1 {
+  margin: 0;
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+}
+
+.mypage-panel {
+  background: #fff8fb;
+  border-radius: 30px;
+  padding: 44px;
+}
+
+.mypage-profile-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 34px 48px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.mypage-label {
+  margin: 0 0 12px;
+  color: #f4287e;
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.mypage-value {
+  margin: 0;
+  font-size: 2.8rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.mypage-menu-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 26px;
+}
+
+.mypage-menu-card {
+  min-height: 166px;
+  background: #fff;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  padding: 20px 34px;
+  gap: 18px;
+}
+
+.mypage-menu-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #f4287e;
+  color: #fff;
+  font-size: 2.7rem;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.mypage-menu-text {
+  font-size: 2.1rem;
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+.mypage-menu-arrow {
+  margin-left: auto;
+  color: #f4287e;
+  font-size: 2.2rem;
+  line-height: 1;
+}
+
+.mypage-links {
+  margin-top: 26px;
+  display: flex;
+  gap: 40px;
+}
+
+.mypage-links a {
+  font-size: 1.9rem;
+  color: #f4287e;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+
+.mypage-signout {
+  margin: 24px 0 0 auto;
+  width: 220px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 999px;
+  background: #fff;
+  color: #c8c8c8;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+  padding: 16px;
+  white-space: nowrap;
+  pointer-events: auto;
+}
+
+.mypage-footer {
+  border-top: 1px solid #f28a3b;
+  padding: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.7rem;
+  font-weight: 700;
+  margin-top: auto;
+}
+
+.my-page .footer-links {
+  display: flex;
+  gap: 40px;
+}
+
+.my-page .copyright {
+  color: #111;
+}
+
+@media (max-width: 768px) {
+  .mypage-header,
+  .mypage-main,
+  .mypage-footer {
+    width: calc(100% - 40px);
+  }
+
+  .mypage-header {
+    padding-top: 18px;
+    padding-bottom: 18px;
+  }
+
+    .mypage-outline-button {
+    display: none;
+  }
+
+  .mypage-avatar {
+    width: 48px;
+    height: 48px;
+    font-size: 1.8rem;
+  }
+
+  .mypage-main {
+    padding: 24px 0 46px;
+  }
+
+  .mypage-username {
+    margin-bottom: 18px;
+  }
+
+  .mypage-username h1 {
+    font-size: 2.2rem;
+  }
+
+  .mypage-user-badge {
+    width: 24px;
+    height: 24px;
+    border-width: 5px;
+  }
+
+  .mypage-panel {
+    border-radius: 0;
+    margin: 0 -20px;
+    padding: 26px 20px 32px;
+  }
+
+  .mypage-profile-card,
+  .mypage-menu-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mypage-profile-card {
+    padding: 24px;
+    gap: 20px;
+  }
+
+  .mypage-label {
+    font-size: 1.1rem;
+  }
+
+  .mypage-value {
+    font-size: 2rem;
+  }
+
+  .mypage-menu-card {
+    min-height: 130px;
+    padding: 18px 24px;
+  }
+
+  .mypage-menu-icon {
+    width: 48px;
+    height: 48px;
+    font-size: 2rem;
+  }
+
+  .mypage-menu-text {
+    font-size: 2.2rem;
+  }
+
+  .mypage-menu-arrow {
+    font-size: 2.2rem;
+  }
+
+  .mypage-links {
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .mypage-links a {
+    font-size: 1.1rem;
+  }
+
+  .mypage-signout {
+    width: 170px;
+    margin: 24px auto 0;
+    font-size: 1.7rem;
+  }
+
+  .mypage-footer {
+    flex-direction: column-reverse;
+    gap: 10px;
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 18px 0 26px;
+  }
+
+  .my-page .footer-links {
+    gap: 28px;
   }
 }
