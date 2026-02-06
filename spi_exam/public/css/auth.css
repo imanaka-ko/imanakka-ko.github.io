@@ -954,6 +954,97 @@ a:hover {
   color: #111;
 }
 
+.mypage-settings-page {
+  display: block;
+}
+
+.mypage-settings-main {
+  padding-top: 12px;
+}
+
+.mypage-settings-heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.mypage-settings-heading h1 {
+  margin: 0;
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+}
+
+.mypage-settings-panel {
+  max-width: 900px;
+}
+
+.mypage-settings-subtitle {
+  margin: 0;
+  color: #111;
+  font-size: 1.4rem;
+  line-height: 1.7;
+}
+
+.mypage-settings-form {
+  margin-top: 26px;
+  gap: 18px;
+}
+
+.mypage-settings-form .input-group {
+  gap: 10px;
+}
+
+.mypage-settings-form .input-group label {
+  color: #f4287e;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.mypage-settings-form .input-group input {
+  height: 62px;
+  border-radius: 10px;
+  border: 1px solid #d6d6d6;
+  background: #fff;
+  font-size: 1.25rem;
+  padding: 0 16px;
+}
+
+.mypage-settings-form .primary-button {
+  margin-top: 12px;
+  width: min(380px, 100%);
+  align-self: center;
+  border: 1px solid #f4287e;
+  border-radius: 999px;
+  background: #fff;
+  color: #f4287e;
+  box-shadow: none;
+  font-size: 1.65rem;
+  font-weight: 700;
+  padding: 16px 24px;
+}
+
+.mypage-settings-form .primary-button:hover,
+.mypage-settings-form .primary-button:active {
+  background: #f4287e;
+  color: #fff;
+  transform: none;
+  box-shadow: none;
+}
+
+.mypage-settings-note {
+  margin-top: 20px;
+  text-align: left;
+  font-size: 1.05rem;
+}
+
+.mypage-settings-note a {
+  color: #f4287e;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
 @media (max-width: 768px) {
   .mypage-header,
   .mypage-main,
@@ -1063,5 +1154,44 @@ a:hover {
 
   .my-page .footer-links {
     gap: 28px;
+  }
+
+  .mypage-settings-main {
+    padding-top: 6px;
+  }
+
+  .mypage-settings-heading {
+    margin-bottom: 18px;
+  }
+
+  .mypage-settings-heading h1 {
+    font-size: 2.2rem;
+  }
+
+  .mypage-settings-subtitle {
+    font-size: 1rem;
+  }
+
+  .mypage-settings-form {
+    margin-top: 18px;
+  }
+
+  .mypage-settings-form .input-group label {
+    font-size: 1.06rem;
+  }
+
+  .mypage-settings-form .input-group input {
+    height: 52px;
+    font-size: 1rem;
+  }
+
+  .mypage-settings-form .primary-button {
+    width: 100%;
+    font-size: 1.3rem;
+    padding: 14px 20px;
+  }
+
+  .mypage-settings-note {
+    font-size: 0.95rem;
   }
 }
