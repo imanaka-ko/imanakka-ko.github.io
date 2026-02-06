@@ -2,18 +2,31 @@
   const RESULTS_KEY = "spiExamResults";
   const REDIRECT_PATH = "select-mode.html";
 
-  const titleEl = document.getElementById("resultTitle");
-  const metaEl = document.getElementById("resultMeta");
+  const dateEl = document.getElementById("metaDate");
+  const modeEl = document.getElementById("metaMode");
+  const categoryEl = document.getElementById("metaCategory");
   const correctEl = document.getElementById("correctCount");
   const totalEl = document.getElementById("totalCount");
   const accuracyEl = document.getElementById("accuracy");
-  const answersBodyEl = document.getElementById("answersBody");
+  const desktopBodyEl = document.getElementById("answersBodyDesktop");
+  const mobileBodyEl = document.getElementById("answersBodyMobile");
 
   function redirectToStart(message) {
     if (message) {
       window.alert(message);
     }
     window.location.href = REDIRECT_PATH;
+  }
+
+  function formatExamDate(timestamp) {
+    if (typeof timestamp !== "number" || Number.isNaN(timestamp)) {
+      return "----.--.--";
+    }
+    const date = new Date(timestamp);
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const day = String(date.getDate()).padStart(2, "0");
+    return `${year}.${month}.${day}`;
   }
 
   function formatTime(seconds) {
@@ -33,77 +46,145 @@
     return question.options[index];
   }
 
-  function createBadge(status) {
-    const span = document.createElement("span");
-    span.classList.add("answer-badge");
-    if (status === "correct") {
-      span.classList.add("correct");
-      span.textContent = "正解";
-    } else if (status === "incorrect") {
-      span.classList.add("incorrect");
-      span.textContent = "不正解";
-    } else {
-      span.classList.add("unanswered");
-      span.textContent = "未回答";
+  function getStatus(answer) {
+    if (answer && answer.isCorrect === true) {
+      return "correct";
     }
-    return span;
+    if (answer && typeof answer.selectedIndex === "number") {
+      return "incorrect";
+    }
+    return "unanswered";
+  }
+
+  function getStatusIcon(status) {
+    if (status === "correct") {
+      return "✓";
+    }
+    if (status === "incorrect") {
+      return "×";
+    }
+    return "-";
+  }
+
+  function createEmptyRow(target, colSpan) {
+    const row = document.createElement("tr");
+    const cell = document.createElement("td");
+    cell.colSpan = colSpan;
+    cell.textContent = "受験結果が見つかりませんでした。";
+    row.appendChild(cell);
+    target.appendChild(row);
+  }
+
+  function createDesktopRow(answer, question, index) {
+    const status = getStatus(answer);
+    const row = document.createElement("tr");
+
+    const cells = [
+      `${index + 1}`,
+      getOptionText(question, answer ? answer.selectedIndex : null),
+      getOptionText(question, answer ? answer.correctIndex : null),
+      null,
+      formatTime(answer ? answer.timeSpentSec : null),
+    ];
+
+    cells.forEach((value, cellIndex) => {
+      const cell = document.createElement("td");
+      if (cellIndex === 3) {
+        const mark = document.createElement("span");
+        mark.className = `judgement ${status}`;
+        mark.textContent = getStatusIcon(status);
+        cell.appendChild(mark);
+      } else {
+        cell.textContent = value;
+      }
+      row.appendChild(cell);
+    });
+
+    return row;
+  }
+
+  function createMobileRows(answer, question, index) {
+    const status = getStatus(answer);
+    const summaryRow = document.createElement("tr");
+    const detailRow = document.createElement("tr");
+    detailRow.className = "mobile-detail-row";
+
+    const numberCell = document.createElement("td");
+    numberCell.textContent = `${index + 1}`;
+    summaryRow.appendChild(numberCell);
+
+    const statusCell = document.createElement("td");
+    const mark = document.createElement("span");
+    mark.className = `judgement ${status}`;
+    mark.textContent = getStatusIcon(status);
+    statusCell.appendChild(mark);
+    summaryRow.appendChild(statusCell);
+
+    const timeCell = document.createElement("td");
+    timeCell.textContent = formatTime(answer ? answer.timeSpentSec : null);
+    summaryRow.appendChild(timeCell);
+
+    const toggleCell = document.createElement("td");
+    const toggle = document.createElement("button");
+    toggle.className = "mobile-toggle";
+    toggle.type = "button";
+    toggle.textContent = index === 0 ? "⌃" : "⌄";
+    toggleCell.appendChild(toggle);
+    summaryRow.appendChild(toggleCell);
+
+    const detailCell = document.createElement("td");
+    detailCell.colSpan = 4;
+
+    const userLine = document.createElement("div");
+    userLine.className = "mobile-answer-line";
+    userLine.innerHTML = `<span class="mobile-answer-label">あなたの回答</span><span>${getOptionText(question, answer ? answer.selectedIndex : null)}</span>`;
+
+    const correctLine = document.createElement("div");
+    correctLine.className = "mobile-answer-line";
+    correctLine.innerHTML = `<span class="mobile-answer-label">正解</span><span>${getOptionText(question, answer ? answer.correctIndex : null)}</span>`;
+
+    detailCell.appendChild(userLine);
+    detailCell.appendChild(correctLine);
+    detailRow.appendChild(detailCell);
+
+    if (index !== 0) {
+      detailRow.hidden = true;
+    }
+
+    toggle.addEventListener("click", () => {
+      const isHidden = detailRow.hidden;
+      detailRow.hidden = !isHidden;
+      toggle.textContent = isHidden ? "⌃" : "⌄";
+    });
+
+    return [summaryRow, detailRow];
   }
 
   function renderAnswers(result) {
     const answers = Array.isArray(result.answers) ? result.answers : [];
     const questions = Array.isArray(result.questions) ? result.questions : [];
-    answersBodyEl.innerHTML = "";
+
+    desktopBodyEl.innerHTML = "";
+    mobileBodyEl.innerHTML = "";
+
     if (answers.length === 0) {
-      const row = document.createElement("tr");
-      const cell = document.createElement("td");
-      cell.colSpan = 5;
-      cell.textContent = "受験結果が見つかりませんでした。";
-      row.appendChild(cell);
-      answersBodyEl.appendChild(row);
+      createEmptyRow(desktopBodyEl, 5);
+      createEmptyRow(mobileBodyEl, 4);
       return;
     }
 
     answers.forEach((answer, index) => {
       const question = questions[index] || null;
-      const row = document.createElement("tr");
-      let status = "unanswered";
-      if (answer && answer.isCorrect === true) {
-        status = "correct";
-      } else if (answer && typeof answer.selectedIndex === "number") {
-        status = "incorrect";
-      }
-      row.classList.add(status);
-
-      const numberCell = document.createElement("td");
-      numberCell.textContent = `Q${index + 1}`;
-      row.appendChild(numberCell);
-
-      const userCell = document.createElement("td");
-      userCell.innerHTML = getOptionText(question, answer ? answer.selectedIndex : null);
-      row.appendChild(userCell);
-
-      const correctCell = document.createElement("td");
-      correctCell.innerHTML = getOptionText(question, answer ? answer.correctIndex : null);
-      row.appendChild(correctCell);
-
-      const timeCell = document.createElement("td");
-      timeCell.textContent = formatTime(answer ? answer.timeSpentSec : null);
-      row.appendChild(timeCell);
-
-      const statusCell = document.createElement("td");
-      statusCell.appendChild(createBadge(status));
-      row.appendChild(statusCell);
-
-      answersBodyEl.appendChild(row);
+      desktopBodyEl.appendChild(createDesktopRow(answer, question, index));
+      const mobileRows = createMobileRows(answer, question, index);
+      mobileRows.forEach((row) => mobileBodyEl.appendChild(row));
     });
   }
 
   function render(result) {
-    titleEl.textContent = result.title || "受験結果";
-    const mode = result.mode ? `モード: ${result.mode}` : "";
-    const category = result.category ? `カテゴリ: ${result.category}` : "";
-    const parts = [mode, category].filter(Boolean);
-    metaEl.textContent = parts.length > 0 ? parts.join(" / ") : "結果の概要";
+    dateEl.textContent = formatExamDate(result.completedAt);
+    modeEl.textContent = result.mode || result.title || "かんたん受験";
+    categoryEl.textContent = result.category || "言語";
 
     const total = typeof result.total === "number" ? result.total : (Array.isArray(result.questions) ? result.questions.length : 0);
     const correct = typeof result.correct === "number" ? result.correct : 0;
