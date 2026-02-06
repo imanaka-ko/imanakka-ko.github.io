@@ -15,16 +15,12 @@
   const questionTextEl = document.getElementById("questionText");
   const optionsListEl = document.getElementById("optionsList");
   const progressBarsEl = document.getElementById("progressBars");
-  const timerCircleEl = document.getElementById("timerCircle");
+  const timerBarEl = document.getElementById("timerBar");
   const timerTextEl = document.getElementById("timerText");
-  const progressCircleEl = timerCircleEl.querySelector(".timer-progress");
+  const timerFillEl = document.getElementById("timerFill");
   const formEl = document.getElementById("questionForm");
   const nextButtonEl = document.getElementById("nextButton");
   const statusMessageEl = document.getElementById("statusMessage");
-
-  const radius = parseFloat(progressCircleEl.getAttribute("r"));
-  const circumference = 2 * Math.PI * radius;
-  progressCircleEl.style.strokeDasharray = `${circumference}`;
 
   let state = null;
   let timerId = null;
@@ -133,7 +129,8 @@
   function updateTimerDisplay() {
     timerTextEl.textContent = String(Math.max(0, timeRemaining));
     const progressValue = 1 - timeRemaining / state.timePerQuestionSec;
-    progressCircleEl.style.strokeDashoffset = `${circumference * progressValue}`;
+    const width = Math.max(0, Math.min(1, 1 - progressValue));
+    timerFillEl.style.width = `${width * 100}%`;
   }
 
   function stopTimer() {
@@ -199,7 +196,7 @@
     if (!Array.isArray(question.options) || question.options.length === 0) {
       setStatus("選択肢を読み込めませんでした。");
       nextButtonEl.disabled = true;
-      timerCircleEl.dataset.hidden = "true";
+      timerBarEl.dataset.hidden = "true";
       return;
     }
 
@@ -229,8 +226,8 @@
 
     nextButtonEl.disabled = true;
     nextButtonEl.textContent = currentIndex + 1 === questions.length ? "結果を見る" : "次へ進む";
-    timerCircleEl.dataset.hidden = "false";
-    timerCircleEl.setAttribute("data-hidden", "false");
+    timerBarEl.dataset.hidden = "false";
+    timerBarEl.setAttribute("data-hidden", "false");
     startTimer();
   }
 
