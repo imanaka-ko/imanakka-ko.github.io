@@ -167,14 +167,51 @@
         position: relative;
         border-radius: 24px;
         overflow: hidden;
-        background: #eef1f6;
-        min-height: 280px;
+        background: #f2f4f8;
+        min-height: 320px;
+        padding: 18px;
       }
 
-      .hero-image img {
+      .hero-image .hero-main {
         width: 100%;
         height: 100%;
         object-fit: cover;
+        border-radius: 20px;
+      }
+
+      .hero-deco {
+        position: absolute;
+        z-index: 2;
+      }
+
+      .hero-deco-1 {
+        width: 90px;
+        top: -10px;
+        left: -10px;
+      }
+
+      .hero-deco-2 {
+        width: 80px;
+        bottom: -12px;
+        left: 8%;
+      }
+
+      .hero-deco-3 {
+        width: 70px;
+        top: 14%;
+        right: -10px;
+      }
+
+      .hero-deco-4 {
+        width: 110px;
+        bottom: -20px;
+        right: 18%;
+      }
+
+      .hero-deco-5 {
+        width: 140px;
+        top: -20px;
+        right: 10%;
       }
 
       .section {
@@ -244,14 +281,35 @@
         border-radius: 18px;
         padding: 20px;
         text-align: center;
+        position: relative;
+        overflow: hidden;
       }
 
       .merit-card img {
         width: 100%;
-        height: 140px;
+        height: 180px;
         object-fit: cover;
         border-radius: 12px;
         background: rgba(0, 0, 0, 0.2);
+      }
+
+      .merit-card::after {
+        content: "";
+        position: absolute;
+        inset: 20px;
+        border-radius: 12px;
+        background: rgba(0, 0, 0, 0.35);
+      }
+
+      .merit-card p {
+        position: absolute;
+        inset: 20px;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 12px;
+        font-weight: 700;
       }
 
       .voice {
@@ -289,6 +347,7 @@
         height: 48px;
         border-radius: 50%;
         background: #fff;
+        object-fit: cover;
       }
 
       .cta {
@@ -314,15 +373,17 @@
       }
 
       .device {
-        width: 160px;
-        height: 120px;
-        border-radius: 14px;
+        width: 220px;
+        height: 160px;
+        border-radius: 16px;
+        object-fit: contain;
         background: rgba(255, 255, 255, 0.4);
+        padding: 12px;
       }
 
       .device.tall {
-        width: 80px;
-        height: 160px;
+        width: 110px;
+        height: 200px;
       }
 
       .footer {
@@ -353,6 +414,10 @@
 
         .recommend {
           grid-template-columns: 1fr;
+        }
+
+        .hero-image {
+          min-height: 260px;
         }
 
         .merit-grid {
@@ -426,7 +491,12 @@
                 </div>
             </div>
             <div class="hero-image">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" alt="ヒーロー画像（差し替え予定）">
+                <img class="hero-main" src="images/top_img_1.png" alt="SPI対策の学習イメージ">
+                <img class="hero-deco hero-deco-1" src="images/top_img_2.png" alt="" aria-hidden="true">
+                <img class="hero-deco hero-deco-2" src="images/top_img_3.png" alt="" aria-hidden="true">
+                <img class="hero-deco hero-deco-3" src="images/top_img_4.png" alt="" aria-hidden="true">
+                <img class="hero-deco hero-deco-4" src="images/top_img_5.png" alt="" aria-hidden="true">
+                <img class="hero-deco hero-deco-5" src="images/top_img_9.png" alt="" aria-hidden="true">
             </div>
         </section>
 
@@ -459,15 +529,15 @@
             <h2>メリット</h2>
             <div class="merit-grid">
                 <div class="merit-card">
-                    <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" alt="メリット画像1">
+                    <img src="images/top_img_6.png" alt="メリット画像1">
                     <p>多くの企業がSPI試験を導入しているから</p>
                 </div>
                 <div class="merit-card">
-                    <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" alt="メリット画像2">
+                    <img src="images/top_img_7.png" alt="メリット画像2">
                     <p>対策すれば確実に伸びる試験だから</p>
                 </div>
                 <div class="merit-card">
-                    <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" alt="メリット画像3">
+                    <img src="images/top_img_8.png" alt="メリット画像3">
                     <p>他就活生と差をつけることができるから</p>
                 </div>
             </div>
@@ -478,7 +548,7 @@
             <div class="voice-grid">
                 <div class="voice-card">
                     <div class="profile">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" alt="">
+                        <img src="images/top_img_10.png" alt="">
                         <div>
                             <strong>慶應義塾大学</strong><br>
                             <span>T.Kさん</span>
@@ -488,7 +558,7 @@
                 </div>
                 <div class="voice-card">
                     <div class="profile">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" alt="">
+                        <img src="images/top_img_11.png" alt="">
                         <div>
                             <strong>早稲田大学</strong><br>
                             <span>M.Aさん</span>
@@ -501,8 +571,8 @@
 
         <section class="cta">
             <div class="cta-image">
-                <div class="device"></div>
-                <div class="device tall"></div>
+                <img class="device" src="images/top_img_10.png" alt="学習画面イメージ（PC）">
+                <img class="device tall" src="images/top_img_11.png" alt="学習画面イメージ（スマホ）">
             </div>
             <div>
                 <h2>就活を優位に</h2>
