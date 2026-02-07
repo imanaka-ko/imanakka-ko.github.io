@@ -36,16 +36,13 @@ a {
 }
 
 .brand {
-    font-size: 52px;
-    line-height: 1;
-    font-weight: 800;
-    letter-spacing: 0.02em;
+    display: inline-flex;
+    align-items: center;
 }
 
-.brand span {
-    -webkit-text-stroke: 1px #10131a;
-    color: #fff;
-    margin-left: 4px;
+.brand-logo {
+    height: 56px;
+    width: auto;
 }
 
 .header-actions {
