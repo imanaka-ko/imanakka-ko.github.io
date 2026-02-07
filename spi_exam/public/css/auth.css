@@ -341,6 +341,12 @@ a:hover {
   line-height: 1;
 }
 
+.signin-logo-image {
+  height: 56px;
+  width: auto;
+  display: block;
+}
+
 .signin-logo-mark {
   width: 56px;
   height: 56px;

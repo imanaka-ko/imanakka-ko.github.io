@@ -67,22 +67,12 @@
     .select-logo {
         display: inline-flex;
         align-items: center;
-        gap: 12px;
-        font-weight: 800;
         color: var(--brand-text);
     }
 
-    .select-logo-mark {
-        width: 56px;
+    .select-logo-image {
         height: 56px;
-        border-radius: 50%;
-        background: radial-gradient(circle at 35% 35%, #051b30 50%, #0099e7 66%, #ff2b82 88%);
-        box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
-    }
-
-    .select-logo-text {
-        font-size: clamp(2rem, 3vw, 3.2rem);
-        letter-spacing: 0.01em;
+        width: auto;
     }
 
     .select-nav {
@@ -368,8 +358,7 @@
 
     <header class="select-header">
         <a href="../index.html" class="select-logo" aria-label="就活SPI トップページへ">
-            <span class="select-logo-mark" aria-hidden="true"></span>
-            <span class="select-logo-text">さくっとSPI</span>
+            <img class="select-logo-image" src="../images/header_logo.png" alt="さくっとSPI">
         </a>
         <nav class="select-nav" aria-label="グローバルナビゲーション">
             <a class="pill-button pill-button--pink" href="../auth/signin.html">ログイン</a>
