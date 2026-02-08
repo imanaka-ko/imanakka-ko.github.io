@@ -178,38 +178,64 @@ a {
     background-color: #ffb74d;
 }
 
-.timer-circle {
-    width: 80px;
-    height: 80px;
+.exam-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 1.25rem;
+}
+
+.exam-actions .next-button {
+    width: 160px;
+    flex-shrink: 0;
+}
+
+.timer-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex: 1;
+}
+
+.timer-icon {
+    width: 24px;
+    height: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #222;
+}
+
+.timer-icon svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+}
+
+.timer-track {
     position: relative;
+    flex: 1;
+    height: 20px;
+    background-color: #eaf6fb;
+    border-radius: 999px;
+    overflow: hidden;
+    border: 2px solid #d6eef7;
 }
 
-.timer-svg {
-    width: 80px;
-    height: 80px;
-    transform: rotate(-90deg);
+.timer-fill {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    background-color: #00a7e1;
+    transition: width 1s linear;
 }
 
-.timer-bg {
-    fill: none;
-    stroke: #f0f0f0;
-    stroke-width: 6;
-}
-
-.timer-progress {
-    fill: none;
-    stroke: #00a7e1;
-    stroke-width: 6;
-    stroke-linecap: round;
-    transition: stroke-dashoffset 1s linear;
-}
-
-.timer-text {
-    fill: #000;
-    font-size: 0.9rem;
-    transform: rotate(90deg);
-    transform-box: fill-box;
-    transform-origin: center;
+.timer-remaining {
+    min-width: 48px;
+    text-align: right;
+    font-weight: 600;
+    color: #1f1f1f;
+    font-size: 0.95rem;
 }
 
 .instruction {
@@ -347,7 +373,7 @@ a {
     color: #e53935;
 }
 
-.timer-circle[data-hidden="true"] {
+.timer-bar[data-hidden="true"] {
     display: none;
 }
 
@@ -365,7 +391,20 @@ a {
         align-items: flex-start;
     }
 
-    .timer-circle {
-        align-self: flex-end;
+    .exam-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .timer-bar {
+        width: 100%;
+    }
+
+    .exam-actions .next-button {
+        width: 100%;
+    }
+
+    .timer-remaining {
+        min-width: auto;
     }
 }

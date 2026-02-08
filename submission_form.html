@@ -11,207 +11,201 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <link rel="stylesheet" type="text/css" href="css/fix.css" media="all">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <title>送信フォーム</title>
-  <style>
-    body { font-family: 'Roboto', sans-serif; background-color: #f4f6f8; margin: 0; padding: 0; }
-    .header { height: 65px; background-color: #f8f9fa; display: flex; align-items: center; padding: 0 20px; border-bottom: 1px solid #e0e0e0; }
-    .logo { width: 35px; height: 35px; background-image: url('images/v1_5.png'); background-repeat: no-repeat; background-position: center; background-size: cover; margin-right: 10px; }
-    .site-title { 
-      color: #0064b4;
-      font-weight: bold; 
-      font-size: 1.25rem; }
-    .container { width: 100%; max-width: 800px; margin: 0 auto 2rem; background: #fff; padding: 2rem; box-shadow: 0 0 15px rgba(0,0,0,0.05); border-radius: 8px; }
-    .intro { text-align: center; margin-bottom: 2rem; }
-    .page-title { font-size: 1.75rem; font-weight: bold; color: #000; margin-bottom: 0.75rem; }
-    .intro-description { font-size: 1rem; color: #333; margin-bottom: 0.5rem; }
-    .intro-note { font-size: 0.9rem; color: #666; }
-    h2 { margin-top: 0; font-size: 1.5rem; margin-bottom: 1rem; }
-    .form-section { margin-bottom: 2rem; }
-    .form-group { margin-bottom: 1rem; }
-    .form-row { display: flex; gap: 1rem; }
-    .form-row--split { gap: 1.5rem; }
-    #dept-fields { gap: 1.5rem; }
-    label { font-size: 0.9rem; margin-bottom: 0.25rem; display: block; }
-    input[type="text"], input[type="email"], input[type="tel"], input[type="number"], select {
-      width: 100%; padding: 0.5rem; border: 1px solid #ccc; border-radius: 4px; font-size: 1rem;
-    }
-    .radio-group { display: flex; flex-direction: column; gap: 0.5rem; }
-    .radio-inline { display: flex; gap: 1rem; align-items: center; }
-    .submit-btn { background-color: #4d8c97; color: #fff; padding: 0.75rem 2rem; border: none; border-radius: 4px; font-size: 1rem; cursor: pointer; transition: background-color 0.2s ease; }
-    .submit-btn:disabled { background-color: #b0b0b0; cursor: not-allowed; }
-    .agree { font-size: 0.85rem; }
-    .login-link { text-align: center; margin-top: 2rem; font-size: 0.95rem; }
-    .login-link a { color: #2f98a5; text-decoration: none; font-weight: 600; }
-    .login-link a:hover { text-decoration: underline; }
-  </style>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/registration.css">
+  <title>会員登録 | 就活SPI</title>
 </head>
-<body class="submission">
+<body class="registration-page">
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NFD53MZ9"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
-<header class="header">
-  <div class="logo" aria-hidden="true"></div>
-  <span class="site-title">就活ＳＰＩ</span>
-</header>
-<div class="container">
-  <section class="intro">
-    <h1 class="page-title">新規会員登録</h1>
-    <p class="intro-description">新規会員登録をして模擬試験の結果を確認する。</p>
-    <p class="intro-note">※既に会員の場合、画面下部からログインをして<span class="inline">結果を確認する</span></p>
-  </section>
-  <!-- action は JS で preventDefault するのでそのままでも可 -->
-  <form action="register_1.html" method="get" id="submissionForm">
-    <!-- 1. profile section -->
-    <div class="form-section">
-      <h2>プロフィールを<span class="inline">入力してください</span></h2>
-      <div class="form-row name">
-        <span class="ttl"><label for="last-name">お名前</label></span>
-        <div class="form-group">
-          <input id="last-name" type="text" placeholder="姓" required>
-          <input id="first-name" type="text" placeholder="名" required>
-        </div>
-      </div>
-      <div class="form-row furigana">
-        <span class="ttl"><label for="last-kana">フリガナ</label></span>
-        <div class="form-group">
-          <input id="last-kana" type="text" placeholder="セイ" required>
-          <input id="first-kana" type="text" placeholder="メイ" required>
-        </div>
-      </div>
-      <div class="form-row region">
-        <span class="ttl"><label for="region">お住まいの地域</label></span>
-        <div class="form-group">
-        <select id="region" required onchange="changeColor(this)">
-          <option value="" disabled selected>選択してください</option>
-          <option value="北海道">北海道</option>
-          <option value="青森県">青森県</option>
-          <option value="岩手県">岩手県</option>
-          <option value="宮城県">宮城県</option>
-          <option value="秋田県">秋田県</option>
-          <option value="山形県">山形県</option>
-          <option value="福島県">福島県</option>
-          <option value="茨城県">茨城県</option>
-          <option value="栃木県">栃木県</option>
-          <option value="群馬県">群馬県</option>
-          <option value="埼玉県">埼玉県</option>
-          <option value="千葉県">千葉県</option>
-          <option value="東京都">東京都</option>
-          <option value="神奈川県">神奈川県</option>
-          <option value="新潟県">新潟県</option>
-          <option value="富山県">富山県</option>
-          <option value="石川県">石川県</option>
-          <option value="福井県">福井県</option>
-          <option value="山梨県">山梨県</option>
-          <option value="長野県">長野県</option>
-          <option value="岐阜県">岐阜県</option>
-          <option value="静岡県">静岡県</option>
-          <option value="愛知県">愛知県</option>
-          <option value="三重県">三重県</option>
-          <option value="滋賀県">滋賀県</option>
-          <option value="京都府">京都府</option>
-          <option value="大阪府">大阪府</option>
-          <option value="兵庫県">兵庫県</option>
-          <option value="奈良県">奈良県</option>
-          <option value="和歌山県">和歌山県</option>
-          <option value="鳥取県">鳥取県</option>
-          <option value="島根県">島根県</option>
-          <option value="岡山県">岡山県</option>
-          <option value="広島県">広島県</option>
-          <option value="山口県">山口県</option>
-          <option value="徳島県">徳島県</option>
-          <option value="香川県">香川県</option>
-          <option value="愛媛県">愛媛県</option>
-          <option value="高知県">高知県</option>
-          <option value="福岡県">福岡県</option>
-          <option value="佐賀県">佐賀県</option>
-          <option value="長崎県">長崎県</option>
-          <option value="熊本県">熊本県</option>
-          <option value="大分県">大分県</option>
-          <option value="宮崎県">宮崎県</option>
-          <option value="鹿児島県">鹿児島県</option>
-          <option value="沖縄県">沖縄県</option>
-        </select>
-      </div>
-      </div>
-      <div class="form-row gender">
-        <span class="ttl"><label>性別</label></span>
-        <div class="form-group">
-          <label><input type="radio" name="gender" value="男性" checked> 男性</label>
-          <label><input type="radio" name="gender" value="女性"> 女性</label>
-          <label><input type="radio" name="gender" value="その他"> その他</label>
-        </div>
-      </div>
-    </div>
+  <header class="registration-header">
+    <a class="registration-logo" href="index.html" aria-label="就活SPI トップページへ">
+      <img class="registration-logo-image" src="images/header_logo.png" alt="さくっとSPI">
+    </a>
+    <nav class="registration-nav" aria-label="グローバルナビゲーション">
+      <a class="pill-button pill-button--pink" href="auth/signin.html">ログイン</a>
+      <a class="pill-button pill-button--blue" href="auth/signin.html#signup-section">受験する</a>
+    </nav>
+  </header>
 
-    <!-- 2. school section -->
-    <div class="form-section">
-      <h2>在学中もしくは卒業した学校を<span class="inline">選択してください</span></h2>
-      <div class="form-row education" id="school-options">
-        <span class="ttl"><label for="school-name">学歴</label></span>
-        <div class="form-group">
-          <label><input type="radio" name="school" value="大学"> 大学</label>
-          <label><input type="radio" name="school" value="大学院 (修士)"> 大学院 (修士)</label>
-          <label><input type="radio" name="school" value="大学院 (博士)"> 大学院 (博士)</label>
-          <label><input type="radio" name="school" value="短大"> 短大</label>
-          <label><input type="radio" name="school" value="専門学校"> 専門学校</label>
-        </div>
-      </div>
-      <div class="form-row school" id="school-name-group" style="display:none;">
-        <span class="ttl"><label for="school-name">学校名</label></span>
-        <div class="form-group">
-          <input id="school-name" type="text" placeholder="○○大学" required>
-        </div>
-      </div>
-      <div class="form-row" id="dept-fields" style="display:none;">
-        <div class="form-group research" id="faculty-group">
-          <label for="faculty">学部 / 研究科</label>
-          <input id="faculty" type="text" required>
-        </div>
-        <div class="form-group major" id="department-group">
-          <label for="department">学科 / 専攻</label>
-          <input id="department" type="text" required>
-        </div>
-      </div>
-      <div class="form-row graduation">
-        <span class="ttl"><label for="grad-year">卒業予定年</label></span>
-        <div class="form-group">
-          <select id="grad-year" required onchange="changeColor(this)">
-            <option value="" selected disabled>選択してください</option>
-          </select>
-        </div>
-      </div>
-    </div>
+  <main class="registration-main">
+    <section class="registration-hero">
+      <p class="registration-hero-en">REGISTRATION</p>
+      <h1 class="registration-hero-title">会員登録</h1>
+    </section>
 
-    <!-- 3. info section -->
-    <div class="form-section">
-      <div class="form-row mail">
-        <span class="ttl"><label for="email">メールアドレス</label><span class="point">必須</span></span>
-        <div class="form-group">
-          <input id="email" type="email" required placeholder="example@mail.com">
+    <form action="register_1.html" method="get" id="submissionForm" class="registration-form">
+      <section class="registration-section">
+        <h2 class="registration-section-title"><span class="section-dot"></span>プロフィールを入力してください</h2>
+        <div class="section-card">
+          <div class="form-card">
+            <div class="field-row">
+              <div class="field-label">お名前<span>※</span></div>
+              <div class="field-control inline">
+                <input id="last-name" type="text" placeholder="姓" required>
+                <input id="first-name" type="text" placeholder="名" required>
+              </div>
+            </div>
+            <div class="field-row">
+              <div class="field-label">フリガナ<span>※</span></div>
+              <div class="field-control inline">
+                <input id="last-kana" type="text" placeholder="セイ" required>
+                <input id="first-kana" type="text" placeholder="メイ" required>
+              </div>
+            </div>
+            <div class="field-row">
+              <div class="field-label">お住まいの地域<span>※</span></div>
+              <div class="field-control">
+                <select id="region" required onchange="changeColor(this)">
+                  <option value="" disabled selected>選択してください</option>
+                  <option value="北海道">北海道</option>
+                  <option value="青森県">青森県</option>
+                  <option value="岩手県">岩手県</option>
+                  <option value="宮城県">宮城県</option>
+                  <option value="秋田県">秋田県</option>
+                  <option value="山形県">山形県</option>
+                  <option value="福島県">福島県</option>
+                  <option value="茨城県">茨城県</option>
+                  <option value="栃木県">栃木県</option>
+                  <option value="群馬県">群馬県</option>
+                  <option value="埼玉県">埼玉県</option>
+                  <option value="千葉県">千葉県</option>
+                  <option value="東京都">東京都</option>
+                  <option value="神奈川県">神奈川県</option>
+                  <option value="新潟県">新潟県</option>
+                  <option value="富山県">富山県</option>
+                  <option value="石川県">石川県</option>
+                  <option value="福井県">福井県</option>
+                  <option value="山梨県">山梨県</option>
+                  <option value="長野県">長野県</option>
+                  <option value="岐阜県">岐阜県</option>
+                  <option value="静岡県">静岡県</option>
+                  <option value="愛知県">愛知県</option>
+                  <option value="三重県">三重県</option>
+                  <option value="滋賀県">滋賀県</option>
+                  <option value="京都府">京都府</option>
+                  <option value="大阪府">大阪府</option>
+                  <option value="兵庫県">兵庫県</option>
+                  <option value="奈良県">奈良県</option>
+                  <option value="和歌山県">和歌山県</option>
+                  <option value="鳥取県">鳥取県</option>
+                  <option value="島根県">島根県</option>
+                  <option value="岡山県">岡山県</option>
+                  <option value="広島県">広島県</option>
+                  <option value="山口県">山口県</option>
+                  <option value="徳島県">徳島県</option>
+                  <option value="香川県">香川県</option>
+                  <option value="愛媛県">愛媛県</option>
+                  <option value="高知県">高知県</option>
+                  <option value="福岡県">福岡県</option>
+                  <option value="佐賀県">佐賀県</option>
+                  <option value="長崎県">長崎県</option>
+                  <option value="熊本県">熊本県</option>
+                  <option value="大分県">大分県</option>
+                  <option value="宮崎県">宮崎県</option>
+                  <option value="鹿児島県">鹿児島県</option>
+                  <option value="沖縄県">沖縄県</option>
+                </select>
+              </div>
+            </div>
+            <div class="field-row">
+              <div class="field-label">性別<span>※</span></div>
+              <div class="field-control">
+                <div class="radio-group">
+                  <label><input type="radio" name="gender" value="男性" checked> 男性</label>
+                  <label><input type="radio" name="gender" value="女性"> 女性</label>
+                  <label><input type="radio" name="gender" value="その他"> その他</label>
+                </div>
+              </div>
+            </div>
+            <div class="field-row">
+              <div class="field-label">メールアドレス<span>※</span></div>
+              <div class="field-control">
+                <input id="email" type="email" required placeholder="example@mail.com">
+              </div>
+            </div>
+            <div class="field-row">
+              <div class="field-label">電話番号<span>※</span></div>
+              <div class="field-control">
+                <input id="phone" type="tel" required placeholder="09012345678">
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="form-row tel">
-        <span class="ttl"><label for="phone">電話番号</label><span class="point">必須</span></span>
-        <div class="form-group">
-          <input id="phone" type="tel" required placeholder="09012345678">
-        </div>
-      </div>
-      <div class="form-group agree">
-        <label><input id="agreementCheckbox" type="checkbox" required checked> <a href="terms.html" target="_blank">利用規約</a> および <a href="privacy.html" target="_blank">プライバシーポリシー</a>に同意する。また、ご案内のメールを受け取る。</label>
-      </div>
-    </div>
+      </section>
 
-    <!-- 4. submit button -->
-    <div class="form-section" style="text-align:center;">
-      <button class="submit-btn" type="submit" id="submitBtn">次へ進む</button>
+      <section class="registration-section">
+        <h2 class="registration-section-title"><span class="section-dot"></span>在学中もしくは卒業した学校を選択してください</h2>
+        <div class="section-card">
+          <div class="form-card">
+            <div class="field-row">
+              <div class="field-label">学歴<span>※</span></div>
+              <div class="field-control">
+                <div class="radio-group" id="school-options">
+                  <label><input type="radio" name="school" value="大学"> 大学</label>
+                  <label><input type="radio" name="school" value="大学院 (修士)"> 大学院 (修士)</label>
+                  <label><input type="radio" name="school" value="大学院 (博士)"> 大学院 (博士)</label>
+                  <label><input type="radio" name="school" value="短大"> 短大</label>
+                  <label><input type="radio" name="school" value="専門学校"> 専門学校</label>
+                </div>
+              </div>
+            </div>
+            <div class="field-row" id="school-name-group" style="display:none;">
+              <div class="field-label">学校名<span>※</span></div>
+              <div class="field-control">
+                <input id="school-name" type="text" placeholder="○○大学" required>
+              </div>
+            </div>
+            <div class="field-row" id="faculty-group" style="display:none;">
+              <div class="field-label">学部<span>※</span></div>
+              <div class="field-control">
+                <input id="faculty" type="text" placeholder="学部 / 研究科" required>
+              </div>
+            </div>
+            <div class="field-row" id="department-group" style="display:none;">
+              <div class="field-label">学科<span>※</span></div>
+              <div class="field-control">
+                <input id="department" type="text" placeholder="学科 / 専攻" required>
+              </div>
+            </div>
+            <div class="field-row">
+              <div class="field-label">卒業予定年<span>※</span></div>
+              <div class="field-control">
+                <select id="grad-year" required onchange="changeColor(this)">
+                  <option value="" selected disabled>選択してください</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <p class="agreement-note">
+        <label><input id="agreementCheckbox" type="checkbox" required checked> <a href="terms.html" target="_blank">利用規約</a> および <a href="privacy.html" target="_blank">個人情報の取り扱い</a>に同意して次に進む。また、ご案内のメールを受け取る。</label>
+      </p>
+
+      <div class="form-actions">
+        <button class="primary-outline-button" type="submit" id="submitBtn">次に進む</button>
+      </div>
+    </form>
+
+    <p class="login-link">登録済みの方は <a href="auth/signin.html">こちらからログイン</a>してください</p>
+  </main>
+
+  <footer class="registration-footer">
+    <span>© Sakutto-SPI. All Rights Reserved</span>
+    <div>
+      <a href="terms.html">利用規約</a>
+      <a href="privacy.html">個人情報保護方針</a>
     </div>
-  </form>
-  <p class="login-link">すでに会員の方は <a href="./auth/signin.html">ログイン</a></p>
-</div>
+  </footer>
+
 <script>
 /* ===== UI 補助 ===== */
 function changeColor(color){
@@ -222,15 +216,18 @@ function changeColor(color){
   }
 }
 const schoolRadios = document.querySelectorAll('input[name="school"]');
-const deptFields = document.getElementById('dept-fields');
 const schoolNameGroup = document.getElementById('school-name-group');
 const schoolNameInput = document.getElementById('school-name');
 const facultyInput = document.getElementById('faculty');
 const departmentInput = document.getElementById('department');
+const facultyGroup = document.getElementById('faculty-group');
+const departmentGroup = document.getElementById('department-group');
+const facultyLabel = facultyGroup ? facultyGroup.querySelector('.field-label') : null;
+const departmentLabel = departmentGroup ? departmentGroup.querySelector('.field-label') : null;
 function updateSchoolFields() {
   const selected = document.querySelector('input[name="school"]:checked');
   if (schoolNameGroup) {
-    schoolNameGroup.style.display = selected ? 'block' : 'none';
+    schoolNameGroup.style.display = selected ? 'grid' : 'none';
   }
   if (schoolNameInput) {
     const isRequired = Boolean(selected);
@@ -240,8 +237,11 @@ function updateSchoolFields() {
     }
   }
   if (!selected) {
-    if (deptFields) {
-      deptFields.style.display = 'none';
+    if (facultyGroup) {
+      facultyGroup.style.display = 'none';
+    }
+    if (departmentGroup) {
+      departmentGroup.style.display = 'none';
     }
     if (facultyInput) {
       facultyInput.required = false;
@@ -254,13 +254,19 @@ function updateSchoolFields() {
     return;
   }
   const value = selected.value;
-  const facultyGroup = document.getElementById('faculty-group');
-  const departmentGroup = document.getElementById('department-group');
   if (value === '大学' || value === '短大') {
-    deptFields.style.display = 'flex';
-    facultyGroup.querySelector('label').textContent = '学部';
-    departmentGroup.querySelector('label').textContent = '学科';
-    departmentGroup.style.display = 'block';
+    if (facultyGroup) {
+      facultyGroup.style.display = 'grid';
+      if (facultyLabel) {
+        facultyLabel.innerHTML = '学部<span>※</span>';
+      }
+    }
+    if (departmentGroup) {
+      departmentGroup.style.display = 'grid';
+      if (departmentLabel) {
+        departmentLabel.innerHTML = '学科<span>※</span>';
+      }
+    }
     if (facultyInput) {
       facultyInput.required = true;
     }
@@ -268,9 +274,15 @@ function updateSchoolFields() {
       departmentInput.required = true;
     }
   } else if (value === '専門学校') {
-    deptFields.style.display = 'flex';
-    facultyGroup.querySelector('label').textContent = '専攻';
-    departmentGroup.style.display = 'none';
+    if (facultyGroup) {
+      facultyGroup.style.display = 'grid';
+      if (facultyLabel) {
+        facultyLabel.innerHTML = '専攻<span>※</span>';
+      }
+    }
+    if (departmentGroup) {
+      departmentGroup.style.display = 'none';
+    }
     if (facultyInput) {
       facultyInput.required = true;
     }
@@ -279,10 +291,18 @@ function updateSchoolFields() {
       departmentInput.value = '';
     }
   } else if (value.startsWith('大学院')) {
-    deptFields.style.display = 'flex';
-    facultyGroup.querySelector('label').textContent = '研究科';
-    departmentGroup.querySelector('label').textContent = '専攻';
-    departmentGroup.style.display = 'block';
+    if (facultyGroup) {
+      facultyGroup.style.display = 'grid';
+      if (facultyLabel) {
+        facultyLabel.innerHTML = '研究科<span>※</span>';
+      }
+    }
+    if (departmentGroup) {
+      departmentGroup.style.display = 'grid';
+      if (departmentLabel) {
+        departmentLabel.innerHTML = '専攻<span>※</span>';
+      }
+    }
     if (facultyInput) {
       facultyInput.required = true;
     }
@@ -290,7 +310,12 @@ function updateSchoolFields() {
       departmentInput.required = true;
     }
   } else {
-    deptFields.style.display = 'none';
+    if (facultyGroup) {
+      facultyGroup.style.display = 'none';
+    }
+    if (departmentGroup) {
+      departmentGroup.style.display = 'none';
+    }
     if (facultyInput) {
       facultyInput.required = false;
       facultyInput.value = '';
@@ -419,7 +444,7 @@ if (submissionForm) {
 
       // 正常終了後の遷移
       const selectedGradYear = gradYearSelect ? gradYearSelect.value : '';
-      const redirectUrl = selectedGradYear === 'other' ? './auth/signup.html' : 'register_1.html';
+      const redirectUrl = selectedGradYear === 'other' ? './auth/signin.html' : 'register_1.html';
       window.location.href = redirectUrl;
     } catch (error) {
       console.error(error);

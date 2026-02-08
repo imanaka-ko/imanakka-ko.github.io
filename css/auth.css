@@ -94,7 +94,7 @@ a:hover {
 
 .auth-title {
   margin: 0;
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-weight: 700;
   letter-spacing: 0.04em;
   color: var(--text);
@@ -152,6 +152,7 @@ a:hover {
   font-weight: 600;
   font-size: 1rem;
   padding: 16px;
+  white-space: nowrap;
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
   box-shadow: 0 18px 35px rgba(0, 165, 200, 0.22);
@@ -307,5 +308,896 @@ a:hover {
 
   .button-row {
     margin-top: 24px;
+  }
+}
+
+.signin-page {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic', 'Meiryo', sans-serif;
+  background: #fff;
+  color: #111;
+  display: block;
+}
+
+.signin-header {
+  max-width: 1366px;
+  margin: 0 auto;
+  padding: 24px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.signin-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: #111;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 52px;
+  letter-spacing: 0.01em;
+  line-height: 1;
+}
+
+.signin-logo-image {
+  height: 56px;
+  width: auto;
+  display: block;
+}
+
+.signin-logo-mark {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #051b30 50%, #0099e7 66%, #ff2b82 88%);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
+}
+
+.signin-logo-text {
+  font-size: clamp(2rem, 3vw, 3.2rem);
+}
+
+.signin-nav {
+  display: flex;
+  gap: 16px;
+}
+
+.pill-button {
+  min-width: 160px;
+  padding: 14px 34px;
+  border-radius: 999px;
+  color: #fff;
+  font-size: 1.95rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.pill-button--pink {
+  background: #ea2b78;
+}
+
+.pill-button--blue {
+  background: #00a2e9;
+}
+
+.signin-main {
+  max-width: 1366px;
+  margin: 0 auto;
+}
+
+.signin-hero {
+  min-height: 320px;
+  padding: 70px 90px 50px;
+  border-bottom: 1px solid #ff2f87;
+}
+
+.signin-hero-en {
+  margin: 0;
+  font-size: clamp(1.8rem, 2.4vw, 2.9rem);
+  font-weight: 800;
+}
+
+.signin-hero-title {
+  margin: 4px 0 0;
+  font-size: clamp(4rem, 5.6vw, 6.8rem);
+  color: #ff2f87;
+  line-height: 1.2;
+}
+
+.signin-content {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 0.82fr;
+  align-items: center;
+  gap: 40px;
+  padding: 78px 90px 70px;
+  border-bottom: 1px solid #ff8c3b;
+}
+
+.signin-card {
+  background: #fff9fb;
+  border-radius: 26px;
+  padding: 70px 62px 58px;
+  max-width: 640px;
+}
+
+.signin-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.signin-field {
+  margin-bottom: 30px;
+}
+
+.signin-field label {
+  display: inline-block;
+  margin-bottom: 10px;
+  font-size: 2.35rem;
+  font-weight: 700;
+  color: #101017;
+}
+
+.signin-field label span {
+  color: #ff2f87;
+}
+
+.signin-field input {
+  width: 100%;
+  height: 72px;
+  border: 1px solid #d4dbe4;
+  border-radius: 8px;
+  background: #fff;
+  padding: 0 16px;
+  font-size: 2rem;
+}
+
+.signin-login-button {
+  margin-top: 14px;
+  align-self: center;
+  width: min(420px, 100%);
+  height: 76px;
+  border: 1px solid #ff2f87;
+  border-radius: 999px;
+  background: #fff;
+  color: #ff2f87;
+  font-size: 2.1rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.signin-forgot {
+  margin: 26px 0 0;
+  text-align: center;
+}
+
+.signin-forgot a {
+  color: #ff2f87;
+  font-size: 2.2rem;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+
+.signup-guide {
+  text-align: center;
+  padding: 10px 10px 0;
+}
+
+.signup-inline-form {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.signup-inline-field {
+  text-align: left;
+}
+
+.signup-inline-field label {
+  display: inline-block;
+  margin-bottom: 8px;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #101017;
+}
+
+.signup-inline-field label span {
+  color: #ff2f87;
+}
+
+.signup-inline-field input {
+  width: 100%;
+  height: 58px;
+  border: 1px solid #d4dbe4;
+  border-radius: 8px;
+  background: #fff;
+  padding: 0 14px;
+  font-size: 1.2rem;
+}
+
+.signup-guide-head {
+  margin: 0;
+  font-size: clamp(2rem, 2.2vw, 2.6rem);
+  font-weight: 700;
+}
+
+.signup-guide-button {
+  margin-top: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: min(520px, 100%);
+  height: 90px;
+  border-radius: 999px;
+  background: #ff943f;
+  color: #fff;
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.signup-guide-note {
+  margin: 64px 0 0;
+  font-size: clamp(1.7rem, 1.7vw, 2.1rem);
+  line-height: 1.5;
+}
+
+.signin-footer {
+  max-width: 1366px;
+  margin: 0 auto;
+  padding: 26px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.signin-footer-copy {
+  margin: 0;
+  font-size: 2.8rem;
+  font-weight: 700;
+}
+
+.signin-footer-links {
+  display: flex;
+  gap: 40px;
+}
+
+.signin-footer-links a {
+  color: #111;
+  font-size: 2.15rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+@media (max-width: 960px) {
+  .signin-header {
+    padding: 20px 20px;
+    flex-direction: column;
+    gap: 14px;
+    align-items: flex-start;
+  }
+
+  .signin-logo {
+    font-size: 36px;
+  }
+
+  .signin-logo-mark {
+    width: 46px;
+    height: 46px;
+  }
+
+  .signin-nav {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .pill-button {
+    font-size: 1.2rem;
+    min-width: 140px;
+    padding: 12px 22px;
+  }
+
+  .signin-hero {
+    min-height: 180px;
+    padding: 36px 20px 26px;
+  }
+
+  .signin-content {
+    grid-template-columns: 1fr;
+    padding: 48px 20px 56px;
+    gap: 44px;
+  }
+
+  .signin-card {
+    max-width: 100%;
+    padding: 40px 24px;
+  }
+
+  .signin-field label {
+    font-size: 1.95rem;
+  }
+
+  .signin-field input {
+    height: 56px;
+    font-size: 1.2rem;
+  }
+
+  .signin-login-button {
+    height: 62px;
+    font-size: 1.5rem;
+  }
+
+  .signin-forgot a {
+    font-size: 1.5rem;
+  }
+
+  .signup-guide-button {
+    height: 74px;
+    font-size: 2rem;
+  }
+
+  .signup-inline-field label {
+    font-size: 1.25rem;
+  }
+
+  .signup-guide-note {
+    margin-top: 34px;
+    font-size: 1.4rem;
+  }
+
+  .signin-footer {
+    flex-direction: column-reverse;
+    text-align: center;
+    padding: 28px 20px;
+  }
+
+  .signin-footer-copy {
+    font-size: 1.25rem;
+  }
+
+  .signin-footer-links {
+    gap: 24px;
+  }
+
+  .signin-footer-links a {
+    font-size: 1.45rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .signin-header {
+    padding: 16px 14px;
+  }
+
+  .signin-logo {
+    gap: 8px;
+  }
+
+  .signin-logo-mark {
+    width: 34px;
+    height: 34px;
+  }
+
+  .signin-logo-text {
+    font-size: 32px;
+  }
+
+  .signin-nav {
+    gap: 10px;
+  }
+
+  .pill-button {
+    min-width: 128px;
+    font-size: 1rem;
+    padding: 10px 18px;
+  }
+
+  .signin-hero-en {
+    font-size: 0.95rem;
+  }
+
+  .signin-hero-title {
+    font-size: 2.95rem;
+  }
+
+  .signin-card {
+    border-radius: 22px;
+    padding: 42px 20px;
+  }
+
+  .signin-field {
+    margin-bottom: 24px;
+  }
+
+  .signin-field label {
+    font-size: 1.95rem;
+  }
+
+  .signin-field input {
+    height: 60px;
+  }
+
+  .signin-forgot a {
+    font-size: 1.95rem;
+  }
+
+  .signup-guide-head {
+    font-size: 2rem;
+  }
+
+  .signup-guide-button {
+    margin-top: 24px;
+    font-size: 2rem;
+    height: 66px;
+  }
+
+  .signup-inline-form {
+    margin-top: 20px;
+    gap: 14px;
+  }
+
+  .signup-inline-field label {
+    font-size: 1.1rem;
+  }
+
+  .signup-inline-field input {
+    height: 54px;
+    font-size: 1rem;
+  }
+
+  .signup-guide-note {
+    font-size: 1.5rem;
+    line-height: 1.55;
+  }
+
+  .signin-footer-links a {
+    font-size: 1.5rem;
+  }
+
+  .signin-footer-copy {
+    font-size: 1.6rem;
+  }
+}
+
+.my-page {
+  background: #fff;
+  color: #111;
+  min-height: 100vh;
+}
+
+.my-page a {
+  color: inherit;
+}
+
+.mypage-header,
+.mypage-main,
+.mypage-footer {
+  width: min(1100px, 92%);
+  margin: 0 auto;
+}
+
+.mypage-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 26px 0;
+}
+
+.mypage-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.mypage-outline-button {
+  padding: 12px 44px;
+  border: 1px solid #121212;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.mypage-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 2rem;
+  background: #f4287e;
+  color: #fff;
+}
+
+.mypage-main {
+  padding: 28px 0 70px;
+}
+
+.mypage-username {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.mypage-user-badge {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 7px solid #f4287e;
+  display: inline-block;
+}
+
+.mypage-username h1 {
+  margin: 0;
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+}
+
+.mypage-panel {
+  background: #fff8fb;
+  border-radius: 30px;
+  padding: 44px;
+}
+
+.mypage-profile-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 34px 48px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.mypage-label {
+  margin: 0 0 12px;
+  color: #f4287e;
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.mypage-value {
+  margin: 0;
+  font-size: 2.8rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.mypage-menu-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 26px;
+}
+
+.mypage-menu-card {
+  min-height: 166px;
+  background: #fff;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  padding: 20px 34px;
+  gap: 18px;
+}
+
+.mypage-menu-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #f4287e;
+  color: #fff;
+  font-size: 2.7rem;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.mypage-menu-text {
+  font-size: 2.1rem;
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+.mypage-menu-arrow {
+  margin-left: auto;
+  color: #f4287e;
+  font-size: 2.2rem;
+  line-height: 1;
+}
+
+.mypage-links {
+  margin-top: 26px;
+  display: flex;
+  gap: 40px;
+}
+
+.mypage-links a {
+  font-size: 1.9rem;
+  color: #f4287e;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+
+.mypage-signout {
+  margin: 24px 0 0 auto;
+  width: 220px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 999px;
+  background: #fff;
+  color: #c8c8c8;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+  padding: 16px;
+  white-space: nowrap;
+  pointer-events: auto;
+}
+
+.mypage-footer {
+  border-top: 1px solid #f28a3b;
+  padding: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.7rem;
+  font-weight: 700;
+  margin-top: auto;
+}
+
+.my-page .footer-links {
+  display: flex;
+  gap: 40px;
+}
+
+.my-page .copyright {
+  color: #111;
+}
+
+.mypage-settings-page {
+  display: block;
+}
+
+.mypage-settings-main {
+  padding-top: 12px;
+}
+
+.mypage-settings-heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.mypage-settings-heading h1 {
+  margin: 0;
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+}
+
+.mypage-settings-panel {
+  max-width: 900px;
+}
+
+.mypage-settings-subtitle {
+  margin: 0;
+  color: #111;
+  font-size: 1.4rem;
+  line-height: 1.7;
+}
+
+.mypage-settings-form {
+  margin-top: 26px;
+  gap: 18px;
+}
+
+.mypage-settings-form .input-group {
+  gap: 10px;
+}
+
+.mypage-settings-form .input-group label {
+  color: #f4287e;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.mypage-settings-form .input-group input {
+  height: 62px;
+  border-radius: 10px;
+  border: 1px solid #d6d6d6;
+  background: #fff;
+  font-size: 1.25rem;
+  padding: 0 16px;
+}
+
+.mypage-settings-form .primary-button {
+  margin-top: 12px;
+  width: min(380px, 100%);
+  align-self: center;
+  border: 1px solid #f4287e;
+  border-radius: 999px;
+  background: #fff;
+  color: #f4287e;
+  box-shadow: none;
+  font-size: 1.65rem;
+  font-weight: 700;
+  padding: 16px 24px;
+}
+
+.mypage-settings-form .primary-button:hover,
+.mypage-settings-form .primary-button:active {
+  background: #f4287e;
+  color: #fff;
+  transform: none;
+  box-shadow: none;
+}
+
+.mypage-settings-note {
+  margin-top: 20px;
+  text-align: left;
+  font-size: 1.05rem;
+}
+
+.mypage-settings-note a {
+  color: #f4287e;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+@media (max-width: 768px) {
+  .mypage-header,
+  .mypage-main,
+  .mypage-footer {
+    width: calc(100% - 40px);
+  }
+
+  .mypage-header {
+    padding-top: 18px;
+    padding-bottom: 18px;
+  }
+
+    .mypage-outline-button {
+    display: none;
+  }
+
+  .mypage-avatar {
+    width: 48px;
+    height: 48px;
+    font-size: 1.8rem;
+  }
+
+  .mypage-main {
+    padding: 24px 0 46px;
+  }
+
+  .mypage-username {
+    margin-bottom: 18px;
+  }
+
+  .mypage-username h1 {
+    font-size: 2.2rem;
+  }
+
+  .mypage-user-badge {
+    width: 24px;
+    height: 24px;
+    border-width: 5px;
+  }
+
+  .mypage-panel {
+    border-radius: 0;
+    margin: 0 -20px;
+    padding: 26px 20px 32px;
+  }
+
+  .mypage-profile-card,
+  .mypage-menu-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mypage-profile-card {
+    padding: 24px;
+    gap: 20px;
+  }
+
+  .mypage-label {
+    font-size: 1.1rem;
+  }
+
+  .mypage-value {
+    font-size: 2rem;
+  }
+
+  .mypage-menu-card {
+    min-height: 130px;
+    padding: 18px 24px;
+  }
+
+  .mypage-menu-icon {
+    width: 48px;
+    height: 48px;
+    font-size: 2rem;
+  }
+
+  .mypage-menu-text {
+    font-size: 2.2rem;
+  }
+
+  .mypage-menu-arrow {
+    font-size: 2.2rem;
+  }
+
+  .mypage-links {
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .mypage-links a {
+    font-size: 1.1rem;
+  }
+
+  .mypage-signout {
+    width: 170px;
+    margin: 24px auto 0;
+    font-size: 1.7rem;
+  }
+
+  .mypage-footer {
+    flex-direction: column-reverse;
+    gap: 10px;
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 18px 0 26px;
+  }
+
+  .my-page .footer-links {
+    gap: 28px;
+  }
+
+  .mypage-settings-main {
+    padding-top: 6px;
+  }
+
+  .mypage-settings-heading {
+    margin-bottom: 18px;
+  }
+
+  .mypage-settings-heading h1 {
+    font-size: 2.2rem;
+  }
+
+  .mypage-settings-subtitle {
+    font-size: 1rem;
+  }
+
+  .mypage-settings-form {
+    margin-top: 18px;
+  }
+
+  .mypage-settings-form .input-group label {
+    font-size: 1.06rem;
+  }
+
+  .mypage-settings-form .input-group input {
+    height: 52px;
+    font-size: 1rem;
+  }
+
+  .mypage-settings-form .primary-button {
+    width: 100%;
+    font-size: 1.3rem;
+    padding: 14px 20px;
+  }
+
+  .mypage-settings-note {
+    font-size: 0.95rem;
   }
 }

@@ -18,25 +18,33 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../css/auth.css" />
 </head>
-<body>
+<body class="my-page mypage-settings-page">
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NFD53MZ9"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
-  <header class="app-header">
-    <div class="header-inner">
-      <a class="brand" href="../index.html">就活SPI</a>
+  <header class="mypage-header">
+    <a class="mypage-logo signin-logo" href="../index.html" aria-label="トップページへ">
+      <img class="signin-logo-image" src="../images/header_logo.png" alt="さくっとSPI">
+    </a>
+    <div class="mypage-header-actions">
+      <a class="mypage-outline-button" href="my_page.html">マイページへ戻る</a>
+      <span class="mypage-avatar" aria-hidden="true">👤</span>
     </div>
   </header>
-  <main class="app-main">
-    <section class="auth-panel">
-      <h1 class="auth-title">メールアドレス変更</h1>
-      <p class="auth-subtitle">
-        ログイン用メールアドレスを別のものに変更できます。
-        ご本人確認のため、現在のパスワードを入力してください。
+  <main class="mypage-main mypage-settings-main">
+    <section class="mypage-settings-heading" aria-label="ページタイトル">
+      <span class="mypage-user-badge" aria-hidden="true"></span>
+      <h1>メールアドレス変更</h1>
+    </section>
+
+    <section class="mypage-panel mypage-settings-panel">
+      <p class="mypage-settings-subtitle">
+        ログインに使うメールアドレスを新しいものへ更新します。<br />
+        本人確認のため、現在のパスワードを入力してください。
       </p>
-      <form class="auth-form" action="#" method="post">
+      <form class="auth-form mypage-settings-form" action="#" method="post">
         <div class="input-group">
           <label for="change-email-password">現在のパスワード</label>
           <input id="change-email-password" type="password" name="current-password" placeholder="現在のパスワード" required />
@@ -47,20 +55,16 @@
         </div>
         <button class="primary-button" type="submit">メールアドレスを更新する</button>
       </form>
-      <div class="form-note">
+      <div class="form-note mypage-settings-note">
         <p>更新後は新しいメールに確認リンクが届きます。完了後に再ログインしてください。</p>
       </div>
     </section>
   </main>
-  <footer class="app-footer">
-    <div class="footer-inner">
-      <div class="footer-links">
-        <a href="https://asobibase.jp/">運営会社</a>
-        <a href="../terms.html">利用規約</a>
-        <a href="../privacy.html">プライバシーポリシー</a>
-        <a href="../index.html">トップへ</a>
-      </div>
-      <p class="copyright">© 就活SPI</p>
+  <footer class="mypage-footer">
+    <p class="copyright">© Sakutto-SPI. All Rights Reserved</p>
+    <div class="footer-links">
+      <a href="../terms.html">利用規約</a>
+      <a href="../privacy.html">個人情報保護方針</a>
     </div>
   </footer>
 

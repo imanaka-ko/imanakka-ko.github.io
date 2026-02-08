@@ -1,0 +1,449 @@
+:root {
+  --brand-pink: #ea2b78;
+  --brand-blue: #00a2e9;
+  --accent-orange: #ff8c3b;
+  --accent-light: #fff3e6;
+  --card-bg: #ffffff;
+  --text-main: #1b1b1f;
+  --text-sub: #666a73;
+  --border: #e7e7e7;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body.registration-page {
+  margin: 0;
+  font-family: "Noto Sans JP", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
+  color: var(--text-main);
+  background: #ffffff;
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.registration-header {
+  max-width: 1366px;
+  margin: 0 auto;
+  padding: 24px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.registration-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 800;
+  font-size: clamp(1.4rem, 2.4vw, 2.6rem);
+  color: #111;
+}
+
+.registration-logo-image {
+  height: 48px;
+  width: auto;
+  display: block;
+}
+
+.registration-logo-mark {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #051b30 50%, #0099e7 66%, #ff2b82 88%);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
+}
+
+.registration-nav {
+  display: flex;
+  gap: 16px;
+}
+
+.pill-button {
+  min-width: 140px;
+  padding: 12px 28px;
+  border-radius: 999px;
+  color: #fff;
+  font-size: 1.05rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.pill-button--pink {
+  background: var(--brand-pink);
+}
+
+.pill-button--blue {
+  background: var(--brand-blue);
+}
+
+.registration-hero {
+  max-width: 1366px;
+  margin: 0 auto;
+  padding: 36px 90px 32px;
+  border-bottom: 1px solid var(--accent-orange);
+}
+
+.registration-hero-en {
+  margin: 0;
+  font-size: clamp(1rem, 2.2vw, 1.4rem);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.registration-hero-title {
+  margin: 6px 0 0;
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  color: var(--accent-orange);
+  line-height: 1.2;
+}
+
+.registration-main {
+  max-width: 1366px;
+  margin: 0 auto;
+  padding: 40px 90px 80px;
+}
+
+.registration-section {
+  margin-bottom: 50px;
+}
+
+.registration-section-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+.section-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 4px solid var(--accent-orange);
+  display: inline-block;
+}
+
+.section-card {
+  background: var(--accent-light);
+  border-radius: 18px;
+  padding: clamp(24px, 3vw, 40px);
+}
+
+.form-card {
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: clamp(24px, 3vw, 40px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+}
+
+.field-row {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  column-gap: 32px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.field-row:last-child {
+  border-bottom: none;
+}
+
+.field-label {
+  font-weight: 600;
+  font-size: 0.98rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.field-label span {
+  color: var(--accent-orange);
+}
+
+.field-control {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.field-control.inline {
+  flex-direction: row;
+  gap: 12px;
+}
+
+.field-control input[type="text"],
+.field-control input[type="email"],
+.field-control input[type="tel"],
+.field-control select {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #e3e3e3;
+  font-size: 1rem;
+  background: #fff;
+}
+
+.field-control select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23ff8c3b' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 12px;
+}
+
+.radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 22px;
+}
+
+.radio-group label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.96rem;
+}
+
+.agreement-note {
+  text-align: center;
+  margin: 32px 0 16px;
+  color: var(--text-sub);
+  font-size: 0.95rem;
+}
+
+.agreement-note a {
+  color: var(--accent-orange);
+  font-weight: 600;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 12px;
+}
+
+.primary-outline-button {
+  border: 2px solid var(--accent-orange);
+  color: var(--accent-orange);
+  background: #fff;
+  border-radius: 999px;
+  padding: 14px 60px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.secondary-outline-button {
+  border: 2px solid #d9d9d9;
+  color: #666;
+  background: #fff;
+  border-radius: 999px;
+  padding: 14px 40px;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.action-row {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 36px;
+  flex-wrap: wrap;
+}
+
+.register-form {
+  margin: 0;
+}
+
+.login-link {
+  text-align: center;
+  margin-top: 18px;
+  font-size: 0.95rem;
+}
+
+.login-link a {
+  color: var(--accent-orange);
+  font-weight: 600;
+}
+
+.confirmation-list {
+  display: grid;
+}
+
+.confirmation-row {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.confirmation-row:last-child {
+  border-bottom: none;
+}
+
+.confirmation-label {
+  font-weight: 600;
+}
+
+.confirmation-label span {
+  color: var(--accent-orange);
+}
+
+.confirmation-value {
+  color: #333;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+}
+
+.service-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: center;
+}
+
+.service-card img {
+  width: 120px;
+  margin: 0 auto;
+  object-fit: contain;
+}
+
+.service-card h3 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.service-card p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--text-sub);
+  text-align: left;
+}
+
+.service__description {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  text-align: left;
+}
+
+.service__description-text {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 6;
+  overflow: hidden;
+}
+
+.service--collapsible.is-expanded .service__description-text {
+  -webkit-line-clamp: unset;
+}
+
+.toggle-description {
+  align-self: flex-start;
+  background: none;
+  border: none;
+  color: #999;
+  font-size: 0.85rem;
+  cursor: pointer;
+  padding: 0;
+}
+
+.service-card .terms {
+  font-size: 0.85rem;
+  text-align: left;
+}
+
+.service-card .terms a {
+  color: var(--accent-orange);
+}
+
+.registration-footer {
+  border-top: 1px solid var(--accent-orange);
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.registration-footer a {
+  color: inherit;
+}
+
+@media (max-width: 900px) {
+  .registration-header,
+  .registration-hero,
+  .registration-main {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  .field-row,
+  .confirmation-row {
+    grid-template-columns: 140px 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .registration-header {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .registration-nav {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .pill-button {
+    min-width: 120px;
+    font-size: 0.9rem;
+    padding: 10px 18px;
+  }
+
+  .registration-hero,
+  .registration-main {
+    padding: 24px 20px 56px;
+  }
+
+  .field-row,
+  .confirmation-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .field-control.inline {
+    flex-direction: column;
+  }
+
+  .service-card {
+    text-align: left;
+  }
+
+  .service-card img {
+    margin: 0;
+  }
+
+  .registration-footer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}

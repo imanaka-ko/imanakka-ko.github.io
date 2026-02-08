@@ -6,8 +6,7 @@
    - ローカルファイル (`file://`) 直読みはブラウザのモジュール制約で動作しません。必ずHTTPで配信してください。
 
 ## 画面と対応スクリプト
-- `auth/signin.html` → `auth/js/pages/signin.js`
-- `auth/signup.html` → `auth/js/pages/signup.js`
+- `auth/signin.html` → `auth/js/pages/signin.js`（ログイン＋新規登録）
 - `auth/verify_email.html` → `auth/js/pages/verify_email.js`
 - `auth/my_page.html` → `auth/js/pages/home.js`
 - `auth/change_email.html` → `auth/js/pages/change_email.js`
