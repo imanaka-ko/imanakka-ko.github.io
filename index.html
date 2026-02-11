@@ -124,6 +124,15 @@
         background: transparent;
       }
 
+      .btn-image {
+        display: inline-block;
+      }
+
+      .btn-image img {
+        width: min(100%, 320px);
+        height: auto;
+      }
+
       .hero {
         padding: 40px;
         display: grid;
@@ -250,8 +259,8 @@
       }
 
       .recommend-card img {
-        width: 40px;
-        height: 40px;
+        width: 110px;
+        height: 110px;
       }
 
       .merit {
@@ -276,7 +285,6 @@
       .merit-card {
         background: rgba(255, 255, 255, 0.15);
         border-radius: 18px;
-        padding: 20px;
         text-align: center;
         position: relative;
         overflow: hidden;
@@ -293,19 +301,19 @@
       .merit-card::after {
         content: "";
         position: absolute;
-        inset: 20px;
-        border-radius: 12px;
+        inset: 0; /* 画像の端までオーバーレイを伸ばす */
+        border-radius: inherit; /* 親と同じ角丸にする */
         background: rgba(0, 0, 0, 0.35);
       }
 
       .merit-card p {
         position: absolute;
-        inset: 20px;
+        inset: 0;
         z-index: 1;
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 0 12px;
+        padding: 20px 12px; /* テキスト余白を確保 */
         font-weight: 700;
       }
 
@@ -339,12 +347,21 @@
         gap: 12px;
       }
 
-      .voice-card .profile img {
+      .voice-card .profile .avatar-frame {
         width: 48px;
         height: 48px;
         border-radius: 50%;
         background: #fff;
-        object-fit: cover;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      .voice-card .profile img {
+        width: 70%;
+        height: 70%;
+        object-fit: contain;
       }
 
       .cta {
@@ -472,9 +489,6 @@
             <div class="header-actions">
                 <a class="btn btn-pink" href="auth/signin.html">ログイン</a>
                 <a class="btn btn-blue" href="register_1.html">受験する</a>
-                <button type="button" id="logout-button" class="btn btn-outline" hidden>
-                  ログアウト
-                </button>
             </div>
         </header>
 
@@ -535,7 +549,9 @@
             <div class="voice-grid">
                 <div class="voice-card">
                     <div class="profile">
-                        <img src="images/top_img_12.png" alt="">
+                        <div class="avatar-frame">
+                            <img src="images/top_img_12.png" alt="">
+                        </div>
                         <div>
                             <strong>慶應義塾大学</strong><br>
                             <span>T.Kさん</span>
@@ -545,7 +561,9 @@
                 </div>
                 <div class="voice-card">
                     <div class="profile">
-                        <img src="images/top_img_13.png" alt="">
+                        <div class="avatar-frame">
+                            <img src="images/top_img_13.png" alt="">
+                        </div>
                         <div>
                             <strong>早稲田大学</strong><br>
                             <span>M.Aさん</span>
@@ -565,7 +583,7 @@
                 <h2>就活を優位に</h2>
                 <p>SPI試験は1社につき1回までしか受けることができません。事前に十分な対策をしっかり行い本番に臨みましょう！</p>
                 <div class="hero-actions" style="margin-top: 16px;">
-                    <a class="btn btn-blue" href="exam/select-mode.html">いますぐ受験する</a>
+                    <a class="btn-image" href="exam/select-mode.html"><img src="images/jken-suru-btn-whie.png" alt="いますぐ受験する"></a>
                 </div>
             </div>
         </section>
