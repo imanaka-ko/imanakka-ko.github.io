@@ -338,12 +338,21 @@
         gap: 12px;
       }
 
-      .voice-card .profile img {
+      .voice-card .profile .avatar-frame {
         width: 48px;
         height: 48px;
         border-radius: 50%;
         background: #fff;
-        object-fit: cover;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      .voice-card .profile img {
+        width: 70%;
+        height: 70%;
+        object-fit: contain;
       }
 
       .cta {
@@ -531,7 +540,9 @@
             <div class="voice-grid">
                 <div class="voice-card">
                     <div class="profile">
-                        <img src="images/top_img_12.png" alt="">
+                        <div class="avatar-frame">
+                            <img src="images/top_img_12.png" alt="">
+                        </div>
                         <div>
                             <strong>慶應義塾大学</strong><br>
                             <span>T.Kさん</span>
@@ -541,7 +552,9 @@
                 </div>
                 <div class="voice-card">
                     <div class="profile">
-                        <img src="images/top_img_13.png" alt="">
+                        <div class="avatar-frame">
+                            <img src="images/top_img_13.png" alt="">
+                        </div>
                         <div>
                             <strong>早稲田大学</strong><br>
                             <span>M.Aさん</span>
