@@ -1,0 +1,63 @@
+{
+  "version": 1,
+  "mode": "easy",
+  "category": "english",
+  "slug": "word_meaning_english_4q",
+  "title": "かんたん受験 - 英語（単語の意味4問）",
+  "description": "英単語の意味を問う4問の練習問題です。",
+  "time_per_question_sec": 60,
+  "questions": [
+    {
+      "id": "Q1",
+      "type": "mc",
+      "prompt_html": "to make something better",
+      "options": [
+        "reduce",
+        "improve",
+        "borrow",
+        "discover",
+        "whisper"
+      ],
+      "answer_index": 1
+    },
+    {
+      "id": "Q2",
+      "type": "mc",
+      "prompt_html": "a person who travels to a place for pleasure",
+      "options": [
+        "tourist",
+        "chemist",
+        "pilot",
+        "tenant",
+        "lawyer"
+      ],
+      "answer_index": 0
+    },
+    {
+      "id": "Q3",
+      "type": "mc",
+      "prompt_html": "a plan that shows the times of events or activities",
+      "options": [
+        "message",
+        "schedule",
+        "wallet",
+        "battery",
+        "engine"
+      ],
+      "answer_index": 1
+    },
+    {
+      "id": "Q4",
+      "type": "mc",
+      "prompt_html": "not common; unusual",
+      "options": [
+        "ordinary",
+        "rare",
+        "clear",
+        "recent",
+        "solid"
+      ],
+      "answer_index": 1
+    }
+  ]
+}

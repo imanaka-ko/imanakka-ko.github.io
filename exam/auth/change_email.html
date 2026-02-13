@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NFD53MZ9');</script>
+    <!-- End Google Tag Manager -->
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+  <title>メールアドレス変更 | 就活SPI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/auth.css" />
+</head>
+<body class="my-page mypage-settings-page">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NFD53MZ9"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+  <header class="mypage-header">
+    <a class="mypage-logo signin-logo" href="../index.html" aria-label="トップページへ">
+      <img class="signin-logo-image" src="../images/header_logo.png" alt="さくっとSPI">
+    </a>
+    <div class="mypage-header-actions">
+      <a class="mypage-outline-button" href="my_page.html">マイページへ戻る</a>
+      <span class="mypage-avatar" aria-hidden="true">👤</span>
+    </div>
+  </header>
+  <main class="mypage-main mypage-settings-main">
+    <section class="mypage-settings-heading" aria-label="ページタイトル">
+      <span class="mypage-user-badge" aria-hidden="true"></span>
+      <h1>メールアドレス変更</h1>
+    </section>
+
+    <section class="mypage-panel mypage-settings-panel">
+      <p class="mypage-settings-subtitle">
+        ログインに使うメールアドレスを新しいものへ更新します。<br />
+        本人確認のため、現在のパスワードを入力してください。
+      </p>
+      <form class="auth-form mypage-settings-form" action="#" method="post">
+        <div class="input-group">
+          <label for="change-email-password">現在のパスワード</label>
+          <input id="change-email-password" type="password" name="current-password" placeholder="現在のパスワード" required />
+        </div>
+        <div class="input-group">
+          <label for="change-email-new">新しいメールアドレス</label>
+          <input id="change-email-new" type="email" name="new-email" placeholder="new@example.jp" required />
+        </div>
+        <button class="primary-button" type="submit">メールアドレスを更新する</button>
+      </form>
+      <div class="form-note mypage-settings-note">
+        <p>更新後は新しいメールに確認リンクが届きます。完了後に再ログインしてください。</p>
+      </div>
+    </section>
+  </main>
+  <footer class="mypage-footer">
+    <p class="copyright">© Sakutto-SPI. All Rights Reserved</p>
+    <div class="footer-links">
+      <a href="../terms.html">利用規約</a>
+      <a href="../privacy.html">個人情報保護方針</a>
+    </div>
+  </footer>
+
+  <script type="module" src="./js/pages/change_email.js"></script>
+</body>
+</html>

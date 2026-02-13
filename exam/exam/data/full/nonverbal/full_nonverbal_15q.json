@@ -1,0 +1,176 @@
+{
+  "version": 1,
+  "mode": "full",
+  "category": "nonverbal",
+  "slug": "full_nonverbal_15q",
+  "title": "本格受験 - 非言語",
+  "description": "計算・図形・論理問題を含む15問の模擬問題です。",
+  "time_per_question_sec": 60,
+  "questions": [
+    {
+      "id": "Q1",
+      "type": "mc",
+      "prompt_html": "25 - 9 + 14 の値はいくつか。",
+      "options": [
+        "28",
+        "29",
+        "30"
+      ],
+      "answer_index": 2
+    },
+    {
+      "id": "Q2",
+      "type": "mc",
+      "prompt_html": "次の数列の?に入る数を選びなさい。<br>4, 7, 10, 13, ?",
+      "options": [
+        "15",
+        "16",
+        "17"
+      ],
+      "answer_index": 1
+    },
+    {
+      "id": "Q3",
+      "type": "mc",
+      "prompt_html": "半径3の円の面積に最も近いものを選びなさい。（円周率は3.14とする）",
+      "options": [
+        "25.12",
+        "28.26",
+        "31.40"
+      ],
+      "answer_index": 1
+    },
+    {
+      "id": "Q4",
+      "type": "mc",
+      "prompt_html": "次のうち、3の倍数はどれか。",
+      "options": [
+        "28",
+        "45",
+        "52"
+      ],
+      "answer_index": 1
+    },
+    {
+      "id": "Q5",
+      "type": "mc",
+      "prompt_html": "2 : 7 = 6 : ? に入る数を求めなさい。",
+      "options": [
+        "18",
+        "20",
+        "21"
+      ],
+      "answer_index": 2
+    },
+    {
+      "id": "Q6",
+      "type": "mc",
+      "prompt_html": "図形の回転に関する問題です。正方形を180度回転させたとき、元の上辺はどこに移るか。",
+      "options": [
+        "上辺",
+        "右辺",
+        "下辺"
+      ],
+      "answer_index": 2
+    },
+    {
+      "id": "Q7",
+      "type": "mc",
+      "prompt_html": "ある商品の価格を15%値下げしたところ1700円になりました。値下げ前の価格はいくらか。",
+      "options": [
+        "1800円",
+        "2000円",
+        "2200円"
+      ],
+      "answer_index": 1
+    },
+    {
+      "id": "Q8",
+      "type": "mc",
+      "prompt_html": "コインを2回投げたとき、少なくとも1回表が出る確率として正しいものを選びなさい。",
+      "options": [
+        "3/4",
+        "1/2",
+        "1/4"
+      ],
+      "answer_index": 0
+    },
+    {
+      "id": "Q9",
+      "type": "mc",
+      "prompt_html": "□に当てはまる数を求めなさい。<br>9 × □ = 63",
+      "options": [
+        "6",
+        "8",
+        "7"
+      ],
+      "answer_index": 2
+    },
+    {
+      "id": "Q10",
+      "type": "mc",
+      "prompt_html": "立方体の辺の数はいくつか。",
+      "options": [
+        "8",
+        "12",
+        "6"
+      ],
+      "answer_index": 1
+    },
+    {
+      "id": "Q11",
+      "type": "mc",
+      "prompt_html": "一次方程式 5x - 10 = 0 の解はどれか。",
+      "options": [
+        "2",
+        "-2",
+        "-5"
+      ],
+      "answer_index": 0
+    },
+    {
+      "id": "Q12",
+      "type": "mc",
+      "prompt_html": "次の数列の規則に従う数を選びなさい。<br>1, 1, 2, 3, 5, ?",
+      "options": [
+        "6",
+        "7",
+        "8"
+      ],
+      "answer_index": 2
+    },
+    {
+      "id": "Q13",
+      "type": "mc",
+      "prompt_html": "ある町の人口は今年8000人で、毎年3%ずつ増加するとします。4年後の人口に最も近いものを選びなさい。",
+      "options": [
+        "8800人",
+        "9000人",
+        "9200人"
+      ],
+      "answer_index": 1
+    },
+    {
+      "id": "Q14",
+      "type": "mc",
+      "prompt_html": "1日は何分か。",
+      "options": [
+        "1240分",
+        "1440分",
+        "1640分"
+      ],
+      "answer_index": 1
+    },
+    {
+      "id": "Q15",
+      "type": "mc",
+      "prompt_html": "下図のように同じ大きさの正方形4つが2×2に並んでいるとき、含まれる正方形の総数はいくつか。（小さい正方形も大きい正方形も数える）",
+      "options": [
+        "4",
+        "5",
+        "6"
+      ],
+      "answer_index": 1
+    }
+  ]
+}

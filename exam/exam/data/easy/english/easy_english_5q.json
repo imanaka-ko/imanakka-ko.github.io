@@ -1,0 +1,66 @@
+{
+  "version": 1,
+  "mode": "easy",
+  "category": "english",
+  "slug": "easy_english_5q",
+  "title": "かんたん受験 - 英語",
+  "description": "基礎的な英単語と文法の理解を確認します。",
+  "time_per_question_sec": 60,
+  "questions": [
+    {
+      "id": "Q1",
+      "type": "mc",
+      "prompt_html": "Choose the antonym of 'early'.",
+      "options": [
+        "soon",
+        "late",
+        "fast"
+      ],
+      "answer_index": 1
+    },
+    {
+      "id": "Q2",
+      "type": "mc",
+      "prompt_html": "Which word best completes the sentence: 'I ____ a new phone last week.'",
+      "options": [
+        "buy",
+        "bought",
+        "buyed"
+      ],
+      "answer_index": 1
+    },
+    {
+      "id": "Q3",
+      "type": "mc",
+      "prompt_html": "Select the word that has a similar meaning to 'large'.",
+      "options": [
+        "big",
+        "tiny",
+        "weak"
+      ],
+      "answer_index": 0
+    },
+    {
+      "id": "Q4",
+      "type": "mc",
+      "prompt_html": "What is the plural form of 'leaf'?",
+      "options": [
+        "leafs",
+        "leaves",
+        "leafes"
+      ],
+      "answer_index": 1
+    },
+    {
+      "id": "Q5",
+      "type": "mc",
+      "prompt_html": "Fill in the blank: 'She is ____ than her brother.'",
+      "options": [
+        "tall",
+        "taller",
+        "tallest"
+      ],
+      "answer_index": 1
+    }
+  ]
+}

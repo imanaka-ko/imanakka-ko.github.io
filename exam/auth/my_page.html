@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NFD53MZ9');</script>
+    <!-- End Google Tag Manager -->
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+  <title>マイページ | 就活SPI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/auth.css" />
+</head>
+<body class="my-page">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NFD53MZ9"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+  <header class="mypage-header">
+    <a class="mypage-logo signin-logo" href="../index.html" aria-label="トップページへ">
+      <img class="signin-logo-image" src="../images/header_logo.png" alt="さくっとSPI">
+    </a>
+    <div class="mypage-header-actions">
+      <a class="mypage-outline-button" href="#signout">ログアウト</a>
+      <span class="mypage-avatar" aria-hidden="true">👤</span>
+    </div>
+  </header>
+
+  <main class="mypage-main">
+    <section class="mypage-username" aria-label="ユーザー名">
+      <span class="mypage-user-badge" aria-hidden="true"></span>
+      <h1>山田　太郎</h1>
+    </section>
+
+    <section class="mypage-panel">
+      <div class="mypage-profile-card">
+        <div>
+          <p class="mypage-label">メールアドレス</p>
+          <p class="mypage-value" id="current-email">example@example.com</p>
+        </div>
+        <div>
+          <p class="mypage-label">ステータス</p>
+          <p class="mypage-value">メール認証済み・プレミアムプラン体験中</p>
+        </div>
+      </div>
+
+      <div class="mypage-menu-grid">
+        <a class="mypage-menu-card" href="../exam/result.html">
+          <span class="mypage-menu-icon" aria-hidden="true">🏆</span>
+          <span class="mypage-menu-text">受験結果を見る</span>
+          <span class="mypage-menu-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="mypage-menu-card" href="../exam/index.html">
+          <span class="mypage-menu-icon" aria-hidden="true">📖</span>
+          <span class="mypage-menu-text">受験する</span>
+          <span class="mypage-menu-arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+
+      <div class="mypage-links">
+        <a href="change_password.html">パスワードを変更する</a>
+        <a href="change_email.html">メールアドレスを変更する</a>
+      </div>
+
+      <a class="mypage-signout" id="signout-link" href="signin.html">ログアウト</a>
+    </section>
+  </main>
+
+  <footer class="mypage-footer">
+    <p class="copyright">© Sakutto-SPI. All Rights Reserved</p>
+    <div class="footer-links">
+      <a href="../terms.html">利用規約</a>
+      <a href="../privacy.html">個人情報保護方針</a>
+    </div>
+  </footer>
+
+  <script type="module" src="./js/pages/home.js"></script>
+</body>
+</html>

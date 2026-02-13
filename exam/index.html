@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NFD53MZ9');</script>
+    <!-- End Google Tag Manager -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="facebook-domain-verification" content="rg11pmdopgzbvxq0jiu0xgawub9097" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <meta name="csrf-token" content="MSJgq0sV0vpxvjW147k43tyVSOduzwYQzuV3Cm0t">
+    <!-- フォント -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto&amp;display=swap" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="css/fix.css" media="all">
+    <title>就活ＳＰＩ - SPI対策と練習問題</title>
+    <meta name="description" content="就活ＳＰＩ - SPI対策と練習問題 | 多くの企業がSPI試験を導入しているから | 対策すれば確実に伸びる試験だから | 他就活生と差をつけることができるから">
+
+    <!-- OGP -->
+    <meta property="og:title" content="就活ＳＰＩ - SPI対策と練習問題" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://sakkuto-spi.jp/" />
+    <meta property="og:image" content="images/v1_5_bk.png" />
+    <meta property="og:site_name" content="就活ＳＰＩ - SPI対策と練習問題" />
+    <meta property="og:description" content="就活ＳＰＩ - SPI対策と練習問題 | 多くの企業がSPI試験を導入しているから | 対策すれば確実に伸びる試験だから | 他就活生と差をつけることができるから" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <style>
+      :root {
+        --pink: #e83e8c;
+        --blue: #009fe3;
+        --deep-blue: #0f7dbf;
+        --orange: #ff8a2a;
+        --text: #222;
+        --muted: #6d6d6d;
+        --bg: #f6f7fb;
+        --card: #ffffff;
+        --shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Kaku Gothic ProN', '游ゴシック Medium', Meiryo, sans-serif;
+        color: var(--text);
+        background: var(--bg);
+        line-height: 1.6;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        background: #fff;
+        box-shadow: var(--shadow);
+      }
+
+      .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 24px 40px;
+        background: #fff;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+      }
+
+      .brand img {
+        height: 48px;
+        width: auto;
+      }
+
+      .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .btn {
+        border: none;
+        border-radius: 999px;
+        padding: 10px 24px;
+        font-weight: 700;
+        font-size: 0.9rem;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .btn-pink {
+        background: var(--pink);
+        color: #fff;
+      }
+
+      .btn-blue {
+        background: var(--blue);
+        color: #fff;
+      }
+
+      .btn-outline {
+        border: 1px solid var(--muted);
+        color: var(--muted);
+        background: transparent;
+      }
+
+      .btn-image {
+        display: inline-block;
+      }
+
+      .btn-image img {
+        width: min(100%, 320px);
+        height: auto;
+      }
+
+      .hero {
+        padding: 40px;
+        display: grid;
+        grid-template-columns: 1.1fr 1fr;
+        gap: 40px;
+        align-items: center;
+      }
+
+      .hero .tag {
+        display: inline-block;
+        color: var(--pink);
+        font-weight: 700;
+        margin-bottom: 16px;
+      }
+
+      .hero-title {
+        font-size: 2.5rem;
+        line-height: 1.4;
+        margin-bottom: 20px;
+      }
+
+      .hero-title .highlight {
+        background: var(--orange);
+        color: #fff;
+        padding: 4px 10px;
+        border-radius: 6px;
+        margin: 0 4px;
+        display: inline-block;
+      }
+
+      .hero-actions {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .hero-image {
+        position: relative;
+        border-radius: 24px;
+        overflow: hidden;
+        background: #f2f4f8;
+        min-height: 320px;
+        padding: 18px;
+      }
+
+      .hero-image .hero-main {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 20px;
+      }
+
+      .hero-deco {
+        position: absolute;
+        z-index: 2;
+      }
+
+      .hero-deco-1 {
+        width: 90px;
+        top: -10px;
+        left: -10px;
+      }
+
+      .hero-deco-2 {
+        width: 80px;
+        bottom: -12px;
+        left: 8%;
+      }
+
+      .hero-deco-3 {
+        width: 70px;
+        top: 14%;
+        right: -10px;
+      }
+
+      .hero-deco-4 {
+        width: 110px;
+        bottom: -20px;
+        right: 18%;
+      }
+
+      .hero-deco-5 {
+        width: 140px;
+        top: -20px;
+        right: 10%;
+      }
+
+      .section {
+        padding: 40px;
+      }
+
+      .recommend {
+        background: var(--pink);
+        color: #fff;
+        border-radius: 24px;
+        margin: 0 40px 40px;
+        padding: 40px;
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 32px;
+        align-items: center;
+      }
+
+      .recommend h2 {
+        font-size: 1.8rem;
+      }
+
+      .recommend-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .recommend-card {
+        background: #fff;
+        color: var(--text);
+        border-radius: 16px;
+        padding: 20px;
+        text-align: center;
+        min-height: 140px;
+        display: grid;
+        gap: 10px;
+        place-items: center;
+      }
+
+      .recommend-card img {
+        width: 110px;
+        height: 110px;
+      }
+
+      .merit {
+        background: var(--blue);
+        color: #fff;
+        border-radius: 24px;
+        margin: 0 40px 40px;
+      }
+
+      .merit h2 {
+        text-align: center;
+        margin-bottom: 24px;
+        font-size: 1.8rem;
+      }
+
+      .merit-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 20px;
+      }
+
+      .merit-card {
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 18px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .merit-card img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        border-radius: 12px;
+        background: rgba(0, 0, 0, 0.2);
+      }
+
+      .merit-card::after {
+        content: "";
+        position: absolute;
+        inset: 0; /* 画像の端までオーバーレイを伸ばす */
+        border-radius: inherit; /* 親と同じ角丸にする */
+        background: rgba(0, 0, 0, 0.35);
+      }
+
+      .merit-card p {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px 12px; /* テキスト余白を確保 */
+        font-weight: 700;
+      }
+
+      .voice {
+        padding: 0 40px 40px;
+      }
+
+      .voice h2 {
+        margin-bottom: 24px;
+        font-size: 1.5rem;
+      }
+
+      .voice-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+      }
+
+      .voice-card {
+        background: #1f1f1f;
+        color: #fff;
+        border-radius: 20px;
+        padding: 24px;
+        display: grid;
+        gap: 16px;
+      }
+
+      .voice-card .profile {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .voice-card .profile .avatar-frame {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      .voice-card .profile img {
+        width: 70%;
+        height: 70%;
+        object-fit: contain;
+      }
+
+      .cta {
+        background: var(--orange);
+        color: #fff;
+        display: grid;
+        grid-template-columns: 1.1fr 1fr;
+        gap: 24px;
+        align-items: center;
+        padding: 40px;
+      }
+
+      .cta h2 {
+        font-size: 1.8rem;
+        margin-bottom: 12px;
+      }
+
+      .cta-image {
+        display: flex;
+        gap: 16px;
+        align-items: flex-end;
+        justify-content: center;
+      }
+
+      .device {
+        width: 220px;
+        height: 160px;
+        border-radius: 16px;
+        object-fit: contain;
+        background: rgba(255, 255, 255, 0.4);
+        padding: 12px;
+      }
+
+      .device.tall {
+        width: 110px;
+        height: 200px;
+      }
+
+      .footer {
+        text-align: center;
+        padding: 20px 40px 40px;
+        font-size: 0.85rem;
+        color: var(--muted);
+      }
+
+      .footer-links {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        margin: 20px 0 10px;
+        flex-wrap: wrap;
+      }
+
+      .footer a {
+        color: var(--muted);
+        text-decoration: none;
+      }
+
+      @media (max-width: 960px) {
+        .hero,
+        .cta {
+          grid-template-columns: 1fr;
+        }
+
+        .recommend {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-image {
+          min-height: 260px;
+        }
+
+        .merit-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .voice-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .header {
+          flex-direction: column;
+          gap: 16px;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .container {
+          box-shadow: none;
+        }
+
+        .header,
+        .hero,
+        .section,
+        .recommend,
+        .merit,
+        .voice,
+        .cta {
+          padding: 24px;
+          margin: 0;
+          border-radius: 0;
+        }
+
+        .hero-title {
+          font-size: 2rem;
+        }
+
+        .recommend-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NFD53MZ9"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div class="container">
+        <header class="header">
+            <div class="brand">
+                <img src="images/header_logo.png" alt="さくっとSPI">
+            </div>
+            <div class="header-actions">
+                <a class="btn btn-pink" href="auth/signin.html">ログイン</a>
+                <a class="btn btn-blue" href="register_1.html">受験する</a>
+            </div>
+        </header>
+
+        <section class="hero">
+            <div class="hero-image">
+                <img class="hero-main" src="images/top_img_1.png" alt="SPI対策の学習イメージ">
+                <div class="hero-actions">
+                    <a class="btn btn-blue" href="exam/select-mode.html">いますぐ受験する</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="recommend">
+            <div>
+                <small>RECOMMEND</small>
+                <h2>こんな人におすすめ</h2>
+            </div>
+            <div class="recommend-grid">
+                <div class="recommend-card">
+                    <img src="images/top_img_2.png" alt="">
+                    <p>SPI受験のイメージができていない方</p>
+                </div>
+                <div class="recommend-card">
+                    <img src="images/top_img_3.png" alt="">
+                    <p>自分の実力を知りたい方</p>
+                </div>
+                <div class="recommend-card">
+                    <img src="images/top_img_4.png" alt="">
+                    <p>本番さながらの時間制限で試したい方</p>
+                </div>
+                <div class="recommend-card">
+                    <img src="images/top_img_5.png" alt="">
+                    <p>何度も受けてSPI受験対策をしたい方</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section merit">
+            <h2>メリット</h2>
+            <div class="merit-grid">
+                <div class="merit-card">
+                    <img src="images/top_img_6.png" alt="メリット画像1">
+                    <p>多くの企業がSPI試験を導入しているから</p>
+                </div>
+                <div class="merit-card">
+                    <img src="images/top_img_7.png" alt="メリット画像2">
+                    <p>対策すれば確実に伸びる試験だから</p>
+                </div>
+                <div class="merit-card">
+                    <img src="images/top_img_8.png" alt="メリット画像3">
+                    <p>他就活生と差をつけることができるから</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="voice">
+            <h2>合格者の声</h2>
+            <div class="voice-grid">
+                <div class="voice-card">
+                    <div class="profile">
+                        <div class="avatar-frame">
+                            <img src="images/top_img_12.png" alt="">
+                        </div>
+                        <div>
+                            <strong>慶應義塾大学</strong><br>
+                            <span>T.Kさん</span>
+                        </div>
+                    </div>
+                    <p>数学が苦手でしたが、このアプリのおかげで短期間でマスターできました。第一志望の商社からも内定をいただけて感謝しています！</p>
+                </div>
+                <div class="voice-card">
+                    <div class="profile">
+                        <div class="avatar-frame">
+                            <img src="images/top_img_13.png" alt="">
+                        </div>
+                        <div>
+                            <strong>早稲田大学</strong><br>
+                            <span>M.Aさん</span>
+                        </div>
+                    </div>
+                    <p>時間がなくてもスマホでさっと対策できるのが魅力。AIが苦手なところを重点的に出してくれるので効率よく点数が上がりました。</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta">
+            <div class="cta-image">
+                <img class="device" src="images/top_img_10.png" alt="学習画面イメージ（PC）">
+                <img class="device tall" src="images/top_img_11.png" alt="学習画面イメージ（スマホ）">
+            </div>
+            <div>
+                <h2>就活を優位に</h2>
+                <p>SPI試験は1社につき1回までしか受けることができません。事前に十分な対策をしっかり行い本番に臨みましょう！</p>
+                <div class="hero-actions" style="margin-top: 16px;">
+                    <a class="btn-image" href="exam/select-mode.html"><img src="images/jken-suru-btn-whie.png" alt="いますぐ受験する"></a>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="footer-links">
+                <a href="terms.html">利用規約</a>
+                <a href="privacy.html">個人情報保護方針</a>
+            </div>
+            <div>© Sakutto-SPI All Rights Reserved</div>
+        </footer>
+    </div>
+
+    <script type="module">
+      import { auth, api } from "./auth/js/firebase.js";
+      import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+      const logoutButton = document.getElementById("logout-button");
+
+      if (logoutButton) {
+        onAuthStateChanged(auth, (user) => {
+          if (user) {
+            logoutButton.hidden = false;
+            logoutButton.disabled = false;
+          } else {
+            logoutButton.hidden = true;
+            logoutButton.disabled = false;
+          }
+        });
+
+        logoutButton.addEventListener("click", async () => {
+          if (logoutButton.disabled) return;
+          logoutButton.disabled = true;
+          try {
+            await api.signOut();
+          } catch (error) {
+            console.error("Failed to sign out", error);
+            alert("ログアウトに失敗しました。時間をおいて再度お試しください。");
+            logoutButton.disabled = false;
+          }
+        });
+      }
+    </script>
+</body>
+
+</html>

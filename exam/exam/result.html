@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NFD53MZ9');</script>
+    <!-- End Google Tag Manager -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>受験結果 - さくっとSPI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/result.css">
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NFD53MZ9"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div class="result-page">
+        <header class="result-header">
+            <a href="../index.html" class="brand" aria-label="さくっとSPI トップ">
+                <img class="brand-logo" src="../images/header_logo.png" alt="さくっとSPI">
+            </a>
+            <div class="header-actions">
+                <a class="logout-button" href="../index.html">ログアウト</a>
+                <a class="account-button" href="../index.html" aria-label="マイページ"></a>
+            </div>
+        </header>
+
+        <main class="result-main">
+            <section class="result-panel">
+                <div class="meta-list" id="resultMeta">
+                    <div class="meta-item"><span class="meta-label">受験日</span><span class="meta-value" id="metaDate">----</span></div>
+                    <div class="meta-item"><span class="meta-label">受験タイプ</span><span class="meta-value" id="metaMode">----</span></div>
+                    <div class="meta-item"><span class="meta-label">科目</span><span class="meta-value" id="metaCategory">----</span></div>
+                </div>
+
+                <section class="result-summary">
+                    <div class="summary-card"><span class="label">正答数</span><span class="value" id="correctCount">--</span></div>
+                    <div class="summary-card"><span class="label">問題数</span><span class="value" id="totalCount">--</span></div>
+                    <div class="summary-card"><span class="label">正答率</span><span class="value" id="accuracy">--%</span></div>
+                </section>
+
+                <section class="result-details desktop-table-wrap">
+                    <table class="answers-table" aria-live="polite">
+                        <thead>
+                            <tr>
+                                <th scope="col">問題No.</th>
+                                <th scope="col">あなたの回答</th>
+                                <th scope="col">正解</th>
+                                <th scope="col">判定</th>
+                                <th scope="col">所要時間</th>
+                            </tr>
+                        </thead>
+                        <tbody id="answersBodyDesktop">
+                            <tr><td colspan="5">結果を読み込んでいます...</td></tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <section class="result-details mobile-table-wrap">
+                    <table class="answers-table mobile" aria-live="polite">
+                        <thead>
+                            <tr>
+                                <th scope="col">問題No.</th>
+                                <th scope="col">判定</th>
+                                <th scope="col">所要時間</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody id="answersBodyMobile">
+                            <tr><td colspan="4">結果を読み込んでいます...</td></tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <div class="result-actions">
+                    <a href="select-mode.html" class="primary">別の受験タイプへ</a>
+                    <a href="../index.html" class="secondary">トップへ戻る</a>
+                    <a href="../index.html" class="secondary muted">ログアウト</a>
+                </div>
+            </section>
+        </main>
+
+        <footer class="result-footer">
+            <span>© Sakutto-SPI. All Rights Reserved</span>
+            <nav>
+                <a href="../terms.html">利用規約</a>
+                <a href="../privacy.html" target="_blank" rel="noopener">個人情報保護方針</a>
+            </nav>
+        </footer>
+    </div>
+    <script src="js/exam-result.js"></script>
+</body>
+</html>

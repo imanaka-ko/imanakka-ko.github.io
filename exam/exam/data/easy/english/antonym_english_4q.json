@@ -1,0 +1,63 @@
+{
+  "version": 1,
+  "mode": "easy",
+  "category": "english",
+  "slug": "antonym_english_4q",
+  "title": "かんたん受験 - 英語（反意語4問）",
+  "description": "反意語を選ぶ4問の練習問題です。",
+  "time_per_question_sec": 60,
+  "questions": [
+    {
+      "id": "Q1",
+      "type": "mc",
+      "prompt_html": "Choose the word that is opposite in meaning to 'increase'.",
+      "options": [
+        "decrease",
+        "enhance",
+        "collect",
+        "attack",
+        "repair"
+      ],
+      "answer_index": 0
+    },
+    {
+      "id": "Q2",
+      "type": "mc",
+      "prompt_html": "Choose the word that is opposite in meaning to 'noisy'.",
+      "options": [
+        "quiet",
+        "bright",
+        "fast",
+        "wide",
+        "sharp"
+      ],
+      "answer_index": 0
+    },
+    {
+      "id": "Q3",
+      "type": "mc",
+      "prompt_html": "Choose the word that is opposite in meaning to 'accept'.",
+      "options": [
+        "reject",
+        "realize",
+        "manage",
+        "arrive",
+        "compare"
+      ],
+      "answer_index": 0
+    },
+    {
+      "id": "Q4",
+      "type": "mc",
+      "prompt_html": "Choose the word that is opposite in meaning to 'maximum'.",
+      "options": [
+        "average",
+        "minimum",
+        "common",
+        "extra",
+        "modern"
+      ],
+      "answer_index": 1
+    }
+  ]
+}

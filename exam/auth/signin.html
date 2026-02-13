@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NFD53MZ9');</script>
+    <!-- End Google Tag Manager -->
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="../favicon.ico" type="image/x-icon">
+  <title>ログイン | 就活SPI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/auth.css" />
+</head>
+<body class="signin-page">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NFD53MZ9"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+  <header class="signin-header">
+    <a class="signin-logo" href="../index.html" aria-label="就活SPI トップページへ">
+      <img class="signin-logo-image" src="../images/header_logo.png" alt="さくっとSPI">
+    </a>
+    <nav class="signin-nav" aria-label="グローバルナビゲーション">
+      <a class="pill-button pill-button--pink" href="signin.html">ログイン</a>
+      <a class="pill-button pill-button--blue" href="#signup-section">受験する</a>
+    </nav>
+  </header>
+
+  <main class="signin-main">
+    <section class="signin-hero">
+      <p class="signin-hero-en">LOGIN</p>
+      <h1 class="signin-hero-title">ログイン</h1>
+    </section>
+
+    <section class="signin-content">
+      <section class="signin-card" aria-label="ログインフォーム">
+        <form id="signin-form" class="signin-form" action="#" method="post">
+          <div class="input-group signin-field">
+            <label for="signin-email">メールアドレス <span>※</span></label>
+            <input id="signin-email" type="email" name="email" required />
+          </div>
+          <div class="input-group signin-field">
+            <label for="signin-password">パスワード <span>※</span></label>
+            <input id="signin-password" type="password" name="password" required />
+          </div>
+          <button class="signin-login-button" type="submit">ログイン</button>
+          <p class="signin-forgot"><a href="reset_password.html">パスワードを忘れた方はこちら</a></p>
+        </form>
+      </section>
+
+      <section id="signup-section" class="signup-guide" aria-label="新規会員登録フォーム">
+        <p class="signup-guide-head">＼ 1分で簡単登録！ ／</p>
+        <form id="signup-form" class="signup-inline-form" action="#" method="post">
+          <div class="input-group signup-inline-field">
+            <label for="signup-email">メールアドレス <span>※</span></label>
+            <input id="signup-email" type="email" name="signup_email" required />
+          </div>
+          <div class="input-group signup-inline-field">
+            <label for="signup-password">パスワード <span>※</span></label>
+            <input id="signup-password" type="password" name="signup_password" required />
+          </div>
+          <div class="input-group signup-inline-field">
+            <label for="signup-confirm">パスワード（確認） <span>※</span></label>
+            <input id="signup-confirm" type="password" name="signup_confirm" required />
+          </div>
+          <button class="signup-guide-button" type="submit">新規会員登録</button>
+        </form>
+        <p class="signup-guide-note">登録後に確認メールを送信します。<br>届かない場合は迷惑メールフォルダをご確認ください。</p>
+      </section>
+    </section>
+  </main>
+
+  <footer class="signin-footer">
+    <p class="signin-footer-copy">© Sakutto-SPI. All Rights Reserved</p>
+    <div class="signin-footer-links">
+      <a href="../terms.html">利用規約</a>
+      <a href="../privacy.html">個人情報保護方針</a>
+    </div>
+  </footer>
+
+  <script type="module" src="./js/pages/signin.js"></script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+{
+  "version": 1,
+  "mode": "easy",
+  "category": "nonverbal",
+  "slug": "easy_nonverbal_5q",
+  "title": "かんたん受験 - 非言語",
+  "description": "計算や図形に関する基礎問題を出題します。",
+  "time_per_question_sec": 60,
+  "questions": [
+    {
+      "id": "Q1",
+      "type": "mc",
+      "prompt_html": "1から20までの整数の総和はいくつか。",
+      "options": [
+        "200",
+        "210",
+        "220"
+      ],
+      "answer_index": 1
+    },
+    {
+      "id": "Q2",
+      "type": "mc",
+      "prompt_html": "下の数列の次の数を求めなさい: 1, 4, 9, 16, ?",
+      "options": [
+        "20",
+        "24",
+        "25"
+      ],
+      "answer_index": 2
+    },
+    {
+      "id": "Q3",
+      "type": "mc",
+      "prompt_html": "縦4、横7の長方形の面積は？",
+      "options": [
+        "24",
+        "28",
+        "32"
+      ],
+      "answer_index": 1
+    },
+    {
+      "id": "Q4",
+      "type": "mc",
+      "prompt_html": "方程式 x + 5 = 12 の解として正しいものを選びなさい。",
+      "options": [
+        "5",
+        "7",
+        "9"
+      ],
+      "answer_index": 1
+    },
+    {
+      "id": "Q5",
+      "type": "mc",
+      "prompt_html": "赤玉3個、青玉2個が入った袋から1個を無作為に取り出す。赤玉が出る確率は？",
+      "options": [
+        "2/5",
+        "3/5",
+        "1/2"
+      ],
+      "answer_index": 1
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "mode": "easy",
+  "category": "nonverbal",
+  "slug": "ratio_nonverbal_2q",
+  "title": "かんたん受験 - 非言語（割合2問）",
+  "description": "割合計算の基礎を確認する2問です。",
+  "time_per_question_sec": 60,
+  "questions": [
+    {
+      "id": "Q1",
+      "type": "mc",
+      "prompt_html": "あるクラスは30人で、そのうち18人が部活動に参加しています。全体に占める参加者の割合は何%か。",
+      "options": [
+        "50%",
+        "60%",
+        "70%",
+        "80%"
+      ],
+      "answer_index": 1
+    },
+    {
+      "id": "Q2",
+      "type": "mc",
+      "prompt_html": "ある商品を原価の20%の利益をのせて販売したところ、売価は2400円でした。原価はいくらか。",
+      "options": [
+        "1600円",
+        "1800円",
+        "2000円",
+        "2200円"
+      ],
+      "answer_index": 2
+    }
+  ]
+}

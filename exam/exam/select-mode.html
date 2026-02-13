@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NFD53MZ9');</script>
+    <!-- End Google Tag Manager -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <!-- キャッシュ無効化 -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
+    <title>受験タイプ選択 - 就活SPI</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto&amp;display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet" />
+
+    <style>
+    :root {
+        --brand-blue: #00a2e9;
+        --brand-pink: #ff2f87;
+        --brand-text: #111111;
+        --card-bg: #e9f6fd;
+        --muted: #5f6b7a;
+    }
+
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: 'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic', 'Meiryo', sans-serif;
+        color: var(--brand-text);
+        background: #ffffff;
+        line-height: 1.6;
+    }
+
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .select-header {
+        max-width: 1366px;
+        margin: 0 auto;
+        padding: 24px 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .select-logo {
+        display: inline-flex;
+        align-items: center;
+        color: var(--brand-text);
+    }
+
+    .select-logo-image {
+        height: 56px;
+        width: auto;
+    }
+
+    .select-nav {
+        display: flex;
+        gap: 16px;
+    }
+
+    .pill-button {
+        min-width: 160px;
+        padding: 14px 34px;
+        border-radius: 999px;
+        color: #fff;
+        font-size: 1.2rem;
+        font-weight: 700;
+        text-align: center;
+    }
+
+    .pill-button--pink {
+        background: #ea2b78;
+    }
+
+    .pill-button--blue {
+        background: var(--brand-blue);
+    }
+
+    .select-main {
+        max-width: 1366px;
+        margin: 0 auto;
+    }
+
+    .hero {
+        padding: 70px 90px 50px;
+        border-bottom: 1px solid var(--brand-pink);
+    }
+
+    .hero-en {
+        font-size: clamp(1.4rem, 2vw, 2.2rem);
+        font-weight: 800;
+        letter-spacing: 0.08em;
+    }
+
+    .hero-title {
+        margin-top: 6px;
+        font-size: clamp(3rem, 4.8vw, 5.4rem);
+        color: var(--brand-blue);
+        font-weight: 800;
+    }
+
+    .mode-section {
+        padding: 60px 90px 0;
+    }
+
+    .mode-section + .mode-section {
+        padding-top: 40px;
+    }
+
+    .mode-title {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: clamp(1.4rem, 2vw, 2.2rem);
+        font-weight: 700;
+        color: #0c2a45;
+    }
+
+    .mode-title::before {
+        content: "";
+        width: 14px;
+        height: 14px;
+        border: 3px solid var(--brand-blue);
+        border-radius: 50%;
+        display: inline-block;
+    }
+
+    .mode-title span {
+        color: var(--brand-blue);
+        font-weight: 800;
+        margin-left: 6px;
+    }
+
+    .mode-description {
+        margin-top: 16px;
+        font-size: 1rem;
+        color: #222;
+    }
+
+    .mode-points {
+        list-style: none;
+        margin-top: 14px;
+        display: grid;
+        gap: 6px;
+        font-size: 0.98rem;
+        color: #222;
+    }
+
+    .mode-points li::before {
+        content: "✓";
+        color: var(--brand-blue);
+        margin-right: 6px;
+    }
+
+    .mode-cards {
+        margin-top: 28px;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 24px;
+    }
+
+    .mode-card {
+        background: var(--card-bg);
+        border-radius: 18px;
+        padding: 26px 22px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        min-height: 140px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .mode-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+    }
+
+    .mode-card-info {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        font-weight: 700;
+        color: #1a1a1a;
+    }
+
+    .mode-card-label {
+        font-size: 1.2rem;
+    }
+
+    .mode-card-note {
+        font-size: 0.9rem;
+        color: var(--muted);
+    }
+
+    .mode-card-icon {
+        width: 68px;
+        height: 68px;
+        border-radius: 50%;
+        background: var(--brand-blue);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+
+    .mode-card-icon img {
+        width: 34px;
+        height: 34px;
+    }
+
+    .mode-card-arrow {
+        color: var(--brand-blue);
+        font-size: 1.4rem;
+        font-weight: 700;
+    }
+
+    .category-summary {
+        margin: 70px 90px 80px;
+        background: #f6f7f9;
+        border-radius: 18px;
+        padding: 40px 46px;
+        display: grid;
+        gap: 32px;
+    }
+
+    .summary-item {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 18px;
+        align-items: start;
+        padding-bottom: 24px;
+        border-bottom: 1px solid #e2e2e2;
+    }
+
+    .summary-item:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+
+    .summary-icon {
+        width: 42px;
+        height: 42px;
+    }
+
+    .summary-title {
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin-bottom: 6px;
+    }
+
+    .summary-text {
+        color: #333;
+        font-size: 0.95rem;
+    }
+
+    .select-footer {
+        border-top: 1px solid var(--brand-pink);
+        padding: 20px 40px 24px;
+        max-width: 1366px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 0.85rem;
+        color: #444;
+    }
+
+    .select-footer-links {
+        display: flex;
+        gap: 18px;
+    }
+
+    .select-footer-links a {
+        color: #444;
+    }
+
+    @media (max-width: 1024px) {
+        .mode-cards {
+            grid-template-columns: 1fr;
+        }
+
+        .category-summary {
+            margin: 50px 40px 70px;
+        }
+
+        .hero,
+        .mode-section {
+            padding-left: 40px;
+            padding-right: 40px;
+        }
+    }
+
+    @media (max-width: 640px) {
+        .select-header {
+            flex-direction: column;
+            gap: 16px;
+            padding: 20px;
+        }
+
+        .select-nav {
+            width: 100%;
+            justify-content: center;
+        }
+
+        .pill-button {
+            min-width: 120px;
+            font-size: 1rem;
+            padding: 10px 20px;
+        }
+
+        .hero,
+        .mode-section {
+            padding: 36px 20px 0;
+        }
+
+        .category-summary {
+            margin: 40px 20px 60px;
+            padding: 32px 24px;
+        }
+
+        .select-footer {
+            flex-direction: column;
+            gap: 12px;
+            text-align: center;
+        }
+    }
+    </style>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NFD53MZ9"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <header class="select-header">
+        <a href="../index.html" class="select-logo" aria-label="就活SPI トップページへ">
+            <img class="select-logo-image" src="../images/header_logo.png" alt="さくっとSPI">
+        </a>
+        <nav class="select-nav" aria-label="グローバルナビゲーション">
+            <a class="pill-button pill-button--pink" href="../auth/signin.html">ログイン</a>
+            <a class="pill-button pill-button--blue" href="../auth/signin.html#signup-section">受験する</a>
+        </nav>
+    </header>
+
+    <main class="select-main">
+        <section class="hero">
+            <p class="hero-en">EXAM TYPE</p>
+            <h1 class="hero-title">受験タイプ</h1>
+        </section>
+
+        <section class="mode-section">
+            <h2 class="mode-title">かんたん受験 <span>【5分】</span></h2>
+            <p class="mode-description">
+                管理者が厳選した5問で構成される短時間受験です。気軽にチャレンジしてみましょう！
+            </p>
+            <ul class="mode-points">
+                <li>「SPIは勉強したいけど時間がない」と感じる方</li>
+                <li>SPIの試験を試しに受けてみたい方</li>
+                <li>SPIでどんな問題が出題されるのか知りたい方</li>
+            </ul>
+
+            <div class="mode-cards">
+                <a class="mode-card" href="pre-exam/easy_1000f6.html">
+                    <span class="mode-card-icon"><img src="../images/v43_30.png" alt=""></span>
+                    <div class="mode-card-info">
+                        <span class="mode-card-label">言　語</span>
+                        <span class="mode-card-note">厳選5問</span>
+                    </div>
+                    <span class="mode-card-arrow">→</span>
+                </a>
+                <a class="mode-card" href="pre-exam/easy_1100f6.html">
+                    <span class="mode-card-icon"><img src="../images/v43_31.png" alt=""></span>
+                    <div class="mode-card-info">
+                        <span class="mode-card-label">非言語</span>
+                        <span class="mode-card-note">厳選5問</span>
+                    </div>
+                    <span class="mode-card-arrow">→</span>
+                </a>
+                <a class="mode-card" href="pre-exam/easy_1200f6.html">
+                    <span class="mode-card-icon"><img src="../images/v43_32.png" alt=""></span>
+                    <div class="mode-card-info">
+                        <span class="mode-card-label">英　語</span>
+                        <span class="mode-card-note">厳選5問</span>
+                    </div>
+                    <span class="mode-card-arrow">→</span>
+                </a>
+            </div>
+        </section>
+
+        <section class="mode-section">
+            <h2 class="mode-title">本格受験 <span>【15分】</span></h2>
+            <p class="mode-description">
+                しっかりとした模擬試験で実力を測定できます。本番さながらの環境で受験できます。
+            </p>
+            <ul class="mode-points">
+                <li>SPIの模擬試験を本格的に解きたい方</li>
+                <li>自身の相対的なレベルが知りたい方</li>
+                <li>適性検査やWEB選考に通過できるか知りたい方</li>
+            </ul>
+
+            <div class="mode-cards">
+                <a class="mode-card" href="pre-exam/8c8cf.html">
+                    <span class="mode-card-icon"><img src="../images/v43_30.png" alt=""></span>
+                    <div class="mode-card-info">
+                        <span class="mode-card-label">言　語</span>
+                        <span class="mode-card-note">本格15問</span>
+                    </div>
+                    <span class="mode-card-arrow">→</span>
+                </a>
+                <a class="mode-card" href="pre-exam/13c8cf.html">
+                    <span class="mode-card-icon"><img src="../images/v43_31.png" alt=""></span>
+                    <div class="mode-card-info">
+                        <span class="mode-card-label">非言語</span>
+                        <span class="mode-card-note">本格15問</span>
+                    </div>
+                    <span class="mode-card-arrow">→</span>
+                </a>
+                <a class="mode-card" href="pre-exam/4c8cf.html">
+                    <span class="mode-card-icon"><img src="../images/v43_32.png" alt=""></span>
+                    <div class="mode-card-info">
+                        <span class="mode-card-label">英　語</span>
+                        <span class="mode-card-note">本格15問</span>
+                    </div>
+                    <span class="mode-card-arrow">→</span>
+                </a>
+            </div>
+        </section>
+
+        <section class="category-summary" aria-label="試験カテゴリの概要">
+            <div class="summary-item">
+                <img class="summary-icon" src="../images/icon_japanese.png" alt="言語">
+                <div>
+                    <h3 class="summary-title">言　語</h3>
+                    <p class="summary-text">
+                        主に日本語の語彙力や論理的思考力を測るテストです。出題内容は国語の試験に似ており、語句の意味や用法、二語の関係、
+                        熟語の成り立ち、文の並べ替え、空欄補充、長文読解などで構成されています。
+                    </p>
+                </div>
+            </div>
+            <div class="summary-item">
+                <img class="summary-icon" src="../images/icon_nonverbal.png" alt="非言語">
+                <div>
+                    <h3 class="summary-title">非言語</h3>
+                    <p class="summary-text">
+                        主に論理的思考力や数的処理能力を測るテストです。出題内容は中学・高校レベルの数学に似ており、推論・確率・割合といった
+                        分野に加え、損益・速さ・割合など幅広い分野で構成されます。
+                    </p>
+                </div>
+            </div>
+            <div class="summary-item">
+                <img class="summary-icon" src="../images/icon_english.png" alt="英語">
+                <div>
+                    <h3 class="summary-title">英　語</h3>
+                    <p class="summary-text">
+                        主にテストセンターやペーパーテストで実施され、語彙・文法・長文読解（高校卒業レベル）が出題されます。
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="select-footer">
+        <span>© Sakutto-SPI. All Rights Reserved</span>
+        <div class="select-footer-links">
+            <a href="../terms.html">利用規約</a>
+            <a href="../privacy.html">個人情報保護方針</a>
+        </div>
+    </footer>
+</body>
+</html>

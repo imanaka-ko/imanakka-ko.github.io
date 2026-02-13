@@ -1,0 +1,176 @@
+{
+  "version": 1,
+  "mode": "full",
+  "category": "english",
+  "slug": "full_english_15q",
+  "title": "本格受験 - 英語",
+  "description": "基礎的な語彙と文法、表現を幅広く問う15問の模擬問題です。",
+  "time_per_question_sec": 60,
+  "questions": [
+    {
+      "id": "Q1",
+      "type": "mc",
+      "prompt_html": "Select the synonym of 'quick'.",
+      "options": [
+        "slow",
+        "rapid",
+        "quiet"
+      ],
+      "answer_index": 1
+    },
+    {
+      "id": "Q2",
+      "type": "mc",
+      "prompt_html": "Choose the antonym of 'cheap'.",
+      "options": [
+        "expensive",
+        "tiny",
+        "empty"
+      ],
+      "answer_index": 0
+    },
+    {
+      "id": "Q3",
+      "type": "mc",
+      "prompt_html": "Select the correct form to complete the sentence: 'They _____ soccer last Sunday.'",
+      "options": [
+        "play",
+        "playing",
+        "played"
+      ],
+      "answer_index": 2
+    },
+    {
+      "id": "Q4",
+      "type": "mc",
+      "prompt_html": "Fill in the blank with the correct preposition: 'It depends ___ the situation.'",
+      "options": [
+        "on",
+        "at",
+        "for"
+      ],
+      "answer_index": 0
+    },
+    {
+      "id": "Q5",
+      "type": "mc",
+      "prompt_html": "What is the past participle of 'choose'?",
+      "options": [
+        "chose",
+        "chosen",
+        "choosing"
+      ],
+      "answer_index": 1
+    },
+    {
+      "id": "Q6",
+      "type": "mc",
+      "prompt_html": "Choose the correct article: '___ university is nearby.'",
+      "options": [
+        "An",
+        "A",
+        "The"
+      ],
+      "answer_index": 1
+    },
+    {
+      "id": "Q7",
+      "type": "mc",
+      "prompt_html": "Which word best completes the sentence: 'She can ____ very well.'",
+      "options": [
+        "swim",
+        "swims",
+        "swimming"
+      ],
+      "answer_index": 0
+    },
+    {
+      "id": "Q8",
+      "type": "mc",
+      "prompt_html": "Select the word closest in meaning to 'careful'.",
+      "options": [
+        "cautious",
+        "careless",
+        "noisy"
+      ],
+      "answer_index": 0
+    },
+    {
+      "id": "Q9",
+      "type": "mc",
+      "prompt_html": "Choose the correct comparative form: 'This road is _____ than that one.'",
+      "options": [
+        "far",
+        "farther",
+        "farthest"
+      ],
+      "answer_index": 1
+    },
+    {
+      "id": "Q10",
+      "type": "mc",
+      "prompt_html": "Select the correct translation: '手伝ってくれませんか。'",
+      "options": [
+        "Could you help me?",
+        "Help me, don't you?",
+        "You must help me."
+      ],
+      "answer_index": 0
+    },
+    {
+      "id": "Q11",
+      "type": "mc",
+      "prompt_html": "Which sentence uses the present perfect tense?",
+      "options": [
+        "I went to Paris last year.",
+        "I am going to Paris now.",
+        "I have visited Paris before."
+      ],
+      "answer_index": 2
+    },
+    {
+      "id": "Q12",
+      "type": "mc",
+      "prompt_html": "Choose the correct plural form of 'woman'.",
+      "options": [
+        "womans",
+        "women",
+        "womens"
+      ],
+      "answer_index": 1
+    },
+    {
+      "id": "Q13",
+      "type": "mc",
+      "prompt_html": "Select the correct idiom meaning 'to study hard'.",
+      "options": [
+        "Hit the books",
+        "Hit the road",
+        "Spill the beans"
+      ],
+      "answer_index": 0
+    },
+    {
+      "id": "Q14",
+      "type": "mc",
+      "prompt_html": "Fill in the blank with the correct verb form: 'If he ____ early, we will start.'",
+      "options": [
+        "come",
+        "comes",
+        "coming"
+      ],
+      "answer_index": 1
+    },
+    {
+      "id": "Q15",
+      "type": "mc",
+      "prompt_html": "Which sentence has correct subject-verb agreement?",
+      "options": [
+        "There is many reasons.",
+        "Each of the students has a notebook.",
+        "My classmates is friendly."
+      ],
+      "answer_index": 1
+    }
+  ]
+}

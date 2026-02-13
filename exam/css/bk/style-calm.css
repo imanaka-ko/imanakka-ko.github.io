@@ -1,0 +1,359 @@
+/* === 全体共通 === */
+:root {
+  --main-blue: #2196F3;
+  --main-blue-dark: #1976D2;
+  --accent-blue-light: #E3F2FD;
+  --accent-blue-border: #BBDEFB;
+  --text-gray: #4a4a4a;
+  --text-light-gray: #868e96;
+  --bg-light: #f4f6f8;
+}
+
+/* 基本リセット */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Noto Sans JP', 'Roboto', sans-serif;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: #333;
+  background-color: var(--bg-light);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* コンテナ */
+.container {
+  width: 100%;
+  max-width: 800px;
+  min-height: 100vh;
+  background-color: #fff;
+  margin: 0 auto;
+  padding: 0;
+  box-shadow: 0 0 15px rgba(0,0,0,0.05);
+}
+
+/* ヘッダー */
+.header {
+  height: 65px;
+  background-color: #f8f9fa;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.logout-btn {
+  margin-left: auto;
+  padding: 0.375rem 0.75rem;
+  background-color: transparent;
+  color: var(--main-blue);
+  border: 1px solid var(--main-blue);
+  border-radius: 4px;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.logout-btn:hover,
+.logout-btn:focus-visible {
+  background-color: var(--main-blue);
+  color: #fff;
+  outline: none;
+}
+
+.logout-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.logo {
+  width: 35px;
+  height: 35px;
+  background-image: url('images/v1_5.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  margin-right: 10px;
+}
+
+.site-title {
+  /* color: var(--main-blue); */
+  color: #0064b4;
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+/* メインコンテンツ */
+.main-content {
+  padding: 0 20px 2rem;
+}
+
+/* タイトル */
+.page-title {
+  font-size: 1.75rem;
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.last-updated {
+  font-size: 0.8125rem;
+  color: var(--text-light-gray);
+  text-align: right;
+  margin-bottom: 2rem;
+}
+
+/* ヒーローバナー */
+.hero-banner {
+  width: 100%;
+  height: 200px;
+  background-image: url('images/v1_154.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  margin-bottom: 2rem;
+}
+
+/* セクション */
+.section {
+  margin-bottom: 2.5rem;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--main-blue);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid rgba(33, 150, 243, 0.2);
+}
+
+.sub-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #000;
+  margin-top: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.section-content {
+  font-size: 0.9375rem;
+  color: var(--text-gray);
+  line-height: 1.7;
+}
+
+.section-content p {
+  margin-bottom: 1rem;
+}
+
+/* おすすめツール */
+.tools-section {
+  background-color: var(--accent-blue-light);
+  border: 1px solid var(--accent-blue-border);
+  border-radius: 4px;
+  padding: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.tools-title {
+  font-size: 1.375rem;
+  font-weight: bold;
+  color: var(--main-blue);
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.tools-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.tool-card {
+  background-color: #fff;
+  border: 1px solid var(--accent-blue-border);
+  border-radius: 4px;
+  padding: 1.25rem;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.tool-icon {
+  width: 60px;
+  height: 60px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  margin: 0 auto 0.75rem;
+}
+
+.tool-name {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 0.5rem;
+}
+
+.tool-catchphrase,
+.tool-features {
+  font-size: 0.875rem;
+  color: var(--text-gray);
+  line-height: 1.5;
+}
+
+.tool-button {
+  background-color: var(--main-blue);
+  color: #fff;
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+}
+
+.tool-button:hover {
+  background-color: var(--main-blue-dark);
+}
+
+/* 練習問題 */
+.questions-section {
+  margin-bottom: 2rem;
+}
+
+.questions-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.question-card {
+  background-color: var(--accent-blue-light);
+  border: 1px solid var(--accent-blue-border);
+  border-radius: 4px;
+  padding: 1rem;
+}
+
+.question-button {
+  background-color: var(--main-blue);
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  font-size: 0.8125rem;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+  display: block;
+  max-width: 200px;
+  margin: 0 auto;
+  transition: background-color 0.2s ease;
+}
+
+.question-button:hover {
+  background-color: var(--main-blue-dark);
+}
+
+/* CTAバナー */
+.cta-banner {
+  background-color: var(--accent-blue-light);
+  border: 1px solid var(--accent-blue-border);
+  border-radius: 4px;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.cta-title {
+  font-size: 1.125rem;
+  font-weight: bold;
+  color: var(--main-blue);
+  margin-bottom: 1rem;
+}
+
+.cta-button {
+  background-color: var(--main-blue);
+  color: #fff;
+  padding: 0.875rem 2rem;
+  border-radius: 4px;
+  font-size: 0.9375rem;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+}
+
+.cta-button:hover {
+  background-color: var(--main-blue-dark);
+}
+
+/* フッター */
+.footer {
+  background-color: #f8f9fa;
+  border-top: 1px solid #e0e0e0;
+  padding: 20px;
+  text-align: center;
+}
+
+.footer-nav {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.footer-nav a {
+  color: var(--main-blue);
+  text-decoration: none;
+  font-size: 0.875rem;
+}
+
+.footer-nav a:hover {
+  color: var(--main-blue-dark);
+  text-decoration: underline;
+}
+
+/* レスポンシブ */
+@media (max-width: 768px) {
+  .tools-grid,
+  .questions-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  html { font-size: 90%; }
+  .header { padding: 0 15px; }
+  .logo { width: 30px; height: 30px; }
+  .site-title { font-size: 1.125rem; }
+  .main-content { padding: 0 12px 1.5rem; }
+  .hero-banner { height: 150px; }
+  .page-title { font-size: 1.375rem; }
+  .section-title { font-size: 1.25rem; }
+  .sub-title { font-size: 1.125rem; }
+  .tool-button, .question-button, .cta-button {
+    font-size: 0.75rem;
+    padding: 0.625rem 1.25rem;
+  }
+}
