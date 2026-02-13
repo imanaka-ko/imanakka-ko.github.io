@@ -30,15 +30,13 @@
     <div class="container">
         <header class="header">
             <a href="../index.html" class="logo-container" aria-label="就活SPI トップ">
-                <span class="logo" aria-hidden="true"></span>
-                <span class="site-title">就活SPI</span>
+                <img class="header-logo" src="../images/header_logo.png" alt="さくっとSPI">
             </a>
         </header>
         <main class="main-content">
             <div id="examPage" class="exam-page state-unanswered">
                 <div class="exam-header">
                     <div class="subject" id="examSubject">受験準備中...</div>
-                    <a class="close-btn" href="select-mode.html" aria-label="受験を中断する">&times;</a>
                 </div>
                 <div class="exam-meta">
                     <div class="answer-time">
@@ -47,12 +45,14 @@
                     </div>
                 </div>
                 <div class="instruction" id="examDescription">問題データを読み込んでいます...</div>
-                <div class="question-block">
-                    <p class="question-title" id="questionTitle">問題 --/--</p>
-                    <div class="question-text" id="questionText">読み込み中です。</div>
-                </div>
                 <form id="questionForm" class="question-form" novalidate>
-                    <div class="options-list" id="optionsList"></div>
+                    <div class="question-layout">
+                        <div class="question-block">
+                            <p class="question-title" id="questionTitle">問題 --/--</p>
+                            <div class="question-text" id="questionText">読み込み中です。</div>
+                        </div>
+                        <div class="options-list" id="optionsList"></div>
+                    </div>
                     <div class="exam-actions">
                         <div class="timer-bar" id="timerBar" aria-live="polite">
                             <span class="timer-icon" aria-hidden="true">
@@ -71,14 +71,6 @@
                 <div class="status-message hidden" id="statusMessage" role="alert"></div>
             </div>
         </main>
-        <footer class="footer">
-            <nav class="footer-nav">
-                <a href="https://asobibase.jp" target="_blank" rel="noopener">運営会社</a>
-                <a href="../terms.html">利用規約</a>
-                <a href="../privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a>
-                <a href="../index.html">TOPへ</a>
-            </nav>
-        </footer>
     </div>
     <script src="js/exam-runner.js"></script>
 </body>
