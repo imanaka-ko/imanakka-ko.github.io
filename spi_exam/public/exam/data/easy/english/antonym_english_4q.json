@@ -10,29 +10,53 @@
     {
       "id": "Q1",
       "type": "mc",
-      "prompt_html": "Choose the word that is opposite in meaning to 'generous'.",
-      "options": ["selfish", "honest", "polite", "clever", "simple"],
+      "prompt_html": "Choose the word that is opposite in meaning to 'increase'.",
+      "options": [
+        "decrease",
+        "enhance",
+        "collect",
+        "attack",
+        "repair"
+      ],
       "answer_index": 0
     },
     {
       "id": "Q2",
       "type": "mc",
-      "prompt_html": "Choose the word that is opposite in meaning to 'expand'.",
-      "options": ["contract", "increase", "divide", "produce", "select"],
+      "prompt_html": "Choose the word that is opposite in meaning to 'noisy'.",
+      "options": [
+        "quiet",
+        "bright",
+        "fast",
+        "wide",
+        "sharp"
+      ],
       "answer_index": 0
     },
     {
       "id": "Q3",
       "type": "mc",
-      "prompt_html": "Choose the word that is opposite in meaning to 'ancient'.",
-      "options": ["modern", "quiet", "basic", "tiny", "early"],
+      "prompt_html": "Choose the word that is opposite in meaning to 'accept'.",
+      "options": [
+        "reject",
+        "realize",
+        "manage",
+        "arrive",
+        "compare"
+      ],
       "answer_index": 0
     },
     {
       "id": "Q4",
       "type": "mc",
-      "prompt_html": "Choose the word that is opposite in meaning to 'include'.",
-      "options": ["contain", "exclude", "improve", "accept", "ignore"],
+      "prompt_html": "Choose the word that is opposite in meaning to 'maximum'.",
+      "options": [
+        "average",
+        "minimum",
+        "common",
+        "extra",
+        "modern"
+      ],
       "answer_index": 1
     }
   ]

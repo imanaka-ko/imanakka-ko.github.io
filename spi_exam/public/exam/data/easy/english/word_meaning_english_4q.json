@@ -10,29 +10,53 @@
     {
       "id": "Q1",
       "type": "mc",
-      "prompt_html": "to look at something quickly and then look away",
-      "options": ["stare", "glance", "observe", "notice", "examine"],
+      "prompt_html": "to make something better",
+      "options": [
+        "reduce",
+        "improve",
+        "borrow",
+        "discover",
+        "whisper"
+      ],
       "answer_index": 1
     },
     {
       "id": "Q2",
       "type": "mc",
-      "prompt_html": "a building where books are kept for people to read or borrow",
-      "options": ["library", "bakery", "garage", "stadium", "factory"],
+      "prompt_html": "a person who travels to a place for pleasure",
+      "options": [
+        "tourist",
+        "chemist",
+        "pilot",
+        "tenant",
+        "lawyer"
+      ],
       "answer_index": 0
     },
     {
       "id": "Q3",
       "type": "mc",
-      "prompt_html": "the act of leaving a place",
-      "options": ["arrival", "departure", "decision", "growth", "failure"],
+      "prompt_html": "a plan that shows the times of events or activities",
+      "options": [
+        "message",
+        "schedule",
+        "wallet",
+        "battery",
+        "engine"
+      ],
       "answer_index": 1
     },
     {
       "id": "Q4",
       "type": "mc",
-      "prompt_html": "water that falls from the sky in tiny drops",
-      "options": ["snow", "rain", "fog", "steam", "cloud"],
+      "prompt_html": "not common; unusual",
+      "options": [
+        "ordinary",
+        "rare",
+        "clear",
+        "recent",
+        "solid"
+      ],
       "answer_index": 1
     }
   ]
