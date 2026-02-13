@@ -443,9 +443,7 @@ if (submissionForm) {
       saveSubmissionData(payload);
 
       // 正常終了後の遷移
-      const selectedGradYear = gradYearSelect ? gradYearSelect.value : '';
-      const redirectUrl = selectedGradYear === 'other' ? './auth/signin.html' : 'register_1.html';
-      window.location.href = redirectUrl;
+      window.location.href = 'register_1.html';
     } catch (error) {
       console.error(error);
       alert('送信に失敗しました。時間をおいて再度お試しください。');
