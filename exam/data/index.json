@@ -22,7 +22,7 @@
     "mode": "easy",
     "category": "language",
     "title": "かんたん受験 - 言語",
-    "description": "短時間で5問の言語分野を確認します。",
+    "description": "短時間で5間の言語分野を確認します。次の文章を読んで問いに答えなさい。",
     "num_questions": 5,
     "time_per_question_sec": 60
   },
