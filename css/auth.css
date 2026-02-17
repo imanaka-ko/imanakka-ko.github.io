@@ -1220,6 +1220,11 @@ a:hover {
   margin: 0 auto;
 }
 
+.signup-header-inner {
+  display: flex;
+  justify-content: center;
+}
+
 .signup-logo {
   display: inline-flex;
   align-items: center;
