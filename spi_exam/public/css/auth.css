@@ -1223,22 +1223,12 @@ a:hover {
 .signup-logo {
   display: inline-flex;
   align-items: center;
-  gap: 14px;
-  color: #1d1d22;
-  text-decoration: none;
 }
 
-.signup-logo-mark {
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 46% 46%, #001525 52%, #0a96dd 75%, #ee3f83 95%);
-}
-
-.signup-logo-text {
-  font-size: clamp(2rem, 3.2vw, 3.45rem);
-  font-weight: 900;
-  letter-spacing: 0.02em;
+.signup-logo-image {
+  height: 44px;
+  width: auto;
+  display: block;
 }
 
 .signup-intro {
