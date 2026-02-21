@@ -52,11 +52,12 @@ a {
 }
 
 .logout-button {
-    min-width: 164px;
+    min-width: 160px;
+    height: 52px;
     padding: 13px 28px;
     border: 2px solid #10131a;
     border-radius: 999px;
-    font-size: 30px;
+    font-size: 14px;
     font-weight: 700;
     text-align: center;
 }
@@ -134,11 +135,11 @@ a {
 .meta-label {
     color: var(--pink);
     font-weight: 700;
-    font-size: 22px;
+    font-size: 13px;
 }
 
 .meta-value {
-    font-size: 33px;
+    font-size: 14px;
     font-weight: 500;
 }
 
@@ -163,7 +164,7 @@ a {
     justify-content: center;
     align-items: center;
     color: #fff;
-    font-size: 40px;
+    font-size: 18px;
     font-weight: 700;
     background: var(--pink);
 }
@@ -172,8 +173,8 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 55px;
-    font-weight: 800;
+    font-size: 36px;
+    font-weight: 700;
 }
 
 .answers-table {
@@ -188,7 +189,7 @@ a {
     border: 1px solid var(--line);
     padding: 14px 20px;
     text-align: center;
-    font-size: 33px;
+    font-size: 14px;
 }
 
 .answers-table th {
@@ -207,7 +208,7 @@ a {
 }
 
 .judgement {
-    font-size: 43px;
+    font-size: 24px;
     line-height: 1;
     font-weight: 700;
 }
@@ -260,13 +261,13 @@ a {
 }
 
 .result-actions a {
-    min-height: 70px;
+    min-height: 52px;
     border-radius: 999px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     padding: 0 28px;
-    font-size: 36px;
+    font-size: 14px;
     font-weight: 700;
 }
 
@@ -291,8 +292,7 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 28px;
-    font-weight: 700;
+    font-size: 12px;
 }
 
 .result-footer nav {
@@ -373,11 +373,11 @@ a {
     }
 
     .summary-card .label {
-        font-size: 42px;
+        font-size: 18px;
     }
 
     .summary-card .value {
-        font-size: 50px;
+        font-size: 36px;
     }
 
     .desktop-table-wrap {
@@ -390,7 +390,7 @@ a {
 
     .answers-table th,
     .answers-table td {
-        font-size: 38px;
+        font-size: 14px;
         padding: 12px 8px;
     }
 
