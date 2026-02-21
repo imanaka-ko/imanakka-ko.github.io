@@ -1130,8 +1130,8 @@ a:hover {
 
 .mypage-username h1 {
   margin: 0;
-  font-size: 2rem;
-  font-weight: 800;
+  font-size: 32px;
+  font-weight: 700;
   letter-spacing: 0.03em;
 }
 
@@ -1153,13 +1153,13 @@ a:hover {
 .mypage-label {
   margin: 0 0 8px;
   color: #f4287e;
-  font-size: 1.25rem;
+  font-size: 16px;
   font-weight: 500;
 }
 
 .mypage-value {
   margin: 0;
-  font-size: 1.6rem;
+  font-size: 16px;
   font-weight: 700;
   line-height: 1.4;
 }
@@ -1194,8 +1194,8 @@ a:hover {
 }
 
 .mypage-menu-text {
-  font-size: 1.35rem;
-  font-weight: 800;
+  font-size: 24px;
+  font-weight: 700;
   line-height: 1.3;
 }
 
@@ -1213,7 +1213,7 @@ a:hover {
 }
 
 .mypage-links a {
-  font-size: 1.2rem;
+  font-size: 14px;
   color: #f4287e;
   text-decoration: underline;
   text-underline-offset: 6px;
@@ -1222,13 +1222,14 @@ a:hover {
 .mypage-signout {
   margin: 18px 0 0 auto;
   width: 160px;
+  height: 52px;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 999px;
   background: #fff;
   color: #c8c8c8;
-  font-size: 1.2rem;
+  font-size: 14px;
   font-weight: 700;
   line-height: 1;
   padding: 10px;
@@ -1378,7 +1379,7 @@ a:hover {
   }
 
   .mypage-username h1 {
-    font-size: 2.2rem;
+    font-size: 32px;
   }
 
   .mypage-user-badge {
@@ -1404,11 +1405,11 @@ a:hover {
   }
 
   .mypage-label {
-    font-size: 1.1rem;
+    font-size: 16px;
   }
 
   .mypage-value {
-    font-size: 2rem;
+    font-size: 16px;
   }
 
   .mypage-menu-card {
@@ -1423,7 +1424,7 @@ a:hover {
   }
 
   .mypage-menu-text {
-    font-size: 2.2rem;
+    font-size: 24px;
   }
 
   .mypage-menu-arrow {
@@ -1437,13 +1438,14 @@ a:hover {
   }
 
   .mypage-links a {
-    font-size: 1.1rem;
+    font-size: 14px;
   }
 
   .mypage-signout {
-    width: 170px;
+    width: 160px;
+    height: 52px;
     margin: 24px auto 0;
-    font-size: 1.7rem;
+    font-size: 14px;
   }
 
   .mypage-footer {
