@@ -396,10 +396,10 @@
         background: var(--orange);
         color: #fff;
         display: grid;
-        grid-template-columns: 1.1fr 1fr;
+        grid-template-columns: 1.4fr 1fr;
         gap: 24px;
         align-items: center;
-        padding: 40px;
+        padding: 40px 40px 40px 0;
       }
 
       .cta h2 {
@@ -410,23 +410,13 @@
 
       .cta-image {
         display: flex;
-        gap: 16px;
-        align-items: flex-end;
+        align-items: center;
         justify-content: center;
       }
 
-      .device {
-        width: 220px;
-        height: 160px;
-        border-radius: 16px;
-        object-fit: contain;
-        background: rgba(255, 255, 255, 0.4);
-        padding: 12px;
-      }
-
-      .device.tall {
-        width: 110px;
-        height: 200px;
+      .cta-image img {
+        width: 100%;
+        height: auto;
       }
 
       .footer {
@@ -798,14 +788,13 @@
 
         <section class="cta">
             <div class="cta-image">
-                <img class="device" src="images/top_img_10.png" alt="学習画面イメージ（PC）">
-                <img class="device tall" src="images/top_img_11.png" alt="学習画面イメージ（スマホ）">
+                <img src="images/spi-image.png" alt="学習画面イメージ">
             </div>
             <div>
                 <h2>就活を優位に</h2>
                 <p>SPI試験は1社につき1回までしか受けることができません。事前に十分な対策をしっかり行い本番に臨みましょう！</p>
                 <div class="hero-actions" style="margin-top: 16px;">
-                    <a class="btn-image" href="exam/select-mode.html"><img src="images/jken-suru-btn-whie.png" alt="いますぐ受験する"></a>
+                    <a class="btn-image" href="exam/select-mode.html"><img src="images/imasugu_under.png" alt="いますぐ受験する"></a>
                 </div>
             </div>
         </section>
