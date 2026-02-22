@@ -497,3 +497,77 @@ a {
     text-align: center;
   }
 }
+
+/* ==================================================
+   verify_email ページ固有スタイル
+   ================================================== */
+
+.verify-subtitle {
+  font-size: 1rem;
+  color: var(--text-main);
+  line-height: 1.75;
+  margin-bottom: 24px;
+}
+
+.verify-info-card {
+  background: #f8f9f7;
+  border-radius: 12px;
+  padding: 24px 28px;
+  margin-bottom: 32px;
+}
+
+.verify-info-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin: 0 0 12px;
+}
+
+.verify-info-text {
+  font-size: 0.9375rem;
+  color: var(--text-sub);
+  line-height: 1.8;
+  margin: 0;
+}
+
+.verify-info-text a {
+  color: var(--brand-pink);
+  text-decoration: underline;
+}
+
+.verify-actions {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.verify-actions .secondary-outline-button {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.verify-actions .primary-outline-button {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.verify-note {
+  font-size: 0.875rem;
+  color: var(--text-sub);
+  text-align: center;
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  .verify-actions {
+    flex-direction: column;
+  }
+
+  .verify-info-card {
+    padding: 20px 16px;
+  }
+}
