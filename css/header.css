@@ -1,0 +1,90 @@
+/* ==================================================
+   header.css — 全ページ共通固定ヘッダー
+   ================================================== */
+
+/* 固定ポジション・共通スタイル */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 40px;
+  background: #fff;
+}
+
+/* index.html 用ボタン類 */
+.brand {
+  display: flex;
+  align-items: center;
+}
+
+.brand img {
+  height: 48px;
+  width: auto;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.btn {
+  border: none;
+  border-radius: 999px;
+  padding: 10px 24px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-pink {
+  background: #E7316E;
+  color: #fff;
+}
+
+.btn-blue {
+  background: #00A2DE;
+  color: #fff;
+}
+
+.btn-outline {
+  border: 1px solid #6d6d6d;
+  color: #6d6d6d;
+  background: transparent;
+}
+
+/* ページコンテンツのオフセット（固定ヘッダー分） */
+body {
+  padding-top: 96px;
+}
+
+/* SP */
+@media (max-width: 600px) {
+  .site-header {
+    padding: 12px 16px;
+    gap: 8px;
+  }
+
+  .brand img {
+    height: 36px;
+  }
+
+  .btn {
+    font-size: 12px;
+    padding: 6px 14px;
+    height: 42px;
+  }
+
+  body {
+    padding-top: 66px;
+  }
+}

@@ -26,14 +26,6 @@ a {
   text-decoration: none;
 }
 
-.registration-header {
-  max-width: 1366px;
-  margin: 0 auto;
-  padding: 24px 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
 
 .registration-logo {
   display: inline-flex;
@@ -388,7 +380,7 @@ a {
 }
 
 @media (max-width: 900px) {
-  .registration-header,
+  .site-header,
   .registration-hero,
   .registration-main {
     padding-left: 32px;
@@ -402,10 +394,6 @@ a {
 }
 
 @media (max-width: 640px) {
-  .registration-header {
-    flex-direction: column;
-    gap: 16px;
-  }
 
   .registration-nav {
     width: 100%;
