@@ -15,6 +15,6 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!signupButton) return;
 
   signupButton.addEventListener("click", () => {
-    location.href = "signup.html";
+    location.href = "../submission_form.html";
   });
 });
