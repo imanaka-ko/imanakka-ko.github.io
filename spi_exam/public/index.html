@@ -20,6 +20,7 @@
     <!-- フォント -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=Jost:wght@700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="css/fix.css" media="all">
+    <link rel="stylesheet" href="css/header.css">
     <title>就活ＳＰＩ - SPI対策と練習問題</title>
     <meta name="description" content="就活ＳＰＩ - SPI対策と練習問題 | 多くの企業がSPI試験を導入しているから | 対策すれば確実に伸びる試験だから | 他就活生と差をつけることができるから">
 
@@ -57,6 +58,7 @@
         color: var(--text);
         background: #fff;
         line-height: 1.6;
+        padding-top: 96px;
       }
 
       img {
@@ -68,59 +70,6 @@
         max-width: 1200px;
         margin: 0 auto;
         background: #fff;
-      }
-
-      .header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 24px 40px;
-        background: #fff;
-      }
-
-      .brand {
-        display: flex;
-        align-items: center;
-      }
-
-      .brand img {
-        height: 48px;
-        width: auto;
-      }
-
-      .header-actions {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-      }
-
-      .btn {
-        border: none;
-        border-radius: 999px;
-        padding: 10px 24px;
-        font-weight: 700;
-        font-size: 0.9rem;
-        cursor: pointer;
-        text-decoration: none;
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-      }
-
-      .btn-pink {
-        background: var(--pink);
-        color: #fff;
-      }
-
-      .btn-blue {
-        background: var(--blue);
-        color: #fff;
-      }
-
-      .btn-outline {
-        border: 1px solid var(--muted);
-        color: var(--muted);
-        background: transparent;
       }
 
       .btn-image {
@@ -525,22 +474,6 @@
       }
 
       @media (max-width: 600px) {
-        /* ヘッダー: 常に横並び・コンパクト */
-        .header {
-          padding: 12px 10px;
-          gap: 8px;
-        }
-
-        .brand img {
-          height: 36px;
-        }
-
-        .btn {
-          font-size: 12px;
-          padding: 6px 14px;
-          height: 42px;
-        }
-
         /* ヒーロー */
         .hero {
           display: block;
@@ -751,13 +684,13 @@
     <!-- End Google Tag Manager (noscript) -->
 
     <div class="container">
-        <header class="header">
+        <header class="site-header">
             <a class="brand" href="exam/select-mode.html" aria-label="受験タイプ選択ページへ">
                 <img src="images/header_logo.png" alt="さくっとSPI">
             </a>
             <div class="header-actions">
                 <a class="btn btn-pink" href="auth/signin.html">ログイン</a>
-                <a class="btn btn-blue" href="register_1.html">受験する</a>
+                <a class="btn btn-blue" href="exam/select-mode.html">受験する</a>
             </div>
         </header>
 
