@@ -19,7 +19,7 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
     
-    <title>利用規約 - 就活SPI</title>
+    <title>利用規約 - さくッとSPI</title>
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto&amp;display=swap" rel="stylesheet" />
@@ -53,7 +53,6 @@
         background-color: #f4f6f8;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-        padding-top: 65px;
     }
 
     /* スクリーンリーダー向けユーティリティクラス */
@@ -83,62 +82,6 @@
     /* 受験画面では最小高を調整 */
     body.exam-page .container {
         min-height: auto;
-    }
-
-    /* ヘッダー（homeページ完全統一） */
-    .site-header {
-        height: 65px;
-        background-color: #f8f9fa;
-        display: flex;
-        align-items: center;
-        padding: 0 20px;
-        border-bottom: 1px solid #e0e0e0;
-    }
-
-    .logo-container {
-        display: flex;
-        align-items: center;
-    }
-
-    .logo {
-        width: 35px;
-        height: 35px;
-        background-image: url('images/v1_5.png');
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-        margin-right: 10px;
-    }
-
-    .site-title {
-        /* color: #2f98a5; */
-        color: #0064b4;
-        font-weight: bold;
-        font-size: 1.25rem;
-        text-decoration: none;
-    }
-
-    .logo-link {
-        display: flex;
-        align-items: center;
-        text-decoration: none;
-        color: inherit;
-        transition: opacity 0.2s ease;
-    }
-
-    .logo-link:hover {
-        opacity: 0.8;
-    }
-
-    .logo-link:hover .site-title {
-        /* color: #247a85; */
-        color: #0064b4;
-    }
-
-    /* ログアウトボタン */
-    .logout-btn:hover {
-        background-color: #2f98a5 !important;
-        color: #fff !important;
     }
 
     /* メインコンテンツ */
@@ -178,10 +121,6 @@
             padding: 0 15px 2rem;
         }
         
-        .site-header {
-            padding: 0 16px;
-        }
-        
         .footer {
             padding: 1.5rem 15px;
         }
@@ -192,20 +131,6 @@
             font-size: 93.75%;
         }
         
-        .site-header {
-            height: 60px;
-            padding: 0 15px;
-        }
-        
-        .logo { 
-            width: 30px; 
-            height: 30px; 
-        }
-        
-        .site-title { 
-            font-size: 1.125rem;
-        }
-
         .main-content {
             padding: 0 15px 1.5rem;
         }
@@ -222,11 +147,6 @@
             font-size: 0.75rem;
         }
         
-        /* ヘッダーのレスポンシブ対応 */
-        .logout-btn {
-            font-size: 0.75rem !important;
-            padding: 4px 8px !important;
-        }
     }
     </style>
     
@@ -342,24 +262,23 @@
     <div class="container">
         <!-- ヘッダー -->
         <header class="site-header">
-            <div class="logo-container">
-                <a href="index.html" class="logo-link">
-                    <div class="logo"></div>
-                    <span class="site-title">就活ＳＰＩ</span>
-                </a>
-            </div>
-            
-            <!-- ログアウトボタン（ログイン中のみ表示） -->
-                    </header>
+            <a class="brand" href="index.html" aria-label="トップページへ">
+                <img src="images/header_logo.png" alt="さくっとSPI">
+            </a>
+            <nav class="header-actions" aria-label="グローバルナビゲーション">
+                <a class="btn btn-outline" href="auth/signin.html">ログイン</a>
+                <a class="btn btn-pink" href="exam/select-mode.html">受験する</a>
+            </nav>
+        </header>
         
         <!-- メインコンテンツ -->
                         <main class="main-content">
-            <h1 class="page-title">就活SPI 利用規約</h1>
+            <h1 class="page-title">さくッとSPI 利用規約</h1>
 
             <div class="terms-content">
                 <section class="terms-section">
                     <h2>第1条（規約の適用）</h2>
-                    <p>本規約は、株式会社AsobiBase（以下「当社」といいます。）が提供する「就活SPI」（以下「本サービス」といいます。）の利用条件を定めるものです。</p>
+                    <p>本規約は、株式会社Xforce（以下「当社」といいます。）が提供する「サクッとSPI」（以下「本サービス」といいます。）の利用条件を定めるものです。</p>
                     <p>利用者は、本規約に同意のうえでのみ本サービスを利用できるものとし、実際に利用を開始した時点で本規約への同意があったものとみなします。</p>
                     <p>本サービスの利用にあたり、利用者は本規約のほか、当社が別途提示するガイドライン、注意事項等（以下「本サービス関連規程」といいます。）にも従うものとします。</p>
                 </section>
@@ -369,7 +288,7 @@
                     <p>本規約における用語の意味は、次のとおりとします。</p>
                     <dl>
                         <dt>「当社ウェブサイト」</dt>
-                        <dd>とは、当社が運営する https://asobibase.co.jp/ を指し、URLが変更された場合は変更後のものを含みます。</dd>
+                        <dd>とは、当社が運営するhttps://sakkuto-spi.jp/を指し、URLが変更された場合は変更後のものを含みます。</dd>
                         <dt>「反社会的勢力」</dt>
                         <dd>とは、暴力団、暴力団員、暴力団関係企業、総会屋、社会運動等を装った団体、特殊知能暴力集団、その他これらに準ずる者をいいます。</dd>
                         <dt>「法令等」</dt>
@@ -377,7 +296,7 @@
                         <dt>「本契約」</dt>
                         <dd>とは、本規約に基づき当社と利用者との間に成立する契約をいいます。</dd>
                         <dt>「本サービス」</dt>
-                        <dd>とは、「就活SPI」の名称で当社が提供する各種サービスを指し、名称が変更された場合は変更後のサービスを含みます。</dd>
+                        <dd>とは、「さくッとSPI」の名称で当社が提供する各種サービスを指し、名称が変更された場合は変更後のサービスを含みます。</dd>
                         <dt>「本サービス関連規程」</dt>
                         <dd>とは、当社が利用者に対して本サービス利用に関し提示する案内、ルール、注意事項をいいます。</dd>
                         <dt>「利用者」</dt>
@@ -397,7 +316,7 @@
                     <h2>第4条（利用者情報）</h2>
                     <p>利用者は、申込時に正確かつ最新の情報（以下「利用者情報」といいます。）を当社に提供し、変更が生じた場合は速やかに届け出るものとします。</p>
                     <p>利用者が届け出を怠ったことにより不利益が生じても、当社は一切責任を負いません。</p>
-                    <p>当社による個人情報の取り扱いは、当社のプライバシーポリシー（https://asobibase.co.jp/privacypolicy）に基づきます。利用者はこれに同意したうえで本サービスを利用するものとします。</p>
+                    <p>当社による個人情報の取り扱いは、当社のプライバシーポリシー（https://sakkuto-spi.jp/privacy.html）に基づきます。利用者はこれに同意したうえで本サービスを利用するものとします。</p>
                     <p>当社は、取得した利用者情報を統計的に処理し、個人を特定できない形で利用・公開できるものとします。</p>
                     <p>当社が利用者に対し、本サービス提供に必要な情報や資料の提出を求めた場合、利用者は速やかにこれに応じるものとします。</p>
                 </section>
@@ -504,7 +423,6 @@
                 
         <footer class="footer" style="">
             <nav class="footer-nav">
-                <a href="https://asobibase.jp" target="_blank" rel="noopener">運営会社</a>
                 <a href="terms.html">利用規約</a>
                 <a href="privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a>
                 <a href="index.html">TOPへ</a>
