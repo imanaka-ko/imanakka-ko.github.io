@@ -1243,8 +1243,7 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 1.1rem;
-  font-weight: 700;
+  font-size: 12px;
   margin-top: auto;
 }
 
@@ -1451,7 +1450,7 @@ a:hover {
   .mypage-footer {
     flex-direction: column-reverse;
     gap: 10px;
-    font-size: 1.2rem;
+    font-size: 12px;
     text-align: center;
     padding: 18px 0 26px;
   }
