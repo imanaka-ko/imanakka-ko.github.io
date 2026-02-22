@@ -282,16 +282,16 @@ a:hover {
 }
 
 .password-theme-page .primary-button {
-  border: 1px solid #f4287e;
+  border: 1px solid #E7316E;
   background: #fff;
-  color: #f4287e;
+  color: #E7316E;
   box-shadow: none;
   font-weight: 700;
 }
 
 .password-theme-page .primary-button:hover,
 .password-theme-page .primary-button:active {
-  background: #f4287e;
+  background: #E7316E;
   color: #fff;
   transform: none;
   box-shadow: none;
@@ -304,7 +304,7 @@ a:hover {
 .password-theme-main {
   width: min(930px, calc(100% - 48px));
   margin: 0 auto;
-  padding: 72px 0;
+  padding: 0 0 60px;
 }
 
 .password-theme-logo {
@@ -317,30 +317,37 @@ a:hover {
 }
 
 .password-theme-heading {
-  margin-top: 70px;
+  margin-top: 60px;
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
+.password-theme-heading .mypage-user-badge {
+  width: 22px;
+  height: 22px;
+  border: 4px solid #E7316E;
+}
+
 .password-theme-heading h1 {
   margin: 0;
-  font-size: 42px;
-  font-weight: 800;
-  letter-spacing: 0.02em;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
 }
 
 .password-theme-subtitle {
-  margin: 18px 0 36px;
-  color: #111;
-  font-size: 1.95rem;
-  line-height: 1.7;
+  margin: 8px 0 26px;
+  color: #000;
+  font-size: 14px;
+  line-height: 2.3;
+  letter-spacing: 0.05em;
 }
 
 .password-theme-panel {
-  background: #f8f0f4;
-  border-radius: 28px;
-  padding: 64px 64px 54px;
+  background: #FFF6F9;
+  border-radius: 20px;
+  padding: 65px 64px 54px;
 }
 
 .password-theme-form {
@@ -356,45 +363,101 @@ a:hover {
 }
 
 .password-theme-form .input-group label {
-  color: #f4287e;
-  font-size: 2rem;
+  color: #E7316E;
+  font-size: 16px;
   font-weight: 700;
 }
 
 .password-theme-form .input-group input {
-  height: 72px;
-  border-radius: 9px;
-  border: 1px solid #c8ced6;
-  background: #f2f2f2;
-  font-size: 1.9rem;
-  padding: 0 20px;
+  height: 50px;
+  border-radius: 6px;
+  border: 1px solid #D9D9D9;
+  background: #FFFFFF;
+  font-size: 14px;
+  padding: 0 16px;
 }
 
 .password-theme-form .input-group input::placeholder {
-  color: #a5a5a5;
+  color: #AFAFAF;
 }
 
 .password-theme-form .primary-button {
   grid-column: 1 / -1;
   margin-top: 20px;
   justify-self: center;
-  width: min(390px, 100%);
-  padding: 16px 24px;
-  font-size: 2rem;
+  width: 260px;
+  height: 62px;
+  padding: 0;
+  font-size: 16px;
 }
 
 .password-theme-note {
   margin-top: 24px;
   text-align: center;
-  color: #111;
-  font-size: 1.65rem;
+  color: #1E1E1E;
+  font-size: 13px;
+  line-height: 1.54;
 }
 
 .password-theme-note a {
-  color: #f4287e;
+  color: #E7316E;
   text-decoration: underline;
   text-underline-offset: 4px;
   font-weight: 700;
+}
+
+/* ===== 共通ヘッダー（result.html と同型） ===== */
+.result-header {
+  height: 104px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  background: #fff;
+}
+
+.result-header .brand {
+  display: inline-flex;
+  align-items: center;
+}
+
+.result-header .brand img,
+.result-header .brand-logo {
+  height: 56px;
+  width: auto;
+}
+
+.account-button {
+  display: block;
+  width: 60px;
+  height: 60px;
+  background: #E7316E;
+  border-radius: 50%;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.account-button::before,
+.account-button::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+}
+
+.account-button::before {
+  top: 15px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+}
+
+.account-button::after {
+  bottom: 12px;
+  width: 28px;
+  height: 14px;
+  border-radius: 14px 14px 8px 8px;
 }
 
 .password-reset-page .app-header,
@@ -487,65 +550,96 @@ a:hover {
 }
 
 @media (max-width: 960px) {
-  .password-theme-main {
-    width: calc(100% - 40px);
-    padding: 44px 0 36px;
+  .result-header {
+    height: 80px;
+    padding: 0 20px;
   }
 
-  .password-theme-logo {
-    justify-content: flex-start;
+  .result-header .brand img,
+  .result-header .brand-logo {
+    height: 36px;
+  }
+
+  .account-button {
+    width: 42px;
+    height: 42px;
+    border-radius: 40px;
+  }
+
+  .account-button::before {
+    top: 9px;
+    width: 12px;
+    height: 12px;
+  }
+
+  .account-button::after {
+    bottom: 8px;
+    width: 20px;
+    height: 11px;
+    border-radius: 10px 10px 6px 6px;
+  }
+
+  .password-theme-main {
+    width: calc(100% - 40px);
+    padding: 0 0 36px;
   }
 
   .password-theme-heading {
-    margin-top: 34px;
+    margin-top: 30px;
+  }
+
+  .password-theme-heading .mypage-user-badge {
+    width: 20px;
+    height: 20px;
   }
 
   .password-theme-heading h1 {
-    font-size: 2.2rem;
+    font-size: 20px;
   }
 
   .password-theme-subtitle {
-    font-size: 1.05rem;
-    margin-bottom: 22px;
+    font-size: 13px;
+    line-height: 23px;
+    margin: 8px 0 0;
   }
 
   .password-theme-panel {
     border-radius: 0;
     margin: 0 -20px;
-    padding: 30px 20px 34px;
+    padding: 30px 25px 40px;
   }
 
   .password-theme-form {
     grid-template-columns: 1fr;
-    gap: 16px;
+    gap: 24px;
   }
 
   .password-theme-form .input-group {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 10px;
   }
 
   .password-theme-form .input-group label {
-    font-size: 1.02rem;
+    font-size: 14px;
   }
 
   .password-theme-form .input-group input {
-    height: 52px;
-    font-size: 1rem;
-    padding: 0 14px;
+    height: 46px;
+    font-size: 13px;
+    padding: 0 15px;
   }
 
   .password-theme-form .primary-button {
-    margin-top: 18px;
-    font-size: 1.25rem;
-    width: 100%;
+    margin-top: 40px;
+    font-size: 16px;
+    width: 260px;
   }
 
   .password-theme-note {
-    margin-top: 16px;
-    text-align: left;
-    font-size: 0.95rem;
+    margin-top: 24px;
+    text-align: center;
+    font-size: 12px;
   }
 
   .password-reset-page .header-inner,
