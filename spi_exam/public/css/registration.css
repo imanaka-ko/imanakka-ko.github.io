@@ -268,8 +268,8 @@ a {
 
 .primary-outline-button {
   border: 2px solid var(--accent-orange);
-  color: var(--accent-orange);
-  background: #fff;
+  color: #fff;
+  background: var(--accent-orange);
   border-radius: 999px;
   padding: 14px 60px;
   font-size: 1rem;
@@ -289,14 +289,25 @@ a {
 
 .action-row {
   display: flex;
-  justify-content: center;
   gap: 16px;
   margin-top: 36px;
-  flex-wrap: wrap;
+  margin-bottom: 36px;
+}
+
+.action-row .secondary-outline-button {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .register-form {
   margin: 0;
+  flex: 4;
+}
+
+.action-row .primary-outline-button {
+  width: 100%;
 }
 
 .login-link {
