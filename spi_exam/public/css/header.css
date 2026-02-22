@@ -36,9 +36,9 @@
 .btn {
   border: none;
   border-radius: 999px;
-  padding: 10px 24px;
+  padding: 12px 28px;
   font-weight: 700;
-  font-size: 0.9rem;
+  font-size: 1rem;
   cursor: pointer;
   text-decoration: none;
   display: inline-flex;
@@ -79,9 +79,8 @@ body {
   }
 
   .btn {
-    font-size: 12px;
-    padding: 6px 14px;
-    height: 42px;
+    font-size: 0.85rem;
+    padding: 8px 16px;
   }
 
   body {
