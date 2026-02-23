@@ -18,7 +18,7 @@ const CONFIG = {
   CLEAR_AFTER_SEND: true,         // 送信後に2行目以降を消すなら true
 
   // ★固定宛先（常に BCC に入れます）
-  FIXED_RECIPIENT: 'macy.yamakawayuzu@gmail.com'
+  FIXED_RECIPIENT: 'asobibase.imanaka.ko@gmail.com'
 };
 
 /** 既存トリガー互換（時間主導などから呼ばれる想定） */
