@@ -12,13 +12,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" href="../favicon.ico" type="image/x-icon">
-  <title>メールアドレス変更 | さっくとSPI</title>
+  <title>メール認証 | さくっとSPI</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../css/auth.css" />
 </head>
-<body class="password-theme-page password-change-page">
+<body class="password-theme-page">
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NFD53MZ9"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -28,40 +28,22 @@
     <a href="../index.html" class="brand" aria-label="トップページへ">
       <img class="brand-logo" src="../images/header_logo.png" alt="さくっとSPI">
     </a>
-    <div class="header-actions">
-      <a class="account-button" href="my_page.html" aria-label="マイページ"></a>
-    </div>
   </header>
 
-  <main class="password-theme-main" aria-label="メールアドレス変更ページ">
+  <main class="password-theme-main" aria-label="メール認証ページ" aria-live="polite">
     <section class="password-theme-heading" aria-label="ページタイトル">
       <span class="mypage-user-badge" aria-hidden="true"></span>
-      <h1>メールアドレス変更</h1>
+      <h1 id="action-title">メールアドレスを確認中...</h1>
     </section>
 
-    <p class="password-theme-subtitle">
-      ログインに使うメールアドレスを新しいものへ更新します。<br />
-      本人確認のため、現在のパスワードを入力してください。
-    </p>
-
-    <section class="password-theme-panel">
-      <form class="auth-form password-theme-form" action="#" method="post">
-        <div class="input-group">
-          <label for="change-email-password">現在のパスワード</label>
-          <input id="change-email-password" type="password" name="current-password" placeholder="現在のパスワード" required />
-        </div>
-        <div class="input-group">
-          <label for="change-email-new">新しいメールアドレス</label>
-          <input id="change-email-new" type="email" name="new-email" placeholder="new.example@example.com" required />
-        </div>
-        <button class="primary-button" type="submit">メールアドレスを更新する</button>
-      </form>
-      <div class="form-note password-theme-note">
-        <p>更新すると新しいメールアドレスに確認リンクが届きます。完了後に再びログインしてください。</p>
-      </div>
+    <section class="password-theme-panel" id="action-panel">
+      <p id="action-message" class="password-theme-subtitle" style="margin: 0 0 24px;"></p>
+      <a id="action-link" class="primary-button" href="signin.html" style="display:none; text-decoration:none; text-align:center; line-height:62px;">
+        ログインページへ
+      </a>
     </section>
   </main>
 
-  <script type="module" src="./js/pages/change_email.js"></script>
+  <script type="module" src="./js/pages/action.js"></script>
 </body>
 </html>

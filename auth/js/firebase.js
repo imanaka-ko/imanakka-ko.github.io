@@ -3,13 +3,15 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/fireba
 import {
   getAuth, onAuthStateChanged, signInWithEmailAndPassword, createUserWithEmailAndPassword,
   sendEmailVerification, sendPasswordResetEmail, signOut, reload,
-  updateEmail, updatePassword, EmailAuthProvider, reauthenticateWithCredential
+  verifyBeforeUpdateEmail, updatePassword, EmailAuthProvider, reauthenticateWithCredential,
+  applyActionCode
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
 import { firebaseConfig } from "./firebase-config.js";
 
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
+export { applyActionCode };
 
 // small helpers
 export const helpers = {
@@ -64,9 +66,8 @@ export const api = {
     await sendEmailVerification(auth.currentUser);
   },
   updateEmailWithReauth: async (currentPassword, newEmail) => {
-    await helpers.reauthWithPassword(currentPassword);
-    await updateEmail(auth.currentUser, newEmail);
-    await sendEmailVerification(auth.currentUser);
+    const user = await helpers.reauthWithPassword(currentPassword);
+    await verifyBeforeUpdateEmail(user, newEmail);
   },
   updatePasswordWithReauth: async (currentPassword, newPassword) => {
     await helpers.reauthWithPassword(currentPassword);

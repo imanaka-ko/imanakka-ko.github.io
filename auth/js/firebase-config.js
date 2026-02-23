@@ -1,11 +1,11 @@
 // Rename this file to firebase-config.js and fill with your project's values.
 // You can find these in Firebase console → Project settings → General → Your apps (Web).
 export const firebaseConfig = {
-  apiKey: "AIzaSyA9o-NOGNp6QgaAKkGdmWbsWiq_4Tds5A4",
-  authDomain: "shukatsu-spi.firebaseapp.com",
-  projectId: "shukatsu-spi",
-  storageBucket: "shukatsu-spi.firebasestorage.app",
-  messagingSenderId: "148839722141",
-  appId: "1:148839722141:web:bf2753980bb277d875b874",
-  measurementId: "G-5MWYQ328DM"
+  apiKey: "AIzaSyB7rZUtaqYud-qOvkDH36f1qG099wTQadQ",
+  authDomain: "sakkuto-spi.firebaseapp.com",
+  projectId: "sakkuto-spi",
+  storageBucket: "sakkuto-spi.firebasestorage.app",
+  messagingSenderId: "282508730040",
+  appId: "1:282508730040:web:2d78fef55ec776bec79e4d"
+  // measurementId: "G-5MWYQ328DM"
 };

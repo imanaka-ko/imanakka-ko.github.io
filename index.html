@@ -18,8 +18,9 @@
 
     <meta name="csrf-token" content="MSJgq0sV0vpxvjW147k43tyVSOduzwYQzuV3Cm0t">
     <!-- フォント -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=Jost:wght@700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="css/fix.css" media="all">
+    <link rel="stylesheet" href="css/header.css">
     <title>就活ＳＰＩ - SPI対策と練習問題</title>
     <meta name="description" content="就活ＳＰＩ - SPI対策と練習問題 | 多くの企業がSPI試験を導入しているから | 対策すれば確実に伸びる試験だから | 他就活生と差をつけることができるから">
 
@@ -33,11 +34,11 @@
     <meta name="twitter:card" content="summary_large_image" />
     <style>
       :root {
-        --pink: #e83e8c;
-        --blue: #009fe3;
+        --pink: #E7316E;
+        --blue: #00A2DE;
         --deep-blue: #0f7dbf;
-        --orange: #ff8a2a;
-        --text: #222;
+        --orange: #FF8E3F;
+        --text: #1E1E1E;
         --muted: #6d6d6d;
         --bg: #f6f7fb;
         --card: #ffffff;
@@ -53,10 +54,11 @@
       }
 
       body {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Kaku Gothic ProN', '游ゴシック Medium', Meiryo, sans-serif;
+        font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Kaku Gothic ProN', '游ゴシック Medium', Meiryo, sans-serif;
         color: var(--text);
-        background: var(--bg);
+        background: #fff;
         line-height: 1.6;
+        padding-top: 96px;
       }
 
       img {
@@ -68,60 +70,6 @@
         max-width: 1200px;
         margin: 0 auto;
         background: #fff;
-        box-shadow: var(--shadow);
-      }
-
-      .header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 24px 40px;
-        background: #fff;
-      }
-
-      .brand {
-        display: flex;
-        align-items: center;
-      }
-
-      .brand img {
-        height: 48px;
-        width: auto;
-      }
-
-      .header-actions {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-      }
-
-      .btn {
-        border: none;
-        border-radius: 999px;
-        padding: 10px 24px;
-        font-weight: 700;
-        font-size: 0.9rem;
-        cursor: pointer;
-        text-decoration: none;
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-      }
-
-      .btn-pink {
-        background: var(--pink);
-        color: #fff;
-      }
-
-      .btn-blue {
-        background: var(--blue);
-        color: #fff;
-      }
-
-      .btn-outline {
-        border: 1px solid var(--muted);
-        color: var(--muted);
-        background: transparent;
       }
 
       .btn-image {
@@ -134,11 +82,19 @@
       }
 
       .hero {
-        padding: 40px;
+        position: relative;
+        padding: 60px 0 60px 80px;
         display: grid;
-        grid-template-columns: 1.1fr 1fr;
-        gap: 40px;
+        grid-template-columns: 1fr 1.1fr;
+        gap: 32px;
         align-items: center;
+        background: #fff;
+      }
+
+      .hero-text {
+        position: relative;
+        z-index: 3;
+        padding-right: 20px;
       }
 
       .hero .tag {
@@ -146,19 +102,29 @@
         color: var(--pink);
         font-weight: 700;
         margin-bottom: 16px;
+        font-size: 22px;
+        letter-spacing: 0.1em;
+        border-bottom: 2px solid var(--pink);
+        padding-bottom: 3px;
       }
 
       .hero-title {
-        font-size: 2.5rem;
-        line-height: 1.4;
-        margin-bottom: 20px;
+        font-size: 3.875rem;
+        line-height: 1.3;
+        margin-bottom: 32px;
+        font-weight: 900;
+        letter-spacing: 0.05em;
+      }
+
+      .hero-title-line1 {
+        white-space: nowrap;
       }
 
       .hero-title .highlight {
         background: var(--orange);
         color: #fff;
-        padding: 4px 10px;
-        border-radius: 6px;
+        padding: 4px 12px;
+        border-radius: 10px;
         margin: 0 4px;
         display: inline-block;
       }
@@ -169,55 +135,74 @@
         gap: 16px;
       }
 
+      .hero-actions-sp {
+        display: none;
+      }
+
       .hero-image {
         position: relative;
-        border-radius: 24px;
+        border-radius: 20px;
         overflow: hidden;
-        background: #f2f4f8;
-        min-height: 320px;
-        padding: 18px;
+        height: 460px;
+        z-index: 1;
       }
 
       .hero-image .hero-main {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        border-radius: 20px;
+        display: block;
       }
 
       .hero-deco {
         position: absolute;
         z-index: 2;
+        pointer-events: none;
       }
 
-      .hero-deco-1 {
-        width: 90px;
-        top: -10px;
-        left: -10px;
+      /* オレンジ輪郭＋ピンク円：テキスト上部左 */
+      .hero-deco-circles-1 {
+        width: 105px;
+        top: 10px;
+        left: 5px;
       }
 
-      .hero-deco-2 {
+      /* ピンクの葉：写真上部左寄り */
+      .hero-deco-leaf-1 {
+        width: 52px;
+        top: 15px;
+        left: calc(47% - 10px);
+      }
+
+      /* 青い横線：写真の右端 */
+      .hero-deco-bars {
+        width: 48px;
+        top: 50%;
+        right: 4px;
+        transform: translateY(-50%);
+      }
+
+      /* ティール＋ピンクの葉：写真右下 */
+      .hero-deco-leaf-2 {
+        width: 88px;
+        bottom: 10px;
+        right: 6px;
+      }
+
+      /* 立っている女性：写真下部、テキスト列寄り */
+      .hero-deco-char-woman {
         width: 80px;
-        bottom: -12px;
-        left: 8%;
+        bottom: 0;
+        left: calc(47% + 40px);
+        z-index: 3;
       }
 
-      .hero-deco-3 {
-        width: 70px;
-        top: 14%;
-        right: -10px;
-      }
-
-      .hero-deco-4 {
-        width: 110px;
-        bottom: -20px;
-        right: 18%;
-      }
-
-      .hero-deco-5 {
-        width: 140px;
-        top: -20px;
-        right: 10%;
+      /* オレンジ＋グレー円：テキストと写真の境界 */
+      .hero-deco-circles-2 {
+        width: 72px;
+        bottom: 18%;
+        left: calc(47% - 30px);
+        z-index: 3;
       }
 
       .section {
@@ -236,8 +221,21 @@
         align-items: center;
       }
 
+      .recommend small {
+        display: block;
+        font-family: 'Jost', sans-serif;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        color: #fff;
+        text-align: center;
+        margin-bottom: 4px;
+      }
+
       .recommend h2 {
-        font-size: 1.8rem;
+        font-size: 2rem;
+        letter-spacing: 0.1em;
+        text-align: center;
       }
 
       .recommend-grid {
@@ -270,10 +268,22 @@
         margin: 0 40px 40px;
       }
 
+      .merit small {
+        display: block;
+        font-family: 'Jost', sans-serif;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        color: #fff;
+        text-align: center;
+        margin-bottom: 4px;
+      }
+
       .merit h2 {
         text-align: center;
         margin-bottom: 24px;
-        font-size: 1.8rem;
+        font-size: 2rem;
+        letter-spacing: 0.1em;
       }
 
       .merit-grid {
@@ -321,9 +331,20 @@
         padding: 0 40px 40px;
       }
 
+      .voice small {
+        display: block;
+        font-family: 'Jost', sans-serif;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        color: var(--text);
+        margin-bottom: 4px;
+      }
+
       .voice h2 {
         margin-bottom: 24px;
-        font-size: 1.5rem;
+        font-size: 2rem;
+        letter-spacing: 0.1em;
       }
 
       .voice-grid {
@@ -348,8 +369,8 @@
       }
 
       .voice-card .profile .avatar-frame {
-        width: 48px;
-        height: 48px;
+        width: 110px;
+        height: 110px;
         border-radius: 50%;
         background: #fff;
         display: flex;
@@ -364,40 +385,38 @@
         object-fit: contain;
       }
 
+      .voice-card .profile > div {
+        font-size: 22px;
+        line-height: 32px;
+        letter-spacing: 0.1em;
+        font-weight: 700;
+      }
+
       .cta {
         background: var(--orange);
         color: #fff;
         display: grid;
-        grid-template-columns: 1.1fr 1fr;
+        grid-template-columns: 1.4fr 1fr;
         gap: 24px;
         align-items: center;
-        padding: 40px;
+        padding: 40px 40px 40px 0;
       }
 
       .cta h2 {
-        font-size: 1.8rem;
+        font-size: 3rem;
         margin-bottom: 12px;
+        letter-spacing: 0.1em;
       }
 
       .cta-image {
         display: flex;
-        gap: 16px;
-        align-items: flex-end;
+        align-items: center;
         justify-content: center;
       }
 
-      .device {
-        width: 220px;
-        height: 160px;
-        border-radius: 16px;
-        object-fit: contain;
-        background: rgba(255, 255, 255, 0.4);
-        padding: 12px;
-      }
-
-      .device.tall {
-        width: 110px;
-        height: 200px;
+      .cta-image img {
+        width: 100%;
+        height: auto;
       }
 
       .footer {
@@ -424,6 +443,7 @@
         .hero,
         .cta {
           grid-template-columns: 1fr;
+          padding: 40px;
         }
 
         .recommend {
@@ -441,36 +461,208 @@
         .voice-grid {
           grid-template-columns: 1fr;
         }
-
-        .header {
-          flex-direction: column;
-          gap: 16px;
-        }
       }
 
       @media (max-width: 600px) {
-        .container {
-          box-shadow: none;
+        /* ヒーロー */
+        .hero {
+          display: block;
+          padding: 80px 20px 60px;
         }
 
-        .header,
-        .hero,
-        .section,
-        .recommend,
-        .merit,
-        .voice,
-        .cta {
-          padding: 24px;
-          margin: 0;
-          border-radius: 0;
+        .hero .tag {
+          display: block;
+          text-align: center;
+          font-size: 20px;
+        }
+
+        .hero-text {
+          padding-right: 0;
         }
 
         .hero-title {
-          font-size: 2rem;
+          font-size: 2.5rem;
+          margin-top: 16px;
+          margin-bottom: 20px;
+        }
+
+        .hero-image {
+          height: 300px;
+          margin-top: 20px;
+        }
+
+        .hero-deco {
+          display: block;
+        }
+
+        .hero-deco-leaf-1,
+        .hero-deco-leaf-2 {
+          display: none;
+        }
+
+        .hero-deco-circles-1 {
+          width: 60px;
+          top: 8px;
+          left: 5px;
+          right: auto;
+          bottom: auto;
+          transform: none;
+        }
+
+        .hero-deco-bars {
+          width: 38px;
+          top: 360px;
+          right: 0;
+          left: auto;
+          bottom: auto;
+          transform: rotate(90deg);
+          transform-origin: right top;
+        }
+
+        .hero-deco-char-woman {
+          width: 32px;
+          top: 460px;
+          left: 78px;
+          right: auto;
+          bottom: auto;
+          transform: none;
+          z-index: 3;
+        }
+
+        .hero-deco-circles-2 {
+          width: 50px;
+          top: 480px;
+          left: 9px;
+          right: auto;
+          bottom: auto;
+          transform: none;
+          z-index: 3;
+        }
+
+        .hero-actions-pc {
+          display: none;
+        }
+
+        .hero-actions-sp {
+          display: flex;
+          justify-content: center;
+          margin-top: 20px;
+        }
+
+        /* こんな人におすすめ */
+        .recommend {
+          display: block;
+          margin: 0 20px 20px;
+          padding: 28px 20px;
+          border-radius: 20px;
+        }
+
+        .recommend > div:first-child {
+          text-align: center;
+          margin-bottom: 20px;
+        }
+
+        .recommend h2 {
+          font-size: 1.75rem;
         }
 
         .recommend-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 12px;
+        }
+
+        .recommend-card {
+          min-height: 190px;
+          padding: 14px 10px;
+        }
+
+        .recommend-card img {
+          width: 90px;
+          height: 90px;
+        }
+
+        .recommend-card p {
+          font-size: 15px;
+          letter-spacing: 0.05em;
+        }
+
+        /* メリット */
+        .section.merit {
+          margin: 0 20px 20px;
+          padding: 28px 20px;
+          border-radius: 20px;
+        }
+
+        .merit h2 {
+          font-size: 1.75rem;
+        }
+
+        .merit-grid {
           grid-template-columns: 1fr;
+          gap: 16px;
+        }
+
+        .merit-card {
+          height: 200px;
+        }
+
+        .merit-card img {
+          height: 200px;
+        }
+
+        /* 合格者の声 */
+        .voice {
+          padding: 0 20px 28px;
+        }
+
+        .voice h2 {
+          font-size: 1.75rem;
+        }
+
+        .voice-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .voice-card .profile .avatar-frame {
+          width: 90px;
+          height: 90px;
+        }
+
+        .voice-card .profile > div {
+          font-size: 20px;
+          line-height: 28px;
+        }
+
+        .voice-card p {
+          font-size: 14px;
+          line-height: 24px;
+          letter-spacing: 0.1em;
+        }
+
+        /* CTA */
+        .cta {
+          display: block;
+          padding: 28px 20px;
+        }
+
+        .cta h2 {
+          font-size: 2.125rem;
+          text-align: center;
+        }
+
+        .cta p {
+          font-size: 18px;
+          line-height: 1.55;
+          letter-spacing: 0.1em;
+        }
+
+        .cta-image {
+          margin-bottom: 24px;
+        }
+
+        /* フッター */
+        .footer {
+          padding: 20px;
         }
       }
     </style>
@@ -482,23 +674,41 @@
     <!-- End Google Tag Manager (noscript) -->
 
     <div class="container">
-        <header class="header">
-            <div class="brand">
+        <header class="site-header">
+            <a class="brand" href="index.html" aria-label="トップページへ">
                 <img src="images/header_logo.png" alt="さくっとSPI">
-            </div>
+            </a>
             <div class="header-actions">
                 <a class="btn btn-pink" href="auth/signin.html">ログイン</a>
-                <a class="btn btn-blue" href="register_1.html">受験する</a>
+                <a class="btn btn-blue" href="exam/select-mode.html">受験する</a>
             </div>
         </header>
 
         <section class="hero">
-            <div class="hero-image">
-                <img class="hero-main" src="images/top_img_1.png" alt="SPI対策の学習イメージ">
-                <div class="hero-actions">
-                    <a class="btn btn-blue" href="exam/select-mode.html">いますぐ受験する</a>
+            <div class="hero-text">
+                <span class="tag">効率重視のSPI対策ツール</span>
+                <h1 class="hero-title"><span class="hero-title-line1">就活成功の<span class="highlight">カギ</span>は</span><br>SPI対策から</h1>
+                <div class="hero-actions hero-actions-pc">
+                    <a class="btn-image" href="exam/select-mode.html">
+                        <img src="images/imasugu.png" alt="いますぐ受験する" style="width: 300px; max-width: 100%;">
+                    </a>
                 </div>
             </div>
+            <div class="hero-image">
+                <img class="hero-main" src="images/hero_photo.png" alt="SPI対策の学習イメージ">
+            </div>
+            <div class="hero-actions hero-actions-sp">
+                <a class="btn-image" href="exam/select-mode.html">
+                    <img src="images/imasugu.png" alt="いますぐ受験する" style="width: 300px; max-width: 100%;">
+                </a>
+            </div>
+            <!-- 装飾要素 -->
+            <img class="hero-deco hero-deco-circles-1" src="images/deco_circles_1.png" alt="">
+            <img class="hero-deco hero-deco-leaf-1" src="images/deco_leaf_1.png" alt="">
+            <img class="hero-deco hero-deco-bars" src="images/deco_bars.png" alt="">
+            <img class="hero-deco hero-deco-leaf-2" src="images/deco_leaf_2.png" alt="">
+            <img class="hero-deco hero-deco-char-woman" src="images/deco_char_woman.png" alt="">
+            <img class="hero-deco hero-deco-circles-2" src="images/deco_circles_2.png" alt="">
         </section>
 
         <section class="recommend">
@@ -527,6 +737,7 @@
         </section>
 
         <section class="section merit">
+            <small>MERIT</small>
             <h2>メリット</h2>
             <div class="merit-grid">
                 <div class="merit-card">
@@ -545,6 +756,7 @@
         </section>
 
         <section class="voice">
+            <small>VOICE</small>
             <h2>合格者の声</h2>
             <div class="voice-grid">
                 <div class="voice-card">
@@ -576,14 +788,13 @@
 
         <section class="cta">
             <div class="cta-image">
-                <img class="device" src="images/top_img_10.png" alt="学習画面イメージ（PC）">
-                <img class="device tall" src="images/top_img_11.png" alt="学習画面イメージ（スマホ）">
+                <img src="images/spi-image.png" alt="学習画面イメージ">
             </div>
             <div>
                 <h2>就活を優位に</h2>
                 <p>SPI試験は1社につき1回までしか受けることができません。事前に十分な対策をしっかり行い本番に臨みましょう！</p>
                 <div class="hero-actions" style="margin-top: 16px;">
-                    <a class="btn-image" href="exam/select-mode.html"><img src="images/jken-suru-btn-whie.png" alt="いますぐ受験する"></a>
+                    <a class="btn-image" href="exam/select-mode.html"><img src="images/imasugu_under.png" alt="いますぐ受験する"></a>
                 </div>
             </div>
         </section>

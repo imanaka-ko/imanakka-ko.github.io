@@ -276,6 +276,396 @@ a:hover {
   color: var(--muted);
 }
 
+.password-theme-page {
+  background: #fff;
+  color: #111;
+}
+
+.password-theme-page .primary-button {
+  border: 1px solid #E7316E;
+  background: #fff;
+  color: #E7316E;
+  box-shadow: none;
+  font-weight: 700;
+}
+
+.password-theme-page .primary-button:hover,
+.password-theme-page .primary-button:active {
+  background: #E7316E;
+  color: #fff;
+  transform: none;
+  box-shadow: none;
+}
+
+.password-change-page {
+  display: block;
+}
+
+.password-theme-main {
+  width: min(930px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 0 0 60px;
+}
+
+.password-theme-logo {
+  display: flex;
+  justify-content: center;
+}
+
+.password-theme-logo .signin-logo-image {
+  height: 54px;
+}
+
+.password-theme-heading {
+  margin-top: 60px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.password-theme-heading .mypage-user-badge {
+  width: 22px;
+  height: 22px;
+  border: 4px solid #E7316E;
+}
+
+.password-theme-heading h1 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.password-theme-subtitle {
+  margin: 8px 0 26px;
+  color: #000;
+  font-size: 14px;
+  line-height: 2.3;
+  letter-spacing: 0.05em;
+}
+
+.password-theme-panel {
+  background: #FFF6F9;
+  border-radius: 20px;
+  padding: 65px 64px 54px;
+}
+
+.password-theme-form {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  align-items: center;
+  column-gap: 44px;
+  row-gap: 26px;
+}
+
+.password-theme-form .input-group {
+  display: contents;
+}
+
+.password-theme-form .input-group label {
+  color: #E7316E;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.password-theme-form .input-group input {
+  height: 50px;
+  border-radius: 6px;
+  border: 1px solid #D9D9D9;
+  background: #FFFFFF;
+  font-size: 14px;
+  padding: 0 16px;
+}
+
+.password-theme-form .input-group input::placeholder {
+  color: #AFAFAF;
+}
+
+.password-theme-form .primary-button {
+  grid-column: 1 / -1;
+  margin-top: 20px;
+  justify-self: center;
+  width: 260px;
+  height: 62px;
+  padding: 0;
+  font-size: 16px;
+}
+
+.password-theme-note {
+  margin-top: 24px;
+  text-align: center;
+  color: #1E1E1E;
+  font-size: 13px;
+  line-height: 1.54;
+}
+
+.password-theme-note a {
+  color: #E7316E;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  font-weight: 700;
+}
+
+/* ===== 共通ヘッダー（result.html と同型） ===== */
+.result-header {
+  height: 104px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  background: #fff;
+}
+
+.result-header .brand {
+  display: inline-flex;
+  align-items: center;
+}
+
+.result-header .brand img,
+.result-header .brand-logo {
+  height: 56px;
+  width: auto;
+}
+
+.account-button {
+  display: block;
+  width: 60px;
+  height: 60px;
+  background: #E7316E;
+  border-radius: 50%;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.account-button::before,
+.account-button::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+}
+
+.account-button::before {
+  top: 15px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+}
+
+.account-button::after {
+  bottom: 12px;
+  width: 28px;
+  height: 14px;
+  border-radius: 14px 14px 8px 8px;
+}
+
+.password-reset-page .app-header,
+.password-reset-page .app-footer {
+  background: transparent;
+  border: none;
+  backdrop-filter: none;
+}
+
+.password-reset-page .header-inner,
+.password-reset-page .footer-inner {
+  width: min(930px, calc(100% - 48px));
+  justify-content: center;
+}
+
+.password-reset-page .app-main {
+  padding: 26px 24px 72px;
+}
+
+.password-reset-page .auth-panel {
+  width: min(930px, 100%);
+  background: #f8f0f4;
+  border-radius: 28px;
+  box-shadow: none;
+  padding: 56px 64px;
+}
+
+.password-reset-page .auth-panel::before {
+  content: none;
+}
+
+.password-reset-page .auth-title {
+  color: #111;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 2.6rem;
+}
+
+.password-reset-page .auth-title::before {
+  content: "";
+  width: 18px;
+  height: 18px;
+  border: 5px solid #f4287e;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.password-reset-page .auth-subtitle {
+  margin: 16px 0 32px;
+  color: #111;
+  font-size: 1.3rem;
+}
+
+.password-reset-page .input-group {
+  gap: 12px;
+}
+
+.password-reset-page .input-group label {
+  color: #f4287e;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.password-reset-page .input-group input {
+  height: 62px;
+  border-radius: 9px;
+  border: 1px solid #c8ced6;
+  background: #f2f2f2;
+  font-size: 1.1rem;
+}
+
+.password-reset-page .input-group input:focus {
+  border-color: #f4287e;
+  box-shadow: 0 0 0 3px rgba(244, 40, 126, 0.15);
+}
+
+.password-reset-page .primary-button {
+  margin-top: 10px;
+}
+
+.password-reset-page .form-note {
+  color: #111;
+  font-size: 0.95rem;
+}
+
+.password-reset-page .form-note a,
+.password-reset-page .footer-links a {
+  color: #f4287e;
+}
+
+@media (max-width: 960px) {
+  .result-header {
+    height: 80px;
+    padding: 0 20px;
+  }
+
+  .result-header .brand img,
+  .result-header .brand-logo {
+    height: 36px;
+  }
+
+  .account-button {
+    width: 42px;
+    height: 42px;
+    border-radius: 40px;
+  }
+
+  .account-button::before {
+    top: 9px;
+    width: 12px;
+    height: 12px;
+  }
+
+  .account-button::after {
+    bottom: 8px;
+    width: 20px;
+    height: 11px;
+    border-radius: 10px 10px 6px 6px;
+  }
+
+  .password-theme-main {
+    width: calc(100% - 40px);
+    padding: 0 0 36px;
+  }
+
+  .password-theme-heading {
+    margin-top: 30px;
+  }
+
+  .password-theme-heading .mypage-user-badge {
+    width: 20px;
+    height: 20px;
+  }
+
+  .password-theme-heading h1 {
+    font-size: 20px;
+  }
+
+  .password-theme-subtitle {
+    font-size: 13px;
+    line-height: 23px;
+    margin: 8px 0 0;
+  }
+
+  .password-theme-panel {
+    border-radius: 0;
+    margin: 0 -20px;
+    padding: 30px 25px 40px;
+  }
+
+  .password-theme-form {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .password-theme-form .input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .password-theme-form .input-group label {
+    font-size: 14px;
+  }
+
+  .password-theme-form .input-group input {
+    height: 46px;
+    font-size: 13px;
+    padding: 0 15px;
+  }
+
+  .password-theme-form .primary-button {
+    margin-top: 40px;
+    font-size: 16px;
+    width: 260px;
+  }
+
+  .password-theme-note {
+    margin-top: 24px;
+    text-align: center;
+    font-size: 12px;
+  }
+
+  .password-reset-page .header-inner,
+  .password-reset-page .footer-inner {
+    width: calc(100% - 40px);
+  }
+
+  .password-reset-page .app-main {
+    padding: 10px 20px 44px;
+  }
+
+  .password-reset-page .auth-panel {
+    border-radius: 0;
+    margin: 0 -20px;
+    padding: 32px 20px;
+  }
+
+  .password-reset-page .auth-title {
+    font-size: 2rem;
+  }
+
+  .password-reset-page .auth-subtitle {
+    font-size: 1rem;
+  }
+}
+
 @media (max-width: 720px) {
   .auth-panel {
     padding: 36px 28px;
@@ -320,66 +710,23 @@ a:hover {
   display: block;
 }
 
-.signin-header {
-  max-width: 1080px;
-  margin: 0 auto;
-  padding: 18px 28px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.signin-logo {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  color: #111;
-  text-decoration: none;
-  font-weight: 800;
-  font-size: 52px;
-  letter-spacing: 0.01em;
-  line-height: 1;
-}
-
-.signin-logo-image {
-  height: 44px;
-  width: auto;
-  display: block;
-}
-
-.signin-logo-mark {
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 35% 35%, #051b30 50%, #0099e7 66%, #ff2b82 88%);
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
-}
-
-.signin-logo-text {
-  font-size: clamp(2rem, 3vw, 3.2rem);
-}
-
-.signin-nav {
-  display: flex;
-  gap: 12px;
-}
 
 .pill-button {
-  min-width: 132px;
-  padding: 10px 24px;
-  border-radius: 999px;
+  min-width: 160px;
+  padding: 16px 24px;
+  border-radius: 40px;
   color: #fff;
-  font-size: 1.4rem;
+  font-size: 14px;
   font-weight: 700;
   text-align: center;
 }
 
 .pill-button--pink {
-  background: #ea2b78;
+  background: #E7316E;
 }
 
 .pill-button--blue {
-  background: #00a2e9;
+  background: #00A2DE;
 }
 
 .signin-main {
@@ -390,19 +737,19 @@ a:hover {
 .signin-hero {
   min-height: 220px;
   padding: 48px 56px 36px;
-  border-bottom: 1px solid #ff2f87;
+  border-bottom: 1px solid #E7316E;
 }
 
 .signin-hero-en {
   margin: 0;
-  font-size: clamp(1.2rem, 1.8vw, 2rem);
-  font-weight: 800;
+  font-size: 20px;
+  font-weight: 700;
 }
 
 .signin-hero-title {
   margin: 4px 0 0;
-  font-size: clamp(2.6rem, 4.2vw, 4.4rem);
-  color: #ff2f87;
+  font-size: 48px;
+  color: #E7316E;
   line-height: 1.2;
 }
 
@@ -412,12 +759,12 @@ a:hover {
   align-items: center;
   gap: 30px;
   padding: 52px 56px 46px;
-  border-bottom: 1px solid #ff8c3b;
+  border-bottom: 1px solid #FF8E3F;
 }
 
 .signin-card {
-  background: #fff9fb;
-  border-radius: 24px;
+  background: #FFF6F9;
+  border-radius: 20px;
   padding: 46px 40px 38px;
   max-width: 520px;
 }
@@ -434,35 +781,35 @@ a:hover {
 .signin-field label {
   display: inline-block;
   margin-bottom: 8px;
-  font-size: 1.6rem;
+  font-size: 16px;
   font-weight: 700;
-  color: #101017;
+  color: #1E1E1E;
 }
 
 .signin-field label span {
-  color: #ff2f87;
+  color: #E7316E;
 }
 
 .signin-field input {
   width: 100%;
-  height: 54px;
-  border: 1px solid #d4dbe4;
-  border-radius: 8px;
+  height: 50px;
+  border: 1px solid #D9D9D9;
+  border-radius: 6px;
   background: #fff;
   padding: 0 16px;
-  font-size: 1.2rem;
+  font-size: 14px;
 }
 
 .signin-login-button {
   margin-top: 10px;
   align-self: center;
-  width: min(300px, 100%);
-  height: 56px;
-  border: 1px solid #ff2f87;
-  border-radius: 999px;
+  width: 260px;
+  height: 62px;
+  border: 1px solid #E7316E;
+  border-radius: 40px;
   background: #fff;
-  color: #ff2f87;
-  font-size: 1.5rem;
+  color: #E7316E;
+  font-size: 16px;
   font-weight: 700;
   cursor: pointer;
 }
@@ -473,8 +820,8 @@ a:hover {
 }
 
 .signin-forgot a {
-  color: #ff2f87;
-  font-size: 1.45rem;
+  color: #E7316E;
+  font-size: 16px;
   font-weight: 700;
   text-decoration: underline;
   text-underline-offset: 5px;
@@ -520,8 +867,9 @@ a:hover {
 
 .signup-guide-head {
   margin: 0;
-  font-size: clamp(1.5rem, 1.8vw, 2rem);
+  font-size: 16px;
   font-weight: 700;
+  color: #1E1E1E;
 }
 
 .signup-guide-button {
@@ -529,20 +877,23 @@ a:hover {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: min(360px, 100%);
-  height: 64px;
-  border-radius: 999px;
-  background: #ff943f;
+  width: 260px;
+  height: 62px;
+  border: none;
+  border-radius: 40px;
+  background: #FF8E3F;
   color: #fff;
-  font-size: 1.65rem;
+  font-size: 16px;
   font-weight: 700;
   text-decoration: none;
 }
 
 .signup-guide-note {
   margin: 34px 0 0;
-  font-size: clamp(1.1rem, 1.25vw, 1.35rem);
-  line-height: 1.5;
+  font-size: 13px;
+  line-height: 1.54;
+  text-align: center;
+  color: #000;
 }
 
 .signin-footer {
@@ -574,89 +925,58 @@ a:hover {
 }
 
 @media (max-width: 960px) {
-  .signin-header {
-    padding: 20px 20px;
-    flex-direction: column;
-    gap: 14px;
-    align-items: flex-start;
-  }
-
-  .signin-logo {
-    font-size: 36px;
-  }
-
-  .signin-logo-mark {
-    width: 46px;
-    height: 46px;
-  }
-
-  .signin-nav {
-    width: 100%;
-    justify-content: flex-end;
-  }
-
   .pill-button {
-    font-size: 1.2rem;
-    min-width: 140px;
-    padding: 12px 22px;
+    font-size: 12px;
+    min-width: 92px;
+    padding: 12px 16px;
   }
 
   .signin-hero {
-    min-height: 180px;
-    padding: 36px 20px 26px;
+    min-height: 0;
+    padding: 24px 20px 20px;
+  }
+
+  .signin-hero-title {
+    font-size: 36px;
   }
 
   .signin-content {
     grid-template-columns: 1fr;
-    padding: 48px 20px 56px;
-    gap: 44px;
+    padding: 24px 20px 40px;
+    gap: 32px;
   }
 
   .signin-card {
     max-width: 100%;
-    padding: 40px 24px;
+    padding: 28px 20px;
   }
 
   .signin-field label {
-    font-size: 1.95rem;
+    font-size: 14px;
   }
 
   .signin-field input {
-    height: 56px;
-    font-size: 1.2rem;
-  }
-
-  .signin-login-button {
-    height: 62px;
-    font-size: 1.5rem;
+    height: 46px;
+    font-size: 14px;
   }
 
   .signin-forgot a {
-    font-size: 1.5rem;
-  }
-
-  .signup-guide-button {
-    height: 74px;
-    font-size: 2rem;
-  }
-
-  .signup-inline-field label {
-    font-size: 1.25rem;
+    font-size: 14px;
   }
 
   .signup-guide-note {
-    margin-top: 34px;
-    font-size: 1.4rem;
+    font-size: 12px;
   }
 
   .signin-footer {
     flex-direction: column-reverse;
     text-align: center;
-    padding: 28px 20px;
+    padding: 20px;
+    gap: 12px;
   }
 
   .signin-footer-copy {
-    font-size: 1.25rem;
+    font-size: 10px;
   }
 
   .signin-footer-links {
@@ -664,75 +984,15 @@ a:hover {
   }
 
   .signin-footer-links a {
-    font-size: 1.45rem;
+    font-size: 14px;
   }
 }
 
 @media (max-width: 480px) {
-  .signin-header {
-    padding: 16px 14px;
-  }
-
-  .signin-logo {
-    gap: 8px;
-  }
-
-  .signin-logo-mark {
-    width: 34px;
-    height: 34px;
-  }
-
-  .signin-logo-text {
-    font-size: 32px;
-  }
-
-  .signin-nav {
-    gap: 10px;
-  }
-
   .pill-button {
-    min-width: 128px;
-    font-size: 1rem;
-    padding: 10px 18px;
-  }
-
-  .signin-hero-en {
-    font-size: 0.95rem;
-  }
-
-  .signin-hero-title {
-    font-size: 2.95rem;
-  }
-
-  .signin-card {
-    border-radius: 22px;
-    padding: 42px 20px;
-  }
-
-  .signin-field {
-    margin-bottom: 24px;
-  }
-
-  .signin-field label {
-    font-size: 1.95rem;
-  }
-
-  .signin-field input {
-    height: 60px;
-  }
-
-  .signin-forgot a {
-    font-size: 1.95rem;
-  }
-
-  .signup-guide-head {
-    font-size: 2rem;
-  }
-
-  .signup-guide-button {
-    margin-top: 24px;
-    font-size: 2rem;
-    height: 66px;
+    min-width: 92px;
+    font-size: 12px;
+    padding: 10px 14px;
   }
 
   .signup-inline-form {
@@ -747,19 +1007,6 @@ a:hover {
   .signup-inline-field input {
     height: 54px;
     font-size: 1rem;
-  }
-
-  .signup-guide-note {
-    font-size: 1.5rem;
-    line-height: 1.55;
-  }
-
-  .signin-footer-links a {
-    font-size: 1.5rem;
-  }
-
-  .signin-footer-copy {
-    font-size: 1.6rem;
   }
 }
 
@@ -834,8 +1081,8 @@ a:hover {
 
 .mypage-username h1 {
   margin: 0;
-  font-size: 2rem;
-  font-weight: 800;
+  font-size: 32px;
+  font-weight: 700;
   letter-spacing: 0.03em;
 }
 
@@ -843,6 +1090,7 @@ a:hover {
   background: #fff8fb;
   border-radius: 24px;
   padding: 28px;
+  margin-top: 67px;
 }
 
 .mypage-profile-card {
@@ -857,13 +1105,13 @@ a:hover {
 .mypage-label {
   margin: 0 0 8px;
   color: #f4287e;
-  font-size: 1.25rem;
+  font-size: 16px;
   font-weight: 500;
 }
 
 .mypage-value {
   margin: 0;
-  font-size: 1.6rem;
+  font-size: 16px;
   font-weight: 700;
   line-height: 1.4;
 }
@@ -898,8 +1146,8 @@ a:hover {
 }
 
 .mypage-menu-text {
-  font-size: 1.35rem;
-  font-weight: 800;
+  font-size: 24px;
+  font-weight: 700;
   line-height: 1.3;
 }
 
@@ -917,7 +1165,7 @@ a:hover {
 }
 
 .mypage-links a {
-  font-size: 1.2rem;
+  font-size: 14px;
   color: #f4287e;
   text-decoration: underline;
   text-underline-offset: 6px;
@@ -926,13 +1174,14 @@ a:hover {
 .mypage-signout {
   margin: 18px 0 0 auto;
   width: 160px;
+  height: 52px;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 999px;
   background: #fff;
   color: #c8c8c8;
-  font-size: 1.2rem;
+  font-size: 14px;
   font-weight: 700;
   line-height: 1;
   padding: 10px;
@@ -946,8 +1195,7 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 1.1rem;
-  font-weight: 700;
+  font-size: 12px;
   margin-top: auto;
 }
 
@@ -1082,7 +1330,7 @@ a:hover {
   }
 
   .mypage-username h1 {
-    font-size: 2.2rem;
+    font-size: 32px;
   }
 
   .mypage-user-badge {
@@ -1093,7 +1341,7 @@ a:hover {
 
   .mypage-panel {
     border-radius: 0;
-    margin: 0 -20px;
+    margin: 69px -20px 0;
     padding: 26px 20px 32px;
   }
 
@@ -1108,11 +1356,11 @@ a:hover {
   }
 
   .mypage-label {
-    font-size: 1.1rem;
+    font-size: 16px;
   }
 
   .mypage-value {
-    font-size: 2rem;
+    font-size: 16px;
   }
 
   .mypage-menu-card {
@@ -1127,7 +1375,7 @@ a:hover {
   }
 
   .mypage-menu-text {
-    font-size: 2.2rem;
+    font-size: 24px;
   }
 
   .mypage-menu-arrow {
@@ -1141,19 +1389,20 @@ a:hover {
   }
 
   .mypage-links a {
-    font-size: 1.1rem;
+    font-size: 14px;
   }
 
   .mypage-signout {
-    width: 170px;
+    width: 160px;
+    height: 52px;
     margin: 24px auto 0;
-    font-size: 1.7rem;
+    font-size: 14px;
   }
 
   .mypage-footer {
     flex-direction: column-reverse;
     gap: 10px;
-    font-size: 1.2rem;
+    font-size: 12px;
     text-align: center;
     padding: 18px 0 26px;
   }
@@ -1200,4 +1449,139 @@ a:hover {
   .mypage-settings-note {
     font-size: 0.95rem;
   }
+}
+
+.signup-screen {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic', 'Meiryo', sans-serif;
+  background: #fff;
+  color: #111;
+}
+
+.signup-header {
+  padding-top: 72px;
+}
+
+.signup-header-inner,
+.signup-main {
+  width: min(930px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+.signup-header-inner {
+  display: flex;
+  justify-content: center;
+}
+
+.signup-logo {
+  display: inline-flex;
+  align-items: center;
+}
+
+.signup-logo-image {
+  height: 44px;
+  width: auto;
+  display: block;
+}
+
+.signup-intro {
+  margin-top: 78px;
+}
+
+.signup-title {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 20px;
+  line-height: 1.25;
+  font-weight: 700;
+}
+
+.signup-title-bullet {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 4px solid #f69243;
+  flex-shrink: 0;
+}
+
+.signup-subtitle {
+  margin: 16px 0 0 36px;
+  font-size: 14px;
+  line-height: 1.8;
+  color: #171717;
+}
+
+.signup-form-area {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  background: #FFF6EA;
+  border-radius: 20px;
+  padding: 66px 64px 52px;
+}
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.signup-row {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  align-items: center;
+  column-gap: 22px;
+}
+
+.signup-row label {
+  color: #ff8f3f;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.signup-row input {
+  width: 100%;
+  height: 50px;
+  border: 1px solid #D9D9D9;
+  border-radius: 6px;
+  background: #FFFFFF;
+  padding: 0 20px;
+  font-size: 14px;
+  color: #111;
+}
+
+.signup-row input::placeholder {
+  color: #9e9e9e;
+}
+
+.signup-submit {
+  margin: 22px auto 0;
+  width: 260px;
+  height: 62px;
+  border: none;
+  border-radius: 999px;
+  background: #ff903c;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.signup-note {
+  margin-top: 48px;
+  text-align: center;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.signup-note p {
+  margin: 0;
+}
+
+.signup-note a {
+  color: #f08c3e;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }

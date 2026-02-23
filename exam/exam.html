@@ -15,7 +15,7 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    <title>受験中 - 就活SPI</title>
+    <title>受験中 - さっくとSPI</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
@@ -29,16 +29,14 @@
 
     <div class="container">
         <header class="header">
-            <a href="../index.html" class="logo-container" aria-label="就活SPI トップ">
-                <span class="logo" aria-hidden="true"></span>
-                <span class="site-title">就活SPI</span>
+            <a href="select-mode.html" class="logo-container" aria-label="さっくとSPI トップ">
+                <img class="header-logo" src="../images/header_logo.png" alt="さくっとSPI">
             </a>
         </header>
         <main class="main-content">
             <div id="examPage" class="exam-page state-unanswered">
                 <div class="exam-header">
                     <div class="subject" id="examSubject">受験準備中...</div>
-                    <a class="close-btn" href="select-mode.html" aria-label="受験を中断する">&times;</a>
                 </div>
                 <div class="exam-meta">
                     <div class="answer-time">
@@ -47,18 +45,18 @@
                     </div>
                 </div>
                 <div class="instruction" id="examDescription">問題データを読み込んでいます...</div>
-                <div class="question-block">
-                    <p class="question-title" id="questionTitle">問題 --/--</p>
-                    <div class="question-text" id="questionText">読み込み中です。</div>
-                </div>
                 <form id="questionForm" class="question-form" novalidate>
-                    <div class="options-list" id="optionsList"></div>
+                    <div class="question-layout">
+                        <div class="question-block">
+                            <p class="question-title" id="questionTitle">問題 --/--</p>
+                            <div class="question-text" id="questionText">読み込み中です。</div>
+                        </div>
+                        <div class="options-list" id="optionsList"></div>
+                    </div>
                     <div class="exam-actions">
                         <div class="timer-bar" id="timerBar" aria-live="polite">
                             <span class="timer-icon" aria-hidden="true">
-                                <svg viewBox="0 0 24 24" role="img" focusable="false">
-                                    <path d="M9 2h6v2H9V2zm3 5a8 8 0 1 0 0 16 8 8 0 0 0 0-16zm0 2a6 6 0 1 1 0 12 6 6 0 0 1 0-12zm.75 2.5h-1.5v4.25l3.5 2.1.75-1.23-2.75-1.62V11.5z"></path>
-                                </svg>
+                                <img src="../images/clock.png" alt="">
                             </span>
                             <div class="timer-track" role="img" aria-label="残り時間">
                                 <div class="timer-fill" id="timerFill"></div>
@@ -71,14 +69,6 @@
                 <div class="status-message hidden" id="statusMessage" role="alert"></div>
             </div>
         </main>
-        <footer class="footer">
-            <nav class="footer-nav">
-                <a href="https://asobibase.jp" target="_blank" rel="noopener">運営会社</a>
-                <a href="../terms.html">利用規約</a>
-                <a href="../privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a>
-                <a href="../index.html">TOPへ</a>
-            </nav>
-        </footer>
     </div>
     <script src="js/exam-runner.js"></script>
 </body>

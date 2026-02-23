@@ -26,14 +26,6 @@ a {
   text-decoration: none;
 }
 
-.registration-header {
-  max-width: 1366px;
-  margin: 0 auto;
-  padding: 24px 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
 
 .registration-logo {
   display: inline-flex;
@@ -85,7 +77,17 @@ a {
   max-width: 1366px;
   margin: 0 auto;
   padding: 36px 90px 32px;
-  border-bottom: 1px solid var(--accent-orange);
+}
+
+/* 全幅区切り線 */
+.hero-divider {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  border: none;
+  border-top: 1px solid var(--brand-pink);
+  margin: 0;
 }
 
 .registration-hero-en {
@@ -100,6 +102,42 @@ a {
   font-size: clamp(2.2rem, 4vw, 3.4rem);
   color: var(--accent-orange);
   line-height: 1.2;
+}
+
+/* --- お知らせバナー --- */
+.announcement-banner {
+  background: #F8F9F7;
+  border-radius: 16px;
+  padding: 48px 80px;
+  margin-top: 40px;
+  margin-bottom: 48px;
+}
+
+.announcement-title {
+  font-size: clamp(1.3rem, 2.2vw, 2rem);
+  font-weight: 700;
+  color: var(--text-main);
+  margin: 0 0 12px;
+  line-height: 1.625;
+}
+
+.announcement-title .highlight {
+  background: var(--accent-orange);
+  color: #fff;
+  border-radius: 10px;
+  padding: 2px 10px;
+}
+
+.announcement-desc {
+  font-size: 1rem;
+  color: var(--text-main);
+  margin: 0;
+  line-height: 1.75;
+}
+
+.announcement-desc .desc-pink {
+  color: var(--brand-pink);
+  font-weight: 700;
 }
 
 .registration-main {
@@ -230,8 +268,8 @@ a {
 
 .primary-outline-button {
   border: 2px solid var(--accent-orange);
-  color: var(--accent-orange);
-  background: #fff;
+  color: #fff;
+  background: var(--accent-orange);
   border-radius: 999px;
   padding: 14px 60px;
   font-size: 1rem;
@@ -251,14 +289,25 @@ a {
 
 .action-row {
   display: flex;
-  justify-content: center;
   gap: 16px;
   margin-top: 36px;
-  flex-wrap: wrap;
+  margin-bottom: 36px;
+}
+
+.action-row .secondary-outline-button {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .register-form {
   margin: 0;
+  flex: 4;
+}
+
+.action-row .primary-outline-button {
+  width: 100%;
 }
 
 .login-link {
@@ -388,7 +437,7 @@ a {
 }
 
 @media (max-width: 900px) {
-  .registration-header,
+  .site-header,
   .registration-hero,
   .registration-main {
     padding-left: 32px;
@@ -402,10 +451,6 @@ a {
 }
 
 @media (max-width: 640px) {
-  .registration-header {
-    flex-direction: column;
-    gap: 16px;
-  }
 
   .registration-nav {
     width: 100%;
@@ -421,6 +466,11 @@ a {
   .registration-hero,
   .registration-main {
     padding: 24px 20px 56px;
+  }
+
+  .announcement-banner {
+    padding: 28px 24px;
+    margin-bottom: 28px;
   }
 
   .field-row,
@@ -445,5 +495,79 @@ a {
     flex-direction: column;
     align-items: center;
     text-align: center;
+  }
+}
+
+/* ==================================================
+   verify_email ページ固有スタイル
+   ================================================== */
+
+.verify-subtitle {
+  font-size: 1rem;
+  color: var(--text-main);
+  line-height: 1.75;
+  margin-bottom: 24px;
+}
+
+.verify-info-card {
+  background: #f8f9f7;
+  border-radius: 12px;
+  padding: 24px 28px;
+  margin-bottom: 32px;
+}
+
+.verify-info-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin: 0 0 12px;
+}
+
+.verify-info-text {
+  font-size: 0.9375rem;
+  color: var(--text-sub);
+  line-height: 1.8;
+  margin: 0;
+}
+
+.verify-info-text a {
+  color: var(--brand-pink);
+  text-decoration: underline;
+}
+
+.verify-actions {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.verify-actions .secondary-outline-button {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.verify-actions .primary-outline-button {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.verify-note {
+  font-size: 0.875rem;
+  color: var(--text-sub);
+  text-align: center;
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  .verify-actions {
+    flex-direction: column;
+  }
+
+  .verify-info-card {
+    padding: 20px 16px;
   }
 }

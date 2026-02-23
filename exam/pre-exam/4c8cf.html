@@ -19,7 +19,7 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
     
-    <title> - 受験開始 - 就活SPI</title>
+    <title> - 受験開始 - さっくとSPI</title>
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto&amp;display=swap" rel="stylesheet" />
@@ -101,10 +101,7 @@
     .logo {
         width: 35px;
         height: 35px;
-        background-image: url('../../images/v1_5.png');
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
+        object-fit: contain;
         margin-right: 10px;
     }
 
@@ -253,9 +250,11 @@ body.pre-exam-page .header {
 }
 
 body.pre-exam-page .logo {
-  width: 48px;
-  height: 48px;
-  margin-right: 12px;
+  width: min(220px, 55vw);
+  height: auto;
+  max-height: 72px;
+  margin-right: 0;
+  display: block;
 }
 
 body.pre-exam-page .site-title {
@@ -512,9 +511,8 @@ body.pre-exam-page .main-content {
         <!-- ヘッダー -->
         <header class="header">
             <div class="logo-container">
-                <a href="../../index.html" class="logo-link">
-                    <div class="logo"></div>
-                    <span class="site-title">就活ＳＰＩ</span>
+                <a href="../select-mode.html" class="logo-link">
+                    <img class="logo" src="../../images/header_logo.png" alt="さっくとSPI ロゴ">
                 </a>
             </div>
             
@@ -551,23 +549,18 @@ body.pre-exam-page .main-content {
     <div class="notice-section">
         <h3 class="notice-title">受験上の注意</h3>
         <ul class="notice-list">
-                            <li>各問題には制限時間があります。制限時間を過ぎると自動的に次の問題に進みます。</li>
-                <li>一度選択した回答は変更できません。また、前の問題に戻ることもできません。</li>
-                <li>受験中にページを閉じたり更新したりすると、テストが中断されます。</li>
-                        <li>会員登録すると、過去の受験結果や詳細な解説を確認できます。</li>
+          <li>問題ごとに制限時間があります。</li>
+          <li>一度回答した問題は回答を変更することができません。</li>
+          <li>ページを離れるとテストは中断されます。</li>
         </ul>
     </div>
 
     <form id="start-exam-form" action="#" method="post" novalidate>
         <input type="hidden" name="question_set_id" value="full_english_15q">
         <button type="submit" class="start-exam-btn" id="start-exam-btn">
-            この内容で受験スタート！
+            SPI対策を開始する
         </button>
     </form>
-
-    <a href="../select-mode.html" class="back-link">
-        ← 戻る
-    </a>
         </div>
     </div>
 </main>
@@ -577,7 +570,6 @@ body.pre-exam-page .main-content {
                 
         <footer class="footer" style="">
             <nav class="footer-nav">
-                <a href="https://asobibase.jp" target="_blank" rel="noopener">運営会社</a>
                 <a href="../../terms.html">利用規約</a>
                 <a href="../../privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a>
                 <a href="../../index.html">TOPへ</a>

@@ -18,13 +18,14 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
 
-    <title>受験タイプ選択 - 就活SPI</title>
+    <title>受験タイプ選択 - さっくとSPI</title>
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto&amp;display=swap" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/header.css">
 
     <style>
     :root {
@@ -48,6 +49,7 @@
         color: var(--brand-text);
         background: #ffffff;
         line-height: 1.6;
+        padding-top: 104px; /* select-header: logo 56px + padding 24px×2 */
     }
 
     a {
@@ -55,14 +57,6 @@
         color: inherit;
     }
 
-    .select-header {
-        max-width: 1366px;
-        margin: 0 auto;
-        padding: 24px 40px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
 
     .select-logo {
         display: inline-flex;
@@ -228,8 +222,8 @@
     }
 
     .mode-card-icon img {
-        width: 34px;
-        height: 34px;
+        width: 60px;
+        height: 60px;
     }
 
     .mode-card-arrow {
@@ -262,8 +256,8 @@
     }
 
     .summary-icon {
-        width: 42px;
-        height: 42px;
+        width: 70px;
+        height: 70px;
     }
 
     .summary-title {
@@ -315,21 +309,26 @@
     }
 
     @media (max-width: 640px) {
-        .select-header {
-            flex-direction: column;
-            gap: 16px;
-            padding: 20px;
+        body {
+            padding-top: 80px;
+        }
+
+        .site-header {
+            padding: 12px 16px;
+        }
+
+        .select-logo-image {
+            height: 36px;
         }
 
         .select-nav {
-            width: 100%;
-            justify-content: center;
+            gap: 8px;
         }
 
         .pill-button {
-            min-width: 120px;
-            font-size: 1rem;
-            padding: 10px 20px;
+            min-width: 0;
+            font-size: 0.8rem;
+            padding: 8px 14px;
         }
 
         .hero,
@@ -356,13 +355,13 @@
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
-    <header class="select-header">
-        <a href="../index.html" class="select-logo" aria-label="就活SPI トップページへ">
+    <header class="site-header">
+        <a href="../index.html" class="select-logo" aria-label="トップページへ">
             <img class="select-logo-image" src="../images/header_logo.png" alt="さくっとSPI">
         </a>
         <nav class="select-nav" aria-label="グローバルナビゲーション">
             <a class="pill-button pill-button--pink" href="../auth/signin.html">ログイン</a>
-            <a class="pill-button pill-button--blue" href="../auth/signin.html#signup-section">受験する</a>
+            <a class="pill-button pill-button--blue" href="select-mode.html">受験する</a>
         </nav>
     </header>
 

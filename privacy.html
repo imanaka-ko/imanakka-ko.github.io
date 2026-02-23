@@ -19,10 +19,11 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
     
-    <title> - プライバシーポリシー - 就活SPI</title>    
+    <title> - プライバシーポリシー - さくっとＳＰＩ</title>    
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto&amp;display=swap" rel="stylesheet" />
-    
+    <link rel="stylesheet" href="css/header.css">
+
     <!-- 共通CSS（homeページ完全統一版） -->
     <style>
     /* ================================================
@@ -82,60 +83,6 @@
         min-height: auto;
     }
 
-    /* ヘッダー（homeページ完全統一） */
-    .header {
-        height: 65px;
-        background-color: #f8f9fa;
-        display: flex;
-        align-items: center;
-        padding: 0 20px;
-        border-bottom: 1px solid #e0e0e0;
-    }
-
-    .logo-container {
-        display: flex;
-        align-items: center;
-    }
-
-    .logo {
-        width: 35px;
-        height: 35px;
-        background-image: url('images/v1_5.png');
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-        margin-right: 10px;
-    }
-
-    .site-title {
-        color: #0064b4;
-        font-weight: bold;
-        font-size: 1.25rem;
-        text-decoration: none;
-    }
-
-    .logo-link {
-        display: flex;
-        align-items: center;
-        text-decoration: none;
-        color: inherit;
-        transition: opacity 0.2s ease;
-    }
-
-    .logo-link:hover {
-        opacity: 0.8;
-    }
-
-    .logo-link:hover .site-title {
-        color: #0064b4;
-    }
-
-    /* ログアウトボタン */
-    .logout-btn:hover {
-        background-color: #2f98a5 !important;
-        color: #fff !important;
-    }
-
     /* メインコンテンツ */
     .main-content {
         padding: 0 20px 2rem;
@@ -173,10 +120,6 @@
             padding: 0 15px 2rem;
         }
         
-        .header {
-            padding: 0 16px;
-        }
-        
         .footer {
             padding: 1.5rem 15px;
         }
@@ -187,20 +130,6 @@
             font-size: 93.75%;
         }
         
-        .header {
-            height: 60px;
-            padding: 0 15px;
-        }
-        
-        .logo { 
-            width: 30px; 
-            height: 30px; 
-        }
-        
-        .site-title { 
-            font-size: 1.125rem;
-        }
-
         .main-content {
             padding: 0 15px 1.5rem;
         }
@@ -217,11 +146,6 @@
             font-size: 0.75rem;
         }
         
-        /* ヘッダーのレスポンシブ対応 */
-        .logout-btn {
-            font-size: 0.75rem !important;
-            padding: 4px 8px !important;
-        }
     }
     </style>
         
@@ -235,16 +159,15 @@
 
     <div class="container">
         <!-- ヘッダー -->
-        <header class="header">
-            <div class="logo-container">
-                <a href="index.html" class="logo-link">
-                    <div class="logo"></div>
-                    <span class="site-title">就活ＳＰＩ</span>
-                </a>
-            </div>
-            
-            <!-- ログアウトボタン（ログイン中のみ表示） -->
-                    </header>
+        <header class="site-header">
+            <a class="brand" href="index.html" aria-label="トップページへ">
+                <img src="images/header_logo.png" alt="さくっとSPI">
+            </a>
+            <nav class="header-actions" aria-label="グローバルナビゲーション">
+                <a class="btn btn-outline" href="auth/signin.html">ログイン</a>
+                <a class="btn btn-pink" href="exam/select-mode.html">受験する</a>
+            </nav>
+        </header>
         
         <!-- メインコンテンツ -->
         <main class="main-content">
@@ -254,7 +177,7 @@
 
         <div class="prose max-w-none">
             <p class="mb-6">
-                株式会社AsobiBase（以下「当社」といいます）は、各種Webメディアの企画・運営を行うにあたり、個人情報の重要性を認識し、適切に取り扱うことを社会的責務と考えます。当社は、以下の方針に基づき、個人情報の保護に努めます。
+                株式会社Xforce（以下「当社」といいます）は、各種Webメディアの企画・運営を行うにあたり、個人情報の重要性を認識し、適切に取り扱うことを社会的責務と考えます。当社は、以下の方針に基づき、個人情報の保護に努めます。
             </p>
 
             <section class="mb-6">
@@ -283,7 +206,7 @@
                 <p class="mb-4">
                     個人情報の取扱いに関するお問い合わせにつきましては、以下の窓口よりご連絡ください。
                 </p>
-                <p><a href="https://asobibase.jp/#contact" class="text-blue-600 hover:underline">https://asobibase.jp/#contact</a></p>
+                <p>info@xforce.jp</p>
             </section>
 
             <section class="mb-10">
@@ -295,7 +218,7 @@
 
             <section class="mb-6">
                 <h2 class="text-xl font-semibold mb-4">個人情報の取り扱いについて</h2>
-                <p class="mb-4">"株式会社AsobiBase（以下「当社」といいます）は、会員登録および提供サービスに関連する個人情報の適切な管理と利用に努めます。個人情報の管理者は、当社代表取締役 山川 雅史が担当します。"</p>
+                <p class="mb-4">株式会社Xforce（以下「当社」といいます）は、会員登録および提供サービスに関連する個人情報の適切な管理と利用に努めます。個人情報の管理者は、当社代表取締役が担当します。</p>
 
                 <h3 class="text-lg font-semibold mb-2">1. 個人情報の利用目的</h3>
                 <p class="mb-4">当社は、以下の目的で会員の皆さまからご提供いただいた個人情報を利用します。</p>
@@ -338,7 +261,7 @@
 
                 <h3 class="text-lg font-semibold mb-2">4. 個人情報の開示・訂正等</h3>
                 <p class="mb-4">会員の皆さまは、個人情報の利用目的の通知、開示、訂正・追加・削除、利用停止・消去、第三者への提供停止、第三者提供記録の開示（以下「開示等」といいます）を請求できます。開示等の請求は、以下のフォームより受け付けます。</p>
-                <p class="mb-6"><a href="https://asobibase.jp/#contact" class="text-blue-600 hover:underline">https://asobibase.jp/#contact</a></p>
+                <p class="mb-6">info@xforce.jp</p>
 
                 <h3 class="text-lg font-semibold mb-2">5. 個人情報提供の任意性</h3>
                 <p class="mb-6">個人情報の提供は任意ですが、一部の情報が提供されない場合、上記利用目的の業務に支障を生じることがあります。</p>
@@ -360,7 +283,6 @@
                 
         <footer class="footer" style="">
             <nav class="footer-nav">
-                <a href="https://asobibase.jp" target="_blank" rel="noopener">運営会社</a>
                 <a href="terms.html">利用規約</a>
                 <a href="privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a>
                 <a href="index.html">TOPへ</a>

@@ -16,7 +16,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/registration.css">
-  <title>会員登録 | 就活SPI</title>
+  <link rel="stylesheet" href="css/header.css">
+  <title>会員登録 | さっくとSPI</title>
 </head>
 <body class="registration-page">
     <!-- Google Tag Manager (noscript) -->
@@ -24,13 +25,13 @@
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
-  <header class="registration-header">
-    <a class="registration-logo" href="index.html" aria-label="就活SPI トップページへ">
+  <header class="site-header">
+    <a class="registration-logo" href="index.html" aria-label="トップページへ">
       <img class="registration-logo-image" src="images/header_logo.png" alt="さくっとSPI">
     </a>
     <nav class="registration-nav" aria-label="グローバルナビゲーション">
       <a class="pill-button pill-button--pink" href="auth/signin.html">ログイン</a>
-      <a class="pill-button pill-button--blue" href="auth/signin.html#signup-section">受験する</a>
+      <a class="pill-button pill-button--blue" href="exam/select-mode.html">受験する</a>
     </nav>
   </header>
 
@@ -39,6 +40,13 @@
       <p class="registration-hero-en">REGISTRATION</p>
       <h1 class="registration-hero-title">会員登録</h1>
     </section>
+
+    <hr class="hero-divider">
+
+    <div class="announcement-banner">
+      <h2 class="announcement-title">受験お疲れさまでした！今すぐ <span class="highlight">結果を確認</span> しましょう！</h2>
+      <p class="announcement-desc">たったの<span class="desc-pink">1分で登録完了</span>して、解いた問題の結果や解答解説を確認することができます。早いうちに復習してSPI対策に繋げましょう。</p>
+    </div>
 
     <form action="register_1.html" method="get" id="submissionForm" class="registration-form">
       <section class="registration-section">
@@ -120,7 +128,6 @@
                 <div class="radio-group">
                   <label><input type="radio" name="gender" value="男性" checked> 男性</label>
                   <label><input type="radio" name="gender" value="女性"> 女性</label>
-                  <label><input type="radio" name="gender" value="その他"> その他</label>
                 </div>
               </div>
             </div>
@@ -443,9 +450,7 @@ if (submissionForm) {
       saveSubmissionData(payload);
 
       // 正常終了後の遷移
-      const selectedGradYear = gradYearSelect ? gradYearSelect.value : '';
-      const redirectUrl = selectedGradYear === 'other' ? './auth/signin.html' : 'register_1.html';
-      window.location.href = redirectUrl;
+      window.location.href = 'register_1.html';
     } catch (error) {
       console.error(error);
       alert('送信に失敗しました。時間をおいて再度お試しください。');

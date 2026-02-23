@@ -15,8 +15,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
-  <title>会員登録（確認） | 就活SPI</title>
+  <title>会員登録（確認） | さっくとSPI</title>
   <link rel="stylesheet" href="css/registration.css">
+  <link rel="stylesheet" href="css/header.css">
 </head>
 <body class="registration-page">
     <!-- Google Tag Manager (noscript) -->
@@ -24,13 +25,13 @@
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
-  <header class="registration-header">
-    <a class="registration-logo" href="index.html" aria-label="就活SPI トップページへ">
+  <header class="site-header">
+    <a class="registration-logo" href="index.html" aria-label="トップページへ">
       <img class="registration-logo-image" src="images/header_logo.png" alt="さくっとSPI">
     </a>
     <nav class="registration-nav" aria-label="グローバルナビゲーション">
       <a class="pill-button pill-button--pink" href="auth/signin.html">ログイン</a>
-      <a class="pill-button pill-button--blue" href="auth/signin.html#signup-section">受験する</a>
+      <a class="pill-button pill-button--blue" href="exam/select-mode.html">受験する</a>
     </nav>
   </header>
 
@@ -94,6 +95,13 @@
       </div>
     </section>
 
+    <div class="action-row">
+      <a class="secondary-outline-button" href="submission_form.html">戻る</a>
+      <form action="auth/signup.html" method="get" data-recipient="" class="register-form">
+        <button type="submit" class="primary-outline-button register-btn">無料登録する</button>
+      </form>
+    </div>
+
     <section class="registration-section">
       <h2 class="registration-section-title"><span class="section-dot"></span>就活に必要なサービスをまとめて登録しよう！</h2>
       <div class="section-card">
@@ -139,12 +147,6 @@
       </div>
     </section>
 
-    <div class="action-row">
-      <a class="secondary-outline-button" href="submission_form.html">戻る</a>
-      <form action="auth/signin.html" method="get" data-recipient="" class="register-form">
-        <button type="submit" class="primary-outline-button register-btn">無料登録する</button>
-      </form>
-    </div>
   </main>
 
   <footer class="registration-footer">

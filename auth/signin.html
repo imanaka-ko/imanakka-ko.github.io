@@ -12,10 +12,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" href="../favicon.ico" type="image/x-icon">
-  <title>ログイン | 就活SPI</title>
+  <title>ログイン | さっくとSPI</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/header.css" />
   <link rel="stylesheet" href="../css/auth.css" />
 </head>
 <body class="signin-page">
@@ -24,13 +25,13 @@
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
-  <header class="signin-header">
-    <a class="signin-logo" href="../index.html" aria-label="就活SPI トップページへ">
-      <img class="signin-logo-image" src="../images/header_logo.png" alt="さくっとSPI">
+  <header class="site-header">
+    <a class="brand" href="../index.html" aria-label="トップページへ">
+      <img src="../images/header_logo.png" alt="さくっとSPI">
     </a>
-    <nav class="signin-nav" aria-label="グローバルナビゲーション">
+    <nav class="header-actions" aria-label="グローバルナビゲーション">
       <a class="pill-button pill-button--pink" href="signin.html">ログイン</a>
-      <a class="pill-button pill-button--blue" href="#signup-section">受験する</a>
+      <a class="pill-button pill-button--blue" href="../exam/select-mode.html">受験する</a>
     </nav>
   </header>
 
@@ -56,23 +57,9 @@
         </form>
       </section>
 
-      <section id="signup-section" class="signup-guide" aria-label="新規会員登録フォーム">
+      <section id="signup-section" class="signup-guide" aria-label="新規会員登録">
         <p class="signup-guide-head">＼ 1分で簡単登録！ ／</p>
-        <form id="signup-form" class="signup-inline-form" action="#" method="post">
-          <div class="input-group signup-inline-field">
-            <label for="signup-email">メールアドレス <span>※</span></label>
-            <input id="signup-email" type="email" name="signup_email" required />
-          </div>
-          <div class="input-group signup-inline-field">
-            <label for="signup-password">パスワード <span>※</span></label>
-            <input id="signup-password" type="password" name="signup_password" required />
-          </div>
-          <div class="input-group signup-inline-field">
-            <label for="signup-confirm">パスワード（確認） <span>※</span></label>
-            <input id="signup-confirm" type="password" name="signup_confirm" required />
-          </div>
-          <button class="signup-guide-button" type="submit">新規会員登録</button>
-        </form>
+        <button id="signup-guide-button" class="signup-guide-button" type="button">新規会員登録</button>
         <p class="signup-guide-note">登録後に確認メールを送信します。<br>届かない場合は迷惑メールフォルダをご確認ください。</p>
       </section>
     </section>
