@@ -86,6 +86,17 @@ body {
   body {
     padding-top: 66px;
   }
+
+  .registration-nav {
+    gap: 8px;
+  }
+
+  .pill-button {
+    min-width: 0;
+    padding: 8px 14px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+  }
 }
 
 /* ===== 共通フッター ===== */
