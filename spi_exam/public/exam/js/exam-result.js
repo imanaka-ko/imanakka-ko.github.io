@@ -36,6 +36,29 @@
     return `${seconds}秒`;
   }
 
+  function formatMode(mode, title) {
+    const modeLabels = {
+      easy: "かんたん受験",
+      full: "本格受験",
+    };
+    if (typeof mode === "string" && modeLabels[mode]) {
+      return modeLabels[mode];
+    }
+    return title || "かんたん受験";
+  }
+
+  function formatCategory(category) {
+    const categoryLabels = {
+      language: "言語",
+      nonverbal: "非言語",
+      english: "英語",
+    };
+    if (typeof category === "string" && categoryLabels[category]) {
+      return categoryLabels[category];
+    }
+    return "言語";
+  }
+
   function getOptionText(question, index) {
     if (!question || !Array.isArray(question.options)) {
       return "-";
@@ -183,8 +206,8 @@
 
   function render(result) {
     dateEl.textContent = formatExamDate(result.completedAt);
-    modeEl.textContent = result.mode || result.title || "かんたん受験";
-    categoryEl.textContent = result.category || "言語";
+    modeEl.textContent = formatMode(result.mode, result.title);
+    categoryEl.textContent = formatCategory(result.category);
 
     const total = typeof result.total === "number" ? result.total : (Array.isArray(result.questions) ? result.questions.length : 0);
     const correct = typeof result.correct === "number" ? result.correct : 0;
