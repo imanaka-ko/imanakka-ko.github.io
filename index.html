@@ -4,11 +4,11 @@
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 <head>
     <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-NFD53MZ9');</script>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KJ68GVDB');</script>
     <!-- End Google Tag Manager -->
 
     <meta charset="UTF-8">
@@ -194,6 +194,14 @@
         width: 80px;
         bottom: 0;
         left: calc(47% + 40px);
+        z-index: 3;
+      }
+
+      /* 立っている男性：写真右上 */
+      .hero-deco-char-man {
+        width: 80px;
+        top: 60px;
+        right: 10px;
         z-index: 3;
       }
 
@@ -495,9 +503,24 @@
           display: block;
         }
 
-        .hero-deco-leaf-1,
+        .hero-deco-leaf-1 {
+          display: block;
+          width: 40px;
+          top: 250px;
+          left: 15px;
+          right: auto;
+          bottom: auto;
+          transform: none;
+        }
+
         .hero-deco-leaf-2 {
-          display: none;
+          display: block;
+          width: 65px;
+          top: 510px;
+          right: 5px;
+          left: auto;
+          bottom: auto;
+          transform: none;
         }
 
         .hero-deco-circles-1 {
@@ -524,6 +547,16 @@
           top: 460px;
           left: 78px;
           right: auto;
+          bottom: auto;
+          transform: none;
+          z-index: 3;
+        }
+
+        .hero-deco-char-man {
+          width: 32px;
+          top: 265px;
+          right: 15px;
+          left: auto;
           bottom: auto;
           transform: none;
           z-index: 3;
@@ -669,8 +702,8 @@
 </head>
 <body>
     <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NFD53MZ9"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KJ68GVDB"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
     <div class="container">
@@ -708,6 +741,7 @@
             <img class="hero-deco hero-deco-bars" src="images/deco_bars.png" alt="">
             <img class="hero-deco hero-deco-leaf-2" src="images/deco_leaf_2.png" alt="">
             <img class="hero-deco hero-deco-char-woman" src="images/deco_char_woman.png" alt="">
+            <img class="hero-deco hero-deco-char-man" src="images/deco_char_man.png" alt="">
             <img class="hero-deco hero-deco-circles-2" src="images/deco_circles_2.png" alt="">
         </section>
 
