@@ -359,10 +359,13 @@
         <a href="../index.html" class="select-logo" aria-label="トップページへ">
             <img class="select-logo-image" src="../images/header_logo.png" alt="さくっとSPI">
         </a>
-        <nav class="select-nav" aria-label="グローバルナビゲーション">
+        <nav class="select-nav" id="header-guest" aria-label="グローバルナビゲーション">
             <a class="pill-button pill-button--pink" href="../auth/signin.html">ログイン</a>
             <a class="pill-button pill-button--blue" href="select-mode.html">受験する</a>
         </nav>
+        <div class="header-actions" id="header-user" style="display:none;">
+            <a class="account-button" href="../auth/my_page.html" aria-label="マイページ"></a>
+        </div>
     </header>
 
     <main class="select-main">
@@ -481,6 +484,24 @@
             </div>
         </section>
     </main>
+
+    <script type="module">
+      import { auth } from "../auth/js/firebase.js";
+      import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+      const headerGuest = document.getElementById("header-guest");
+      const headerUser = document.getElementById("header-user");
+
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          headerGuest.style.display = "none";
+          headerUser.style.display = "";
+        } else {
+          headerGuest.style.display = "";
+          headerUser.style.display = "none";
+        }
+      });
+    </script>
 
     <footer class="select-footer">
         <span>© Sakutto-SPI. All Rights Reserved</span>

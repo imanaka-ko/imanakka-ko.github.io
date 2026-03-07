@@ -67,6 +67,39 @@ body {
   padding-top: 96px;
 }
 
+/* アカウントボタン（ログイン時ヘッダー） */
+.account-button {
+  width: 48px;
+  height: 48px;
+  background: #E7316E;
+  border-radius: 50%;
+  position: relative;
+  display: inline-block;
+}
+
+.account-button::before,
+.account-button::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+}
+
+.account-button::before {
+  top: 11px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+}
+
+.account-button::after {
+  bottom: 9px;
+  width: 24px;
+  height: 12px;
+  border-radius: 12px 12px 6px 6px;
+}
+
 /* SP */
 @media (max-width: 600px) {
   .site-header {
