@@ -711,9 +711,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <a class="brand" href="index.html" aria-label="トップページへ">
                 <img src="images/header_logo.png" alt="さくっとSPI">
             </a>
-            <div class="header-actions">
+            <div class="header-actions" id="header-guest">
                 <a class="btn btn-pink" href="auth/signin.html">ログイン</a>
                 <a class="btn btn-blue" href="exam/select-mode.html">受験する</a>
+            </div>
+            <div class="header-actions" id="header-user" style="display:none;">
+                <a class="account-button" href="auth/my_page.html" aria-label="マイページ"></a>
             </div>
         </header>
 
@@ -843,34 +846,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
 
     <script type="module">
-      import { auth, api } from "./auth/js/firebase.js";
+      import { auth } from "./auth/js/firebase.js";
       import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
-      const logoutButton = document.getElementById("logout-button");
+      const headerGuest = document.getElementById("header-guest");
+      const headerUser = document.getElementById("header-user");
 
-      if (logoutButton) {
-        onAuthStateChanged(auth, (user) => {
-          if (user) {
-            logoutButton.hidden = false;
-            logoutButton.disabled = false;
-          } else {
-            logoutButton.hidden = true;
-            logoutButton.disabled = false;
-          }
-        });
-
-        logoutButton.addEventListener("click", async () => {
-          if (logoutButton.disabled) return;
-          logoutButton.disabled = true;
-          try {
-            await api.signOut();
-          } catch (error) {
-            console.error("Failed to sign out", error);
-            alert("ログアウトに失敗しました。時間をおいて再度お試しください。");
-            logoutButton.disabled = false;
-          }
-        });
-      }
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          headerGuest.style.display = "none";
+          headerUser.style.display = "";
+        } else {
+          headerGuest.style.display = "";
+          headerUser.style.display = "none";
+        }
+      });
     </script>
 </body>
 
