@@ -449,8 +449,9 @@ if (submissionForm) {
       // register画面で利用できるように会員情報を保存
       saveSubmissionData(payload);
 
-      // 正常終了後の遷移
-      window.location.href = 'register_1.html';
+      // 正常終了後の遷移（27卒のみ同時登録ページへ、それ以外は直接サインアップ）
+      const gradYear = document.getElementById('grad-year').value;
+      window.location.href = gradYear === '2027' ? 'register_1.html' : 'auth/signup.html';
     } catch (error) {
       console.error(error);
       alert('送信に失敗しました。時間をおいて再度お試しください。');
